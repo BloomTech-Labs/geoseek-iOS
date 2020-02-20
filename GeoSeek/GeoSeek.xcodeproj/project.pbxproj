@@ -14,6 +14,7 @@
 		85087DA823FF463A00DD9D1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85087DA723FF463A00DD9D1B /* Assets.xcassets */; };
 		85087DAB23FF463A00DD9D1B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85087DA923FF463A00DD9D1B /* LaunchScreen.storyboard */; };
 		85087DB323FF49FA00DD9D1B /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85087DB223FF49FA00DD9D1B /* CoreDataStack.swift */; };
+		85087DB623FF50E400DD9D1B /* GeoSeek.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 85087DB423FF50E400DD9D1B /* GeoSeek.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		85087DAA23FF463A00DD9D1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		85087DAC23FF463A00DD9D1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		85087DB223FF49FA00DD9D1B /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		85087DB523FF50E400DD9D1B /* GeoSeek.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GeoSeek.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				85087DA923FF463A00DD9D1B /* LaunchScreen.storyboard */,
 				85087DAC23FF463A00DD9D1B /* Info.plist */,
 				85087DB223FF49FA00DD9D1B /* CoreDataStack.swift */,
+				85087DB423FF50E400DD9D1B /* GeoSeek.xcdatamodeld */,
 			);
 			path = GeoSeek;
 			sourceTree = "<group>";
@@ -141,6 +144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85087DB623FF50E400DD9D1B /* GeoSeek.xcdatamodeld in Sources */,
 				85087DA323FF463900DD9D1B /* ViewController.swift in Sources */,
 				85087D9F23FF463900DD9D1B /* AppDelegate.swift in Sources */,
 				85087DA123FF463900DD9D1B /* SceneDelegate.swift in Sources */,
@@ -342,6 +346,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		85087DB423FF50E400DD9D1B /* GeoSeek.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				85087DB523FF50E400DD9D1B /* GeoSeek.xcdatamodel */,
+			);
+			currentVersion = 85087DB523FF50E400DD9D1B /* GeoSeek.xcdatamodel */;
+			path = GeoSeek.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 85087D9323FF463900DD9D1B /* Project object */;
 }

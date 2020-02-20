@@ -36,7 +36,7 @@ class CoreDataStack {
     
     /// Access to the Persistent Container
     lazy var container: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "<#Project Name#>")
+        let container = NSPersistentContainer(name: "GeoSeek")
         container.loadPersistentStores(completionHandler: { _, error in
             if let error = error {
                 fatalError("Failed to load persistent store: \(error)")
