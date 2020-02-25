@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -46,6 +46,7 @@
 		853F8C5C240597C700BF7B4D /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		853F8C5E240597F200BF7B4D /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		853F8C602405987200BF7B4D /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
+		C053E9C42405B65000BBC7C2 /* mapbox.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = mapbox.txt; path = ../mapbox.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +89,7 @@
 				85087DA723FF463A00DD9D1B /* Assets.xcassets */,
 				85087DA923FF463A00DD9D1B /* LaunchScreen.storyboard */,
 				85087DAC23FF463A00DD9D1B /* Info.plist */,
+				C053E9C42405B65000BBC7C2 /* mapbox.txt */,
 				85087DFF2400862A00DD9D1B /* Model Controllers */,
 				85087DB723FF666A00DD9D1B /* Data */,
 				853F8C6224059AF000BF7B4D /* Coordinator */,
@@ -147,7 +149,6 @@
 				06D5F6992FD36056488BBE80 /* Pods-GeoSeek.debug.xcconfig */,
 				58F779FF21069148145470A3 /* Pods-GeoSeek.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -163,6 +164,7 @@
 				85087D9823FF463900DD9D1B /* Frameworks */,
 				85087D9923FF463900DD9D1B /* Resources */,
 				97EACEFFF5C71D0FCE2803C9 /* [CP] Embed Pods Frameworks */,
+				C053E9C32405B60600BBC7C2 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -258,6 +260,25 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GeoSeek/Pods-GeoSeek-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		C053E9C32405B60600BBC7C2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(TARGET_BUILD_DIR)/$(INFOPLIST_PATH)",
+				"/Users/morse/dev/Labs21/geoseek-iOS/GeoSeek/mapbox.txt",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Look for a global file named 'mapbox' or '.mapbox' within the home directory\ntoken_file=~/.mapbox\ntoken_file2=/Users/morse/dev/Labs21/geoseek-iOS/GeoSeek/mapbox.txt\n\n\ntoken=\"$(cat $token_file 2>/dev/null || cat $token_file2 2>/dev/null)\"\nif [ \"$token\" ]; then\n  plutil -replace MGLMapboxAccessToken -string $token \"$TARGET_BUILD_DIR/$INFOPLIST_PATH\"\nelse\n  echo 'warning: Missing Mapbox access token'\n  open 'https://account.mapbox.com/access-tokens/'\n  echo \"warning: Get an access token from <https://account.mapbox.com/access-tokens/>, then create a new file at $token_file or $token_file2 that contains the access token.\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
