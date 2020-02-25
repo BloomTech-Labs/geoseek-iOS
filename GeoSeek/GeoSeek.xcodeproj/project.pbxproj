@@ -269,6 +269,8 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
+				"$(TARGET_BUILD_DIR)/$(INFOPLIST_PATH)",
+				"/Users/morse/dev/Labs21/geoseek-iOS/GeoSeek/mapbox.txt",
 			);
 			outputFileListPaths = (
 			);
