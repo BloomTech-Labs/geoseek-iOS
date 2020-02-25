@@ -1,0 +1,24 @@
+PODS:
+  - GoogleAnalytics (3.17.0)
+  - Mapbox-iOS-SDK (5.7.0):
+    - MapboxMobileEvents (= 0.10.2)
+  - MapboxMobileEvents (0.10.2)
+
+DEPENDENCIES:
+  - GoogleAnalytics
+  - Mapbox-iOS-SDK (~> 5.7)
+
+SPEC REPOS:
+  trunk:
+    - GoogleAnalytics
+    - Mapbox-iOS-SDK
+    - MapboxMobileEvents
+
+SPEC CHECKSUMS:
+  GoogleAnalytics: f42cc53a87a51fe94334821868d9c8481ff47a7b
+  Mapbox-iOS-SDK: 1b7cb0e739247d20ef75f5f14aa6ce34e1f0660f
+  MapboxMobileEvents: 2bc0ca2eedb627b73cf403258dce2b2fa98074a6
+
+PODFILE CHECKSUM: 35eac25c9b2d88491f4569dd17de0a8358609b11
+
+COCOAPODS: 1.8.4
