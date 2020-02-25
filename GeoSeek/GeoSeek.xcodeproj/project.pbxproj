@@ -19,6 +19,9 @@
 		85087DFE2400862400DD9D1B /* GemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85087DFD2400862400DD9D1B /* GemController.swift */; };
 		85087E02240087B900DD9D1B /* User+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85087E01240087B900DD9D1B /* User+Convenience.swift */; };
 		85087E042400887B00DD9D1B /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85087E032400887B00DD9D1B /* UserController.swift */; };
+		853F8C5D240597C700BF7B4D /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F8C5C240597C700BF7B4D /* Coordinator.swift */; };
+		853F8C5F240597F200BF7B4D /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F8C5E240597F200BF7B4D /* MainCoordinator.swift */; };
+		853F8C612405987200BF7B4D /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F8C602405987200BF7B4D /* Storyboarded.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,9 @@
 		85087DFD2400862400DD9D1B /* GemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GemController.swift; sourceTree = "<group>"; };
 		85087E01240087B900DD9D1B /* User+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Convenience.swift"; sourceTree = "<group>"; };
 		85087E032400887B00DD9D1B /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		853F8C5C240597C700BF7B4D /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		853F8C5E240597F200BF7B4D /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		853F8C602405987200BF7B4D /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +83,7 @@
 				85087DAC23FF463A00DD9D1B /* Info.plist */,
 				85087DFF2400862A00DD9D1B /* Model Controllers */,
 				85087DB723FF666A00DD9D1B /* Data */,
+				853F8C6224059AF000BF7B4D /* Coordinator */,
 			);
 			path = GeoSeek;
 			sourceTree = "<group>";
@@ -107,6 +114,16 @@
 				85087E01240087B900DD9D1B /* User+Convenience.swift */,
 			);
 			path = Convenience;
+			sourceTree = "<group>";
+		};
+		853F8C6224059AF000BF7B4D /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				853F8C5C240597C700BF7B4D /* Coordinator.swift */,
+				853F8C602405987200BF7B4D /* Storyboarded.swift */,
+				853F8C5E240597F200BF7B4D /* MainCoordinator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,12 +200,15 @@
 				85087E042400887B00DD9D1B /* UserController.swift in Sources */,
 				85087E02240087B900DD9D1B /* User+Convenience.swift in Sources */,
 				85087DB623FF50E400DD9D1B /* GeoSeek.xcdatamodeld in Sources */,
+				853F8C5D240597C700BF7B4D /* Coordinator.swift in Sources */,
 				85087DA323FF463900DD9D1B /* ViewController.swift in Sources */,
 				85087DFE2400862400DD9D1B /* GemController.swift in Sources */,
 				85087D9F23FF463900DD9D1B /* AppDelegate.swift in Sources */,
+				853F8C5F240597F200BF7B4D /* MainCoordinator.swift in Sources */,
 				85087DA123FF463900DD9D1B /* SceneDelegate.swift in Sources */,
 				85087DB323FF49FA00DD9D1B /* CoreDataStack.swift in Sources */,
 				85087DFC2400845400DD9D1B /* Gems+Convenience.swift in Sources */,
+				853F8C612405987200BF7B4D /* Storyboarded.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
