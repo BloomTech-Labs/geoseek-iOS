@@ -22,9 +22,13 @@
 		853F8C5D240597C700BF7B4D /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F8C5C240597C700BF7B4D /* Coordinator.swift */; };
 		853F8C5F240597F200BF7B4D /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F8C5E240597F200BF7B4D /* MainCoordinator.swift */; };
 		853F8C612405987200BF7B4D /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F8C602405987200BF7B4D /* Storyboarded.swift */; };
+		937876BDCDA28894925E5D64 /* Pods_GeoSeek.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73F8432334D3D6425DCDC4AF /* Pods_GeoSeek.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		06D5F6992FD36056488BBE80 /* Pods-GeoSeek.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoSeek.debug.xcconfig"; path = "Target Support Files/Pods-GeoSeek/Pods-GeoSeek.debug.xcconfig"; sourceTree = "<group>"; };
+		58F779FF21069148145470A3 /* Pods-GeoSeek.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoSeek.release.xcconfig"; path = "Target Support Files/Pods-GeoSeek/Pods-GeoSeek.release.xcconfig"; sourceTree = "<group>"; };
+		73F8432334D3D6425DCDC4AF /* Pods_GeoSeek.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeoSeek.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		85087D9B23FF463900DD9D1B /* GeoSeek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeoSeek.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85087D9E23FF463900DD9D1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85087DA023FF463900DD9D1B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				937876BDCDA28894925E5D64 /* Pods_GeoSeek.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,6 +65,8 @@
 			children = (
 				85087D9D23FF463900DD9D1B /* GeoSeek */,
 				85087D9C23FF463900DD9D1B /* Products */,
+				E1537D308A57C09B3AACC8B5 /* Pods */,
+				C04219506B0B3E19F541503D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -126,6 +133,24 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
+		C04219506B0B3E19F541503D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				73F8432334D3D6425DCDC4AF /* Pods_GeoSeek.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E1537D308A57C09B3AACC8B5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				06D5F6992FD36056488BBE80 /* Pods-GeoSeek.debug.xcconfig */,
+				58F779FF21069148145470A3 /* Pods-GeoSeek.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -133,9 +158,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 85087DAF23FF463A00DD9D1B /* Build configuration list for PBXNativeTarget "GeoSeek" */;
 			buildPhases = (
+				290DEC0C1FACBFB115088A07 /* [CP] Check Pods Manifest.lock */,
 				85087D9723FF463900DD9D1B /* Sources */,
 				85087D9823FF463900DD9D1B /* Frameworks */,
 				85087D9923FF463900DD9D1B /* Resources */,
+				97EACEFFF5C71D0FCE2803C9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -191,6 +218,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		290DEC0C1FACBFB115088A07 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GeoSeek-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		97EACEFFF5C71D0FCE2803C9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GeoSeek/Pods-GeoSeek-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GeoSeek/Pods-GeoSeek-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GeoSeek/Pods-GeoSeek-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		85087D9723FF463900DD9D1B /* Sources */ = {
@@ -350,6 +419,7 @@
 		};
 		85087DB023FF463A00DD9D1B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 06D5F6992FD36056488BBE80 /* Pods-GeoSeek.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -368,6 +438,7 @@
 		};
 		85087DB123FF463A00DD9D1B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 58F779FF21069148145470A3 /* Pods-GeoSeek.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
