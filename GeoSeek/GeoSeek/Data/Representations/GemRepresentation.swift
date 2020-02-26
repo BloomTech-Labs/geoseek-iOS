@@ -11,7 +11,7 @@ import Foundation
 struct GemRepresentation: Codable {
     
     var difficulty: Double
-    var gemDesc: String
+    var description: String
     var id: Int
     var latitude: Double
     var longitude: Double
