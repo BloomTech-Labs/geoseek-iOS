@@ -14,18 +14,18 @@ extension Gem {
     @discardableResult convenience init(title: String,
                                         gemDesc: String,
                                         difficulty: Double,
-                                        id: Int16,
+                                        id: Int,
                                         latitude: Double,
                                         longitude: Double,
-                                        createdBy: User,
+                                        createdByUser: Int,
                                         context: NSManagedObjectContext) {
         self.init(context: context)
         self.title = title
         self.gemDesc = gemDesc
         self.difficulty = difficulty
-        self.id = id
+        self.id = Int16(id)
         self.latitude = latitude
         self.longitude = longitude
-        self.createdBy = createdBy
+        self.createdByUser = Int16(id)
     }
 }

@@ -13,9 +13,9 @@ class UserController {
     
     static let shared = UserController()
     
-    func createUser(email: String, id: Int16, password: String, username: String, gems: [Gem] = [], context: NSManagedObjectContext = .context) {
+    func createUser(email: String, id: Int, password: String, username: String, gems: [Gem] = [], context: NSManagedObjectContext = .context) {
         
-        User(email: email, id: id, password: password, username: username, gems: gems, context: context)
+        User(email: email, id: id, password: password, username: username, context: context)
         
         saveUserToPersistentStore()
     }
