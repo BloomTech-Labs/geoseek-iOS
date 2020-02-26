@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19D76" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Gem" representedClassName="Gem" syncable="YES" codeGenerationType="class">
-        <attribute name="createdByUser" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="difficulty" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="gemDesc" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
@@ -16,7 +15,7 @@
         <attribute name="username" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Gem" positionX="-63" positionY="-18" width="128" height="148"/>
+        <element name="Gem" positionX="-63" positionY="-18" width="128" height="133"/>
         <element name="User" positionX="216.42578125" positionY="11.6484375" width="128" height="103"/>
     </elements>
 </model>
