@@ -16,7 +16,7 @@ class GemController {
     
     func createGem(title: String, gemDesc: String, difficulty: Double, id: Int, latitude: Double, longitude: Double, createdByUser: Int, context: NSManagedObjectContext = .context ) {
         
-        Gem(title: title, gemDesc: gemDesc, difficulty: difficulty, id: id, latitude: latitude, longitude: longitude, createdByUser: createdByUser, context: context)
+        Gem(title: title, gemDesc: gemDesc, difficulty: difficulty, id: id, latitude: latitude, longitude: longitude/*, createdByUser: createdByUser*/, context: context)
     }
     
     func fetchGemsFromServer() {

@@ -66,6 +66,7 @@ class NetworkController {
                 completion(.failure(FetchError.badData))
                 return
             }
+            print(String(data: data, encoding: .utf8))
             completion(.success(data))
         }
         dataTask.resume()

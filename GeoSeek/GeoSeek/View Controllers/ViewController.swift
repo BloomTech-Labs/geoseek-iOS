@@ -25,6 +25,15 @@ class ViewController: UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NetworkController.shared.fetchGems { result in
+            switch result {
+            case .failure(let error):
+                print("Oops!:", error)
+            case .success(let gems):
+                gems.compactMap { (print("ViewController:", $0.gemDesc)) }
+            }
+        }
+        
         let mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.satelliteStyleURL)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.setCenter(CLLocationCoordinate2D(latitude: 33.812794, longitude: -117.9190981), zoomLevel: 15, animated: false)

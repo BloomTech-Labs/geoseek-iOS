@@ -16,6 +16,6 @@ struct GemRepresentation: Codable {
     var latitude: Double
     var longitude: Double
     var title: String
-    var createdByUser: Int
+//    var createdByUser: Int
     
 }
