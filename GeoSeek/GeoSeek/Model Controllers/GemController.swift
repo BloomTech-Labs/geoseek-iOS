@@ -11,11 +11,24 @@ import CoreData
 
 class GemController {
     
-    static let shared = GemController()
+//    static let shared = GemController()
+    var gems: [Gem] = []
     
     func createGem(title: String, gemDesc: String, difficulty: Double, id: Int, latitude: Double, longitude: Double, createdByUser: Int, context: NSManagedObjectContext = .context ) {
         
         Gem(title: title, gemDesc: gemDesc, difficulty: difficulty, id: id, latitude: latitude, longitude: longitude, createdByUser: createdByUser, context: context)
+    }
+    
+    func fetchGemsFromServer() {
+        NetworkController.shared.fetchGems { (result) in
+            switch result {
+            case .failure(let error):
+                break
+            case .success(let gems):
+                #warning("This should not be an empty array")
+                self.gems = []
+            }
+        }
     }
     
     func loadGemsFromPersistentStore() -> [Gem] {

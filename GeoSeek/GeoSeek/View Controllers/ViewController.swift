@@ -35,7 +35,6 @@ class ViewController: UIViewController, Storyboarded {
         mapView.addGestureRecognizer(lpgr)
         
         view.addSubview(mapView)
-        
     }
     
     @objc func handleLongPress(gestureReconizer: UILongPressGestureRecognizer) {
