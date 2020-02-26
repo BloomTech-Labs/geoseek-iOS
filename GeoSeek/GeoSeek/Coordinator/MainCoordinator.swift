@@ -8,34 +8,34 @@
 
 import UIKit
 
-class MainCoordinator: Coordinator {
+class MainCoordinator {
         
     var window: UIWindow
     var childCoordinators = [Coordinator]()
     var tabBarController: UITabBarController
-    var navigationController: UINavigationController
+    //var tabBarChildren = []()
     
-    init(tabBarController: UITabBarController = UITabBarController(), navigationController: UINavigationController = UINavigationController(), window: UIWindow) {
+    init(tabBarController: UITabBarController = UITabBarController(), window: UIWindow) {
         self.tabBarController = tabBarController
-        self.navigationController = navigationController
         self.window = window
     }
     
     func start() {
         let secondNavigationController = UINavigationController()
-        tabBarController.viewControllers = [navigationController, secondNavigationController]
+        tabBarController.viewControllers = [ secondNavigationController]
         
         
         window.rootViewController = tabBarController
         window.makeKeyAndVisible()
-        let vc = ViewController.instantiate()
-        vc.title = "GeoSeek!"
-        vc.tabBarItem.image = UIImage(systemName: "mappin.and.ellipse")
-        vc.coordinator = self
-        navigationController.pushViewController(vc, animated: false)
+//        let vc = ViewController.instantiate()
+//        vc.title = "GeoSeek!"
+//        vc.tabBarItem.image = UIImage(systemName: "mappin.and.ellipse")
+//        vc.coordinator = self
+      
         
         let secondVC = ViewController.instantiate()
-        secondVC.title = "Hide!!!"
+        //secondVC.title = "Hide!!!"
+        secondNavigationController.setNavigationBarHidden(true, animated: false)
         secondVC.coordinator = self
         secondVC.tabBarItem.image = UIImage(systemName: "plus")
         secondNavigationController.pushViewController(secondVC, animated: true)
