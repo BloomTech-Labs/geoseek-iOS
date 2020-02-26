@@ -13,9 +13,9 @@ class GemController {
     
     static let shared = GemController()
     
-    func createGem(title: String, gemDesc: String, difficulty: Double, id: Int, latitude: Double, longitude: Double, createdBy: User, context: NSManagedObjectContext = .context ) {
+    func createGem(title: String, gemDesc: String, difficulty: Double, id: Int, latitude: Double, longitude: Double, createdByUser: Int, context: NSManagedObjectContext = .context ) {
         
-        Gem(title: title, gemDesc: gemDesc, difficulty: difficulty, id: Int16(id), latitude: latitude, longitude: longitude, createdBy: createdBy, context: context)
+        Gem(title: title, gemDesc: gemDesc, difficulty: difficulty, id: id, latitude: latitude, longitude: longitude, createdByUser: createdByUser, context: context)
     }
     
     func loadGemsFromPersistentStore() -> [Gem] {

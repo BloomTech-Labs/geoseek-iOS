@@ -12,19 +12,19 @@ import CoreData
 extension User {
     
     @discardableResult convenience init(email: String,
-                                        id: Int16,
+                                        id: Int,
                                         password: String,
                                         username: String,
-                                        gems: [Gem]? = nil,
+//                                        gems: [Gem]? = nil,
                                         context: NSManagedObjectContext) {
         self.init(context: context)
         self.email = email
-        self.id = id
+        self.id = Int16(id)
         self.password = password
         self.username = username
         
-        if let gems = gems {
-            self.gems = NSOrderedSet(array: gems)
-        }
+//        if let gems = gems {
+//            self.gems = NSOrderedSet(array: gems)
+//        }
     }
 }
