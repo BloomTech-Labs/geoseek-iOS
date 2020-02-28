@@ -12,6 +12,7 @@ class CustomTabBarXib: UIView {
 
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var addGemMapViewButton: UIButton!
+    @IBOutlet weak var twoButton: UIButton!
     
     weak var coordinator: MainCoordinator?
 
@@ -34,7 +35,13 @@ class CustomTabBarXib: UIView {
     }
     
     @IBAction func addGemMapViewButtonTapped(_ sender: Any) {
+        coordinator?.toVCOne()
         print("add gem map")
+    }
+    
+    @IBAction func twoButtonTapped(_ sender: Any) {
+        
+        print("Two Two")
     }
     
 }

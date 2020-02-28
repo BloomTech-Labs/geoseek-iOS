@@ -11,6 +11,7 @@
             <connections>
                 <outlet property="addGemMapViewButton" destination="UEu-no-u3y" id="bQI-bE-WnK"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="Q1N-lF-eKI"/>
+                <outlet property="twoButton" destination="UaU-1y-wHs" id="kYs-7a-jAu"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -26,11 +27,20 @@
                         <action selector="addGemMapViewButtonTapped:" destination="-1" eventType="touchUpInside" id="or5-C7-wL9"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UaU-1y-wHs">
+                    <rect key="frame" x="364" y="35" width="30" height="30"/>
+                    <state key="normal" title="2"/>
+                    <connections>
+                        <action selector="twoButtonTapped:" destination="-1" eventType="touchUpInside" id="IBw-cd-q0l"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="UEu-no-u3y" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="PoB-Ew-gb1"/>
                 <constraint firstItem="UEu-no-u3y" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="S9c-zK-dqr"/>
+                <constraint firstItem="UaU-1y-wHs" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="hYf-H1-qIZ"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="UaU-1y-wHs" secondAttribute="trailing" constant="20" id="nji-er-RLs"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
