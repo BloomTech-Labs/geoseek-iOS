@@ -40,7 +40,7 @@ class CustomTabBarXib: UIView {
     }
     
     @IBAction func twoButtonTapped(_ sender: Any) {
-        
+        coordinator?.toVCTwo()
         print("Two Two")
     }
     
