@@ -31,13 +31,21 @@ class MainCoordinator {
 //        vc.title = "GeoSeek!"
 //        vc.tabBarItem.image = UIImage(systemName: "mappin.and.ellipse")
 //        vc.coordinator = self
-      
-        
+        var aTabBar: UITabBar!
+        aTabBar = tabBarController.tabBar
+        var normalColor = UIColor.green {
+            didSet {
+                aTabBar.tintColor = normalColor
+            }
+        }
         let secondVC = ViewController.instantiate()
-        //secondVC.title = "Hide!!!"
-        secondNavigationController.setNavigationBarHidden(true, animated: false)
+        secondVC.title = "Hide!!!"
+       // secondNavigationController.setNavigationBarHidden(true, animated: false)
         secondVC.coordinator = self
-        secondVC.tabBarItem.image = UIImage(systemName: "plus")
+        secondVC.tabBarItem.image = UIImage(systemName: "plus.app")
+        //secondVC.tabBarItem.image?.withTintColor(.green, renderingMode: .automatic)
+        
+//        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.black], for: .normal)
         secondNavigationController.pushViewController(secondVC, animated: true)
     }
 
