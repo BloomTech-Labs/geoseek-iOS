@@ -12,6 +12,9 @@ import Mapbox
 class ViewController: UIViewController, Storyboarded {
     
     @IBOutlet weak var myMapView: MGLMapView!
+    @IBOutlet weak var customTabBarXib: CustomTabBarXib!
+    
+    
     weak var coordinator: MainCoordinator?
     var mapView: MGLMapView!
     

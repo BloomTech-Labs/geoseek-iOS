@@ -12,6 +12,8 @@ class CustomTabBarXib: UIView {
 
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var addGemMapViewButton: UIButton!
+    
+    weak var coordinator: MainCoordinator?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
