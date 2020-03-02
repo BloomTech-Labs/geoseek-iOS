@@ -21,6 +21,7 @@
 		85087E042400887B00DD9D1B /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85087E032400887B00DD9D1B /* UserController.swift */; };
 		851D556B2405EC50001CB19E /* GemRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851D556A2405EC50001CB19E /* GemRepresentation.swift */; };
 		851D556D2405EF0D001CB19E /* UserRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851D556C2405EF0D001CB19E /* UserRepresentation.swift */; };
+		851EBFAC24084FF300BB74B4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 851EBFAB24084FF300BB74B4 /* GoogleService-Info.plist */; };
 		853F8C5D240597C700BF7B4D /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F8C5C240597C700BF7B4D /* Coordinator.swift */; };
 		853F8C5F240597F200BF7B4D /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F8C5E240597F200BF7B4D /* MainCoordinator.swift */; };
 		853F8C612405987200BF7B4D /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F8C602405987200BF7B4D /* Storyboarded.swift */; };
@@ -48,6 +49,8 @@
 		85087E032400887B00DD9D1B /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		851D556A2405EC50001CB19E /* GemRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GemRepresentation.swift; sourceTree = "<group>"; };
 		851D556C2405EF0D001CB19E /* UserRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepresentation.swift; sourceTree = "<group>"; };
+		851EBFAA240848ED00BB74B4 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
+		851EBFAB24084FF300BB74B4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		853F8C5C240597C700BF7B4D /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		853F8C5E240597F200BF7B4D /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		853F8C602405987200BF7B4D /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
@@ -89,15 +92,17 @@
 			children = (
 				85087D9E23FF463900DD9D1B /* AppDelegate.swift */,
 				85087DA023FF463900DD9D1B /* SceneDelegate.swift */,
-				851D55682405C92D001CB19E /* View Controllers */,
 				85087DA423FF463900DD9D1B /* Main.storyboard */,
-				85087DA723FF463A00DD9D1B /* Assets.xcassets */,
 				85087DA923FF463A00DD9D1B /* LaunchScreen.storyboard */,
 				85087DAC23FF463A00DD9D1B /* Info.plist */,
+				851EBFAB24084FF300BB74B4 /* GoogleService-Info.plist */,
+				85087DA723FF463A00DD9D1B /* Assets.xcassets */,
+				853F8C6224059AF000BF7B4D /* Coordinator */,
+				85087DB723FF666A00DD9D1B /* Data */,
 				85087DFF2400862A00DD9D1B /* Model Controllers */,
 				C01EF3112405F1C00094CEAB /* Networking */,
-				85087DB723FF666A00DD9D1B /* Data */,
-				853F8C6224059AF000BF7B4D /* Coordinator */,
+				851D55682405C92D001CB19E /* View Controllers */,
+				851EBFAA240848ED00BB74B4 /* BridgingHeader.h */,
 			);
 			path = GeoSeek;
 			sourceTree = "<group>";
@@ -245,6 +250,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				85087DAB23FF463A00DD9D1B /* LaunchScreen.storyboard in Resources */,
+				851EBFAC24084FF300BB74B4 /* GoogleService-Info.plist in Resources */,
 				85087DA823FF463A00DD9D1B /* Assets.xcassets in Resources */,
 				85087DA623FF463900DD9D1B /* Main.storyboard in Resources */,
 			);
@@ -478,7 +484,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UF4PHTK7P6;
+				DEVELOPMENT_TEAM = 452VS5LHDK;
 				INFOPLIST_FILE = GeoSeek/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -497,7 +503,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UF4PHTK7P6;
+				DEVELOPMENT_TEAM = 452VS5LHDK;
 				INFOPLIST_FILE = GeoSeek/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
