@@ -8,8 +8,10 @@
 
 import UIKit
 
-class MainCoordinator {
-        
+class MainCoordinator: Coordinator {
+   
+    
+    
     var window: UIWindow
     var childCoordinators = [Coordinator]()
     var navControllers: [UINavigationController] = []
@@ -24,15 +26,10 @@ class MainCoordinator {
         self.window = window
     }
     
-    
-//    init(tabBarController: UITabBarController = UITabBarController(), window: UIWindow) {
-//        self.tabBarController = tabBarController
-//        self.window = window
-//    }
-    
     func start() {
         window.makeKeyAndVisible()
-        
+        toVCOne()
+
     }
     
     func toVCOne() {

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomTabBarXib: UIView {
+class CustomTabBarXib: UIView, Storyboarded {
 
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var addGemMapViewButton: UIButton!
@@ -32,6 +32,7 @@ class CustomTabBarXib: UIView {
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        contentView.backgroundColor = .systemPink
     }
     
     @IBAction func addGemMapViewButtonTapped(_ sender: Any) {

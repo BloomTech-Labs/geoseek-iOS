@@ -15,25 +15,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kgQ-W5-wbi" customClass="MGLMapView">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="776"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dOA-6s-AIX">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dOA-6s-AIX" customClass="CustomTabBarXib" customModule="GeoSeek" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="776" width="414" height="100"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="LUP-8A-w5T"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nuI-br-XP2">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="768"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="dOA-6s-AIX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="IwU-Ah-tYT"/>
-                            <constraint firstItem="dOA-6s-AIX" firstAttribute="top" secondItem="kgQ-W5-wbi" secondAttribute="bottom" id="XLg-9n-T0O"/>
-                            <constraint firstItem="kgQ-W5-wbi" firstAttribute="trailing" secondItem="dOA-6s-AIX" secondAttribute="trailing" id="hVD-kk-hJl"/>
-                            <constraint firstItem="kgQ-W5-wbi" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="j17-ry-cDh"/>
-                            <constraint firstItem="kgQ-W5-wbi" firstAttribute="leading" secondItem="dOA-6s-AIX" secondAttribute="leading" id="ob5-mi-jWs"/>
                             <constraint firstAttribute="bottom" secondItem="dOA-6s-AIX" secondAttribute="bottom" constant="20" symbolic="YES" id="p6Z-gt-CxE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dOA-6s-AIX" secondAttribute="trailing" id="uub-fl-Yxn"/>
                         </constraints>
@@ -41,7 +38,6 @@
                     </view>
                     <connections>
                         <outlet property="customTabBarXib" destination="dOA-6s-AIX" id="Jfp-ff-HeP"/>
-                        <outlet property="myMapView" destination="kgQ-W5-wbi" id="UDT-oi-aJw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
