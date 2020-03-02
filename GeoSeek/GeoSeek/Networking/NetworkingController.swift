@@ -11,7 +11,15 @@ import Foundation
 enum FetchError: Error {
     case badData
     case badResponse
+    case badEncode
     case otherError
+}
+
+enum HTTPMethod: String {
+    case get = "GET"
+    case put = "PUT"
+    case post = "POST"
+    case delete = "DELETE"
 }
 
 class NetworkController {
@@ -23,16 +31,20 @@ class NetworkController {
     private init() {}
     
     func fetchGems(completion: @escaping (Result<[Gem], FetchError>) -> Void) {
-        let request = gemsURL()
+        let request = gemsURL(with: .get)
+        
         fetch(from: request) { result in
             switch result {
             case .failure(let error):
                 #warning("Deal with failure to receive data error")
+                completion(.failure(.badData))
                 print("NetworkController.fetchGems:", error)
             case .success(let data):
                 let possibleGems: [GemRepresentation]? = self.decode(data: data)
+                
                 guard let gemRepresentations = possibleGems else {
-                    #warning("Deal with possibleThing being nil")
+                    #warning("Deal with possibleGems being nil")
+                    completion(.failure(.badEncode))
                     return
                 }
                 let gems = gemRepresentations.compactMap { Gem(representation: $0) }
@@ -42,7 +54,29 @@ class NetworkController {
         }
     }
     
-   
+    func createGem(from gem: Gem) {
+        guard let gemData = encode(item: gem.gemRepresentation) else { return }
+        
+        var request = gemsURL(with: .post)
+        request.httpBody = gemData
+        
+        fetch(from: request) { result in
+            switch result {
+            case .failure(let error):
+                print("Error creating gem: \(error)")
+            case .success(let data):
+                let possibleGemRepresentation: GemRepresentation? = self.decode(data: data)
+                
+                guard let gemRepresentation = possibleGemRepresentation else {
+                    #warning("Deal with possibleGemRepresentation being nil")
+                    return
+                }
+                #warning("Deal with created gem here")
+                let gem = Gem(representation: gemRepresentation)
+                print("Success! Created gem: \(gem.title)")
+            }
+        }
+    }
     
     func fetch(from request: URLRequest, completion: @escaping (Result<Data, Error>) -> Void) {
         let dataTask = URLSession.shared.dataTask(with: request) { data, response, error in
@@ -54,12 +88,12 @@ class NetworkController {
             }
             
             
-//            if let response = response as? HTTPURLResponse,
-//                response.statusCode != 200 {
-//                print("NetworkController.fetch Response != 200: \(response)")
-//                completion(.failure(FetchError.badResponse))
-//                return
-//            }
+            //            if let response = response as? HTTPURLResponse,
+            //                response.statusCode != 200 {
+            //                print("NetworkController.fetch Response != 200: \(response)")
+            //                completion(.failure(FetchError.badResponse))
+            //                return
+            //            }
             
             guard let data = data else {
                 print("NetworkController.fetch Data is wrong")
@@ -85,70 +119,25 @@ class NetworkController {
         }
     }
     
-    func gemsURL() -> URLRequest {
+    func encode<T: Codable>(item: T) -> Data? {
+        let jsonEncoder = JSONEncoder()
+        jsonEncoder.keyEncodingStrategy = .convertToSnakeCase
+        do{
+            let encoded = try jsonEncoder.encode(item)
+            return encoded
+        } catch {
+            print("Error encoding item from data: \(error)")
+            return nil
+        }
+    }
+    
+    func gemsURL(with method: HTTPMethod) -> URLRequest {
         let url = URL(string: baseURL)!
         let endpoint = url.appendingPathComponent("gems")
         var request = URLRequest(url: endpoint)
-        request.httpMethod = "GET"
+        request.httpMethod = method.rawValue
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         print("NetworkController.gemsURL:", url)
         return request
     }
 }
-
-// func createGem(from gem: Gem) {
-//        let endpoint = baseURL + "gems"
-//        
-//        guard let url = URL(string: endpoint) else {
-////            completion(.failure(.urlError))
-//            return
-//        }
-//        print("URL:", url)
-//        var request = URLRequest(url: url)
-//        request.httpMethod = "POST"
-//        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-//        var jsonData: Data
-//        let encoder = JSONEncoder()
-//        do {
-//            jsonData = try encoder.encode()
-//        } catch {
-//            return
-//        }
-//        request.httpBody = jsonData
-//        print(String(data: jsonData, encoding: .utf8))
-//        
-//        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-//            
-//            if let error = error {
-////                completion(.failure(.error))
-//                print("HERE!:", error)
-//                return
-//            }
-//            guard let data = data else { return }
-//            print(String(data: data, encoding: .utf8))
-//            
-//            //            guard let response = response as? HTTPURLResponse,
-//            //                response.statusCode == 200 else {
-//            //                    print("HERE!:")
-//            //                    completion(.failure(.error))
-//            //                    return
-//            //            }
-//            
-////            guard let data = data else {
-//////                completion(.failure(.error))
-////                return
-////            }
-////
-////            do {
-////                let decoder = JSONDecoder()
-////                decoder.keyDecodingStrategy = .convertFromSnakeCase
-////                let gems = try decoder.decode([Gem].self, from: data)
-////
-//////                completion(.success("It worked!"))
-////            } catch {
-////                print(error)
-//////                completion(.failure(.error))
-////            }
-//        }
-//        task.resume()
-//    }

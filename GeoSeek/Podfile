@@ -7,5 +7,6 @@ target 'GeoSeek' do
 
   # Pods for GeoSeek
 	pod 'GoogleAnalytics'
+	pod 'Firebase/Core'
 	pod 'Mapbox-iOS-SDK', '~> 5.7'
 end

@@ -47,7 +47,7 @@ class ViewController: UIViewController, Storyboarded {
             case .failure(let error):
                 print("Oops!:", error)
             case .success(let gems):
-                gems.compactMap { (print("ViewController:", $0.gemDesc)) }
+                gems.compactMap { (print("ViewController:", $0.title)) }
             }
         }
         
