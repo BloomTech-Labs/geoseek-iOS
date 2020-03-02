@@ -23,7 +23,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nuI-br-XP2" customClass="MGLMapView">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="788"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="796"/>
                                 <color key="backgroundColor" systemColor="systemBrownColor" red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                         </subviews>
@@ -31,7 +31,7 @@
                         <constraints>
                             <constraint firstItem="nuI-br-XP2" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="71f-hJ-aiw"/>
                             <constraint firstItem="dOA-6s-AIX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="IwU-Ah-tYT"/>
-                            <constraint firstItem="dOA-6s-AIX" firstAttribute="top" secondItem="nuI-br-XP2" secondAttribute="bottom" constant="8" id="Srb-gV-uwo"/>
+                            <constraint firstItem="dOA-6s-AIX" firstAttribute="top" secondItem="nuI-br-XP2" secondAttribute="bottom" id="Srb-gV-uwo"/>
                             <constraint firstItem="nuI-br-XP2" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="mdH-JR-rp2"/>
                             <constraint firstAttribute="bottom" secondItem="dOA-6s-AIX" secondAttribute="bottom" id="p6Z-gt-CxE"/>
                             <constraint firstItem="nuI-br-XP2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="u0r-NP-DF8"/>

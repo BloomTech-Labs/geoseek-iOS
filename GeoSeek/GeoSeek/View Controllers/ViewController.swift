@@ -63,7 +63,7 @@ class ViewController: UIViewController, Storyboarded {
             case .success(let gems):
                 self.gems = gems
                 DispatchQueue.main.async {
-//                    self.configureMapView()
+                    self.configureMapView()
                 }
             }
         }
@@ -78,6 +78,10 @@ class ViewController: UIViewController, Storyboarded {
         
         var pointAnnotations: [MGLPointAnnotation] = []
         for gem in gems {
+            if gem.latitude > 90 || gem.latitude < -90 || gem.longitude > 180 || gem.longitude < -180 {
+                print(gem.description)
+                continue
+            }
             let point = MGLPointAnnotation()
             point.coordinate = CLLocationCoordinate2D(latitude: gem.latitude, longitude: gem.longitude)
             point.title = "\(gem.title ?? "No Title")"
