@@ -14,6 +14,13 @@ enum FetchError: Error {
     case otherError
 }
 
+enum HTTPMethod: String {
+    case get = "GET"
+    case put = "PUT"
+    case post = "POST"
+    case delete = "DELETE"
+}
+
 class NetworkController {
     
     static let shared = NetworkController()
@@ -23,7 +30,7 @@ class NetworkController {
     private init() {}
     
     func fetchGems(completion: @escaping (Result<[Gem], FetchError>) -> Void) {
-        let request = gemsURL()
+        let request = gemsURL(with: .get)
         fetch(from: request) { result in
             switch result {
             case .failure(let error):
@@ -85,11 +92,11 @@ class NetworkController {
         }
     }
     
-    func gemsURL() -> URLRequest {
+    func gemsURL(with method: HTTPMethod) -> URLRequest {
         let url = URL(string: baseURL)!
         let endpoint = url.appendingPathComponent("gems")
         var request = URLRequest(url: endpoint)
-        request.httpMethod = "GET"
+        request.httpMethod = method.rawValue
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         print("NetworkController.gemsURL:", url)
         return request
