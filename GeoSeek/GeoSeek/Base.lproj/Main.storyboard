@@ -22,7 +22,7 @@
                                     <constraint firstAttribute="height" constant="100" id="LUP-8A-w5T"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nuI-br-XP2" customClass="MapXib" customModule="GeoSeek" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nuI-br-XP2" customClass="MGLMapView">
                                 <rect key="frame" x="0.0" y="20" width="414" height="776"/>
                                 <color key="backgroundColor" systemColor="systemBrownColor" red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -41,7 +41,7 @@
                     </view>
                     <connections>
                         <outlet property="customTabBarXib" destination="dOA-6s-AIX" id="Jfp-ff-HeP"/>
-                        <outlet property="mapXib" destination="nuI-br-XP2" id="YqE-Qy-lAn"/>
+                        <outlet property="mapView" destination="nuI-br-XP2" id="YqE-Qy-lAn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
