@@ -32,6 +32,7 @@
 		853F8C612405987200BF7B4D /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F8C602405987200BF7B4D /* Storyboarded.swift */; };
 		937876BDCDA28894925E5D64 /* Pods_GeoSeek.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73F8432334D3D6425DCDC4AF /* Pods_GeoSeek.framework */; };
 		C01EF3132405F1EE0094CEAB /* NetworkingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01EF3122405F1EE0094CEAB /* NetworkingController.swift */; };
+		C01EF34B240D86B20094CEAB /* CustomAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01EF34A240D86B20094CEAB /* CustomAnnotationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,7 @@
 		853F8C5E240597F200BF7B4D /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		853F8C602405987200BF7B4D /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		C01EF3122405F1EE0094CEAB /* NetworkingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingController.swift; sourceTree = "<group>"; };
+		C01EF34A240D86B20094CEAB /* CustomAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				1C4BCDAD2409B67000EDF681 /* CustomTabBarXib.swift */,
 				1C4BCDB12409D6EF00EDF681 /* MapXib.xib */,
 				1C4BCDB32409D70900EDF681 /* MapXib.swift */,
+				C01EF34A240D86B20094CEAB /* CustomAnnotationView.swift */,
 			);
 			path = Xib;
 			sourceTree = "<group>";
@@ -115,7 +118,6 @@
 				85087DA023FF463900DD9D1B /* SceneDelegate.swift */,
 				85087DA423FF463900DD9D1B /* Main.storyboard */,
 				1C4BCDAA2409B3C300EDF681 /* Xib */,
-				85087DA723FF463A00DD9D1B /* Assets.xcassets */,
 				85087DA923FF463A00DD9D1B /* LaunchScreen.storyboard */,
 				85087DAC23FF463A00DD9D1B /* Info.plist */,
 				851EBFAB24084FF300BB74B4 /* GoogleService-Info.plist */,
@@ -359,6 +361,7 @@
 				85087DA323FF463900DD9D1B /* ViewController.swift in Sources */,
 				85087DFE2400862400DD9D1B /* GemController.swift in Sources */,
 				85087D9F23FF463900DD9D1B /* AppDelegate.swift in Sources */,
+				C01EF34B240D86B20094CEAB /* CustomAnnotationView.swift in Sources */,
 				851D556B2405EC50001CB19E /* GemRepresentation.swift in Sources */,
 				1C4BCDB42409D70900EDF681 /* MapXib.swift in Sources */,
 				C01EF3132405F1EE0094CEAB /* NetworkingController.swift in Sources */,

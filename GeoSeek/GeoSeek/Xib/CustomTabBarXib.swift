@@ -32,7 +32,7 @@ class CustomTabBarXib: UIView, Storyboarded {
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        contentView.backgroundColor = .systemPink
+        contentView.backgroundColor = .gray
     }
     
     @IBAction func addGemMapViewButtonTapped(_ sender: Any) {

@@ -21,7 +21,8 @@ class SecondViewController: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        customTabBarXib.coordinator = coordinator
+        print("SecondVeiwController.viewDidLoad")
+//        customTabBarXib.coordinator = coordinator
     }
 
 }
