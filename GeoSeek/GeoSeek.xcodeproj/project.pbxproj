@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C4BCDA92409B37E00EDF681 /* CustomTabBarXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C4BCDA82409B37E00EDF681 /* CustomTabBarXib.xib */; };
+		1C4BCDAE2409B67000EDF681 /* CustomTabBarXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4BCDAD2409B67000EDF681 /* CustomTabBarXib.swift */; };
+		1C4BCDB02409C9CE00EDF681 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4BCDAF2409C9CE00EDF681 /* SecondViewController.swift */; };
+		1C4BCDB22409D6EF00EDF681 /* MapXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C4BCDB12409D6EF00EDF681 /* MapXib.xib */; };
+		1C4BCDB42409D70900EDF681 /* MapXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4BCDB32409D70900EDF681 /* MapXib.swift */; };
 		85087D9F23FF463900DD9D1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85087D9E23FF463900DD9D1B /* AppDelegate.swift */; };
 		85087DA123FF463900DD9D1B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85087DA023FF463900DD9D1B /* SceneDelegate.swift */; };
 		85087DA323FF463900DD9D1B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85087DA223FF463900DD9D1B /* ViewController.swift */; };
@@ -31,6 +36,11 @@
 
 /* Begin PBXFileReference section */
 		06D5F6992FD36056488BBE80 /* Pods-GeoSeek.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoSeek.debug.xcconfig"; path = "Target Support Files/Pods-GeoSeek/Pods-GeoSeek.debug.xcconfig"; sourceTree = "<group>"; };
+		1C4BCDA82409B37E00EDF681 /* CustomTabBarXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTabBarXib.xib; sourceTree = "<group>"; };
+		1C4BCDAD2409B67000EDF681 /* CustomTabBarXib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarXib.swift; sourceTree = "<group>"; };
+		1C4BCDAF2409C9CE00EDF681 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		1C4BCDB12409D6EF00EDF681 /* MapXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapXib.xib; sourceTree = "<group>"; };
+		1C4BCDB32409D70900EDF681 /* MapXib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapXib.swift; sourceTree = "<group>"; };
 		58F779FF21069148145470A3 /* Pods-GeoSeek.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoSeek.release.xcconfig"; path = "Target Support Files/Pods-GeoSeek/Pods-GeoSeek.release.xcconfig"; sourceTree = "<group>"; };
 		73F8432334D3D6425DCDC4AF /* Pods_GeoSeek.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeoSeek.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		85087D9B23FF463900DD9D1B /* GeoSeek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeoSeek.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +79,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C4BCDAA2409B3C300EDF681 /* Xib */ = {
+			isa = PBXGroup;
+			children = (
+				1C4BCDA82409B37E00EDF681 /* CustomTabBarXib.xib */,
+				1C4BCDAD2409B67000EDF681 /* CustomTabBarXib.swift */,
+				1C4BCDB12409D6EF00EDF681 /* MapXib.xib */,
+				1C4BCDB32409D70900EDF681 /* MapXib.swift */,
+			);
+			path = Xib;
+			sourceTree = "<group>";
+		};
 		85087D9223FF463900DD9D1B = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +114,8 @@
 				85087D9E23FF463900DD9D1B /* AppDelegate.swift */,
 				85087DA023FF463900DD9D1B /* SceneDelegate.swift */,
 				85087DA423FF463900DD9D1B /* Main.storyboard */,
+				1C4BCDAA2409B3C300EDF681 /* Xib */,
+				85087DA723FF463A00DD9D1B /* Assets.xcassets */,
 				85087DA923FF463A00DD9D1B /* LaunchScreen.storyboard */,
 				85087DAC23FF463A00DD9D1B /* Info.plist */,
 				851EBFAB24084FF300BB74B4 /* GoogleService-Info.plist */,
@@ -140,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				85087DA223FF463900DD9D1B /* ViewController.swift */,
+				1C4BCDAF2409C9CE00EDF681 /* SecondViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -252,7 +276,9 @@
 				85087DAB23FF463A00DD9D1B /* LaunchScreen.storyboard in Resources */,
 				851EBFAC24084FF300BB74B4 /* GoogleService-Info.plist in Resources */,
 				85087DA823FF463A00DD9D1B /* Assets.xcassets in Resources */,
+				1C4BCDA92409B37E00EDF681 /* CustomTabBarXib.xib in Resources */,
 				85087DA623FF463900DD9D1B /* Main.storyboard in Resources */,
+				1C4BCDB22409D6EF00EDF681 /* MapXib.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,6 +351,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				85087E042400887B00DD9D1B /* UserController.swift in Sources */,
+				1C4BCDB02409C9CE00EDF681 /* SecondViewController.swift in Sources */,
 				851D556D2405EF0D001CB19E /* UserRepresentation.swift in Sources */,
 				85087E02240087B900DD9D1B /* User+Convenience.swift in Sources */,
 				85087DB623FF50E400DD9D1B /* GeoSeek.xcdatamodeld in Sources */,
@@ -333,7 +360,9 @@
 				85087DFE2400862400DD9D1B /* GemController.swift in Sources */,
 				85087D9F23FF463900DD9D1B /* AppDelegate.swift in Sources */,
 				851D556B2405EC50001CB19E /* GemRepresentation.swift in Sources */,
+				1C4BCDB42409D70900EDF681 /* MapXib.swift in Sources */,
 				C01EF3132405F1EE0094CEAB /* NetworkingController.swift in Sources */,
+				1C4BCDAE2409B67000EDF681 /* CustomTabBarXib.swift in Sources */,
 				853F8C5F240597F200BF7B4D /* MainCoordinator.swift in Sources */,
 				85087DA123FF463900DD9D1B /* SceneDelegate.swift in Sources */,
 				85087DB323FF49FA00DD9D1B /* CoreDataStack.swift in Sources */,

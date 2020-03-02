@@ -8,37 +8,59 @@
 
 import UIKit
 
-class MainCoordinator {
-        
+class MainCoordinator: Coordinator {
+   
+    
+    
     var window: UIWindow
     var childCoordinators = [Coordinator]()
-    var tabBarController: UITabBarController
-    //var tabBarChildren = []()
+    var navControllers: [UINavigationController] = []
     
-    init(tabBarController: UITabBarController = UITabBarController(), window: UIWindow) {
-        self.tabBarController = tabBarController
+    init(window: UIWindow) {
+        let navController1 = UINavigationController()
+        let navController2 = UINavigationController()
+        let navController3 = UINavigationController()
+        let navControllerMap = UINavigationController()
+        
+        navControllers = [navController1, navController2, navController3, navControllerMap]
+        
         self.window = window
     }
     
     func start() {
-        let secondNavigationController = UINavigationController()
-        tabBarController.viewControllers = [ secondNavigationController]
-        
-        
-        window.rootViewController = tabBarController
         window.makeKeyAndVisible()
-//        let vc = ViewController.instantiate()
-//        vc.title = "GeoSeek!"
-//        vc.tabBarItem.image = UIImage(systemName: "mappin.and.ellipse")
-//        vc.coordinator = self
-      
+        toVCOne()
+       // mapXibView()
+
+    }
+    
+    func toVCOne() {
+        window.rootViewController = navControllers[0]
         
-        let secondVC = ViewController.instantiate()
-        //secondVC.title = "Hide!!!"
-        secondNavigationController.setNavigationBarHidden(true, animated: false)
-        secondVC.coordinator = self
-        secondVC.tabBarItem.image = UIImage(systemName: "plus")
-        secondNavigationController.pushViewController(secondVC, animated: true)
+        if let vc = navControllers[0].viewControllers.first {
+            print(vc.description)
+        } else {
+            let vc = ViewController.instantiate()
+            vc.coordinator = self
+            navControllers[0].pushViewController(vc, animated: true)
+        }
+    }
+    
+    func toVCTwo() {
+        window.rootViewController = navControllers[1]
+        
+        if let vc = navControllers[1].viewControllers.first {
+            print(vc.description)
+        } else {
+            let vc = SecondViewController.instantiate()
+            vc.coordinator = self
+            navControllers[1].pushViewController(vc, animated: true)
+            print("Brandi made a new View Controller")
+        }
+    }
+    
+    func mapXibView() {
+        window.rootViewController = navControllers[3]
     }
 
 }
