@@ -31,6 +31,7 @@ class MapXib: UIView, Storyboarded {
         addSubview(mapView)
         mapView.frame = self.bounds
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+
     }
     
         var pressedLocation:CLLocation? = nil {

@@ -20,8 +20,9 @@ class MainCoordinator: Coordinator {
         let navController1 = UINavigationController()
         let navController2 = UINavigationController()
         let navController3 = UINavigationController()
+        let navControllerMap = UINavigationController()
         
-        navControllers = [navController1, navController2, navController3]
+        navControllers = [navController1, navController2, navController3, navControllerMap]
         
         self.window = window
     }
@@ -29,6 +30,7 @@ class MainCoordinator: Coordinator {
     func start() {
         window.makeKeyAndVisible()
         toVCOne()
+       // mapXibView()
 
     }
     
@@ -55,6 +57,10 @@ class MainCoordinator: Coordinator {
             navControllers[1].pushViewController(vc, animated: true)
             print("Brandi made a new View Controller")
         }
+    }
+    
+    func mapXibView() {
+        window.rootViewController = navControllers[3]
     }
 
 }

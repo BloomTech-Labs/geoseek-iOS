@@ -13,6 +13,7 @@ class ViewController: UIViewController, Storyboarded {
     
 //    @IBOutlet weak var myMapView: MGLMapView!
     @IBOutlet weak var customTabBarXib: CustomTabBarXib!
+    @IBOutlet weak var mapXib: MapXib!
     
     
     weak var coordinator: MainCoordinator?
@@ -32,12 +33,14 @@ class ViewController: UIViewController, Storyboarded {
         super.viewWillAppear(animated)
         coordinator?.navControllers[0].setToolbarHidden(true, animated: false)
         //navigationController?.setToolbarHidden(true, animated: false)
+        //coordinator?.navControllers[4].setToolbarHidden(true, animated: false)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         coordinator?.navControllers[0].setToolbarHidden(true, animated: false)
         customTabBarXib.coordinator = coordinator
+        //mapXib.coordinator = coordinator
         
         NetworkController.shared.fetchGems { result in
             switch result {

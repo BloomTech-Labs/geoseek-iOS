@@ -16,28 +16,32 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dOA-6s-AIX" customClass="CustomTabBarXib" customModule="GeoSeek" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="776" width="414" height="100"/>
+                                <rect key="frame" x="0.0" y="796" width="414" height="100"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="LUP-8A-w5T"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nuI-br-XP2">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="768"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nuI-br-XP2" customClass="MapXib" customModule="GeoSeek" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="20" width="414" height="776"/>
+                                <color key="backgroundColor" systemColor="systemBrownColor" red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="nuI-br-XP2" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="71f-hJ-aiw"/>
                             <constraint firstItem="dOA-6s-AIX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="IwU-Ah-tYT"/>
-                            <constraint firstAttribute="bottom" secondItem="dOA-6s-AIX" secondAttribute="bottom" constant="20" symbolic="YES" id="p6Z-gt-CxE"/>
+                            <constraint firstItem="dOA-6s-AIX" firstAttribute="top" secondItem="nuI-br-XP2" secondAttribute="bottom" id="Srb-gV-uwo"/>
+                            <constraint firstItem="nuI-br-XP2" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" symbolic="YES" id="mdH-JR-rp2"/>
+                            <constraint firstAttribute="bottom" secondItem="dOA-6s-AIX" secondAttribute="bottom" id="p6Z-gt-CxE"/>
+                            <constraint firstItem="nuI-br-XP2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="u0r-NP-DF8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dOA-6s-AIX" secondAttribute="trailing" id="uub-fl-Yxn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="customTabBarXib" destination="dOA-6s-AIX" id="Jfp-ff-HeP"/>
+                        <outlet property="mapXib" destination="nuI-br-XP2" id="YqE-Qy-lAn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
