@@ -33,14 +33,17 @@ class ViewController: UIViewController, Storyboarded {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         coordinator?.navControllers[0].setToolbarHidden(true, animated: false)
-        //navigationController?.setToolbarHidden(true, animated: false)
+//        navigationController?.setToolbarHidden(true, animated: false)
         //coordinator?.navControllers[4].setToolbarHidden(true, animated: false)
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        coordinator?.navControllers[0].setToolbarHidden(true, animated: false)
+//        coordinator?.navControllers[0].setToolbarHidden(true, animated: false)
+        self.navigationController?.isNavigationBarHidden = true
         customTabBarXib.coordinator = coordinator
+        mapView.setCenter(CLLocationCoordinate2D(latitude: 33.812794, longitude: -117.9190981), zoomLevel: 15, animated: false)
         //mapXib.coordinator = coordinator
         fetchGems()
         //        NetworkController.shared.fetchGems { result in
@@ -60,7 +63,7 @@ class ViewController: UIViewController, Storyboarded {
             case .success(let gems):
                 self.gems = gems
                 DispatchQueue.main.async {
-                    self.configureMapView()
+//                    self.configureMapView()
                 }
             }
         }
