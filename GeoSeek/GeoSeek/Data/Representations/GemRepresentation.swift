@@ -19,3 +19,10 @@ struct GemRepresentation: Codable {
 //    var createdByUser: Int
     
 }
+
+struct ReturnedGem: Codable {
+    let gem: [Int]
+    let message: String
+}
+
+
