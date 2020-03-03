@@ -11,17 +11,12 @@ import Mapbox
 
 class ViewController: UIViewController, Storyboarded {
     
-    //    @IBOutlet weak var myMapView: MGLMapView!
     @IBOutlet weak var customTabBarXib: CustomTabBarXib!
     @IBOutlet weak var mapView: MGLMapView!
     
     
     weak var coordinator: MainCoordinator?
     var gems: [Gem] = []
-    
-    //@IBOutlet weak var displayMapView: MapXib!
-    
-    //var mapView: MGLMapView!
     
     var pressedLocation:CLLocation? = nil {
         didSet{
@@ -32,27 +27,14 @@ class ViewController: UIViewController, Storyboarded {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        coordinator?.navControllers[0].setToolbarHidden(true, animated: false)
-//        navigationController?.setToolbarHidden(true, animated: false)
-        //coordinator?.navControllers[4].setToolbarHidden(true, animated: false)
-        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        coordinator?.navControllers[0].setToolbarHidden(true, animated: false)
-        self.navigationController?.isNavigationBarHidden = true
+
         customTabBarXib.coordinator = coordinator
         mapView.setCenter(CLLocationCoordinate2D(latitude: 33.812794, longitude: -117.9190981), zoomLevel: 15, animated: false)
-        //mapXib.coordinator = coordinator
         fetchGems()
-        //        NetworkController.shared.fetchGems { result in
-        //            switch result {
-        //            case .failure(let error):
-        //                print("Oops!:", error)
-        //            case .success(let gems):
-        //                gems.compactMap { (print("ViewController:", $0.title)) }
-        //            }
     }
     
     func fetchGems() {

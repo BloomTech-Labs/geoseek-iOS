@@ -30,9 +30,9 @@ class MainCoordinator: Coordinator {
         let navController1 = UINavigationController()
         let navController2 = UINavigationController()
         let navController3 = UINavigationController()
-        let navControllerMap = UINavigationController()
+//        let navControllerMap = UINavigationController()
         
-        navControllers = [navController1, navController2, navController3, navControllerMap]
+        navControllers = [navController1, navController2, navController3/*, navControllerMap*/]
         
         self.window = window
     }
@@ -45,8 +45,11 @@ class MainCoordinator: Coordinator {
     }
     
     func toVCOne() {
+        print("MainCoordinator.toVCOne: change views")
         window.rootViewController = navControllers[0]
+        navControllers[0].isNavigationBarHidden = true
         
+
         if let vc = navControllers[0].viewControllers.first {
             print(vc.description)
         } else {
@@ -57,16 +60,16 @@ class MainCoordinator: Coordinator {
     }
     
     func toVCTwo() {
-        window.rootViewController = navControllers[1]
-        
-        if let vc = navControllers[1].viewControllers.first {
-            print(vc.description)
-        } else {
-            let vc = SecondViewController.instantiate()
-            vc.coordinator = self
-            navControllers[1].pushViewController(vc, animated: true)
-            print("Brandi made a new View Controller")
-        }
+//        window.rootViewController = navControllers[1]
+//
+//        if let vc = navControllers[1].viewControllers.first {
+//            print(vc.description)
+//        } else {
+//            let vc = SecondViewController.instantiate()
+//            vc.coordinator = self
+//            navControllers[1].pushViewController(vc, animated: true)
+//            print("Brandi made a new View Controller")
+//        }
     }
     
     func mapXibView() {

@@ -10,12 +10,19 @@ import Foundation
 
 struct GemRepresentation: Codable {
     
-    var difficulty: Double
+    var difficulty: Double?
     var description: String
-    var id: Int
+    var id: Int?
     var latitude: Double
     var longitude: Double
     var title: String
 //    var createdByUser: Int
     
 }
+
+struct ReturnedGem: Codable {
+    let gem: [Int]
+    let message: String
+}
+
+
