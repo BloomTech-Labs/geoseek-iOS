@@ -36,11 +36,14 @@ class SecondViewController: UIViewController, Storyboarded {
         super.viewDidLoad()
         print("SecondVeiwController.viewDidLoad")
 //        customTabBarXib.coordinator = coordinator
+        gemDescriptionTextView.backgroundColor = .lightGray
     }
 
     @IBAction func locationButtonTapped(_ sender: Any) {
-        
+        print("do something")
+        coordinator?.presentGSMapViewControllerOnMainThread()
     }
+    
     @IBAction func cancelButtonTapped(_ sender: Any) {
         coordinator?.toVCOne()
     }
@@ -50,6 +53,7 @@ class SecondViewController: UIViewController, Storyboarded {
 //        var difficulty = 1.0//Double(difficultyLevelTextField.text)
 //        
 //        coordinator?.gemController.createGem(title: <#T##String#>, gemDesc: <#T##String#>, difficulty: <#T##Double#>, id: <#T##Int#>, latitude: <#T##Double#>, longitude: <#T##Double#>, createdByUser: <#T##Int#>)
+        coordinator?.toVCOne()
     }
     
 }

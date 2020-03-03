@@ -63,5 +63,14 @@ class MainCoordinator: Coordinator {
     func mapXibView() {
         window.rootViewController = navControllers[3]
     }
+    
+    func presentGSMapViewControllerOnMainThread() {
+        DispatchQueue.main.async {
+            let mapVC = GSMapViewController()
+            mapVC.modalPresentationStyle = .overFullScreen
+            mapVC.modalTransitionStyle = .coverVertical
+            self.navControllers[1].present(mapVC, animated: true)
+        }
+    }
 
 }

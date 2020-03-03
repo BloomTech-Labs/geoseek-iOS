@@ -12,6 +12,7 @@
 		1C4BCDB02409C9CE00EDF681 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4BCDAF2409C9CE00EDF681 /* SecondViewController.swift */; };
 		1C4BCDB22409D6EF00EDF681 /* MapXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C4BCDB12409D6EF00EDF681 /* MapXib.xib */; };
 		1C4BCDB42409D70900EDF681 /* MapXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4BCDB32409D70900EDF681 /* MapXib.swift */; };
+		1C4BCDB8240ED89E00EDF681 /* GSMapViewControlle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4BCDB7240ED89D00EDF681 /* GSMapViewControlle.swift */; };
 		85087D9F23FF463900DD9D1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85087D9E23FF463900DD9D1B /* AppDelegate.swift */; };
 		85087DA123FF463900DD9D1B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85087DA023FF463900DD9D1B /* SceneDelegate.swift */; };
 		85087DA323FF463900DD9D1B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85087DA223FF463900DD9D1B /* ViewController.swift */; };
@@ -42,6 +43,7 @@
 		1C4BCDAF2409C9CE00EDF681 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		1C4BCDB12409D6EF00EDF681 /* MapXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapXib.xib; sourceTree = "<group>"; };
 		1C4BCDB32409D70900EDF681 /* MapXib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapXib.swift; sourceTree = "<group>"; };
+		1C4BCDB7240ED89D00EDF681 /* GSMapViewControlle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSMapViewControlle.swift; sourceTree = "<group>"; };
 		58F779FF21069148145470A3 /* Pods-GeoSeek.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoSeek.release.xcconfig"; path = "Target Support Files/Pods-GeoSeek/Pods-GeoSeek.release.xcconfig"; sourceTree = "<group>"; };
 		73F8432334D3D6425DCDC4AF /* Pods_GeoSeek.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeoSeek.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		85087D9B23FF463900DD9D1B /* GeoSeek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeoSeek.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -166,6 +168,7 @@
 			children = (
 				85087DA223FF463900DD9D1B /* ViewController.swift */,
 				1C4BCDAF2409C9CE00EDF681 /* SecondViewController.swift */,
+				1C4BCDB7240ED89D00EDF681 /* GSMapViewControlle.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C4BCDB8240ED89E00EDF681 /* GSMapViewControlle.swift in Sources */,
 				85087E042400887B00DD9D1B /* UserController.swift in Sources */,
 				1C4BCDB02409C9CE00EDF681 /* SecondViewController.swift in Sources */,
 				851D556D2405EF0D001CB19E /* UserRepresentation.swift in Sources */,
