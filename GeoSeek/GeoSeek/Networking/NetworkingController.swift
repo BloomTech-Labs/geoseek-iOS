@@ -36,14 +36,12 @@ class NetworkController {
         fetch(from: request) { result in
             switch result {
             case .failure(let error):
-                #warning("Deal with failure to receive data error")
                 completion(.failure(.badData))
                 print("NetworkController.fetchGems:", error)
             case .success(let data):
                 let possibleGems: [GemRepresentation]? = self.decode(data: data)
                 
                 guard let gemRepresentations = possibleGems else {
-                    #warning("Deal with possibleGems being nil")
                     completion(.failure(.badEncode))
                     return
                 }
@@ -56,7 +54,6 @@ class NetworkController {
     
     func createGem(from gemRepresentation: GemRepresentation, completion: @escaping (Result<Gem, Error>) -> Void) {
         guard let gemData = encode(item: gemRepresentation) else { return }
-        
         var request = gemsURL(with: .post)
         request.httpBody = gemData
         
@@ -66,7 +63,6 @@ class NetworkController {
                 completion(.failure(error))
             case .success(let data):
                 let possibleReturnedGem: ReturnedGem? = self.decode(data: data)
-                
                 guard let returnedGem = possibleReturnedGem,
                     let returnedID = returnedGem.gem.first else {
                     completion(.failure(FetchError.badData))
@@ -76,7 +72,7 @@ class NetworkController {
                 completeGemRepresentation.id = returnedID
                 let gem = Gem(representation: completeGemRepresentation)
                 completion(.success(gem))
-                print("Success! Created gem: \(gem.title ?? "No Title")") // This can go away after testing.
+//                print("Success! Created gem: \(gem.title ?? "No Title")") // This can go away after testing.
             }
         }
     }
@@ -90,20 +86,12 @@ class NetworkController {
                 return
             }
             
-            
-            //            if let response = response as? HTTPURLResponse,
-            //                response.statusCode != 200 {
-            //                print("NetworkController.fetch Response != 200: \(response)")
-            //                completion(.failure(FetchError.badResponse))
-            //                return
-            //            }
-            
             guard let data = data else {
                 print("NetworkController.fetch Data is wrong")
                 completion(.failure(FetchError.badData))
                 return
             }
-            print(String(data: data, encoding: .utf8))
+//            print(String(data: data, encoding: .utf8))
             completion(.success(data))
         }
         dataTask.resume()
@@ -116,8 +104,7 @@ class NetworkController {
             let decoded = try jsonDecoder.decode(T.self, from: data)
             return decoded
         } catch {
-            #warning("Deal with decoding error here")
-            print(error)
+            print("Error decoding item from data: \(error)")
             return nil
         }
     }
