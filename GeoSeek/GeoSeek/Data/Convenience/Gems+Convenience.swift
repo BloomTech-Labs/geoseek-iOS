@@ -32,17 +32,23 @@ extension Gem {
     
     @discardableResult convenience init(title: String,
                                         gemDesc: String,
-                                        difficulty: Double,
-                                        id: Int,
+                                        difficulty: Double?,
+                                        id: Int?,
                                         latitude: Double,
                                         longitude: Double/*,
                                         createdByUser: Int*/,
                                         context: NSManagedObjectContext) {
+        
         self.init(context: context)
+        
+        if let id = id {
+            self.id = Int16(id)
+        }
+        if let difficulty = difficulty {
+            self.difficulty = difficulty
+        }
         self.title = title
         self.gemDesc = gemDesc
-        self.difficulty = difficulty
-        self.id = Int16(id)
         self.latitude = latitude
         self.longitude = longitude
 //        self.createdByUser = Int16(createdByUser)
