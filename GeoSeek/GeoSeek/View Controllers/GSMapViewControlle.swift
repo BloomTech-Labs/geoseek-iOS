@@ -7,6 +7,7 @@
 //
 
 import Mapbox
+import UIKit
 
 class GSMapViewController: UIViewController {
     let containerView = MGLMapView() // This should come in from the coordinator
@@ -45,7 +46,7 @@ class GSMapViewController: UIViewController {
     func configureContainerView() {
         view.addSubview(containerView)
         containerView.translatesAutoresizingMaskIntoConstraints = false
-        containerView.backgroundColor = .systemTeal
+        containerView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.6)
         containerView.layer.cornerRadius = 30
         containerView.layer.cornerCurve = .continuous
         NSLayoutConstraint.activate([
@@ -115,11 +116,6 @@ class GSMapViewController: UIViewController {
             present(alert, animated: true, completion: nil)
         }
     }
-    
-    
-    
-    
-    
     
     func configureTitleLabel() {
         containerView.addSubview(titleLabel)
