@@ -36,12 +36,14 @@ class CustomTabBarXib: UIView, Storyboarded {
     }
     
     @IBAction func addGemMapViewButtonTapped(_ sender: Any) {
-        coordinator?.toVCOne()
-        print("CustomTabBarXib.addGemMapViewButtonTapped: add gem map")
+
+        coordinator?.toVCTwo()
+        print("add gem map")
+
     }
     
     @IBAction func twoButtonTapped(_ sender: Any) {
-        coordinator?.toVCTwo()
+        coordinator?.toVCOne()
         print("Two Two")
     }
     

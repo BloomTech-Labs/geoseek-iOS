@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Mapbox
 
 class MainCoordinator: Coordinator {
    
@@ -15,6 +16,15 @@ class MainCoordinator: Coordinator {
     var window: UIWindow
     var childCoordinators = [Coordinator]()
     var navControllers: [UINavigationController] = []
+    var gemController = GemController()
+    var addGemCoordinates: CLLocation? {
+        didSet {
+            print("hi")
+        }
+    }
+    var addGemLat: Double?
+    var addGemLong: Double?
+    
     
     init(window: UIWindow) {
         let navController1 = UINavigationController()
@@ -62,8 +72,18 @@ class MainCoordinator: Coordinator {
 //        }
     }
     
-//    func mapXibView() {
-//        window.rootViewController = navControllers[3]
-//    }
+    func mapXibView() {
+        window.rootViewController = navControllers[3]
+    }
+    
+    func presentGSMapViewControllerOnMainThread() {
+        DispatchQueue.main.async {
+            let mapVC = GSMapViewController()
+            mapVC.coordinator = self
+            mapVC.modalPresentationStyle = .overFullScreen
+            mapVC.modalTransitionStyle = .coverVertical
+            self.navControllers[1].present(mapVC, animated: true)
+        }
+    }
 
 }
