@@ -48,12 +48,19 @@ class SecondViewController: UIViewController, Storyboarded {
         coordinator?.toVCOne()
     }
     @IBAction func saveButtonTapped(_ sender: Any) {
-//        var gemTitle = gemTitleTextField.text
-//        var gemDesc = gemDescriptionTextView.text
-//        var difficulty = 1.0//Double(difficultyLevelTextField.text)
+        var gemTitle = gemTitleTextField.text
+        var gemDesc = gemDescriptionTextView.text
+        var difficulty = 1.0//Double(difficultyLevelTextField.text)
+//        var gemCoords = coordinator?.addGemCoordinates
+//        print(gemCoords as Any)
+        var gemLat = coordinator?.addGemLat
+        print("Lat is \(gemLat)")
+        var gemLong = coordinator?.addGemLong
+        print("Long is \(gemLong)")
+    
 //        
-//        coordinator?.gemController.createGem(title: <#T##String#>, gemDesc: <#T##String#>, difficulty: <#T##Double#>, id: <#T##Int#>, latitude: <#T##Double#>, longitude: <#T##Double#>, createdByUser: <#T##Int#>)
-        coordinator?.toVCOne()
+//        coordinator?.gemController.createGem(title: gemTitle, gemDesc: gemDesc, difficulty: difficulty, id: <#T##Int#>, latitude: gemLat, longitude: gemLong, createdByUser: <#T##Int#>)
+//        coordinator?.toVCOne()
     }
     
 }

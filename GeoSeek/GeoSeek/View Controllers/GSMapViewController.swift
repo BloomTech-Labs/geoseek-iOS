@@ -37,6 +37,56 @@ class GSMapViewController: UIViewController {
         configureDoneButton()
         configureTitleLabel()
     }
+
+    
+    @objc func handleLongPress(gestureReconizer: UILongPressGestureRecognizer) {
+        if gestureReconizer.state != UIGestureRecognizer.State.ended {
+            //When lognpress is start or running
+        }
+        else {
+            print("I was long pressed...")
+            
+            let touchPoint = gestureReconizer.location(in: containerView)
+            let coordsFromTouchPoint = containerView.convert(touchPoint, toCoordinateFrom: containerView)
+            pressedLocation = CLLocation(latitude: coordsFromTouchPoint.latitude, longitude: coordsFromTouchPoint.longitude)
+            
+            //NOTE: This tries to set the coordinators addGemCoordinate as these coordinates
+            coordinator?.addGemCoordinates = pressedLocation
+            
+            coordinator?.addGemLat = pressedLocation?.coordinate.latitude
+            coordinator?.addGemLong = pressedLocation?.coordinate.longitude
+            
+            // myWaypoints.append(location)
+            print("Location:", coordsFromTouchPoint.latitude, coordsFromTouchPoint.longitude)
+            
+            //            let wayAnnotation = MKPointAnnotation()
+            //            wayAnnotation.coordinate = coordsFromTouchPoint
+            //            wayAnnotation.title = "waypoint"
+            //            myAnnotations.append(location)
+            //            print(wayAnnotation)
+            
+            let alert = UIAlertController(title: "Add Location?", message: "Would you like this to be your chosen location?", preferredStyle: .alert)
+            
+            let action = UIAlertAction(title: "Continue", style: .default) { (_) in
+                //                func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+                //                    if segue.identifier == "ToAddSegue" {
+                //                        let destinationVC = segue.destination as? AddViewController
+                //                        destinationVC?.transitioningDelegate = self as? UIViewControllerTransitioningDelegate
+                //                    }
+                //                }
+            }
+            
+            let cancel = UIAlertAction(title: "Cancel", style: .destructive) { (_) in
+                alert.dismiss(animated: true, completion: nil)
+            }
+            
+            alert.addAction(cancel)
+            alert.addAction(action)
+            
+            present(alert, animated: true, completion: nil)
+        }
+    }
+    
     func configureLocationManager() {
         if CLLocationManager.locationServicesEnabled() {
             locationManager.delegate = self
@@ -74,47 +124,6 @@ class GSMapViewController: UIViewController {
             doneButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -120),
             doneButton.heightAnchor.constraint(equalToConstant: 30)
         ])
-    }
-    
-    @objc func handleLongPress(gestureReconizer: UILongPressGestureRecognizer) {
-        if gestureReconizer.state != UIGestureRecognizer.State.ended {
-            //When lognpress is start or running
-        }
-        else {
-            print("I was long pressed...")
-            
-            let touchPoint = gestureReconizer.location(in: containerView)
-            let coordsFromTouchPoint = containerView.convert(touchPoint, toCoordinateFrom: containerView)
-            pressedLocation = CLLocation(latitude: coordsFromTouchPoint.latitude, longitude: coordsFromTouchPoint.longitude)
-            // myWaypoints.append(location)
-            print("Location:", coordsFromTouchPoint.latitude, coordsFromTouchPoint.longitude)
-            
-            //            let wayAnnotation = MKPointAnnotation()
-            //            wayAnnotation.coordinate = coordsFromTouchPoint
-            //            wayAnnotation.title = "waypoint"
-            //            myAnnotations.append(location)
-            //            print(wayAnnotation)
-            
-            let alert = UIAlertController(title: "Add Location?", message: "Would you like this to be your chosen location?", preferredStyle: .alert)
-            
-            let action = UIAlertAction(title: "Continue", style: .default) { (_) in
-                //                func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-                //                    if segue.identifier == "ToAddSegue" {
-                //                        let destinationVC = segue.destination as? AddViewController
-                //                        destinationVC?.transitioningDelegate = self as? UIViewControllerTransitioningDelegate
-                //                    }
-                //                }
-            }
-            
-            let cancel = UIAlertAction(title: "Cancel", style: .destructive) { (_) in
-                alert.dismiss(animated: true, completion: nil)
-            }
-            
-            alert.addAction(cancel)
-            alert.addAction(action)
-            
-            present(alert, animated: true, completion: nil)
-        }
     }
     
     func configureTitleLabel() {
