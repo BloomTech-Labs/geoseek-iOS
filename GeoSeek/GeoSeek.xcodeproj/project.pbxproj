@@ -3,19 +3,47 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C4BCDA92409B37E00EDF681 /* CustomTabBarXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C4BCDA82409B37E00EDF681 /* CustomTabBarXib.xib */; };
+		1C4BCDAE2409B67000EDF681 /* CustomTabBarXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4BCDAD2409B67000EDF681 /* CustomTabBarXib.swift */; };
+		1C4BCDB02409C9CE00EDF681 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4BCDAF2409C9CE00EDF681 /* SecondViewController.swift */; };
+		1C4BCDB22409D6EF00EDF681 /* MapXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C4BCDB12409D6EF00EDF681 /* MapXib.xib */; };
+		1C4BCDB42409D70900EDF681 /* MapXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4BCDB32409D70900EDF681 /* MapXib.swift */; };
 		85087D9F23FF463900DD9D1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85087D9E23FF463900DD9D1B /* AppDelegate.swift */; };
 		85087DA123FF463900DD9D1B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85087DA023FF463900DD9D1B /* SceneDelegate.swift */; };
 		85087DA323FF463900DD9D1B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85087DA223FF463900DD9D1B /* ViewController.swift */; };
 		85087DA623FF463900DD9D1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85087DA423FF463900DD9D1B /* Main.storyboard */; };
 		85087DA823FF463A00DD9D1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85087DA723FF463A00DD9D1B /* Assets.xcassets */; };
 		85087DAB23FF463A00DD9D1B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85087DA923FF463A00DD9D1B /* LaunchScreen.storyboard */; };
+		85087DB323FF49FA00DD9D1B /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85087DB223FF49FA00DD9D1B /* CoreDataStack.swift */; };
+		85087DB623FF50E400DD9D1B /* GeoSeek.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 85087DB423FF50E400DD9D1B /* GeoSeek.xcdatamodeld */; };
+		85087DFC2400845400DD9D1B /* Gems+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85087DFB2400845400DD9D1B /* Gems+Convenience.swift */; };
+		85087DFE2400862400DD9D1B /* GemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85087DFD2400862400DD9D1B /* GemController.swift */; };
+		85087E02240087B900DD9D1B /* User+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85087E01240087B900DD9D1B /* User+Convenience.swift */; };
+		85087E042400887B00DD9D1B /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85087E032400887B00DD9D1B /* UserController.swift */; };
+		851D556B2405EC50001CB19E /* GemRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851D556A2405EC50001CB19E /* GemRepresentation.swift */; };
+		851D556D2405EF0D001CB19E /* UserRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851D556C2405EF0D001CB19E /* UserRepresentation.swift */; };
+		851EBFAC24084FF300BB74B4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 851EBFAB24084FF300BB74B4 /* GoogleService-Info.plist */; };
+		853F8C5D240597C700BF7B4D /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F8C5C240597C700BF7B4D /* Coordinator.swift */; };
+		853F8C5F240597F200BF7B4D /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F8C5E240597F200BF7B4D /* MainCoordinator.swift */; };
+		853F8C612405987200BF7B4D /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F8C602405987200BF7B4D /* Storyboarded.swift */; };
+		937876BDCDA28894925E5D64 /* Pods_GeoSeek.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73F8432334D3D6425DCDC4AF /* Pods_GeoSeek.framework */; };
+		C01EF3132405F1EE0094CEAB /* NetworkingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01EF3122405F1EE0094CEAB /* NetworkingController.swift */; };
+		C01EF34B240D86B20094CEAB /* CustomAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01EF34A240D86B20094CEAB /* CustomAnnotationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		06D5F6992FD36056488BBE80 /* Pods-GeoSeek.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoSeek.debug.xcconfig"; path = "Target Support Files/Pods-GeoSeek/Pods-GeoSeek.debug.xcconfig"; sourceTree = "<group>"; };
+		1C4BCDA82409B37E00EDF681 /* CustomTabBarXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTabBarXib.xib; sourceTree = "<group>"; };
+		1C4BCDAD2409B67000EDF681 /* CustomTabBarXib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarXib.swift; sourceTree = "<group>"; };
+		1C4BCDAF2409C9CE00EDF681 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		1C4BCDB12409D6EF00EDF681 /* MapXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapXib.xib; sourceTree = "<group>"; };
+		1C4BCDB32409D70900EDF681 /* MapXib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapXib.swift; sourceTree = "<group>"; };
+		58F779FF21069148145470A3 /* Pods-GeoSeek.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoSeek.release.xcconfig"; path = "Target Support Files/Pods-GeoSeek/Pods-GeoSeek.release.xcconfig"; sourceTree = "<group>"; };
+		73F8432334D3D6425DCDC4AF /* Pods_GeoSeek.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeoSeek.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		85087D9B23FF463900DD9D1B /* GeoSeek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeoSeek.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85087D9E23FF463900DD9D1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85087DA023FF463900DD9D1B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +52,21 @@
 		85087DA723FF463A00DD9D1B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		85087DAA23FF463A00DD9D1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		85087DAC23FF463A00DD9D1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		85087DB223FF49FA00DD9D1B /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		85087DB523FF50E400DD9D1B /* GeoSeek.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GeoSeek.xcdatamodel; sourceTree = "<group>"; };
+		85087DFB2400845400DD9D1B /* Gems+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Gems+Convenience.swift"; sourceTree = "<group>"; };
+		85087DFD2400862400DD9D1B /* GemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GemController.swift; sourceTree = "<group>"; };
+		85087E01240087B900DD9D1B /* User+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Convenience.swift"; sourceTree = "<group>"; };
+		85087E032400887B00DD9D1B /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		851D556A2405EC50001CB19E /* GemRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GemRepresentation.swift; sourceTree = "<group>"; };
+		851D556C2405EF0D001CB19E /* UserRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepresentation.swift; sourceTree = "<group>"; };
+		851EBFAA240848ED00BB74B4 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
+		851EBFAB24084FF300BB74B4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		853F8C5C240597C700BF7B4D /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		853F8C5E240597F200BF7B4D /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		853F8C602405987200BF7B4D /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
+		C01EF3122405F1EE0094CEAB /* NetworkingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingController.swift; sourceTree = "<group>"; };
+		C01EF34A240D86B20094CEAB /* CustomAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +74,32 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				937876BDCDA28894925E5D64 /* Pods_GeoSeek.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C4BCDAA2409B3C300EDF681 /* Xib */ = {
+			isa = PBXGroup;
+			children = (
+				1C4BCDA82409B37E00EDF681 /* CustomTabBarXib.xib */,
+				1C4BCDAD2409B67000EDF681 /* CustomTabBarXib.swift */,
+				1C4BCDB12409D6EF00EDF681 /* MapXib.xib */,
+				1C4BCDB32409D70900EDF681 /* MapXib.swift */,
+				C01EF34A240D86B20094CEAB /* CustomAnnotationView.swift */,
+			);
+			path = Xib;
+			sourceTree = "<group>";
+		};
 		85087D9223FF463900DD9D1B = {
 			isa = PBXGroup;
 			children = (
 				85087D9D23FF463900DD9D1B /* GeoSeek */,
 				85087D9C23FF463900DD9D1B /* Products */,
+				E1537D308A57C09B3AACC8B5 /* Pods */,
+				C04219506B0B3E19F541503D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,13 +116,102 @@
 			children = (
 				85087D9E23FF463900DD9D1B /* AppDelegate.swift */,
 				85087DA023FF463900DD9D1B /* SceneDelegate.swift */,
-				85087DA223FF463900DD9D1B /* ViewController.swift */,
 				85087DA423FF463900DD9D1B /* Main.storyboard */,
-				85087DA723FF463A00DD9D1B /* Assets.xcassets */,
+				1C4BCDAA2409B3C300EDF681 /* Xib */,
 				85087DA923FF463A00DD9D1B /* LaunchScreen.storyboard */,
 				85087DAC23FF463A00DD9D1B /* Info.plist */,
+				851EBFAB24084FF300BB74B4 /* GoogleService-Info.plist */,
+				85087DA723FF463A00DD9D1B /* Assets.xcassets */,
+				853F8C6224059AF000BF7B4D /* Coordinator */,
+				85087DB723FF666A00DD9D1B /* Data */,
+				85087DFF2400862A00DD9D1B /* Model Controllers */,
+				C01EF3112405F1C00094CEAB /* Networking */,
+				851D55682405C92D001CB19E /* View Controllers */,
+				851EBFAA240848ED00BB74B4 /* BridgingHeader.h */,
 			);
 			path = GeoSeek;
+			sourceTree = "<group>";
+		};
+		85087DB723FF666A00DD9D1B /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				851D55692405EC37001CB19E /* Representations */,
+				85087DB223FF49FA00DD9D1B /* CoreDataStack.swift */,
+				85087DB423FF50E400DD9D1B /* GeoSeek.xcdatamodeld */,
+				85087E002400874700DD9D1B /* Convenience */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		85087DFF2400862A00DD9D1B /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				85087DFD2400862400DD9D1B /* GemController.swift */,
+				85087E032400887B00DD9D1B /* UserController.swift */,
+			);
+			path = "Model Controllers";
+			sourceTree = "<group>";
+		};
+		85087E002400874700DD9D1B /* Convenience */ = {
+			isa = PBXGroup;
+			children = (
+				85087DFB2400845400DD9D1B /* Gems+Convenience.swift */,
+				85087E01240087B900DD9D1B /* User+Convenience.swift */,
+			);
+			path = Convenience;
+			sourceTree = "<group>";
+		};
+		851D55682405C92D001CB19E /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				85087DA223FF463900DD9D1B /* ViewController.swift */,
+				1C4BCDAF2409C9CE00EDF681 /* SecondViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		851D55692405EC37001CB19E /* Representations */ = {
+			isa = PBXGroup;
+			children = (
+				851D556A2405EC50001CB19E /* GemRepresentation.swift */,
+				851D556C2405EF0D001CB19E /* UserRepresentation.swift */,
+			);
+			path = Representations;
+			sourceTree = "<group>";
+		};
+		853F8C6224059AF000BF7B4D /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				853F8C5C240597C700BF7B4D /* Coordinator.swift */,
+				853F8C602405987200BF7B4D /* Storyboarded.swift */,
+				853F8C5E240597F200BF7B4D /* MainCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		C01EF3112405F1C00094CEAB /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				C01EF3122405F1EE0094CEAB /* NetworkingController.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		C04219506B0B3E19F541503D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				73F8432334D3D6425DCDC4AF /* Pods_GeoSeek.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E1537D308A57C09B3AACC8B5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				06D5F6992FD36056488BBE80 /* Pods-GeoSeek.debug.xcconfig */,
+				58F779FF21069148145470A3 /* Pods-GeoSeek.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +221,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 85087DAF23FF463A00DD9D1B /* Build configuration list for PBXNativeTarget "GeoSeek" */;
 			buildPhases = (
+				290DEC0C1FACBFB115088A07 /* [CP] Check Pods Manifest.lock */,
 				85087D9723FF463900DD9D1B /* Sources */,
 				85087D9823FF463900DD9D1B /* Frameworks */,
 				85087D9923FF463900DD9D1B /* Resources */,
+				C053E9C32405B60600BBC7C2 /* ShellScript */,
+				A78CA2F9D22E8E04BD18F284 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -126,21 +276,101 @@
 			buildActionMask = 2147483647;
 			files = (
 				85087DAB23FF463A00DD9D1B /* LaunchScreen.storyboard in Resources */,
+				851EBFAC24084FF300BB74B4 /* GoogleService-Info.plist in Resources */,
 				85087DA823FF463A00DD9D1B /* Assets.xcassets in Resources */,
+				1C4BCDA92409B37E00EDF681 /* CustomTabBarXib.xib in Resources */,
 				85087DA623FF463900DD9D1B /* Main.storyboard in Resources */,
+				1C4BCDB22409D6EF00EDF681 /* MapXib.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		290DEC0C1FACBFB115088A07 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GeoSeek-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A78CA2F9D22E8E04BD18F284 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GeoSeek/Pods-GeoSeek-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GeoSeek/Pods-GeoSeek-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GeoSeek/Pods-GeoSeek-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C053E9C32405B60600BBC7C2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(TARGET_BUILD_DIR)/$(INFOPLIST_PATH)",
+				"~/AppSupport/mapbox.txt",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Look for a global file named 'mapbox' or '.mapbox' within the home directory\ntoken_file=~/.mapbox\ntoken_file2=~/AppSupport/mapbox.txt\n\n\ntoken=\"$(cat $token_file 2>/dev/null || cat $token_file2 2>/dev/null)\"\nif [ \"$token\" ]; then\n  plutil -replace MGLMapboxAccessToken -string $token \"$TARGET_BUILD_DIR/$INFOPLIST_PATH\"\nelse\n  echo 'warning: Missing Mapbox access token'\n  open 'https://account.mapbox.com/access-tokens/'\n  echo \"warning: Get an access token from <https://account.mapbox.com/access-tokens/>, then create a new file at $token_file or $token_file2 that contains the access token.\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		85087D9723FF463900DD9D1B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85087E042400887B00DD9D1B /* UserController.swift in Sources */,
+				1C4BCDB02409C9CE00EDF681 /* SecondViewController.swift in Sources */,
+				851D556D2405EF0D001CB19E /* UserRepresentation.swift in Sources */,
+				85087E02240087B900DD9D1B /* User+Convenience.swift in Sources */,
+				85087DB623FF50E400DD9D1B /* GeoSeek.xcdatamodeld in Sources */,
+				853F8C5D240597C700BF7B4D /* Coordinator.swift in Sources */,
 				85087DA323FF463900DD9D1B /* ViewController.swift in Sources */,
+				85087DFE2400862400DD9D1B /* GemController.swift in Sources */,
 				85087D9F23FF463900DD9D1B /* AppDelegate.swift in Sources */,
+				C01EF34B240D86B20094CEAB /* CustomAnnotationView.swift in Sources */,
+				851D556B2405EC50001CB19E /* GemRepresentation.swift in Sources */,
+				1C4BCDB42409D70900EDF681 /* MapXib.swift in Sources */,
+				C01EF3132405F1EE0094CEAB /* NetworkingController.swift in Sources */,
+				1C4BCDAE2409B67000EDF681 /* CustomTabBarXib.swift in Sources */,
+				853F8C5F240597F200BF7B4D /* MainCoordinator.swift in Sources */,
 				85087DA123FF463900DD9D1B /* SceneDelegate.swift in Sources */,
+				85087DB323FF49FA00DD9D1B /* CoreDataStack.swift in Sources */,
+				85087DFC2400845400DD9D1B /* Gems+Convenience.swift in Sources */,
+				853F8C612405987200BF7B4D /* Storyboarded.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,10 +512,11 @@
 		};
 		85087DB023FF463A00DD9D1B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 06D5F6992FD36056488BBE80 /* Pods-GeoSeek.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UF4PHTK7P6;
+				DEVELOPMENT_TEAM = 452VS5LHDK;
 				INFOPLIST_FILE = GeoSeek/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -300,10 +531,11 @@
 		};
 		85087DB123FF463A00DD9D1B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 58F779FF21069148145470A3 /* Pods-GeoSeek.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UF4PHTK7P6;
+				DEVELOPMENT_TEAM = 452VS5LHDK;
 				INFOPLIST_FILE = GeoSeek/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -338,6 +570,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		85087DB423FF50E400DD9D1B /* GeoSeek.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				85087DB523FF50E400DD9D1B /* GeoSeek.xcdatamodel */,
+			);
+			currentVersion = 85087DB523FF50E400DD9D1B /* GeoSeek.xcdatamodel */;
+			path = GeoSeek.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 85087D9323FF463900DD9D1B /* Project object */;
 }
