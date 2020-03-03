@@ -15,6 +15,7 @@ class MainCoordinator: Coordinator {
     var window: UIWindow
     var childCoordinators = [Coordinator]()
     var navControllers: [UINavigationController] = []
+    var gemController = GemController()
     
     init(window: UIWindow) {
         let navController1 = UINavigationController()

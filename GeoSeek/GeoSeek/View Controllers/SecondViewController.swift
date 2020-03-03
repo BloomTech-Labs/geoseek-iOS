@@ -10,6 +10,19 @@ import UIKit
 
 class SecondViewController: UIViewController, Storyboarded {
     
+    @IBOutlet weak var headerLabel: UILabel!
+    @IBOutlet weak var giveGemTitleLabel: UILabel!
+    @IBOutlet weak var gemTitleTextField: UITextField!
+    @IBOutlet weak var gemLocationLabel: UILabel!
+    @IBOutlet weak var locationButton: UIButton!
+    @IBOutlet weak var addDescriptionLabel: UILabel!
+    @IBOutlet weak var gemDescriptionTextView: UITextView!
+    @IBOutlet weak var difficultyLabel: UILabel!
+    @IBOutlet weak var difficultyLevelTextField: UITextField!
+    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var saveButton: UIButton!
+    
+    //Note: Do we want a "tab bar" here at all?
     @IBOutlet weak var customTabBarXib: CustomTabBarXib!
     
     weak var coordinator: MainCoordinator?
@@ -25,4 +38,18 @@ class SecondViewController: UIViewController, Storyboarded {
 //        customTabBarXib.coordinator = coordinator
     }
 
+    @IBAction func locationButtonTapped(_ sender: Any) {
+        
+    }
+    @IBAction func cancelButtonTapped(_ sender: Any) {
+        coordinator?.toVCOne()
+    }
+    @IBAction func saveButtonTapped(_ sender: Any) {
+//        var gemTitle = gemTitleTextField.text
+//        var gemDesc = gemDescriptionTextView.text
+//        var difficulty = 1.0//Double(difficultyLevelTextField.text)
+//        
+//        coordinator?.gemController.createGem(title: <#T##String#>, gemDesc: <#T##String#>, difficulty: <#T##Double#>, id: <#T##Int#>, latitude: <#T##Double#>, longitude: <#T##Double#>, createdByUser: <#T##Int#>)
+    }
+    
 }
