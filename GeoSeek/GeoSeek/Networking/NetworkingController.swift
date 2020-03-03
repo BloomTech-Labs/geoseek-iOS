@@ -54,8 +54,8 @@ class NetworkController {
         }
     }
     
-    func createGem(from gem: Gem) {
-        guard let gemData = encode(item: gem.gemRepresentation) else { return }
+    func createGem(from gemRepresentation: GemRepresentation, completion: @escaping (Result<Gem, Error>) -> Void) {
+        guard let gemData = encode(item: gemRepresentation) else { return }
         
         var request = gemsURL(with: .post)
         request.httpBody = gemData
@@ -63,17 +63,20 @@ class NetworkController {
         fetch(from: request) { result in
             switch result {
             case .failure(let error):
-                print("Error creating gem: \(error)")
+                completion(.failure(error))
             case .success(let data):
-                let possibleGemRepresentation: GemRepresentation? = self.decode(data: data)
+                let possibleReturnedGem: ReturnedGem? = self.decode(data: data)
                 
-                guard let gemRepresentation = possibleGemRepresentation else {
-                    #warning("Deal with possibleGemRepresentation being nil")
+                guard let returnedGem = possibleReturnedGem,
+                    let returnedID = returnedGem.gem.first else {
+                    completion(.failure(FetchError.badData))
                     return
                 }
-                #warning("Deal with created gem here")
-                let gem = Gem(representation: gemRepresentation)
-                print("Success! Created gem: \(gem.title)")
+                var completeGemRepresentation = gemRepresentation
+                completeGemRepresentation.id = returnedID
+                let gem = Gem(representation: completeGemRepresentation)
+                completion(.success(gem))
+                print("Success! Created gem: \(gem.title ?? "No Title")") // This can go away after testing.
             }
         }
     }
