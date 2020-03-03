@@ -8,11 +8,11 @@
 
 import Foundation
 
-enum FetchError: Error {
-    case badData
-    case badResponse
-    case badEncode
-    case otherError
+enum FetchError: String, Error {
+    case badData = "There was a data error. Please try again." // TODO Fix error messages
+    case badResponse = "There was a bad response. Please try again."
+    case badEncode = "There was a problem encoding. Please try again."
+    case otherError = "Something went wrong. Please try again."
 }
 
 enum HTTPMethod: String {
@@ -24,11 +24,16 @@ enum HTTPMethod: String {
 
 class NetworkController {
     
+    // MARK: - Properties
+    
     static let shared = NetworkController()
     private let baseURL = "https://geoseek-be-stage.herokuapp.com/api/"
-    //    let cache = NSCache<NSString, UIImage>()
+    
+    // MARK: - Lifecycle Methods
     
     private init() {}
+    
+    // MARK: - Gems
     
     func fetchGems(completion: @escaping (Result<[Gem], FetchError>) -> Void) {
         let request = gemsURL(with: .get)
@@ -77,7 +82,13 @@ class NetworkController {
         }
     }
     
-    func fetch(from request: URLRequest, completion: @escaping (Result<Data, Error>) -> Void) {
+    // MARK: - Users
+    
+    func signUp() {}
+    
+    // MARK: - Helper Methods
+    
+    private func fetch(from request: URLRequest, completion: @escaping (Result<Data, Error>) -> Void) {
         let dataTask = URLSession.shared.dataTask(with: request) { data, response, error in
             
             if let error = error {
@@ -97,7 +108,7 @@ class NetworkController {
         dataTask.resume()
     }
     
-    func decode<T: Codable>(data: Data) -> T? {
+    private func decode<T: Codable>(data: Data) -> T? {
         let jsonDecoder = JSONDecoder()
         jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
         do {
@@ -109,7 +120,7 @@ class NetworkController {
         }
     }
     
-    func encode<T: Codable>(item: T) -> Data? {
+    private func encode<T: Codable>(item: T) -> Data? {
         let jsonEncoder = JSONEncoder()
         jsonEncoder.keyEncodingStrategy = .convertToSnakeCase
         do{
@@ -121,7 +132,9 @@ class NetworkController {
         }
     }
     
-    func gemsURL(with method: HTTPMethod) -> URLRequest {
+    // MARK: - URLs
+    
+    private func gemsURL(with method: HTTPMethod) -> URLRequest {
         let url = URL(string: baseURL)!
         let endpoint = url.appendingPathComponent("gems")
         var request = URLRequest(url: endpoint)
