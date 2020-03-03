@@ -60,7 +60,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSLocationUsageDescription</key>
-	<string>$(PRODUCT_NAME) uses your location to render maps and handle Gem data.</string>
 </dict>
 </plist>
