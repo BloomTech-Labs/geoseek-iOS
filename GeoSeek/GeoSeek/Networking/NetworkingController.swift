@@ -65,16 +65,18 @@ class NetworkController {
             case .failure(let error):
                 completion(.failure(error))
             case .success(let data):
-                let possibleGemID: Int? = self.decode(data: data)
+                let possibleReturnedGem: ReturnedGem? = self.decode(data: data)
                 
-                guard let gemID = possibleGemID else {
+                guard let returnedGem = possibleReturnedGem,
+                    let returnedID = returnedGem.gem.first else {
                     completion(.failure(FetchError.badData))
                     return
                 }
                 var completeGemRepresentation = gemRepresentation
-                completeGemRepresentation.id = gemID
+                completeGemRepresentation.id = returnedID
                 let gem = Gem(representation: completeGemRepresentation)
-                print("Success! Created gem: \(gem.title)")
+                completion(.success(gem))
+                print("Success! Created gem: \(gem.title ?? "No Title")") // This can go away after testing.
             }
         }
     }

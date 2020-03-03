@@ -45,7 +45,7 @@ class ViewController: UIViewController, Storyboarded {
         customTabBarXib.coordinator = coordinator
         mapView.setCenter(CLLocationCoordinate2D(latitude: 33.812794, longitude: -117.9190981), zoomLevel: 15, animated: false)
         //mapXib.coordinator = coordinator
-        fetchGems()
+        
         //        NetworkController.shared.fetchGems { result in
         //            switch result {
         //            case .failure(let error):
@@ -53,6 +53,7 @@ class ViewController: UIViewController, Storyboarded {
         //            case .success(let gems):
         //                gems.compactMap { (print("ViewController:", $0.title)) }
         //            }
+        fetchGems()
     }
     
     func fetchGems() {
