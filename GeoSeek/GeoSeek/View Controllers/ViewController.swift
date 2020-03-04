@@ -33,7 +33,7 @@ class ViewController: UIViewController, Storyboarded {
         super.viewDidLoad()
 
         customTabBarXib.coordinator = coordinator
-        mapView.setCenter(CLLocationCoordinate2D(latitude: 33.812794, longitude: -117.9190981), zoomLevel: 15, animated: false)
+//        mapView.setCenter(CLLocationCoordinate2D(latitude: 33.812794, longitude: -117.9190981), zoomLevel: 15, animated: false)
         fetchGems()
     }
     
@@ -58,8 +58,8 @@ class ViewController: UIViewController, Storyboarded {
 //        mapView.styleURL = MGLStyle.outdoorsStyleURL
         mapView.styleURL = darkBlueMap
 //        mapView.tintColor = .darkGray
-        mapView.centerCoordinate = CLLocationCoordinate2D(latitude: 18, longitude: -64)
-        mapView.zoomLevel = 3
+        mapView.setCenter(CLLocationCoordinate2D(latitude: 33.812794, longitude: -117.9190981), zoomLevel: 15, animated: false)
+//        mapView.zoomLevel = 3
         mapView.delegate = self
         
         var pointAnnotations: [MGLPointAnnotation] = []

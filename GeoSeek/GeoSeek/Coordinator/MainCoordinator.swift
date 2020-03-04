@@ -30,17 +30,19 @@ class MainCoordinator: Coordinator {
         let navController1 = UINavigationController()
         let navController2 = UINavigationController()
         let navController3 = UINavigationController()
+        let navController4 = UINavigationController()
 //        let navControllerMap = UINavigationController()
         
-        navControllers = [navController1, navController2, navController3/*, navControllerMap*/]
+        navControllers = [navController1, navController2, navController3, navController4/*, navControllerMap*/]
         
         self.window = window
     }
     
     func start() {
         window.makeKeyAndVisible()
-        toVCOne()
+//        toVCOne()
        // mapXibView()
+        toLandingPageVC()
         
     }
     
@@ -83,6 +85,19 @@ class MainCoordinator: Coordinator {
             mapVC.modalPresentationStyle = .overFullScreen
             mapVC.modalTransitionStyle = .coverVertical
             self.navControllers[1].present(mapVC, animated: true)
+        }
+    }
+    
+    func toLandingPageVC() {
+        window.rootViewController = navControllers[2]
+
+        if let vc = navControllers[2].viewControllers.first {
+            print(vc.description)
+        } else {
+            let vc = LandingPageVC.instantiate()
+            vc.coordinator = self
+            navControllers[2].pushViewController(vc, animated: true)
+            print("Brandi made a LandingPageVC")
         }
     }
 

@@ -29,6 +29,7 @@
 		851D556B2405EC50001CB19E /* GemRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851D556A2405EC50001CB19E /* GemRepresentation.swift */; };
 		851D556D2405EF0D001CB19E /* UserRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851D556C2405EF0D001CB19E /* UserRepresentation.swift */; };
 		851EBFAC24084FF300BB74B4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 851EBFAB24084FF300BB74B4 /* GoogleService-Info.plist */; };
+		851EFD52241063B600A7F857 /* LandingPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851EFD51241063B600A7F857 /* LandingPageVC.swift */; };
 		853F8C5D240597C700BF7B4D /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F8C5C240597C700BF7B4D /* Coordinator.swift */; };
 		853F8C5F240597F200BF7B4D /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F8C5E240597F200BF7B4D /* MainCoordinator.swift */; };
 		853F8C612405987200BF7B4D /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F8C602405987200BF7B4D /* Storyboarded.swift */; };
@@ -65,6 +66,7 @@
 		851EBFAA240848ED00BB74B4 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 		851EBFAB24084FF300BB74B4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		851EFD4D2410366100A7F857 /* libMapboxMobileEvents.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libMapboxMobileEvents.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		851EFD51241063B600A7F857 /* LandingPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPageVC.swift; sourceTree = "<group>"; };
 		853F8C5C240597C700BF7B4D /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		853F8C5E240597F200BF7B4D /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		853F8C602405987200BF7B4D /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				85087DA223FF463900DD9D1B /* ViewController.swift */,
 				1C4BCDAF2409C9CE00EDF681 /* SecondViewController.swift */,
 				1C4BCDB7240ED89D00EDF681 /* GSMapViewController.swift */,
+				851EFD51241063B600A7F857 /* LandingPageVC.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -369,6 +372,7 @@
 				85087D9F23FF463900DD9D1B /* AppDelegate.swift in Sources */,
 				C01EF34B240D86B20094CEAB /* CustomAnnotationView.swift in Sources */,
 				851D556B2405EC50001CB19E /* GemRepresentation.swift in Sources */,
+				851EFD52241063B600A7F857 /* LandingPageVC.swift in Sources */,
 				1C4BCDB42409D70900EDF681 /* MapXib.swift in Sources */,
 				C01EF3132405F1EE0094CEAB /* NetworkingController.swift in Sources */,
 				1C4BCDAE2409B67000EDF681 /* CustomTabBarXib.swift in Sources */,
