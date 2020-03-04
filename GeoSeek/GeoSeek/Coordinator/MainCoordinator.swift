@@ -60,16 +60,16 @@ class MainCoordinator: Coordinator {
     }
     
     func toVCTwo() {
-//        window.rootViewController = navControllers[1]
-//
-//        if let vc = navControllers[1].viewControllers.first {
-//            print(vc.description)
-//        } else {
-//            let vc = SecondViewController.instantiate()
-//            vc.coordinator = self
-//            navControllers[1].pushViewController(vc, animated: true)
-//            print("Brandi made a new View Controller")
-//        }
+        window.rootViewController = navControllers[1]
+
+        if let vc = navControllers[1].viewControllers.first {
+            print(vc.description)
+        } else {
+            let vc = SecondViewController.instantiate()
+            vc.coordinator = self
+            navControllers[1].pushViewController(vc, animated: true)
+            print("Brandi made a new View Controller")
+        }
     }
     
     func mapXibView() {
