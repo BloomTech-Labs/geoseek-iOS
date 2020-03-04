@@ -189,34 +189,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1c4-t1-Tk0">
-                                <rect key="frame" x="127" y="591" width="166" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <state key="normal" title="Set Your Location">
-                                    <color key="titleColor" red="0.95686274509803915" green="0.25098039215686274" blue="0.46274509803921571" alpha="1" colorSpace="calibratedRGB"/>
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="semibold"/>
-                                </state>
-                                <connections>
-                                    <action selector="setLocationTapped:" destination="prK-ey-o4A" eventType="touchUpInside" id="0Pw-4Z-nfG"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enter Your Location to View Gems in Your Area" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wtm-v5-IJl">
-                                <rect key="frame" x="90" y="635" width="235" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="GeoSeek" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dXh-85-b20">
-                                <rect key="frame" x="140" y="265" width="134" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wNG-fI-94Q">
+                                <rect key="frame" x="40" y="545" width="334" height="97"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1c4-t1-Tk0">
+                                        <rect key="frame" x="84" y="0.0" width="166" height="36"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <state key="normal" title="Set Your Location">
+                                            <color key="titleColor" red="0.95686274509803915" green="0.25098039215686274" blue="0.46274509803921571" alpha="1" colorSpace="calibratedRGB"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="semibold"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="setLocationTapped:" destination="prK-ey-o4A" eventType="touchUpInside" id="0Pw-4Z-nfG"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Your Location to View Gems in Your Area" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wtm-v5-IJl">
+                                        <rect key="frame" x="4.5" y="44" width="325.5" height="53"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GeoSeek" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dXh-85-b20">
+                                <rect key="frame" x="140" y="264" width="134" height="41"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.18823529411764706" green="0.21176470588235294" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="dXh-85-b20" firstAttribute="centerX" secondItem="fAR-9s-QFq" secondAttribute="centerX" id="W5i-x2-vZJ"/>
+                            <constraint firstItem="dXh-85-b20" firstAttribute="top" secondItem="ujH-2C-ks6" secondAttribute="top" constant="220" id="jPl-bi-LnF"/>
+                            <constraint firstAttribute="trailing" secondItem="wNG-fI-94Q" secondAttribute="trailing" constant="40" id="pRH-6t-1zg"/>
+                            <constraint firstItem="ujH-2C-ks6" firstAttribute="bottom" secondItem="wNG-fI-94Q" secondAttribute="bottom" constant="220" id="xPf-nR-gQV"/>
+                            <constraint firstItem="wNG-fI-94Q" firstAttribute="leading" secondItem="ujH-2C-ks6" secondAttribute="leading" constant="40" id="zJh-Bx-s6t"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ujH-2C-ks6"/>
                     </view>
                 </viewController>

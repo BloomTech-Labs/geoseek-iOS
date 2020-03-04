@@ -13,30 +13,37 @@ class LandingPageVC: UIViewController, CLLocationManagerDelegate, Storyboarded {
     
     var locationManager: CLLocationManager?
     weak var coordinator: MainCoordinator?
+    var userLocation: CLLocation?
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         locationManager = CLLocationManager()
         locationManager?.delegate = self
+
         
     }
     
 
+
     @IBAction func setLocationTapped(_ sender: Any) {
         
         locationManager?.requestAlwaysAuthorization()
-        
+
     }
 
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        
         if status == .authorizedAlways {
             if CLLocationManager.isMonitoringAvailable(for: CLBeaconRegion.self) {
                 if CLLocationManager.isRangingAvailable() {
-                    print("location:", locationManager?.monitoredRegions)
+                    userLocation = locationManager?.location
                 }
             }
         }
+        print(
+        "Location: Lat  \(userLocation?.coordinate.latitude) and Long  \(userLocation?.coordinate.longitude)")
     }
 
 }
