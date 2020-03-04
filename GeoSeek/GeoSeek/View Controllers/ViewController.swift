@@ -51,9 +51,13 @@ class ViewController: UIViewController, Storyboarded {
         }
     }
     
+    let darkBlueMap = URL(string: "mapbox://styles/geoseek/ck7b5gau8002g1ip7b81etzj4")
+    
+    
     func configureMapView() {
-        mapView.styleURL = MGLStyle.outdoorsStyleURL
-        mapView.tintColor = .darkGray
+//        mapView.styleURL = MGLStyle.outdoorsStyleURL
+        mapView.styleURL = darkBlueMap
+//        mapView.tintColor = .darkGray
         mapView.centerCoordinate = CLLocationCoordinate2D(latitude: 18, longitude: -64)
         mapView.zoomLevel = 3
         mapView.delegate = self
