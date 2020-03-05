@@ -14,7 +14,11 @@ class CustomTabBarXib: UIView, Storyboarded {
     @IBOutlet weak var addGemMapViewButton: UIButton!
     @IBOutlet weak var twoButton: UIButton!
     
-    weak var coordinator: MainCoordinator?
+    var delegate: GemsMapCoordinatorDelegate? {
+        didSet {
+            print("TAbBar.delegate", delegate)
+        }
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,6 +31,8 @@ class CustomTabBarXib: UIView, Storyboarded {
     }
     
     private func commonInit() {
+        print("CustomTabBarXib created")
+        
         let nib = UINib(nibName: "CustomTabBarXib", bundle: nil)
         nib.instantiate(withOwner: self, options: nil)
         addSubview(contentView)
@@ -37,13 +43,14 @@ class CustomTabBarXib: UIView, Storyboarded {
     
     @IBAction func addGemMapViewButtonTapped(_ sender: Any) {
 
-        coordinator?.toVCTwo()
-        print("add gem map")
+        delegate?.goToCreateGemController()//navigateToCreateGemCoordinator()//delegate?.navigateToCreateGemController()
+        print("Show add gem")
 
     }
     
     @IBAction func twoButtonTapped(_ sender: Any) {
-        coordinator?.toVCOne()
+//        coordinator?.toGemsMapViewController()
+//        coordinator?.delegate?.navigateToCreateGemController()
         print("Two Two")
     }
     

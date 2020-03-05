@@ -10,14 +10,16 @@ import UIKit
 import Mapbox
 import CoreLocation
 
-class MainCoordinator: Coordinator {
-   
+class MainCoordinator: BaseCoordinator {
+    
     
     
     var window: UIWindow
-    var childCoordinators = [Coordinator]()
+    var navigationController = UINavigationController()
+    var childCoordinators = [BaseCoordinator]()
     var navControllers: [UINavigationController] = []
     var gemController = GemController()
+    let gemsMapCoordinator: GemsMapCoordinator
     var addGemCoordinates: CLLocation? {
         didSet {
             print("hi")
@@ -29,7 +31,6 @@ class MainCoordinator: Coordinator {
     var userLocationLong: CLLocationDegrees?
     var setLocation: CLLocation?
     
-    
     init(window: UIWindow) {
         let navController1 = UINavigationController()
         let navController2 = UINavigationController()
@@ -40,6 +41,7 @@ class MainCoordinator: Coordinator {
         navControllers = [navController1, navController2, navController3, navController4/*, navControllerMap*/]
         
         self.window = window
+        self.gemsMapCoordinator = GemsMapCoordinator(window: self.window)
     }
     
     func start() {
@@ -48,48 +50,47 @@ class MainCoordinator: Coordinator {
        // mapXibView()
         toLandingPageVC()
         
+    override func start() {
+//        window.makeKeyAndVisible()
+        window.rootViewController = self.navigationController
+        toGemsMapViewController()
     }
     
-    func toVCOne() {
-        print("MainCoordinator.toVCOne: change views")
-        window.rootViewController = navControllers[0]
-        navControllers[0].isNavigationBarHidden = true
+    func toGemsMapViewController() {
         
-
-        if let vc = navControllers[0].viewControllers.first {
-            print(vc.description)
-        } else {
-            let vc = ViewController.instantiate()
-            vc.coordinator = self
-            navControllers[0].pushViewController(vc, animated: true)
-        }
-    }
-    
-    func toVCTwo() {
-        window.rootViewController = navControllers[1]
-
-        if let vc = navControllers[1].viewControllers.first {
-            print(vc.description)
-        } else {
-            let vc = SecondViewController.instantiate()
-            vc.coordinator = self
-            navControllers[1].pushViewController(vc, animated: true)
-            print("Brandi made a new View Controller")
-        }
-    }
-    
-    func mapXibView() {
-        window.rootViewController = navControllers[3]
+        // TODO add this coordinator to the array of child coordinators?
+//        childCoordinators.append(gemsMapCoordinator)
+        gemsMapCoordinator.navigationController = navigationController
+        gemsMapCoordinator.delegate = self
+        gemsMapCoordinator.start()
     }
     
     func presentGSMapViewControllerOnMainThread() {
-        DispatchQueue.main.async {
-            let mapVC = GSMapViewController()
-            mapVC.coordinator = self
-            mapVC.modalPresentationStyle = .overFullScreen
-            mapVC.modalTransitionStyle = .coverVertical
-            self.navControllers[1].present(mapVC, animated: true)
-        }
+        
+    }
+}
+
+extension MainCoordinator: GemsMapCoordinatorDelegate {
+    func goToCreateGemController() {
+        let createGemCoordinator = CreateGemCoordinator() //CreateGemCoordinator(window: window)
+        createGemCoordinator.navigationController = navigationController
+        createGemCoordinator.delegate = self
+        createGemCoordinator.start()
+    }
+}
+
+extension MainCoordinator: CreateGemCoordinatorDelegate {
+    
+    func presentChooseLocationVC() {
+//        let chooseLocationCoordinator = ChooseLocationCoordinator(window: window)
+//        chooseLocationCoordinator.start()
+    }
+    
+    func presentGemsMap() {
+        print("Delegate here")
+//        toGemsMapViewController()
+//        gemsMapCoordinator.start()
+        navigationController.topViewController?.dismiss(animated: true)
     }
     
     func toLandingPageVC() {

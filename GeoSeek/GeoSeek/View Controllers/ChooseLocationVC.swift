@@ -9,12 +9,12 @@
 import Mapbox
 import UIKit
 
-class GSMapViewController: UIViewController {
+class ChooseLocationVC: UIViewController {
     let containerView = MGLMapView() // This should come in from the coordinator
     let locationManager = CLLocationManager() // This should come in from the coordinator
     let doneButton = UIButton() // TODO: Make a custom button that we use throughout the app
     let titleLabel = UILabel() // TODO: Make a custom label that we use throughout the app, this label can take a String and assign it's text property, then none of the configuration would need to be done here except for the constraints.
-    weak var coordinator: MainCoordinator?
+    weak var coordinator: BaseCoordinator?
     
     var pressedLocation:CLLocation? = nil {
         didSet{
@@ -32,7 +32,7 @@ class GSMapViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.6)
+        view.backgroundColor = UIColor.clear // (red: 0, green: 0, blue: 0, alpha: 0.6)
         configureContainerView()
         configureDoneButton()
         configureTitleLabel()
@@ -51,10 +51,10 @@ class GSMapViewController: UIViewController {
             pressedLocation = CLLocation(latitude: coordsFromTouchPoint.latitude, longitude: coordsFromTouchPoint.longitude)
             
             //NOTE: This tries to set the coordinators addGemCoordinate as these coordinates
-            coordinator?.addGemCoordinates = pressedLocation
+//            coordinator?.gemCoordinates = pressedLocation
             
-            coordinator?.addGemLat = pressedLocation?.coordinate.latitude
-            coordinator?.addGemLong = pressedLocation?.coordinate.longitude
+            coordinator?.gemLat = pressedLocation?.coordinate.latitude
+            coordinator?.gemLong = pressedLocation?.coordinate.longitude
             
             // myWaypoints.append(location)
             print("Location:", coordsFromTouchPoint.latitude, coordsFromTouchPoint.longitude)
@@ -146,5 +146,5 @@ class GSMapViewController: UIViewController {
         dismiss(animated: true)
     }
 }
-extension GSMapViewController: CLLocationManagerDelegate {
+extension ChooseLocationVC: CLLocationManagerDelegate {
 }
