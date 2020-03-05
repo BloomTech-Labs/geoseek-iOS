@@ -34,7 +34,9 @@ class ViewController: UIViewController, Storyboarded {
 
         customTabBarXib.coordinator = coordinator
 //        mapView.setCenter(CLLocationCoordinate2D(latitude: 33.812794, longitude: -117.9190981), zoomLevel: 15, animated: false)
-        fetchGems()
+//        fetchGems()
+        print("Location from coordinator:", coordinator?.setLocation)
+        configureMapView()
     }
     
     func fetchGems() {
@@ -55,14 +57,18 @@ class ViewController: UIViewController, Storyboarded {
     
     
     func configureMapView() {
-//        mapView.styleURL = MGLStyle.outdoorsStyleURL
+        let userCurrentLat = coordinator?.userLocationLat
+        let userCurrentLong = coordinator?.userLocationLong
         mapView.styleURL = darkBlueMap
-//        mapView.tintColor = .darkGray
-        mapView.setCenter(CLLocationCoordinate2D(latitude: 33.812794, longitude: -117.9190981), zoomLevel: 15, animated: false)
-//        mapView.zoomLevel = 3
+        mapView.setCenter(CLLocationCoordinate2D(latitude: userCurrentLat!, longitude: userCurrentLong!), zoomLevel: 15, animated: false)
         mapView.delegate = self
         
         var pointAnnotations: [MGLPointAnnotation] = []
+
+        let userPoint = MGLPointAnnotation()
+        userPoint.coordinate = CLLocationCoordinate2D(latitude: userCurrentLat!, longitude: userCurrentLong!)
+        pointAnnotations.append(userPoint)
+        
         for gem in gems {
             if gem.latitude > 90 || gem.latitude < -90 || gem.longitude > 180 || gem.longitude < -180 {
                 print(gem.description)

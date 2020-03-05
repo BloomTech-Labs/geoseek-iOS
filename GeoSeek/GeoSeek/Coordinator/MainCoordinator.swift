@@ -8,6 +8,7 @@
 
 import UIKit
 import Mapbox
+import CoreLocation
 
 class MainCoordinator: Coordinator {
    
@@ -24,6 +25,9 @@ class MainCoordinator: Coordinator {
     }
     var addGemLat: Double?
     var addGemLong: Double?
+    var userLocationLat: CLLocationDegrees?
+    var userLocationLong: CLLocationDegrees?
+    var setLocation: CLLocation?
     
     
     init(window: UIWindow) {
