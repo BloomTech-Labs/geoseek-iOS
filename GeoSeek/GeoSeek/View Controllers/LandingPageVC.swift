@@ -9,20 +9,22 @@
 import UIKit
 import CoreLocation
 
+protocol UserLocationDelegate {
+    var userLocation: CLLocationCoordinate2D? { get set }
+}
+
 class LandingPageVC: UIViewController, CLLocationManagerDelegate, Storyboarded {
     
     var locationManager: CLLocationManager?
-    weak var coordinator: BaseCoordinator?
+    var coordinator: MainCoordinator?
     var userLocation: CLLocation?
+    
+    var delegate: UserLocationDelegate?
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        locationManager = CLLocationManager()
         locationManager?.delegate = self
-
-        
     }
     
 
@@ -30,23 +32,24 @@ class LandingPageVC: UIViewController, CLLocationManagerDelegate, Storyboarded {
     @IBAction func setLocationTapped(_ sender: Any) {
         
         locationManager?.requestAlwaysAuthorization()
-
     }
 
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        
-        if status == .authorizedAlways {
+        print(status.rawValue)
+        userLocation = locationManager?.location
+        delegate?.userLocation = userLocation?.coordinate
+        //                    coordinator?.userLocationLat = userLocation?.coordinate.latitude
+        //                    coordinator?.userLocationLong = userLocation?.coordinate.longitude
+        coordinator?.toGemsMapViewController()
+        if Int(status.rawValue) == 3 || Int(status.rawValue) == 4 {
             if CLLocationManager.isMonitoringAvailable(for: CLBeaconRegion.self) {
                 if CLLocationManager.isRangingAvailable() {
-                    userLocation = locationManager?.location
-                    coordinator?.userLocationLat = userLocation?.coordinate.latitude
-                    coordinator?.userLocationLong = userLocation?.coordinate.longitude
-                    coordinator?.toVCOne()
+                    
                 }
             }
         }
         print(
-        "Location: Lat \(userLocation?.coordinate.latitude) and Long \(userLocation?.coordinate.longitude)")
+            "Location BB: Lat \(String(describing: userLocation?.coordinate.latitude)) and Long \(String(describing: userLocation?.coordinate.longitude))")
+        
     }
-
 }

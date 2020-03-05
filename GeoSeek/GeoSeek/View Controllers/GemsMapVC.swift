@@ -19,6 +19,8 @@ class GemsMapVC: UIViewController, Storyboarded {
     var delegate: GemsMapCoordinatorDelegate?
     var gems: [Gem] = []
     
+    var userLocation: CLLocationCoordinate2D?
+    
     var pressedLocation:CLLocation? = nil {
         didSet{
             //                continueButton.isEnabled = true
@@ -32,7 +34,7 @@ class GemsMapVC: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         guard let coordinator = coordinator else {
             print("No coordinator!!!")
             return
@@ -40,12 +42,12 @@ class GemsMapVC: UIViewController, Storyboarded {
         print("GemsMapVC coordinator:", coordinator)
         customTabBarXib.delegate = delegate
         
-        mapView.setCenter(CLLocationCoordinate2D(latitude: 33.812794, longitude: -117.9190981), zoomLevel: 15, animated: false)
+        //        mapView.setCenter(CLLocationCoordinate2D(latitude: 33.812794, longitude: -117.9190981), zoomLevel: 15, animated: false)
         configureMapView()
-//        customTabBarXib.coordinator = coordinator
-//        mapView.setCenter(CLLocationCoordinate2D(latitude: 33.812794, longitude: -117.9190981), zoomLevel: 15, animated: false)
-//        fetchGems()
-//        print("Location from coordinator:", coordinator.setLocation)
+        //        customTabBarXib.coordinator = coordinator
+        //        mapView.setCenter(CLLocationCoordinate2D(latitude: 33.812794, longitude: -117.9190981), zoomLevel: 15, animated: false)
+        //        fetchGems()
+        //        print("Location from coordinator:", coordinator.setLocation)
         fetchGems()
     }
     
@@ -67,18 +69,23 @@ class GemsMapVC: UIViewController, Storyboarded {
     
     
     func configureMapView() {
-        let userCurrentLat = coordinator?.userLocationLat
-        let userCurrentLong = coordinator?.userLocationLong
-        mapView.styleURL = darkBlueMap
-        mapView.setCenter(CLLocationCoordinate2D(latitude: userCurrentLat!, longitude: userCurrentLong!), zoomLevel: 15, animated: false)
-//        mapView.setCenter(CLLocationCoordinate2D(latitude: 33.812794, longitude: -117.9190981), zoomLevel: 15, animated: false)
-        mapView.delegate = self
         
         var pointAnnotations: [MGLPointAnnotation] = []
-
-//        let userPoint = MGLPointAnnotation()
-//        userPoint.coordinate = CLLocationCoordinate2D(latitude: userCurrentLat!, longitude: userCurrentLong!)
-//        pointAnnotations.append(userPoint)
+        
+        let userPoint = MGLPointAnnotation()
+        userPoint.coordinate = CLLocationCoordinate2D(latitude: userLocation!.latitude, longitude: userLocation!.longitude)
+        pointAnnotations.append(userPoint)
+        
+        if let userLocation = userLocation {
+            mapView.setCenter(userLocation, zoomLevel: 15, animated: false)
+        } else {
+            mapView.setCenter(CLLocationCoordinate2D(latitude: 33.812794, longitude: -117.9190981), zoomLevel: 15, animated: false)
+        }
+        
+        mapView.styleURL = darkBlueMap
+        mapView.delegate = self
+        
+        
         
         for gem in gems {
             print(gem.title ?? "No Title", gem.latitude, gem.longitude)

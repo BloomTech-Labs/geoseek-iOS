@@ -19,16 +19,12 @@ class BaseCoordinator {
 //    init(id: String) { // here
 //        self.id = id
 //    }
-    var userLocationLat: CLLocationDegrees?
-    var userLocationLong: CLLocationDegrees?
-    var setLocation: CLLocation?
+//    var userLocationLat: CLLocationDegrees?
+//    var userLocationLong: CLLocationDegrees?
+//    var setLocation: CLLocation?
     
     func start() {
         preconditionFailure("A subclass must override start()")
-    }
-    
-    func toVCOne() {
-        
     }
     
 }

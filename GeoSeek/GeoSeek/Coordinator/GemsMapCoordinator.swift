@@ -22,6 +22,7 @@ class GemsMapCoordinator: BaseCoordinator {
 //    var userLocationLat: CLLocationDegrees?
 //    var userLocationLong: CLLocationDegrees?
 //    var setLocation: CLLocation?
+    var userLocation: CLLocationCoordinate2D?
     
 
 
@@ -30,23 +31,18 @@ class GemsMapCoordinator: BaseCoordinator {
     init(window: UIWindow) {
         self.window = window
         super.init()
-        
-        let tempLocation = CLLocationCoordinate2D(latitude: 33.812794, longitude: -117.9190981)
-        self.userLocationLat = tempLocation.latitude
-        self.userLocationLong = tempLocation.longitude
-    
     }
     
     override func start() {
-        print("MainCoordinator.toVCOne: change views")
-        
         let viewController = GemsMapVC.instantiate()
 //        navigationController = UINavigationController()
         viewController.coordinator = self
         viewController.delegate = delegate
 //        window.rootViewController = navigationController
+        viewController.userLocation = userLocation
         navigationController?.isNavigationBarHidden = true
-        
+        navigationController?.setViewControllers([viewController], animated: true)
+//        navigationController?.pushViewController(viewController, animated: true)
         
         if let vc = navigationController?.viewControllers.first {
             print(vc.description)

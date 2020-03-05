@@ -12,8 +12,6 @@ import CoreLocation
 
 class MainCoordinator: BaseCoordinator {
     
-    
-    
     var window: UIWindow
     var navigationController = UINavigationController()
     var childCoordinators = [BaseCoordinator]()
@@ -27,15 +25,19 @@ class MainCoordinator: BaseCoordinator {
     }
     var addGemLat: Double?
     var addGemLong: Double?
-    var locationManager = CLLocationManager()
-
+    
+    let locationManager = CLLocationManager()
+    weak var coordinator: BaseCoordinator?
+    //    var userLocation: CLLocation?
+    var currentUserLocation: CLLocationCoordinate2D?
+    
     
     init(window: UIWindow) {
         let navController1 = UINavigationController()
         let navController2 = UINavigationController()
         let navController3 = UINavigationController()
         let navController4 = UINavigationController()
-//        let navControllerMap = UINavigationController()
+        //        let navControllerMap = UINavigationController()
         
         navControllers = [navController1, navController2, navController3, navController4/*, navControllerMap*/]
         
@@ -47,26 +49,42 @@ class MainCoordinator: BaseCoordinator {
         window.makeKeyAndVisible()
         
         window.rootViewController = self.navigationController
-        toGemsMapViewController()
-//        if CLLocationManager.authorizationStatus() != .authorizedAlways {
-//            toLandingPageVC()
-//        } else {
-//            window.rootViewController = self.navigationController
-//            toGemsMapViewController()
-//        }
+        //        toGemsMapViewController()
+        toLandingPageVC()
     }
     
     func toGemsMapViewController() {
         
         // TODO add this coordinator to the array of child coordinators?
-//        childCoordinators.append(gemsMapCoordinator)
+        //        childCoordinators.append(gemsMapCoordinator)
+//        navigationController.setViewControllers([], animated: true)
         gemsMapCoordinator.navigationController = navigationController
         gemsMapCoordinator.delegate = self
+        gemsMapCoordinator.userLocation = userLocation
         gemsMapCoordinator.start()
     }
     
     func presentGSMapViewControllerOnMainThread() {
         
+    }
+    
+    func toLandingPageVC() {
+        let vc = LandingPageVC.instantiate()
+        vc.locationManager = locationManager
+        vc.coordinator = self
+        vc.delegate = self
+        navigationController.pushViewController(vc, animated: true)
+        print("Brandi made a LandingPageVC")
+        //        if let vc = navigationController.viewControllers.first {
+        //            print(vc.description)
+        //        } else {
+        //            let vc = LandingPageVC.instantiate()
+        //            vc.locationManager = locationManager
+        //            vc.coordinator = self
+        //            vc.delegate = self
+        //            navigationController.pushViewController(vc, animated: true)
+        //            print("Brandi made a LandingPageVC")
+        //        }
     }
 }
 
@@ -82,28 +100,27 @@ extension MainCoordinator: GemsMapCoordinatorDelegate {
 extension MainCoordinator: CreateGemCoordinatorDelegate {
     
     func presentChooseLocationVC() {
-//        let chooseLocationCoordinator = ChooseLocationCoordinator(window: window)
-//        chooseLocationCoordinator.start()
+        //        let chooseLocationCoordinator = ChooseLocationCoordinator(window: window)
+        //        chooseLocationCoordinator.start()
     }
     
     func presentGemsMap() {
         print("Delegate here")
-//        toGemsMapViewController()
-//        gemsMapCoordinator.start()
+        //        toGemsMapViewController()
+        //        gemsMapCoordinator.start()
         navigationController.topViewController?.dismiss(animated: true)
     }
-    
-    func toLandingPageVC() {
-        window.rootViewController = navControllers[2]
+}
 
-        if let vc = navControllers[2].viewControllers.first {
-            print(vc.description)
-        } else {
-            let vc = LandingPageVC.instantiate()
-            vc.coordinator = self
-            navControllers[2].pushViewController(vc, animated: true)
-            print("Brandi made a LandingPageVC")
+extension MainCoordinator: UserLocationDelegate {
+    var userLocation: CLLocationCoordinate2D? {
+        get {
+            currentUserLocation
+        }
+        set {
+            currentUserLocation = newValue
         }
     }
-
+    
+    
 }
