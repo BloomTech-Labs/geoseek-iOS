@@ -16,6 +16,7 @@ class GemsMapVC: UIViewController, Storyboarded {
     
     
     var coordinator: GemsMapCoordinator?
+    var delegate: GemsMapCoordinatorDelegate?
     var gems: [Gem] = []
     
     var pressedLocation:CLLocation? = nil {
@@ -37,7 +38,8 @@ class GemsMapVC: UIViewController, Storyboarded {
             return
         }
         print("GemsMapVC coordinator:", coordinator)
-        customTabBarXib.coordinator = coordinator
+        customTabBarXib.delegate = delegate
+        
         mapView.setCenter(CLLocationCoordinate2D(latitude: 33.812794, longitude: -117.9190981), zoomLevel: 15, animated: false)
         configureMapView()
         fetchGems()

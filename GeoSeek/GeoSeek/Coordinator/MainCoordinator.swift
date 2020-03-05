@@ -39,12 +39,13 @@ class MainCoordinator: BaseCoordinator {
     
     override func start() {
 //        window.makeKeyAndVisible()
+        window.rootViewController = self.navigationController
         toGemsMapViewController()
     }
     
     func toGemsMapViewController() {
         
-        // TODO add this coordinator to the array of child coordinators
+        // TODO add this coordinator to the array of child coordinators?
 //        childCoordinators.append(gemsMapCoordinator)
         gemsMapCoordinator.navigationController = navigationController
         gemsMapCoordinator.delegate = self

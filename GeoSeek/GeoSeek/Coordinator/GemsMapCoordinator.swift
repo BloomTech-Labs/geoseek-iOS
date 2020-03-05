@@ -10,7 +10,7 @@
 
 import UIKit
 
-protocol GemsMapCoordinatorDelegate {
+protocol GemsMapCoordinatorDelegate: class {
     func goToCreateGemController()
 }
 
@@ -28,10 +28,11 @@ class GemsMapCoordinator: BaseCoordinator {
     override func start() {
         print("MainCoordinator.toVCOne: change views")
         
-        var viewController = GemsMapVC.instantiate()
+        let viewController = GemsMapVC.instantiate()
 //        navigationController = UINavigationController()
         viewController.coordinator = self
-        window.rootViewController = navigationController
+        viewController.delegate = delegate
+//        window.rootViewController = navigationController
         navigationController?.isNavigationBarHidden = true
         
         
@@ -40,12 +41,13 @@ class GemsMapCoordinator: BaseCoordinator {
         } else {
             let vc = GemsMapVC.instantiate()
             vc.coordinator = self
+            vc.delegate = delegate
             navigationController?.pushViewController(vc, animated: true)
         }
     }
     
     func navigateToCreateGemCoordinator() {
-        print("GemsMapCoordinator")
-        delegate?.goToCreateGemController()
+//        print("GemsMapCoordinator")
+//        delegate?.goToCreateGemController()
     }
 }

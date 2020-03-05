@@ -36,6 +36,7 @@ class CreateGemCoordinator: BaseCoordinator {
         
         let vc = CreateGemVC.instantiate()
         vc.coordinator = self
+        vc.delegate = self
         navigationController?.pushViewController(vc, animated: true)
 //
 //        if let vc = navigationController?.viewControllers.first {
@@ -50,19 +51,19 @@ class CreateGemCoordinator: BaseCoordinator {
     }
     
     func presentGSMapViewControllerOnMainThread() {
-        print("This should present", delegate)
-        DispatchQueue.main.async {
-            let mapVC = ChooseLocationVC()
-            mapVC.coordinator = self
-            mapVC.modalPresentationStyle = .overFullScreen
-            mapVC.modalTransitionStyle = .coverVertical
-            self.navigationController?.present(mapVC, animated: true)
+//        print("This should present", delegate)
+//        DispatchQueue.main.async {
+//            let mapVC = ChooseLocationVC()
+//            mapVC.coordinator = self
+//            mapVC.modalPresentationStyle = .overFullScreen
+//            mapVC.modalTransitionStyle = .coverVertical
+//            self.navigationController?.present(mapVC, animated: true)
             //            self.navControllers[1].present(mapVC, animated: true)
         }
         //        delegate?.presentChooseLocationVC()
         //        let chooseLocationCoordinator = ChooseLocationCoordinator(window: window)
         //        chooseLocationCoordinator.start()
-    }
+//    }
     
     func toGemsMapViewController() {
         
@@ -71,3 +72,12 @@ class CreateGemCoordinator: BaseCoordinator {
     }
 }
 
+extension CreateGemCoordinator: CreateGemDelegate {
+    func getLocation() {
+        let mapVC = ChooseLocationVC()
+        mapVC.coordinator = self
+        mapVC.modalPresentationStyle = .overFullScreen
+        mapVC.modalTransitionStyle = .coverVertical
+        self.navigationController?.present(mapVC, animated: true)
+    }
+}

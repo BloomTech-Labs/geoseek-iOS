@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol CreateGemDelegate {
+    func getLocation()
+}
+
 class CreateGemVC: UIViewController, Storyboarded {
     
     @IBOutlet weak var headerLabel: UILabel!
@@ -25,18 +29,12 @@ class CreateGemVC: UIViewController, Storyboarded {
     //Note: Do we want a "tab bar" here at all?
     @IBOutlet weak var customTabBarXib: CustomTabBarXib!
     
-    var coordinator: CreateGemCoordinator?
-    
+    var coordinator: BaseCoordinator?
+    var delegate: CreateGemDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("SecondVeiwController.viewDidLoad")
-//        customTabBarXib.coordinator = coordinator
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        //        navigationController?.setToolbarHidden(true, animated: false)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -48,7 +46,7 @@ class CreateGemVC: UIViewController, Storyboarded {
 
     @IBAction func locationButtonTapped(_ sender: Any) {
 //        print("do something", coordinator)
-        coordinator?.presentGSMapViewControllerOnMainThread()
+        delegate?.getLocation()
     }
     
     @IBAction func cancelButtonTapped(_ sender: Any) {

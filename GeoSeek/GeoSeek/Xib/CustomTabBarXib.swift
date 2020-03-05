@@ -14,9 +14,9 @@ class CustomTabBarXib: UIView, Storyboarded {
     @IBOutlet weak var addGemMapViewButton: UIButton!
     @IBOutlet weak var twoButton: UIButton!
     
-    weak var coordinator: GemsMapCoordinator? {
+    var delegate: GemsMapCoordinatorDelegate? {
         didSet {
-            print("CustomTabBarXib.coordinator", coordinator)
+            print("TAbBar.delegate", delegate)
         }
     }
 
@@ -43,8 +43,8 @@ class CustomTabBarXib: UIView, Storyboarded {
     
     @IBAction func addGemMapViewButtonTapped(_ sender: Any) {
 
-        coordinator?.navigateToCreateGemCoordinator()//delegate?.navigateToCreateGemController()
-        print("add gem map", coordinator)
+        delegate?.goToCreateGemController()//navigateToCreateGemCoordinator()//delegate?.navigateToCreateGemController()
+        print("Show add gem")
 
     }
     
