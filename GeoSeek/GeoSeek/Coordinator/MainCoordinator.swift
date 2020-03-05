@@ -8,6 +8,7 @@
 
 import UIKit
 import Mapbox
+import CoreLocation
 
 class MainCoordinator: BaseCoordinator {
     
@@ -24,19 +25,31 @@ class MainCoordinator: BaseCoordinator {
             print("hi")
         }
     }
+    var addGemLat: Double?
+    var addGemLong: Double?
+    var userLocationLat: CLLocationDegrees?
+    var userLocationLong: CLLocationDegrees?
+    var setLocation: CLLocation?
     
     init(window: UIWindow) {
         let navController1 = UINavigationController()
         let navController2 = UINavigationController()
         let navController3 = UINavigationController()
-        //        let navControllerMap = UINavigationController()
+        let navController4 = UINavigationController()
+//        let navControllerMap = UINavigationController()
         
-        navControllers = [navController1, navController2, navController3/*, navControllerMap*/]
+        navControllers = [navController1, navController2, navController3, navController4/*, navControllerMap*/]
         
         self.window = window
         self.gemsMapCoordinator = GemsMapCoordinator(window: self.window)
     }
     
+    func start() {
+        window.makeKeyAndVisible()
+//        toVCOne()
+       // mapXibView()
+        toLandingPageVC()
+        
     override func start() {
 //        window.makeKeyAndVisible()
         window.rootViewController = self.navigationController
@@ -80,4 +93,17 @@ extension MainCoordinator: CreateGemCoordinatorDelegate {
         navigationController.topViewController?.dismiss(animated: true)
     }
     
+    func toLandingPageVC() {
+        window.rootViewController = navControllers[2]
+
+        if let vc = navControllers[2].viewControllers.first {
+            print(vc.description)
+        } else {
+            let vc = LandingPageVC.instantiate()
+            vc.coordinator = self
+            navControllers[2].pushViewController(vc, animated: true)
+            print("Brandi made a LandingPageVC")
+        }
+    }
+
 }
