@@ -28,7 +28,6 @@ class CreateGemCoordinator: BaseCoordinator {
 //    }
     
     override func start() {
-        print("MainCoordinator.toVCOne: change views")
         
 //        navigationController = UINavigationController()
 //        window.rootViewController = navigationController

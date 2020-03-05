@@ -190,41 +190,41 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wNG-fI-94Q">
-                                <rect key="frame" x="40" y="545" width="334" height="97"/>
+                                <rect key="frame" x="20" y="44" width="394" height="372"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1c4-t1-Tk0">
-                                        <rect key="frame" x="84" y="0.0" width="166" height="36"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                        <state key="normal" title="Set Your Location">
-                                            <color key="titleColor" red="0.95686274509803915" green="0.25098039215686274" blue="0.46274509803921571" alpha="1" colorSpace="calibratedRGB"/>
-                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="semibold"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="setLocationTapped:" destination="prK-ey-o4A" eventType="touchUpInside" id="0Pw-4Z-nfG"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Your Location to View Gems in Your Area" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wtm-v5-IJl">
-                                        <rect key="frame" x="4.5" y="44" width="325.5" height="53"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="landingscreenimage" translatesAutoresizingMaskIntoConstraints="NO" id="26q-Mx-YbI">
+                                        <rect key="frame" x="103.5" y="0.0" width="187.5" height="267"/>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gAd-J5-0AU">
+                                        <rect key="frame" x="23.5" y="275" width="347.5" height="97"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1c4-t1-Tk0">
+                                                <rect key="frame" x="90.5" y="0.0" width="166" height="36"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                <state key="normal" title="Set Your Location">
+                                                    <color key="titleColor" red="0.95686274509803915" green="0.25098039215686274" blue="0.46274509803921571" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="semibold"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="setLocationTapped:" destination="prK-ey-o4A" eventType="touchUpInside" id="0Pw-4Z-nfG"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Your Location to View Gems in Your Area" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wtm-v5-IJl">
+                                                <rect key="frame" x="0.0" y="44" width="347.5" height="53"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GeoSeek" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dXh-85-b20">
-                                <rect key="frame" x="140" y="264" width="134" height="41"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.18823529411764706" green="0.21176470588235294" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="dXh-85-b20" firstAttribute="centerX" secondItem="fAR-9s-QFq" secondAttribute="centerX" id="W5i-x2-vZJ"/>
-                            <constraint firstItem="dXh-85-b20" firstAttribute="top" secondItem="ujH-2C-ks6" secondAttribute="top" constant="220" id="jPl-bi-LnF"/>
-                            <constraint firstAttribute="trailing" secondItem="wNG-fI-94Q" secondAttribute="trailing" constant="40" id="pRH-6t-1zg"/>
-                            <constraint firstItem="ujH-2C-ks6" firstAttribute="bottom" secondItem="wNG-fI-94Q" secondAttribute="bottom" constant="220" id="xPf-nR-gQV"/>
-                            <constraint firstItem="wNG-fI-94Q" firstAttribute="leading" secondItem="ujH-2C-ks6" secondAttribute="leading" constant="40" id="zJh-Bx-s6t"/>
+                            <constraint firstAttribute="trailing" secondItem="wNG-fI-94Q" secondAttribute="trailing" id="CJB-rs-KEK"/>
+                            <constraint firstItem="wNG-fI-94Q" firstAttribute="top" secondItem="ujH-2C-ks6" secondAttribute="top" id="nm0-JO-2tq"/>
+                            <constraint firstItem="wNG-fI-94Q" firstAttribute="leading" secondItem="fAR-9s-QFq" secondAttribute="leading" constant="20" symbolic="YES" id="wWV-Cg-xLa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ujH-2C-ks6"/>
                     </view>
@@ -234,4 +234,7 @@
             <point key="canvasLocation" x="1971.0144927536232" y="126.5625"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="landingscreenimage" width="187.5" height="267"/>
+    </resources>
 </document>
