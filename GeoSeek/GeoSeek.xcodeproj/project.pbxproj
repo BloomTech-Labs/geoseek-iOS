@@ -9,14 +9,14 @@
 /* Begin PBXBuildFile section */
 		1C4BCDA92409B37E00EDF681 /* CustomTabBarXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C4BCDA82409B37E00EDF681 /* CustomTabBarXib.xib */; };
 		1C4BCDAE2409B67000EDF681 /* CustomTabBarXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4BCDAD2409B67000EDF681 /* CustomTabBarXib.swift */; };
-		1C4BCDB02409C9CE00EDF681 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4BCDAF2409C9CE00EDF681 /* SecondViewController.swift */; };
+		1C4BCDB02409C9CE00EDF681 /* CreateGemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4BCDAF2409C9CE00EDF681 /* CreateGemVC.swift */; };
 		1C4BCDB22409D6EF00EDF681 /* MapXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C4BCDB12409D6EF00EDF681 /* MapXib.xib */; };
 		1C4BCDB42409D70900EDF681 /* MapXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4BCDB32409D70900EDF681 /* MapXib.swift */; };
-		1C4BCDB8240ED89E00EDF681 /* GSMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4BCDB7240ED89D00EDF681 /* GSMapViewController.swift */; };
+		1C4BCDB8240ED89E00EDF681 /* ChooseLocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4BCDB7240ED89D00EDF681 /* ChooseLocationVC.swift */; };
 		492590FD7FB81556E40F8502 /* Pods_GeoSeek.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EBF778F07D57AF029E0F771 /* Pods_GeoSeek.framework */; };
 		85087D9F23FF463900DD9D1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85087D9E23FF463900DD9D1B /* AppDelegate.swift */; };
 		85087DA123FF463900DD9D1B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85087DA023FF463900DD9D1B /* SceneDelegate.swift */; };
-		85087DA323FF463900DD9D1B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85087DA223FF463900DD9D1B /* ViewController.swift */; };
+		85087DA323FF463900DD9D1B /* GemsMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85087DA223FF463900DD9D1B /* GemsMapVC.swift */; };
 		85087DA623FF463900DD9D1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85087DA423FF463900DD9D1B /* Main.storyboard */; };
 		85087DA823FF463A00DD9D1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85087DA723FF463A00DD9D1B /* Assets.xcassets */; };
 		85087DAB23FF463A00DD9D1B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85087DA923FF463A00DD9D1B /* LaunchScreen.storyboard */; };
@@ -34,22 +34,26 @@
 		853F8C612405987200BF7B4D /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F8C602405987200BF7B4D /* Storyboarded.swift */; };
 		C01EF3132405F1EE0094CEAB /* NetworkingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01EF3122405F1EE0094CEAB /* NetworkingController.swift */; };
 		C01EF34B240D86B20094CEAB /* CustomAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01EF34A240D86B20094CEAB /* CustomAnnotationView.swift */; };
+		C01EF35724105CCB0094CEAB /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01EF35624105CCB0094CEAB /* BaseCoordinator.swift */; };
+		C01EF35924105E6B0094CEAB /* GemsMapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01EF35824105E6B0094CEAB /* GemsMapCoordinator.swift */; };
+		C01EF35B241063490094CEAB /* CreteGemCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01EF35A241063490094CEAB /* CreteGemCoordinator.swift */; };
+		C01EF35D241065570094CEAB /* ChooseLocationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01EF35C241065570094CEAB /* ChooseLocationCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		06D5F6992FD36056488BBE80 /* Pods-GeoSeek.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoSeek.debug.xcconfig"; path = "Target Support Files/Pods-GeoSeek/Pods-GeoSeek.debug.xcconfig"; sourceTree = "<group>"; };
 		1C4BCDA82409B37E00EDF681 /* CustomTabBarXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTabBarXib.xib; sourceTree = "<group>"; };
 		1C4BCDAD2409B67000EDF681 /* CustomTabBarXib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarXib.swift; sourceTree = "<group>"; };
-		1C4BCDAF2409C9CE00EDF681 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		1C4BCDAF2409C9CE00EDF681 /* CreateGemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGemVC.swift; sourceTree = "<group>"; };
 		1C4BCDB12409D6EF00EDF681 /* MapXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapXib.xib; sourceTree = "<group>"; };
 		1C4BCDB32409D70900EDF681 /* MapXib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapXib.swift; sourceTree = "<group>"; };
-		1C4BCDB7240ED89D00EDF681 /* GSMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSMapViewController.swift; sourceTree = "<group>"; };
+		1C4BCDB7240ED89D00EDF681 /* ChooseLocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLocationVC.swift; sourceTree = "<group>"; };
 		58F779FF21069148145470A3 /* Pods-GeoSeek.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoSeek.release.xcconfig"; path = "Target Support Files/Pods-GeoSeek/Pods-GeoSeek.release.xcconfig"; sourceTree = "<group>"; };
 		5EBF778F07D57AF029E0F771 /* Pods_GeoSeek.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeoSeek.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		85087D9B23FF463900DD9D1B /* GeoSeek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeoSeek.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85087D9E23FF463900DD9D1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85087DA023FF463900DD9D1B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		85087DA223FF463900DD9D1B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		85087DA223FF463900DD9D1B /* GemsMapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GemsMapVC.swift; sourceTree = "<group>"; };
 		85087DA523FF463900DD9D1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		85087DA723FF463A00DD9D1B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		85087DAA23FF463A00DD9D1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -70,6 +74,10 @@
 		853F8C602405987200BF7B4D /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		C01EF3122405F1EE0094CEAB /* NetworkingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingController.swift; sourceTree = "<group>"; };
 		C01EF34A240D86B20094CEAB /* CustomAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotationView.swift; sourceTree = "<group>"; };
+		C01EF35624105CCB0094CEAB /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
+		C01EF35824105E6B0094CEAB /* GemsMapCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GemsMapCoordinator.swift; sourceTree = "<group>"; };
+		C01EF35A241063490094CEAB /* CreteGemCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreteGemCoordinator.swift; sourceTree = "<group>"; };
+		C01EF35C241065570094CEAB /* ChooseLocationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLocationCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,9 +175,9 @@
 		851D55682405C92D001CB19E /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				85087DA223FF463900DD9D1B /* ViewController.swift */,
-				1C4BCDAF2409C9CE00EDF681 /* SecondViewController.swift */,
-				1C4BCDB7240ED89D00EDF681 /* GSMapViewController.swift */,
+				85087DA223FF463900DD9D1B /* GemsMapVC.swift */,
+				1C4BCDAF2409C9CE00EDF681 /* CreateGemVC.swift */,
+				1C4BCDB7240ED89D00EDF681 /* ChooseLocationVC.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -187,8 +195,12 @@
 			isa = PBXGroup;
 			children = (
 				853F8C5C240597C700BF7B4D /* Coordinator.swift */,
+				C01EF35624105CCB0094CEAB /* BaseCoordinator.swift */,
 				853F8C602405987200BF7B4D /* Storyboarded.swift */,
 				853F8C5E240597F200BF7B4D /* MainCoordinator.swift */,
+				C01EF35824105E6B0094CEAB /* GemsMapCoordinator.swift */,
+				C01EF35A241063490094CEAB /* CreteGemCoordinator.swift */,
+				C01EF35C241065570094CEAB /* ChooseLocationCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -357,20 +369,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C4BCDB8240ED89E00EDF681 /* GSMapViewController.swift in Sources */,
+				1C4BCDB8240ED89E00EDF681 /* ChooseLocationVC.swift in Sources */,
 				85087E042400887B00DD9D1B /* UserController.swift in Sources */,
-				1C4BCDB02409C9CE00EDF681 /* SecondViewController.swift in Sources */,
+				1C4BCDB02409C9CE00EDF681 /* CreateGemVC.swift in Sources */,
 				851D556D2405EF0D001CB19E /* UserRepresentation.swift in Sources */,
+				C01EF35B241063490094CEAB /* CreteGemCoordinator.swift in Sources */,
 				85087E02240087B900DD9D1B /* User+Convenience.swift in Sources */,
 				85087DB623FF50E400DD9D1B /* GeoSeek.xcdatamodeld in Sources */,
 				853F8C5D240597C700BF7B4D /* Coordinator.swift in Sources */,
-				85087DA323FF463900DD9D1B /* ViewController.swift in Sources */,
+				C01EF35D241065570094CEAB /* ChooseLocationCoordinator.swift in Sources */,
+				85087DA323FF463900DD9D1B /* GemsMapVC.swift in Sources */,
 				85087DFE2400862400DD9D1B /* GemController.swift in Sources */,
+				C01EF35924105E6B0094CEAB /* GemsMapCoordinator.swift in Sources */,
 				85087D9F23FF463900DD9D1B /* AppDelegate.swift in Sources */,
 				C01EF34B240D86B20094CEAB /* CustomAnnotationView.swift in Sources */,
 				851D556B2405EC50001CB19E /* GemRepresentation.swift in Sources */,
 				1C4BCDB42409D70900EDF681 /* MapXib.swift in Sources */,
 				C01EF3132405F1EE0094CEAB /* NetworkingController.swift in Sources */,
+				C01EF35724105CCB0094CEAB /* BaseCoordinator.swift in Sources */,
 				1C4BCDAE2409B67000EDF681 /* CustomTabBarXib.swift in Sources */,
 				853F8C5F240597F200BF7B4D /* MainCoordinator.swift in Sources */,
 				85087DA123FF463900DD9D1B /* SceneDelegate.swift in Sources */,

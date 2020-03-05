@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SecondViewController: UIViewController, Storyboarded {
+class CreateGemVC: UIViewController, Storyboarded {
     
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var giveGemTitleLabel: UILabel!
@@ -25,27 +25,34 @@ class SecondViewController: UIViewController, Storyboarded {
     //Note: Do we want a "tab bar" here at all?
     @IBOutlet weak var customTabBarXib: CustomTabBarXib!
     
-    weak var coordinator: MainCoordinator?
+    var coordinator: CreateGemCoordinator?
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setToolbarHidden(true, animated: false)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("SecondVeiwController.viewDidLoad")
 //        customTabBarXib.coordinator = coordinator
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        //        navigationController?.setToolbarHidden(true, animated: false)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        guard isViewLoaded else { return }
+        super.viewDidAppear(animated)
         gemDescriptionTextView.backgroundColor = .lightGray
+        
     }
 
     @IBAction func locationButtonTapped(_ sender: Any) {
-        print("do something")
+//        print("do something", coordinator)
         coordinator?.presentGSMapViewControllerOnMainThread()
     }
     
     @IBAction func cancelButtonTapped(_ sender: Any) {
-        coordinator?.toVCOne()
+        coordinator?.toGemsMapViewController()
     }
     @IBAction func saveButtonTapped(_ sender: Any) {
         var gemTitle = gemTitleTextField.text
@@ -53,10 +60,10 @@ class SecondViewController: UIViewController, Storyboarded {
         var difficulty = 1.0//Double(difficultyLevelTextField.text)
 //        var gemCoords = coordinator?.addGemCoordinates
 //        print(gemCoords as Any)
-        var gemLat = coordinator?.addGemLat
-        print("Lat is \(gemLat)")
-        var gemLong = coordinator?.addGemLong
-        print("Long is \(gemLong)")
+//        var gemLat = coordinator?.gemLat
+//        print("Lat is \(gemLat)")
+//        var gemLong = coordinator?.gemLong
+//        print("Long is \(gemLong)")
     
 //        
 //        coordinator?.gemController.createGem(title: gemTitle, gemDesc: gemDesc, difficulty: difficulty, id: <#T##Int#>, latitude: gemLat, longitude: gemLong, createdByUser: <#T##Int#>)

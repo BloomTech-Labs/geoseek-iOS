@@ -9,13 +9,13 @@
 import UIKit
 import Mapbox
 
-class ViewController: UIViewController, Storyboarded {
+class GemsMapVC: UIViewController, Storyboarded {
     
     @IBOutlet weak var customTabBarXib: CustomTabBarXib!
     @IBOutlet weak var mapView: MGLMapView!
     
     
-    weak var coordinator: MainCoordinator?
+    var coordinator: GemsMapCoordinator?
     var gems: [Gem] = []
     
     var pressedLocation:CLLocation? = nil {
@@ -32,8 +32,14 @@ class ViewController: UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        guard let coordinator = coordinator else {
+            print("No coordinator!!!")
+            return
+        }
+        print("GemsMapVC coordinator:", coordinator)
         customTabBarXib.coordinator = coordinator
         mapView.setCenter(CLLocationCoordinate2D(latitude: 33.812794, longitude: -117.9190981), zoomLevel: 15, animated: false)
+        configureMapView()
         fetchGems()
     }
     
@@ -64,6 +70,7 @@ class ViewController: UIViewController, Storyboarded {
         
         var pointAnnotations: [MGLPointAnnotation] = []
         for gem in gems {
+            print(gem.title ?? "No Title", gem.latitude, gem.longitude)
             if gem.latitude > 90 || gem.latitude < -90 || gem.longitude > 180 || gem.longitude < -180 {
                 print(gem.description)
                 continue
@@ -109,7 +116,7 @@ class ViewController: UIViewController, Storyboarded {
 
 
 
-extension ViewController: MGLMapViewDelegate {
+extension GemsMapVC: MGLMapViewDelegate {
     func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
         guard annotation is MGLPointAnnotation else { return nil }
         
