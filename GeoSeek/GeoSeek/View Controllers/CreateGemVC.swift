@@ -52,7 +52,8 @@ class CreateGemVC: UIViewController, Storyboarded {
     }
     
     @IBAction func cancelButtonTapped(_ sender: Any) {
-        coordinator?.toGemsMapViewController()
+        print("cancelButtonTapped")
+        navigationController?.popViewController(animated: true)
     }
     @IBAction func saveButtonTapped(_ sender: Any) {
         var gemTitle = gemTitleTextField.text

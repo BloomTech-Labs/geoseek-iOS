@@ -66,8 +66,8 @@ class CreateGemCoordinator: BaseCoordinator {
     
     func toGemsMapViewController() {
         
-        delegate?.presentGemsMap()
         print("Tell app coordinator to present Gems Map")
+        delegate?.presentGemsMap()
     }
 }
 
