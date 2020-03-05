@@ -39,11 +39,14 @@ class LandingPageVC: UIViewController, CLLocationManagerDelegate, Storyboarded {
             if CLLocationManager.isMonitoringAvailable(for: CLBeaconRegion.self) {
                 if CLLocationManager.isRangingAvailable() {
                     userLocation = locationManager?.location
+                    coordinator?.userLocationLat = userLocation?.coordinate.latitude
+                    coordinator?.userLocationLong = userLocation?.coordinate.longitude
+                    coordinator?.toVCOne()
                 }
             }
         }
         print(
-        "Location: Lat  \(userLocation?.coordinate.latitude) and Long  \(userLocation?.coordinate.longitude)")
+        "Location: Lat \(userLocation?.coordinate.latitude) and Long \(userLocation?.coordinate.longitude)")
     }
 
 }
