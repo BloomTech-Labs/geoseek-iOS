@@ -27,9 +27,8 @@ class MainCoordinator: BaseCoordinator {
     }
     var addGemLat: Double?
     var addGemLong: Double?
-    var userLocationLat: CLLocationDegrees?
-    var userLocationLong: CLLocationDegrees?
-    var setLocation: CLLocation?
+    var locationManager = CLLocationManager()
+
     
     init(window: UIWindow) {
         let navController1 = UINavigationController()
@@ -44,16 +43,17 @@ class MainCoordinator: BaseCoordinator {
         self.gemsMapCoordinator = GemsMapCoordinator(window: self.window)
     }
     
-    func start() {
-        window.makeKeyAndVisible()
-//        toVCOne()
-       // mapXibView()
-        toLandingPageVC()
-        
     override func start() {
-//        window.makeKeyAndVisible()
+        window.makeKeyAndVisible()
+        
         window.rootViewController = self.navigationController
         toGemsMapViewController()
+//        if CLLocationManager.authorizationStatus() != .authorizedAlways {
+//            toLandingPageVC()
+//        } else {
+//            window.rootViewController = self.navigationController
+//            toGemsMapViewController()
+//        }
     }
     
     func toGemsMapViewController() {

@@ -12,7 +12,7 @@ import CoreLocation
 class LandingPageVC: UIViewController, CLLocationManagerDelegate, Storyboarded {
     
     var locationManager: CLLocationManager?
-    weak var coordinator: MainCoordinator?
+    weak var coordinator: BaseCoordinator?
     var userLocation: CLLocation?
     
 

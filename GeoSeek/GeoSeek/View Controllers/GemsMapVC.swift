@@ -42,12 +42,11 @@ class GemsMapVC: UIViewController, Storyboarded {
         
         mapView.setCenter(CLLocationCoordinate2D(latitude: 33.812794, longitude: -117.9190981), zoomLevel: 15, animated: false)
         configureMapView()
-        fetchGems()
-        customTabBarXib.coordinator = coordinator
+//        customTabBarXib.coordinator = coordinator
 //        mapView.setCenter(CLLocationCoordinate2D(latitude: 33.812794, longitude: -117.9190981), zoomLevel: 15, animated: false)
 //        fetchGems()
-        print("Location from coordinator:", coordinator?.setLocation)
-        configureMapView()
+//        print("Location from coordinator:", coordinator.setLocation)
+        fetchGems()
     }
     
     func fetchGems() {
@@ -72,13 +71,14 @@ class GemsMapVC: UIViewController, Storyboarded {
         let userCurrentLong = coordinator?.userLocationLong
         mapView.styleURL = darkBlueMap
         mapView.setCenter(CLLocationCoordinate2D(latitude: userCurrentLat!, longitude: userCurrentLong!), zoomLevel: 15, animated: false)
+//        mapView.setCenter(CLLocationCoordinate2D(latitude: 33.812794, longitude: -117.9190981), zoomLevel: 15, animated: false)
         mapView.delegate = self
         
         var pointAnnotations: [MGLPointAnnotation] = []
 
-        let userPoint = MGLPointAnnotation()
-        userPoint.coordinate = CLLocationCoordinate2D(latitude: userCurrentLat!, longitude: userCurrentLong!)
-        pointAnnotations.append(userPoint)
+//        let userPoint = MGLPointAnnotation()
+//        userPoint.coordinate = CLLocationCoordinate2D(latitude: userCurrentLat!, longitude: userCurrentLong!)
+//        pointAnnotations.append(userPoint)
         
         for gem in gems {
             print(gem.title ?? "No Title", gem.latitude, gem.longitude)
