@@ -38,12 +38,14 @@ class CustomTabBarXib: UIView, Storyboarded {
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        contentView.backgroundColor = .gray
+        contentView.backgroundColor = .clear
+        
+        addGemMapViewButton.backgroundColor = .white
     }
     
     @IBAction func addGemMapViewButtonTapped(_ sender: Any) {
 
-        delegate?.goToCreateGemController()//navigateToCreateGemCoordinator()//delegate?.navigateToCreateGemController()
+        delegate?.goToCreateGemController()   //navigateToCreateGemCoordinator()//delegate?.navigateToCreateGemController()
         print("Show add gem")
 
     }

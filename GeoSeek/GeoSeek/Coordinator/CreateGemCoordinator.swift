@@ -28,7 +28,7 @@ class CreateGemCoordinator: BaseCoordinator {
         createGemVC.delegate = self
         createGemVC.userLocation = userLocation
         
-        navigationController?.pushViewController(createGemVC, animated: true)
+        navigationController?.present(createGemVC, animated: true, completion: nil)
     }
     
     func toGemsMapViewController() {
