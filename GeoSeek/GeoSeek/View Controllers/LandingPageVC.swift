@@ -38,8 +38,6 @@ class LandingPageVC: UIViewController, CLLocationManagerDelegate, Storyboarded {
         print(status.rawValue)
         userLocation = locationManager?.location
         delegate?.userLocation = userLocation?.coordinate
-        //                    coordinator?.userLocationLat = userLocation?.coordinate.latitude
-        //                    coordinator?.userLocationLong = userLocation?.coordinate.longitude
         coordinator?.toGemsMapViewController()
         if Int(status.rawValue) == 3 || Int(status.rawValue) == 4 {
             if CLLocationManager.isMonitoringAvailable(for: CLBeaconRegion.self) {

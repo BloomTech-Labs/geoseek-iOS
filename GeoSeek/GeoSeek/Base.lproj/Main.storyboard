@@ -104,7 +104,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Gem Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3mD-O4-lLD">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Gem Title" textAlignment="natural" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="3mD-O4-lLD">
                                 <rect key="frame" x="20" y="501" width="374" height="40"/>
                                 <color key="backgroundColor" red="0.24313725490196078" green="0.28627450980392155" blue="0.34509803921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -155,6 +155,7 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
                         <outlet property="addDescriptionLabel" destination="fcD-jn-j7c" id="Fwr-Cq-bT3"/>
+                        <outlet property="addGemView" destination="UiI-3t-vhg" id="7LJ-G3-byG"/>
                         <outlet property="gemDescriptionTextView" destination="ydX-0C-Bof" id="p4A-hX-2xr"/>
                         <outlet property="gemLocationLabel" destination="Hke-3I-WSY" id="lTk-kp-mAx"/>
                         <outlet property="gemTitleTextField" destination="3mD-O4-lLD" id="em5-e5-qzB"/>

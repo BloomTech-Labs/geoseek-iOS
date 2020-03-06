@@ -75,16 +75,6 @@ class MainCoordinator: BaseCoordinator {
         vc.delegate = self
         navigationController.pushViewController(vc, animated: true)
         print("Brandi made a LandingPageVC")
-        //        if let vc = navigationController.viewControllers.first {
-        //            print(vc.description)
-        //        } else {
-        //            let vc = LandingPageVC.instantiate()
-        //            vc.locationManager = locationManager
-        //            vc.coordinator = self
-        //            vc.delegate = self
-        //            navigationController.pushViewController(vc, animated: true)
-        //            print("Brandi made a LandingPageVC")
-        //        }
     }
 }
 
