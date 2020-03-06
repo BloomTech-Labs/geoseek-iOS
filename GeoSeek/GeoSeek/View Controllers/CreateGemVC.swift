@@ -74,7 +74,7 @@ class CreateGemVC: UIViewController, Storyboarded {
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {
-        print(gemDescriptionTextView.text, gemLocation?.latitude)
+        print(gemDescriptionTextView.text ?? "No gemDesc text", gemLocation?.latitude ?? "No location")
         guard let title = gemTitleTextField.text,
             !title.isEmpty,
             let desc = gemDescriptionTextView.text,
