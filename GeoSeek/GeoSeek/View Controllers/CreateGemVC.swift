@@ -16,6 +16,7 @@ protocol CreateGemDelegate {
 
 class CreateGemVC: UIViewController, Storyboarded {
     
+    @IBOutlet weak var addGemView: UIView!
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var giveGemTitleLabel: UILabel!
     @IBOutlet weak var gemTitleTextField: UITextField!
@@ -46,15 +47,22 @@ class CreateGemVC: UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("SecondVeiwController.viewDidLoad")
+        
+        styleAddGemView()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        guard isViewLoaded else { return }
-        super.viewDidAppear(animated)
-        gemDescriptionTextView.backgroundColor = .lightGray
-        
-    }
 
+    func styleAddGemView() {
+      addGemView.layer.cornerRadius = 20.0
+      addGemView.clipsToBounds = true
+      gemTitleTextField.layer.cornerRadius = 20.0
+       
+      gemDescriptionTextView.layer.cornerRadius = 10.0
+      gemDescriptionTextView.clipsToBounds = true
+       
+      saveButton.layer.cornerRadius = 10.0
+    }
+    
     @IBAction func locationButtonTapped(_ sender: Any) {
 //        print("do something", coordinator)
         delegate?.getGemLocation()
@@ -78,5 +86,16 @@ class CreateGemVC: UIViewController, Storyboarded {
         delegate?.createGem(gem)
         navigationController?.popViewController(animated: true)
     }
-    
 }
+
+extension CreateGemVC: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        gemTitleTextField.resignFirstResponder()
+//        gemDescriptionTextView.resignFirstResponder()
+        
+        return true
+    }
+}
+
+
