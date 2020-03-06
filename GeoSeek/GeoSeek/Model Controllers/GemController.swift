@@ -11,25 +11,34 @@ import CoreData
 
 class GemController {
     
-//    static let shared = GemController()
     var gems: [Gem] = []
     
-    func createGem(title: String, gemDesc: String, difficulty: Double, id: Int, latitude: Double, longitude: Double, createdByUser: Int, context: NSManagedObjectContext = .context ) {
-        
-        Gem(title: title, gemDesc: gemDesc, difficulty: difficulty, id: id, latitude: latitude, longitude: longitude/*, createdByUser: createdByUser*/, context: context)
+    func createGem(with gem: GemRepresentation) {
+        NetworkController.shared.createGem(from: gem) { result in
+            switch result {
+            case .failure(let error):
+                print("Error creating gem: \(error)")
+            case .success(let gem):
+                print("Yay! Created \(gem.title ?? "wut?")")
+                self.gems.append(gem)
+            }
+        }
     }
     
     func fetchGemsFromServer() {
         NetworkController.shared.fetchGems { (result) in
             switch result {
             case .failure(let error):
-                break
+                print("Error fetching gems: \(error)")
             case .success(let gems):
-                #warning("This should not be an empty array")
-                self.gems = []
+                self.gems = gems
             }
         }
     }
+    
+    
+    
+    
     
     func loadGemsFromPersistentStore() -> [Gem] {
         let fetchRequest: NSFetchRequest<Gem> = Gem.fetchRequest()

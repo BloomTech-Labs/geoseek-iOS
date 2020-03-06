@@ -15,11 +15,11 @@ protocol CreateGemCoordinatorDelegate {
 }
 
 class CreateGemCoordinator: BaseCoordinator {
-//    let window: UIWindow
     var navigationController: UINavigationController?
     var createGemVC = CreateGemVC.instantiate()
     var delegate: CreateGemCoordinatorDelegate?
     var userLocation: CLLocationCoordinate2D?
+    var gemController: GemController?
     
     override func start() {
         navigationController?.isNavigationBarHidden = true
@@ -38,14 +38,7 @@ class CreateGemCoordinator: BaseCoordinator {
 
 extension CreateGemCoordinator: CreateGemDelegate {
     func createGem(_ gem: GemRepresentation) {
-        NetworkController.shared.createGem(from: gem) { result in
-            switch result {
-            case .failure(let error):
-                print("Error creating gem: \(error)")
-            case .success(let gem):
-                print("Yay! Created \(gem.title ?? "wut?")")
-            }
-        }
+        gemController?.createGem(with: gem)
     }
     
     func getGemLocation() {
