@@ -37,7 +37,7 @@
 		C01EF34B240D86B20094CEAB /* CustomAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01EF34A240D86B20094CEAB /* CustomAnnotationView.swift */; };
 		C01EF35724105CCB0094CEAB /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01EF35624105CCB0094CEAB /* BaseCoordinator.swift */; };
 		C01EF35924105E6B0094CEAB /* GemsMapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01EF35824105E6B0094CEAB /* GemsMapCoordinator.swift */; };
-		C01EF35B241063490094CEAB /* CreteGemCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01EF35A241063490094CEAB /* CreteGemCoordinator.swift */; };
+		C01EF35B241063490094CEAB /* CreateGemCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01EF35A241063490094CEAB /* CreateGemCoordinator.swift */; };
 		C01EF35D241065570094CEAB /* ChooseLocationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01EF35C241065570094CEAB /* ChooseLocationCoordinator.swift */; };
 /* End PBXBuildFile section */
 
@@ -78,7 +78,7 @@
 		C01EF34A240D86B20094CEAB /* CustomAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotationView.swift; sourceTree = "<group>"; };
 		C01EF35624105CCB0094CEAB /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		C01EF35824105E6B0094CEAB /* GemsMapCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GemsMapCoordinator.swift; sourceTree = "<group>"; };
-		C01EF35A241063490094CEAB /* CreteGemCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreteGemCoordinator.swift; sourceTree = "<group>"; };
+		C01EF35A241063490094CEAB /* CreateGemCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGemCoordinator.swift; sourceTree = "<group>"; };
 		C01EF35C241065570094CEAB /* ChooseLocationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLocationCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -177,13 +177,10 @@
 		851D55682405C92D001CB19E /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				85087DA223FF463900DD9D1B /* GemsMapVC.swift */,
-				1C4BCDAF2409C9CE00EDF681 /* CreateGemVC.swift */,
 				1C4BCDB7240ED89D00EDF681 /* ChooseLocationVC.swift */,
-				1C4BCDB7240ED89D00EDF681 /* GSMapViewController.swift */,
 				851EFD51241063B600A7F857 /* LandingPageVC.swift */,
-				1C4BCDAF2409C9CE00EDF681 /* SecondViewController.swift */,
-				85087DA223FF463900DD9D1B /* ViewController.swift */,
+				1C4BCDAF2409C9CE00EDF681 /* CreateGemVC.swift */,
+				85087DA223FF463900DD9D1B /* GemsMapVC.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -205,7 +202,7 @@
 				853F8C602405987200BF7B4D /* Storyboarded.swift */,
 				853F8C5E240597F200BF7B4D /* MainCoordinator.swift */,
 				C01EF35824105E6B0094CEAB /* GemsMapCoordinator.swift */,
-				C01EF35A241063490094CEAB /* CreteGemCoordinator.swift */,
+				C01EF35A241063490094CEAB /* CreateGemCoordinator.swift */,
 				C01EF35C241065570094CEAB /* ChooseLocationCoordinator.swift */,
 			);
 			path = Coordinator;
@@ -379,7 +376,7 @@
 				85087E042400887B00DD9D1B /* UserController.swift in Sources */,
 				1C4BCDB02409C9CE00EDF681 /* CreateGemVC.swift in Sources */,
 				851D556D2405EF0D001CB19E /* UserRepresentation.swift in Sources */,
-				C01EF35B241063490094CEAB /* CreteGemCoordinator.swift in Sources */,
+				C01EF35B241063490094CEAB /* CreateGemCoordinator.swift in Sources */,
 				85087E02240087B900DD9D1B /* User+Convenience.swift in Sources */,
 				85087DB623FF50E400DD9D1B /* GeoSeek.xcdatamodeld in Sources */,
 				853F8C5D240597C700BF7B4D /* Coordinator.swift in Sources */,
