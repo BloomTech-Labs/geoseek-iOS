@@ -10,7 +10,6 @@ import UIKit
 import CoreLocation
 
 protocol CreateGemCoordinatorDelegate {
-    func presentChooseLocationVC()
     func presentGemsMap()
 }
 
