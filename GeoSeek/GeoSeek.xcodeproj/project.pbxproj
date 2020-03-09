@@ -33,6 +33,7 @@
 		853F8C5D240597C700BF7B4D /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F8C5C240597C700BF7B4D /* Coordinator.swift */; };
 		853F8C5F240597F200BF7B4D /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F8C5E240597F200BF7B4D /* MainCoordinator.swift */; };
 		853F8C612405987200BF7B4D /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F8C602405987200BF7B4D /* Storyboarded.swift */; };
+		85A683632416A9E000669C6C /* ChooseYourLocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A683622416A9E000669C6C /* ChooseYourLocationVC.swift */; };
 		C01EF3132405F1EE0094CEAB /* NetworkingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01EF3122405F1EE0094CEAB /* NetworkingController.swift */; };
 		C01EF34B240D86B20094CEAB /* CustomAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01EF34A240D86B20094CEAB /* CustomAnnotationView.swift */; };
 		C01EF35724105CCB0094CEAB /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01EF35624105CCB0094CEAB /* BaseCoordinator.swift */; };
@@ -74,6 +75,7 @@
 		853F8C5C240597C700BF7B4D /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		853F8C5E240597F200BF7B4D /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		853F8C602405987200BF7B4D /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
+		85A683622416A9E000669C6C /* ChooseYourLocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseYourLocationVC.swift; sourceTree = "<group>"; };
 		C01EF3122405F1EE0094CEAB /* NetworkingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingController.swift; sourceTree = "<group>"; };
 		C01EF34A240D86B20094CEAB /* CustomAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotationView.swift; sourceTree = "<group>"; };
 		C01EF35624105CCB0094CEAB /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				851EFD51241063B600A7F857 /* LandingPageVC.swift */,
 				1C4BCDAF2409C9CE00EDF681 /* CreateGemVC.swift */,
 				85087DA223FF463900DD9D1B /* GemsMapVC.swift */,
+				85A683622416A9E000669C6C /* ChooseYourLocationVC.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 				85087DFE2400862400DD9D1B /* GemController.swift in Sources */,
 				C01EF35924105E6B0094CEAB /* GemsMapCoordinator.swift in Sources */,
 				85087D9F23FF463900DD9D1B /* AppDelegate.swift in Sources */,
+				85A683632416A9E000669C6C /* ChooseYourLocationVC.swift in Sources */,
 				C01EF34B240D86B20094CEAB /* CustomAnnotationView.swift in Sources */,
 				851D556B2405EC50001CB19E /* GemRepresentation.swift in Sources */,
 				851EFD52241063B600A7F857 /* LandingPageVC.swift in Sources */,

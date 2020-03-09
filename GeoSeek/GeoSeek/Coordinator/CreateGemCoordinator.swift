@@ -20,15 +20,18 @@ class CreateGemCoordinator: BaseCoordinator {
     var delegate: CreateGemCoordinatorDelegate?
     var userLocation: CLLocationCoordinate2D?
     var gemController: GemController?
+    var chooseYourLocationVC = ChooseYourLocationVC.instantiate()
     
     override func start() {
         navigationController?.isNavigationBarHidden = true
         
-        createGemVC.coordinator = self
-        createGemVC.delegate = self
-        createGemVC.userLocation = userLocation
-        
-        navigationController?.present(createGemVC, animated: true, completion: nil)
+//        createGemVC.coordinator = self
+//        createGemVC.delegate = self
+//        createGemVC.userLocation = userLocation
+        chooseYourLocationVC.delegate = self
+//
+//        navigationController?.present(createGemVC, animated: true, completion: nil)
+         navigationController?.present(chooseYourLocationVC, animated: true, completion: nil)
     }
     
     func toGemsMapViewController() {
@@ -42,6 +45,7 @@ extension CreateGemCoordinator: CreateGemDelegate {
     }
     
     func getGemLocation() {
+        print("Made it to the Gem Location() in the coordinator.")
         let mapVC = ChooseLocationVC()
         mapVC.coordinator = self
         mapVC.delegate = self
