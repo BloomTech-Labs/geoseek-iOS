@@ -133,7 +133,7 @@ extension MainCoordinator: CreateGemCoordinatorDelegate {
     func presentGemsMap() {
         print("Delegate here")
         //        toGemsMapViewController()
-        //        gemsMapCoordinator.start()
+        gemsMapCoordinator.start()
         navigationController.topViewController?.dismiss(animated: true)
     }
 }

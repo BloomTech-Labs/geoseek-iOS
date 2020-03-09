@@ -46,7 +46,8 @@ class CreateGemCoordinator: BaseCoordinator {
 extension CreateGemCoordinator: CreateGemDelegate {
     func createGem(_ gem: GemRepresentation) {
         gemController?.createGem(with: gem)
-        navigationController?.dismiss(animated: true)
+//        navigationController?.dismiss(animated: true)
+        delegate?.presentGemsMap()
     }
     
     func getGemLocation() {
