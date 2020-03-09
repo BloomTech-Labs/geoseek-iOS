@@ -40,7 +40,7 @@ class ChooseLocationCoordinator: BaseCoordinator {
         
         DispatchQueue.main.async {
             let mapVC = ChooseLocationVC()
-            mapVC.coordinator = self
+//            mapVC.coordinator = self
             mapVC.modalPresentationStyle = .overFullScreen
             mapVC.modalTransitionStyle = .coverVertical
 //            self.navControllers[1].present(mapVC, animated: true)

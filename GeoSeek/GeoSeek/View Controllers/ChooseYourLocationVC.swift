@@ -9,20 +9,19 @@
 import UIKit
 import Mapbox
 
+enum LocationType {
+    case current
+    case choose
+}
+
+protocol ChooseLocationDelegate {
+    
+    func locationWasChosen(with type: LocationType)
+}
+
 class ChooseYourLocationVC: UIViewController, Storyboarded {
     
-    var chooseLocationVC = ChooseLocationVC()
-    var coordinator: BaseCoordinator?
-    var delegate: CreateGemDelegate?
-    var userLocation: CLLocationCoordinate2D?
-    var gemLocation: CLLocationCoordinate2D? {
-        didSet {
-            print("CreateGemVC.gemLocation was set")
-            if let gemLocation = gemLocation {
-//                gemLocationLabel.text = "Latitude: \(gemLocation.latitude.rounded()), Longitude: \(gemLocation.longitude.rounded())"
-            }
-        }
-    }
+    var delegate: ChooseLocationDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,11 +42,17 @@ class ChooseYourLocationVC: UIViewController, Storyboarded {
     */
 
     @IBAction func currentLocationTapped(_ sender: Any) {
+        passLocationType(.current)
+        print("Current Location Button Tapped...")
     }
     
     @IBAction func newLocationTapped(_ sender: Any) {
-        self.dismiss(animated: true)
-        delegate?.getGemLocation()
+        passLocationType(.choose)
          print("New Location Button Tapped...")
+    }
+    
+    func passLocationType(_ type: LocationType) {
+        self.dismiss(animated: true)
+        delegate?.locationWasChosen(with: type)
     }
 }

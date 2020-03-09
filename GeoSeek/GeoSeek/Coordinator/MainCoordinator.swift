@@ -46,23 +46,7 @@ class MainCoordinator: BaseCoordinator {
             toLandingPageVC()
         }
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
-    
 //    func checkStatus() {
 //        let status = CLLocationManager.authorizationStatus()
 //        if status == CLAuthorizationStatus.authorizedAlways {
@@ -135,6 +119,7 @@ extension MainCoordinator: GemsMapCoordinatorDelegate {
         createGemCoordinator.navigationController = navigationController
         createGemCoordinator.delegate = self
         createGemCoordinator.start()
+        createGemCoordinator.userLocation = currentUserLocation
     }
 }
 

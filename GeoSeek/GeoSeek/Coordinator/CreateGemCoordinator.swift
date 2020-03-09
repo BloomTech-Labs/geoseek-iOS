@@ -21,21 +21,25 @@ class CreateGemCoordinator: BaseCoordinator {
     var userLocation: CLLocationCoordinate2D?
     var gemController: GemController?
     var chooseYourLocationVC = ChooseYourLocationVC.instantiate()
+    var gemLocation: CLLocationCoordinate2D?
     
     override func start() {
         navigationController?.isNavigationBarHidden = true
-        
-//        createGemVC.coordinator = self
-//        createGemVC.delegate = self
-//        createGemVC.userLocation = userLocation
+
         chooseYourLocationVC.delegate = self
-//
-//        navigationController?.present(createGemVC, animated: true, completion: nil)
+        
          navigationController?.present(chooseYourLocationVC, animated: true, completion: nil)
     }
     
     func toGemsMapViewController() {
         delegate?.presentGemsMap()
+    }
+    
+    func toCreateGemVC() {
+        createGemVC.delegate = self
+        createGemVC.coordinator = self
+        createGemVC.gemLocation = gemLocation
+        navigationController?.present(createGemVC, animated: true)
     }
 }
 
@@ -58,6 +62,21 @@ extension CreateGemCoordinator: CreateGemDelegate {
 extension CreateGemCoordinator: SetLocationDelegate {
     func didSetLocation(to location: CLLocationCoordinate2D) {
         print("CreateGemCoordinator.didSetLocation")
-        createGemVC.gemLocation = location
+        gemLocation = location
+        toCreateGemVC()
+    }
+}
+
+extension CreateGemCoordinator: ChooseLocationDelegate {
+    func locationWasChosen(with type: LocationType) {
+        switch type {
+        case .current:
+            gemLocation = userLocation
+            toCreateGemVC()
+        case .choose:
+            getGemLocation()
+//        @unknown default:
+//            fatalError("LocationType Enum has a new type.")
+        }
     }
 }

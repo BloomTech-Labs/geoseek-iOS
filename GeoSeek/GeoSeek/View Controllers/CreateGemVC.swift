@@ -20,7 +20,6 @@ class CreateGemVC: UIViewController, Storyboarded {
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var giveGemTitleLabel: UILabel!
     @IBOutlet weak var gemTitleTextField: UITextField!
-    @IBOutlet weak var gemLocationLabel: UILabel!
     @IBOutlet weak var locationButton: UIButton!
     @IBOutlet weak var addDescriptionLabel: UILabel!
     @IBOutlet weak var gemDescriptionTextView: UITextView!
@@ -39,7 +38,7 @@ class CreateGemVC: UIViewController, Storyboarded {
         didSet {
             print("CreateGemVC.gemLocation was set")
             if let gemLocation = gemLocation {
-                gemLocationLabel.text = "Latitude: \(gemLocation.latitude.rounded()), Longitude: \(gemLocation.longitude.rounded())"
+                print(gemLocation)
             }
         }
     }
@@ -49,6 +48,9 @@ class CreateGemVC: UIViewController, Storyboarded {
         print("SecondVeiwController.viewDidLoad")
         
         styleAddGemView()
+        gemTitleTextField.delegate = self
+        gemDescriptionTextView.delegate = self
+//        print(gemLocation)
     }
     
 
@@ -92,10 +94,19 @@ extension CreateGemVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         gemTitleTextField.resignFirstResponder()
-//        gemDescriptionTextView.resignFirstResponder()
+        gemDescriptionTextView.resignFirstResponder()
         
         return true
     }
 }
 
+extension CreateGemVC: UITextViewDelegate {
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n" {
+            gemDescriptionTextView.resignFirstResponder()
+            return false
+        }
+        return true
+    }
+}
 
