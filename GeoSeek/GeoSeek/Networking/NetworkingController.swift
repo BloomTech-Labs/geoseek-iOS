@@ -22,6 +22,11 @@ enum HTTPMethod: String {
     case delete = "DELETE"
 }
 
+enum UserAction: String {
+    case login = "login"
+    case register = "register"
+}
+
 class NetworkController {
     
     // MARK: - Properties
@@ -38,7 +43,7 @@ class NetworkController {
     func fetchGems(completion: @escaping (Result<[Gem], FetchError>) -> Void) {
         let request = gemsURL(with: .get)
         
-        fetch(from: request) { result in
+        perform(request) { result in
             switch result {
             case .failure(let error):
                 completion(.failure(.badData))
@@ -62,7 +67,7 @@ class NetworkController {
         var request = gemsURL(with: .post)
         request.httpBody = gemData
         
-        fetch(from: request) { result in
+        perform(request) { result in
             switch result {
             case .failure(let error):
                 completion(.failure(error))
@@ -84,11 +89,11 @@ class NetworkController {
     
     // MARK: - Users
     
-    func signUp() {}
+    
     
     // MARK: - Helper Methods
     
-    private func fetch(from request: URLRequest, completion: @escaping (Result<Data, Error>) -> Void) {
+    private func perform(_ request: URLRequest, completion: @escaping (Result<Data, Error>) -> Void) {
         let dataTask = URLSession.shared.dataTask(with: request) { data, response, error in
             
             if let error = error {
@@ -140,7 +145,8 @@ class NetworkController {
         var request = URLRequest(url: endpoint)
         request.httpMethod = method.rawValue
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        print("NetworkController.gemsURL:", url)
         return request
     }
+    
+    
 }
