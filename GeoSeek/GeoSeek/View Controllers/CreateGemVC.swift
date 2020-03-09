@@ -12,6 +12,7 @@ import CoreLocation
 protocol CreateGemDelegate {
     func getGemLocation()
     func createGem(_ gem: GemRepresentation)
+    
 }
 
 class CreateGemVC: UIViewController, Storyboarded {
