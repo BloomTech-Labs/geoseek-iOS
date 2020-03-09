@@ -28,9 +28,17 @@ class ChooseYourLocationVC: UIViewController, Storyboarded {
         super.viewDidLoad()
 
         styleChooseView()
+        createDismissTapGesture()
     }
     
+    func createDismissTapGesture() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissView))
+        view.addGestureRecognizer(tap)
+    }
     
+    @objc func dismissView() {
+        dismiss(animated: true)
+    }
 
     func styleChooseView() {
         chooseView?.layer.cornerRadius = 20.0

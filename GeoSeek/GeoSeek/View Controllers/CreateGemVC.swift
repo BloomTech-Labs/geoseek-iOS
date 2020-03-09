@@ -52,7 +52,6 @@ class CreateGemVC: UIViewController, Storyboarded {
         gemDescriptionTextView.delegate = self
 //        print(gemLocation)
     }
-    
 
     func styleAddGemView() {
       addGemView.layer.cornerRadius = 20.0
