@@ -18,7 +18,8 @@ class ChooseLocationVC: UIViewController {
     let locationManager = CLLocationManager() // This should come in from the coordinator
     let doneButton = UIButton() // TODO: Make a custom button that we use throughout the app
     let titleLabel = UILabel() // TODO: Make a custom label that we use throughout the app, this label can take a String and assign it's text property, then none of the configuration would need to be done here except for the constraints.
-    weak var coordinator: BaseCoordinator?
+//    weak var coordinator: BaseCoordinator?
+    weak var coordinator: CreateGemCoordinator?
     var userLocation: CLLocationCoordinate2D?
     var delegate: SetLocationDelegate?
     
@@ -68,6 +69,7 @@ class ChooseLocationVC: UIViewController {
                 print(coordsFromTouchPoint, self.delegate)
                 alert.dismiss(animated: true, completion: nil)
                 self.dismiss(animated: true, completion: nil)
+                self.coordinator?.toCreateGemVC()
             }
             
             let cancel = UIAlertAction(title: "Cancel", style: .destructive) { (_) in

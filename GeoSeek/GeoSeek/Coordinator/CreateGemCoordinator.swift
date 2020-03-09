@@ -20,19 +20,26 @@ class CreateGemCoordinator: BaseCoordinator {
     var delegate: CreateGemCoordinatorDelegate?
     var userLocation: CLLocationCoordinate2D?
     var gemController: GemController?
+    var chooseYourLocationVC = ChooseYourLocationVC.instantiate()
+    var gemLocation: CLLocationCoordinate2D?
     
     override func start() {
         navigationController?.isNavigationBarHidden = true
+
+        chooseYourLocationVC.delegate = self
         
-        createGemVC.coordinator = self
-        createGemVC.delegate = self
-        createGemVC.userLocation = userLocation
-        
-        navigationController?.present(createGemVC, animated: true, completion: nil)
+         navigationController?.present(chooseYourLocationVC, animated: true, completion: nil)
     }
     
     func toGemsMapViewController() {
         delegate?.presentGemsMap()
+    }
+    
+    func toCreateGemVC() {
+        createGemVC.delegate = self
+        createGemVC.coordinator = self
+        createGemVC.gemLocation = gemLocation
+        navigationController?.present(createGemVC, animated: true)
     }
 }
 
@@ -42,6 +49,7 @@ extension CreateGemCoordinator: CreateGemDelegate {
     }
     
     func getGemLocation() {
+        print("Made it to the Gem Location() in the coordinator.")
         let mapVC = ChooseLocationVC()
         mapVC.coordinator = self
         mapVC.delegate = self
@@ -54,6 +62,21 @@ extension CreateGemCoordinator: CreateGemDelegate {
 extension CreateGemCoordinator: SetLocationDelegate {
     func didSetLocation(to location: CLLocationCoordinate2D) {
         print("CreateGemCoordinator.didSetLocation")
-        createGemVC.gemLocation = location
+        gemLocation = location
+        toCreateGemVC()
+    }
+}
+
+extension CreateGemCoordinator: ChooseLocationDelegate {
+    func locationWasChosen(with type: LocationType) {
+        switch type {
+        case .current:
+            gemLocation = userLocation
+            toCreateGemVC()
+        case .choose:
+            getGemLocation()
+//        @unknown default:
+//            fatalError("LocationType Enum has a new type.")
+        }
     }
 }
