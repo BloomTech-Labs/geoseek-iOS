@@ -12,7 +12,6 @@ struct UserRepresentation: Codable {
     
     var email: String
     var id: Int
-    var password: String
+    var password: String?
     var username: String
-
 }
