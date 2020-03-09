@@ -148,5 +148,18 @@ class NetworkController {
         return request
     }
     
-    
+    private func usersURL(with method: HTTPMethod, and userAction: UserAction, for user: User? = nil) -> URLRequest {
+        var userID = ""
+        if let user = user {
+            userID = "\(user.id)"
+        }
+        let url = URL(string: baseURL)!
+            .appendingPathComponent("users")
+            .appendingPathComponent(userAction.rawValue)
+            .appendingPathComponent(userID)
+        var request = URLRequest(url: url)
+        request.httpMethod = method.rawValue
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        return request
+    }
 }
