@@ -11,7 +11,13 @@ import CoreData
 
 extension User {
     
-    
+    var userRepresentation: UserRepresentation? {
+        
+        guard let email = email,
+            let username = username else { return nil }
+        
+        return UserRepresentation(email: email, id: Int(id), password: password, username: username)
+    }
     
     @discardableResult convenience init(representation: UserRepresentation, context: NSManagedObjectContext = .context) {
         
