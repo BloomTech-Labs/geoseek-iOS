@@ -22,6 +22,7 @@ class ChooseLocationVC: UIViewController {
     weak var coordinator: CreateGemCoordinator?
     var userLocation: CLLocationCoordinate2D?
     var delegate: SetLocationDelegate?
+    let darkBlueMap = URL(string: "mapbox://styles/geoseek/ck7b5gau8002g1ip7b81etzj4")
     
     var pressedLocation:CLLocation? = nil {
         didSet{
@@ -98,7 +99,7 @@ class ChooseLocationVC: UIViewController {
         containerView.layer.cornerRadius = 30
         containerView.layer.cornerCurve = .continuous
         NSLayoutConstraint.activate([
-            containerView.topAnchor.constraint(equalTo: view.topAnchor, constant: 80),
+            containerView.topAnchor.constraint(equalTo: view.topAnchor, constant: 120),
             containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
@@ -110,6 +111,8 @@ class ChooseLocationVC: UIViewController {
     }
     
     func configureMap() {
+        
+        containerView.styleURL = darkBlueMap
         guard let userLocation = userLocation else {
             containerView.setCenter(CLLocationCoordinate2D(latitude: 33.812794, longitude: -117.9190981), zoomLevel: 15, animated: false)
             return

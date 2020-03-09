@@ -21,25 +21,21 @@ protocol ChooseLocationDelegate {
 
 class ChooseYourLocationVC: UIViewController, Storyboarded {
     
+    @IBOutlet weak var chooseView: UIView?
     var delegate: ChooseLocationDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        styleChooseView()
     }
     
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func styleChooseView() {
+        chooseView?.layer.cornerRadius = 20.0
+        chooseView?.clipsToBounds = true
     }
-    */
 
     @IBAction func currentLocationTapped(_ sender: Any) {
         passLocationType(.current)
@@ -55,4 +51,9 @@ class ChooseYourLocationVC: UIViewController, Storyboarded {
         self.dismiss(animated: true)
         delegate?.locationWasChosen(with: type)
     }
+    
+    @IBAction func cancelTapped(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
+    
 }
