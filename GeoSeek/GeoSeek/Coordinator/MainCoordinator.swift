@@ -23,6 +23,10 @@ class MainCoordinator: BaseCoordinator {
     weak var coordinator: BaseCoordinator?
     var currentUserLocation: CLLocationCoordinate2D?
     
+    //NOTE: These may be wrong
+    //var userLocation: CLLocation?
+    var delegate: UserLocationDelegate?
+    var gemsMapVC = GemsMapVC()
     
     init(window: UIWindow) {
         self.window = window
@@ -32,8 +36,67 @@ class MainCoordinator: BaseCoordinator {
     override func start() {
         window.makeKeyAndVisible()
         window.rootViewController = self.navigationController
-        toLandingPageVC()
+        //        toGemsMapViewController()
+        //toLandingPageVC()
+        //checkStatus()
+        if CLLocationManager.authorizationStatus() == .authorizedAlways || CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+            currentUserLocation = locationManager.location?.coordinate
+            toGemsMapViewController()
+        } else {
+            toLandingPageVC()
+        }
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+//    func checkStatus() {
+//        let status = CLLocationManager.authorizationStatus()
+//        if status == CLAuthorizationStatus.authorizedAlways {
+//            //userLocation = delegate?.userLocation
+//            locationsManager(status)
+//        } else if  status == CLAuthorizationStatus.authorizedWhenInUse {
+//            //delegate?.userLocation = userLocation
+//            locationsManager(status)
+//        } else if status == CLAuthorizationStatus.notDetermined {
+//
+//            locationsManager(status)
+//            toLandingPageVC()
+//        }
+//    }
+    
+    func locationsManager(_ status: CLAuthorizationStatus) {
+        print(status.rawValue)
+        //userLocation = locationManager.location
+        delegate?.userLocation = userLocation
+        //                    coordinator?.userLocationLat = userLocation?.coordinate.latitude
+        //                    coordinator?.userLocationLong = userLocation?.coordinate.longitude
+        toGemsMapViewController()
+        if Int(status.rawValue) == 3 || Int(status.rawValue) == 4 {
+            if CLLocationManager.isMonitoringAvailable(for: CLBeaconRegion.self) {
+                if CLLocationManager.isRangingAvailable() {
+                    
+                }
+            }
+        }
+//        print(
+//            "Location BB: Lat \(String(describing: userLocation?.coordinate.latitude)) and Long \(String(describing: userLocation?.coordinate.longitude))")
+        
+    }
+
     
     func toGemsMapViewController() {
         gemsMapCoordinator.navigationController = navigationController
@@ -50,6 +113,18 @@ class MainCoordinator: BaseCoordinator {
         vc.delegate = self
         navigationController.pushViewController(vc, animated: true)
         print("Brandi made a LandingPageVC")
+
+        //        if let vc = navigationController.viewControllers.first {
+        //            print(vc.description)
+        //        } else {
+        //            let vc = LandingPageVC.instantiate()
+        //            vc.locationManager = locationManager
+        //            vc.coordinator = self
+        //            vc.delegate = self
+        //            navigationController.pushViewController(vc, animated: true)
+        //            print("Brandi made a LandingPageVC")
+        //        }
+//        vc.userLocation = CLLocation(latitude: 33.812794, longitude: -117.9190981)
     }
 }
 
