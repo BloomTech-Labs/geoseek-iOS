@@ -33,7 +33,7 @@ class LandingPageVC: UIViewController, CLLocationManagerDelegate, Storyboarded {
         
         locationManager?.requestAlwaysAuthorization()
     }
-
+    
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         print(status.rawValue)
         userLocation = locationManager?.location

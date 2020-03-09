@@ -73,10 +73,10 @@ class GemsMapVC: UIViewController, Storyboarded {
         var pointAnnotations: [MGLPointAnnotation] = []
         
         let userPoint = MGLPointAnnotation()
-        userPoint.coordinate = CLLocationCoordinate2D(latitude: userLocation!.latitude, longitude: userLocation!.longitude)
-        pointAnnotations.append(userPoint)
         
         if let userLocation = userLocation {
+            userPoint.coordinate = CLLocationCoordinate2D(latitude: userLocation.latitude, longitude: userLocation.longitude)
+            pointAnnotations.append(userPoint)
             mapView.setCenter(userLocation, zoomLevel: 15, animated: false)
         } else {
             mapView.setCenter(CLLocationCoordinate2D(latitude: 33.812794, longitude: -117.9190981), zoomLevel: 15, animated: false)
