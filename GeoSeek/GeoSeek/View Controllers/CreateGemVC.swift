@@ -86,7 +86,6 @@ class CreateGemVC: UIViewController, Storyboarded {
         let gem = GemRepresentation(difficulty: 5, description: desc, id: nil, latitude: location.latitude, longitude: location.longitude, title: title)
         
         delegate?.createGem(gem)
-        navigationController?.popViewController(animated: true)
     }
 }
 
