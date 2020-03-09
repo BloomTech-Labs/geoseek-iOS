@@ -100,16 +100,22 @@ class NetworkController {
                 print(error)
             case.success(let data):
                 let possibleUserRepresentation: UserRepresentation? = self.decode(data: data)
-                guard var userRepresentation = possibleUserRepresentation else { completion(.failure(FetchError.badData)) }
-                let returnedID = userRepresentation.id
-                userRepresentation.password = password
-                let user = User(
-                
-                guard let returnedGem = possibleReturnedGem,
-                    let returnedID = returnedGem.gem.first else {
-                    completion(.failure(FetchError.badData))
+                guard var userRepresentation = possibleUserRepresentation else { completion(.failure(FetchError.badData))
                     return
                 }
+                let returnedID = userRepresentation.id
+                userRepresentation.password = password
+                let user = User(representation: userRepresentation)
+                
+                #warning("Should this be on a background context?")
+//                completion(.success(user))
+//                CoreDataStack.shared.save(context: <#T##NSManagedObjectContext#>)
+//
+//                guard let returnedGem = possibleReturnedGem,
+//                    let returnedID = returnedGem.gem.first else {
+//                    completion(.failure(FetchError.badData))
+//                    return
+//                }
                 
             }
         }
