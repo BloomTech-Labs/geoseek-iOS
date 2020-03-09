@@ -91,6 +91,25 @@ class NetworkController {
     
     
     
+    func signIn() {}
+    
+    private func createUserJSON(_ username: String, _ password: String, and email: String) -> Data? {
+        let json = """
+        {
+        "username": "\(username)",
+        "password": "\(password)",
+        "email": "\(email)"
+        }
+        """
+        
+        let jsonData = json.data(using: .utf8)
+        guard let unwrapped = jsonData else {
+            print("No data!")
+            return nil
+        }
+        return unwrapped
+    }
+    
     // MARK: - Helper Methods
     
     private func perform(_ request: URLRequest, completion: @escaping (Result<Data, Error>) -> Void) {
