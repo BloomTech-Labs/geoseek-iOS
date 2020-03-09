@@ -19,9 +19,9 @@ extension User {
         return UserRepresentation(email: email, id: Int(id), password: password, username: username)
     }
     
-    @discardableResult convenience init(representation: UserRepresentation, context: NSManagedObjectContext = .context) {
+    @discardableResult convenience init?(representation: UserRepresentation, context: NSManagedObjectContext = .context) {
         
-        guard let password = representation.password else { return }
+        guard let password = representation.password else { return nil }
         
         self.init(email: representation.email, id: representation.id, password: password, username: representation.username, context: context)
     }
