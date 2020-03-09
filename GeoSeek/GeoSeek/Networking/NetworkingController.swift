@@ -89,7 +89,31 @@ class NetworkController {
     
     // MARK: - Users
     
-    
+    func register(with username: String, password: String, email: String, completion: @escaping (Result<User, Error>) -> Void) {
+        let userToRegister = createUserJSON(username, password, and: email)
+        var request = usersURL(with: .post, and: .register)
+        request.httpBody = userToRegister
+        
+        perform(request) { result in
+            switch result {
+            case .failure(let error):
+                print(error)
+            case.success(let data):
+                let possibleUserRepresentation: UserRepresentation? = self.decode(data: data)
+                guard var userRepresentation = possibleUserRepresentation else { completion(.failure(FetchError.badData)) }
+                let returnedID = userRepresentation.id
+                userRepresentation.password = password
+                let user = User(
+                
+                guard let returnedGem = possibleReturnedGem,
+                    let returnedID = returnedGem.gem.first else {
+                    completion(.failure(FetchError.badData))
+                    return
+                }
+                
+            }
+        }
+    }
     
     func signIn() {}
     
