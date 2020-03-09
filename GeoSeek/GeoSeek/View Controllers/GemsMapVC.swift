@@ -17,47 +17,20 @@ class GemsMapVC: UIViewController, Storyboarded {
     
     var coordinator: GemsMapCoordinator?
     var delegate: GemsMapCoordinatorDelegate?
-    var gems: [Gem] = []
-    
+    var gemController: GemController?
     var userLocation: CLLocationCoordinate2D?
-    
-    var pressedLocation:CLLocation? = nil {
-        didSet{
-            //                continueButton.isEnabled = true
-            print("pressedLocation was set")
-        }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
+    let darkBlueMap = URL(string: "mapbox://styles/geoseek/ck7b5gau8002g1ip7b81etzj4")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let coordinator = coordinator else {
-            print("No coordinator!!!")
-            return
-        }
-        print("GemsMapVC coordinator:", coordinator)
         customTabBarXib.delegate = delegate
-        
-        //        mapView.setCenter(CLLocationCoordinate2D(latitude: 33.812794, longitude: -117.9190981), zoomLevel: 15, animated: false)
-        configureMapView()
-        //        customTabBarXib.coordinator = coordinator
-        //        mapView.setCenter(CLLocationCoordinate2D(latitude: 33.812794, longitude: -117.9190981), zoomLevel: 15, animated: false)
-        //        fetchGems()
-        //        print("Location from coordinator:", coordinator.setLocation)
-        fetchGems()
-    }
-    
-    func fetchGems() {
         NetworkController.shared.fetchGems { result in
             switch result {
             case .failure(let error):
-                print("ViewController.fetchGems Error: \(error)")
+                print("Error fetching Gems: \(error)")
             case .success(let gems):
-                self.gems = gems
+                self.gemController?.gems = gems
                 DispatchQueue.main.async {
                     self.configureMapView()
                 }
@@ -65,8 +38,10 @@ class GemsMapVC: UIViewController, Storyboarded {
         }
     }
     
-    let darkBlueMap = URL(string: "mapbox://styles/geoseek/ck7b5gau8002g1ip7b81etzj4")
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configureMapView()
+    }
     
     func configureMapView() {
         
@@ -85,9 +60,9 @@ class GemsMapVC: UIViewController, Storyboarded {
         mapView.styleURL = darkBlueMap
         mapView.delegate = self
         
+        guard let gemController = gemController else { return }
         
-        
-        for gem in gems {
+        for gem in gemController.gems {
             print(gem.title ?? "No Title", gem.latitude, gem.longitude)
             if gem.latitude > 90 || gem.latitude < -90 || gem.longitude > 180 || gem.longitude < -180 {
                 print(gem.description)
@@ -100,39 +75,7 @@ class GemsMapVC: UIViewController, Storyboarded {
         }
         mapView.addAnnotations(pointAnnotations)
     }
-    
-    //        let mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.satelliteStyleURL)
-    //        mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-    //        mapView.setCenter(CLLocationCoordinate2D(latitude: 33.812794, longitude: -117.9190981), zoomLevel: 15, animated: false)
-    
-    //        let lpgr = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))
-    //        lpgr.minimumPressDuration = 0.5
-    //        lpgr.delaysTouchesBegan = false
-    //        mapView.addGestureRecognizer(lpgr)
-    
-    // view.addSubview(mapView)
 }
-
-//    @objc func handleLongPress(gestureReconizer: UILongPressGestureRecognizer) {
-//        if gestureReconizer.state != UIGestureRecognizer.State.ended {
-//        } else {
-//            print("I was long pressed...")
-//
-//            myMapView.setCenter(CLLocationCoordinate2D(latitude: 33.812794, longitude: -117.9190981), zoomLevel: 15, animated: false)
-//            let touchPoint = gestureReconizer.location(in: myMapView)
-//            let coordsFromTouchPoint = myMapView.convert(touchPoint, toCoordinateFrom: myMapView)
-//            pressedLocation = CLLocation(latitude: coordsFromTouchPoint.latitude, longitude: coordsFromTouchPoint.longitude)
-//            print("Location:", coordsFromTouchPoint.latitude, coordsFromTouchPoint.longitude)
-//
-//            let wayAnnotation = MGLPointAnnotation()
-//            wayAnnotation.coordinate = coordsFromTouchPoint
-//            wayAnnotation.title = "waypoint"
-//
-//        }
-//    }
-
-
-
 
 extension GemsMapVC: MGLMapViewDelegate {
     func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
