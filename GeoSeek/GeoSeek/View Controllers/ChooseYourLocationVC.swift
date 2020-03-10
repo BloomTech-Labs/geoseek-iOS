@@ -32,12 +32,14 @@ class ChooseYourLocationVC: UIViewController, Storyboarded {
     }
     
     func createDismissTapGesture() {
-        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissView))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissView(_:)))
         view.addGestureRecognizer(tap)
     }
     
-    @objc func dismissView() {
-        dismiss(animated: true)
+    @objc func dismissView(_ sender: UITapGestureRecognizer) {
+        if !chooseView!.frame.contains(sender.location(in: self.view)) {
+            dismiss(animated: true)
+        }
     }
     
     
