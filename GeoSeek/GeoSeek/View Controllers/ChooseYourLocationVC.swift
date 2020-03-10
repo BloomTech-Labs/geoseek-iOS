@@ -38,7 +38,6 @@ class ChooseYourLocationVC: UIViewController, Storyboarded {
     
     @objc func dismissView(_ sender: UITapGestureRecognizer) {
         if !chooseView!.frame.contains(sender.location(in: self.view)) {
-            print("Yo")
             dismiss(animated: true)
         }
     }
