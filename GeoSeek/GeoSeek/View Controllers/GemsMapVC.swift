@@ -78,24 +78,48 @@ class GemsMapVC: UIViewController, Storyboarded {
 }
 
 extension GemsMapVC: MGLMapViewDelegate {
-    func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
-        guard annotation is MGLPointAnnotation else { return nil }
-        
-        let reuseIdentifier = "\(annotation.coordinate.latitude)\(annotation.coordinate.longitude)"
-        
-        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
-        let hue = CGFloat((abs(Double(annotation.coordinate.longitude).rounded())) / 90)
-        let annotationColor = UIColor(hue: hue, saturation: 0.5, brightness: 1, alpha: 1)
-        
-        if annotationView == nil {
-            annotationView = CustomAnnotationView(reuseIdentifier: reuseIdentifier)
-            annotationView?.backgroundColor = annotationColor
-            annotationView?.bounds = CGRect(x: 0, y: 0, width: 20, height: 20)
-        }
-        return annotationView
-    }
+    //    func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
+    //        guard annotation is MGLPointAnnotation else { return nil }
+    //
+    //        let reuseIdentifier = "\(annotation.coordinate.latitude)\(annotation.coordinate.longitude)"
+    //
+    //        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
+    //        let hue = CGFloat((abs(Double(annotation.coordinate.longitude).rounded())) / 90)
+    //        let annotationColor = UIColor(hue: hue, saturation: 0.5, brightness: 1, alpha: 1)
+    //
+    //        if annotationView == nil {
+    //            annotationView = CustomAnnotationView(reuseIdentifier: reuseIdentifier)
+    //            annotationView?.backgroundColor = annotationColor
+    //            annotationView?.bounds = CGRect(x: 0, y: 0, width: 20, height: 20)
+    //        }
+    //        return annotationView
+    //    }
     
     func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
         return true
+    }
+    
+    func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
+        guard annotation is MGLPointAnnotation else {
+            return nil
+        }
+        
+        let imageName = "bluegem"
+        
+        // Use the image name as the reuse identifier for its view.
+        let reuseIdentifier = imageName
+        
+        // For better performance, always try to reuse existing annotations.
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
+        
+        // If there’s no reusable annotation view available, initialize a new one.
+        if annotationView == nil {
+            annotationView = CustomAnnotationView(reuseIdentifier: reuseIdentifier, image: UIImage(named: imageName)!)
+        }
+        
+        return annotationView
+        
+        
+
     }
 }
