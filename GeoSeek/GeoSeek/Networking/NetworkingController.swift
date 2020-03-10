@@ -82,58 +82,92 @@ class NetworkController {
                 completeGemRepresentation.id = returnedID
                 let gem = Gem(representation: completeGemRepresentation)
                 completion(.success(gem))
-//                print("Success! Created gem: \(gem.title ?? "No Title")") // This can go away after testing.
             }
         }
     }
     
     // MARK: - Users
     
-    func register(with username: String, password: String, email: String, completion: @escaping (Result<User, Error>) -> Void) {
+    func register(with username: String, password: String, email: String, completion: @escaping (Result<String, Error>) -> Void) {
         let userToRegister = createUserJSON(username, password, and: email)
         var request = usersURL(with: .post, and: .register)
         request.httpBody = userToRegister
         
-        perform(request) { result in
-            switch result {
-            case .failure(let error):
-                print(error)
-            case.success(let data):
-                let possibleUserRepresentation: UserRepresentation? = self.decode(data: data)
-                guard var userRepresentation = possibleUserRepresentation else { completion(.failure(FetchError.badData))
-                    return
+        URLSession.shared.dataTask(with: request) { _, response, _ in
+            if let response = response as? HTTPURLResponse {
+                switch response.statusCode {
+                case 200...299:
+                    print("successfully registered")
+                default:
+                    print("failed to register")
                 }
-                let returnedID = userRepresentation.id
-                userRepresentation.password = password
-                let possibleUser = User(representation: userRepresentation)
-                
-                if let user = possibleUser {
-                    completion(.success(user))
-                    #warning("Should this be on a background context?")
-                    //                CoreDataStack.shared.save(context: <#T##NSManagedObjectContext#>)                    
-                }
-//                completion(.success(user))
-//
-//                guard let returnedGem = possibleReturnedGem,
-//                    let returnedID = returnedGem.gem.first else {
-//                    completion(.failure(FetchError.badData))
-//                    return
-//                }
-                
             }
         }
+        // Put this in the main coordinator to test the register method
+//        let user = "user123"
+//        let password = "aGoodPassword"
+//        let email = "email@email.com"
+//        NetworkController.shared.register(with: user, password: password, email: email) { result in
+//            switch result {
+//            case .failure(let error): print("\(error)")
+//            case .success(let string): print(string)
+//            }
+//        }
+        
+        
+        
+        
+//        perform(request) { result in
+//            switch result {
+//            case .failure(let error): print(error)
+//            case.success(let data):
+//                let possibleUserRepresentation: UserRepresentation? = self.decode(data: data)
+//                guard var userRepresentation = possibleUserRepresentation else { completion(.failure(FetchError.badData))
+//                    return
+//                }
+//                userRepresentation.password = password
+//                if let user = User(representation: userRepresentation) {
+//                    #warning("Should this be on a background context?")
+//                    do {
+//                        try CoreDataStack.shared.save(context: .context)
+//                        completion(.success(user))
+//                    } catch {
+//                        completion(.failure(NSError()))
+//                    }
+//                }
+//            }
+//        }
     }
     
-    func signIn() {}
+    func signIn(with username: String, password: String, completion: Result<String, Error>) {
+        let user = createUserJSON(username, password, and: "")
+        var request = usersURL(with: .post, and: .login)
+        request.httpBody = user
+        
+        
+        
+        
+        
+    }
     
     private func createUserJSON(_ username: String, _ password: String, and email: String) -> Data? {
-        let json = """
-        {
-        "username": "\(username)",
-        "password": "\(password)",
-        "email": "\(email)"
+        var json = ""
+        if email.isEmpty {
+            json = """
+            {
+            "username": "\(username)",
+            "password": "\(password)"
+            }
+            """
+        } else {
+            json = """
+            {
+            "username": "\(username)",
+            "password": "\(password)",
+            "email": "\(email)"
+            }
+            """
         }
-        """
         
         let jsonData = json.data(using: .utf8)
         guard let unwrapped = jsonData else {
@@ -214,4 +248,12 @@ class NetworkController {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         return request
     }
+
+let thing = """
+{
+    "message": "Welcome testreg!",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3RyZWciLCJpZCI6NywiaWF0IjoxNTgzODU2MDMzLCJleHAiOjE1ODM5NDI0MzN9.Yhyz9rdFkrWeYW8X-N1l3ZgWEujxRHOS1277_p1iyr4",
+    "user_id": 7
+}
+"""
 }
