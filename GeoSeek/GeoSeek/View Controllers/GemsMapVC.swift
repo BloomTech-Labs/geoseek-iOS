@@ -104,7 +104,7 @@ extension GemsMapVC: MGLMapViewDelegate {
             return nil
         }
         
-        let imageName = "bluegem"
+        let imageName = "blueGem"
         
         // Use the image name as the reuse identifier for its view.
         let reuseIdentifier = imageName
