@@ -18,19 +18,21 @@ protocol CreateGemDelegate {
 class CreateGemVC: UIViewController, Storyboarded, UITextFieldDelegate, UITextViewDelegate, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var addGemView: UIView!
-    @IBOutlet weak var headerLabel: UILabel!
-    @IBOutlet weak var giveGemTitleLabel: UILabel!
+    //    @IBOutlet weak var headerLabel: UILabel!
+    //    @IBOutlet weak var giveGemTitleLabel: UILabel!
+    
     @IBOutlet weak var gemTitleTextField: UITextField!
-    @IBOutlet weak var locationButton: UIButton!
+    
+    //    @IBOutlet weak var locationButton: UIButton!
     @IBOutlet weak var addDescriptionLabel: UILabel!
     @IBOutlet weak var gemDescriptionTextView: UITextView!
-    @IBOutlet weak var difficultyLabel: UILabel!
-    @IBOutlet weak var difficultyLevelTextField: UITextField!
-    @IBOutlet weak var cancelButton: UIButton!
+    //    @IBOutlet weak var difficultyLabel: UILabel!
+    //    @IBOutlet weak var difficultyLevelTextField: UITextField!
+    //    @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
     
     //Note: Do we want a "tab bar" here at all?
-    @IBOutlet weak var customTabBarXib: CustomTabBarXib!
+    //    @IBOutlet weak var customTabBarXib: CustomTabBarXib!
     var keyboardDismissTapGestureRecognizer: UITapGestureRecognizer!
     var currentYShiftForKeyboard: CGFloat = 0
     var coordinator: BaseCoordinator?
@@ -47,140 +49,139 @@ class CreateGemVC: UIViewController, Storyboarded, UITextFieldDelegate, UITextVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("SecondVeiwController.viewDidLoad")
         
         styleAddGemView()
         gemTitleTextField.delegate = self
         gemDescriptionTextView.delegate = self
-//        print(gemLocation)
+        //        print(gemLocation)
         
         setupKeyboardDismissTapGestureRecognizer()
-
+        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
-        @objc func stopEditingTextInput() {
-            if let gemTitleTextField = self.gemTitleTextField {
-                
-                gemTitleTextField.resignFirstResponder()
-                
-                self.gemTitleTextField = nil
-                self.gemDescriptionTextView = nil
-            } else if let gemDescriptionTextView = self.gemDescriptionTextView {
-                
-                gemDescriptionTextView.resignFirstResponder()
-                
-                self.gemTitleTextField = nil
-                self.gemDescriptionTextView = nil
-            }
+    @objc func stopEditingTextInput() {
+        if let gemTitleTextField = self.gemTitleTextField {
             
-            guard keyboardDismissTapGestureRecognizer.isEnabled else { return }
+            gemTitleTextField.resignFirstResponder()
             
-            keyboardDismissTapGestureRecognizer.isEnabled = false
+//            self.gemTitleTextField = nil
+//            self.gemDescriptionTextView = nil
+        } else if let gemDescriptionTextView = self.gemDescriptionTextView {
+            
+            gemDescriptionTextView.resignFirstResponder()
+            
+//            self.gemTitleTextField = nil
+//            self.gemDescriptionTextView = nil
         }
         
-        func textFieldDidBeginEditing(_ textField: UITextField) {
-            gemTitleTextField = textField
-        }
+        guard keyboardDismissTapGestureRecognizer.isEnabled else { return }
         
-        func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
-            gemDescriptionTextView = textView
-            return true
-        }
-        
-        @objc func keyboardWillShow(notification: Notification) {
-            
-            keyboardDismissTapGestureRecognizer.isEnabled = true
-            
-            var keyboardSize: CGRect = .zero
-            
-            if let keyboardRect = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect,
-                keyboardRect.height != 0 {
-                keyboardSize = keyboardRect
-            } else if let keyboardRect = notification.userInfo?["UIKeyboardBoundsUserInfoKey"] as? CGRect {
-                keyboardSize = keyboardRect
-            }
-            
-            if let textField = gemTitleTextField  {
-                if self.view.frame.origin.y == 0 {
-                    
-                    let yShift = yShiftWhenKeyboardAppearsFor(textInput: textField, keyboardSize: keyboardSize, nextY: keyboardSize.height)
-                    self.currentYShiftForKeyboard = yShift
-                    self.view.frame.origin.y -= yShift
-                }
-            } else if let textView = gemDescriptionTextView {
-                if self.view.frame.origin.y == 0 {
-                    
-                    let yShift = yShiftWhenKeyboardAppearsFor(textInput: textView, keyboardSize: keyboardSize, nextY: keyboardSize.height)
-                    self.currentYShiftForKeyboard = yShift
-                    self.view.frame.origin.y -= yShift
-                }
-            }
-        }
-        
-        @objc func yShiftWhenKeyboardAppearsFor(textInput: UIView, keyboardSize: CGRect, nextY: CGFloat) -> CGFloat {
-            
-            let textFieldOrigin = self.view.convert(textInput.frame, from: textInput.superview!).origin.y
-            let textFieldBottomY = textFieldOrigin + textInput.frame.size.height
-            
-            // This is the y point that the textField's bottom can be at before it gets covered by the keyboard
-            let maximumY = self.view.frame.height - (keyboardSize.height + view.safeAreaInsets.bottom)
-            
-            if textFieldBottomY > maximumY {
-                // This makes the view shift the right amount to have the text field being edited just above they keyboard if it would have been covered by the keyboard.
-                return textFieldBottomY - maximumY
-            } else {
-                // It would go off the screen if moved, and it won't be obscured by the keyboard.
-                return 0
-            }
-        }
-        
-        @objc func keyboardWillHide(notification: Notification) {
-            
-            if self.view.frame.origin.y != 0 {
-                
-                self.view.frame.origin.y += currentYShiftForKeyboard
-            }
-            
-            stopEditingTextInput()
-        }
-        
-        @objc func setupKeyboardDismissTapGestureRecognizer() {
-            
-            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(stopEditingTextInput))
-            tapGestureRecognizer.numberOfTapsRequired = 1
-            
-            view.addGestureRecognizer(tapGestureRecognizer)
-            
-            keyboardDismissTapGestureRecognizer = tapGestureRecognizer
-            
-        }
+        keyboardDismissTapGestureRecognizer.isEnabled = false
+    }
     
-
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        gemTitleTextField = textField
+    }
+    
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        gemDescriptionTextView = textView
+        return true
+    }
+    
+    @objc func keyboardWillShow(notification: Notification) {
+        
+        keyboardDismissTapGestureRecognizer.isEnabled = true
+        
+        var keyboardSize: CGRect = .zero
+        
+        if let keyboardRect = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect,
+            keyboardRect.height != 0 {
+            keyboardSize = keyboardRect
+        } else if let keyboardRect = notification.userInfo?["UIKeyboardBoundsUserInfoKey"] as? CGRect {
+            keyboardSize = keyboardRect
+        }
+        
+        if let textField = gemTitleTextField  {
+            if self.view.frame.origin.y == 0 {
+                
+                let yShift = yShiftWhenKeyboardAppearsFor(textInput: textField, keyboardSize: keyboardSize, nextY: keyboardSize.height)
+                self.currentYShiftForKeyboard = yShift
+                self.view.frame.origin.y -= yShift
+            }
+        } else if let textView = gemDescriptionTextView {
+            if self.view.frame.origin.y == 0 {
+                
+                let yShift = yShiftWhenKeyboardAppearsFor(textInput: textView, keyboardSize: keyboardSize, nextY: keyboardSize.height)
+                self.currentYShiftForKeyboard = yShift
+                self.view.frame.origin.y -= yShift
+            }
+        }
+    }
+    
+    @objc func yShiftWhenKeyboardAppearsFor(textInput: UIView, keyboardSize: CGRect, nextY: CGFloat) -> CGFloat {
+        
+        let textFieldOrigin = self.view.convert(textInput.frame, from: textInput.superview!).origin.y
+        let textFieldBottomY = textFieldOrigin + textInput.frame.size.height
+        
+        // This is the y point that the textField's bottom can be at before it gets covered by the keyboard
+        let maximumY = self.view.frame.height - (keyboardSize.height + view.safeAreaInsets.bottom)
+        
+        if textFieldBottomY > maximumY {
+            // This makes the view shift the right amount to have the text field being edited just above they keyboard if it would have been covered by the keyboard.
+            return textFieldBottomY - maximumY
+        } else {
+            // It would go off the screen if moved, and it won't be obscured by the keyboard.
+            return 0
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: Notification) {
+        
+        if self.view.frame.origin.y != 0 {
+            
+            self.view.frame.origin.y += currentYShiftForKeyboard
+        }
+        
+        stopEditingTextInput()
+    }
+    
+    @objc func setupKeyboardDismissTapGestureRecognizer() {
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(stopEditingTextInput))
+        tapGestureRecognizer.numberOfTapsRequired = 1
+        
+        view.addGestureRecognizer(tapGestureRecognizer)
+        
+        keyboardDismissTapGestureRecognizer = tapGestureRecognizer
+        
+    }
+    
+    
     func styleAddGemView() {
-      addGemView.layer.cornerRadius = 20.0
-      addGemView.clipsToBounds = true
-      gemTitleTextField.layer.cornerRadius = 20.0
-       
-      gemDescriptionTextView.layer.cornerRadius = 10.0
-      gemDescriptionTextView.clipsToBounds = true
-       
-      saveButton.layer.cornerRadius = 10.0
+        addGemView.layer.cornerRadius = 20.0
+        addGemView.clipsToBounds = true
+        gemTitleTextField.layer.cornerRadius = 20.0
+        
+        gemDescriptionTextView.layer.cornerRadius = 10.0
+        gemDescriptionTextView.clipsToBounds = true
+        
+        saveButton.layer.cornerRadius = 10.0
     }
     
-    @IBAction func locationButtonTapped(_ sender: Any) {
-//        print("do something", coordinator)
-        delegate?.getGemLocation()
-    }
-    
-    @IBAction func cancelButtonTapped(_ sender: Any) {
-        print("cancelButtonTapped")
-        navigationController?.popViewController(animated: true)
-    }
+    //    @IBAction func locationButtonTapped(_ sender: Any) {
+    ////        print("do something", coordinator)
+    //        delegate?.getGemLocation()
+    //    }
+    //
+    //    @IBAction func cancelButtonTapped(_ sender: Any) {
+    //        print("cancelButtonTapped")
+    //        navigationController?.popViewController(animated: true)
+    //    }
     
     @IBAction func saveButtonTapped(_ sender: Any) {
-        print(gemDescriptionTextView.text ?? "No gemDesc text", gemLocation?.latitude ?? "No location")
+        //        print(gemDescriptionTextView.text ?? "No gemDesc text", gemLocation?.latitude ?? "No location")
         guard let title = gemTitleTextField.text,
             !title.isEmpty,
             let desc = gemDescriptionTextView.text,
@@ -192,7 +193,7 @@ class CreateGemVC: UIViewController, Storyboarded, UITextFieldDelegate, UITextVi
         delegate?.createGem(gem)
     }
     
-
+    
 }
 
 //extension CreateGemVC: UITextFieldDelegate {
