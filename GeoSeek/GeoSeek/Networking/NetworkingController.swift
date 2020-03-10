@@ -105,11 +105,14 @@ class NetworkController {
                 }
                 let returnedID = userRepresentation.id
                 userRepresentation.password = password
-                let user = User(representation: userRepresentation)
+                let possibleUser = User(representation: userRepresentation)
                 
-                #warning("Should this be on a background context?")
+                if let user = possibleUser {
+                    completion(.success(user))
+                    #warning("Should this be on a background context?")
+                    //                CoreDataStack.shared.save(context: <#T##NSManagedObjectContext#>)                    
+                }
 //                completion(.success(user))
-//                CoreDataStack.shared.save(context: <#T##NSManagedObjectContext#>)
 //
 //                guard let returnedGem = possibleReturnedGem,
 //                    let returnedID = returnedGem.gem.first else {
