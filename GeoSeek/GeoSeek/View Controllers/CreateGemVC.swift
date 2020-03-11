@@ -102,21 +102,10 @@ class CreateGemVC: UIViewController, Storyboarded, UITextFieldDelegate, UITextVi
         } else if let keyboardRect = notification.userInfo?["UIKeyboardBoundsUserInfoKey"] as? CGRect {
             keyboardSize = keyboardRect
         }
-        
-        if let textField = gemTitleTextField  {
-            if self.view.frame.origin.y == 0 {
-                
-                let yShift = yShiftWhenKeyboardAppearsFor(textInput: textField, keyboardSize: keyboardSize, nextY: keyboardSize.height)
-                self.currentYShiftForKeyboard = yShift
-                self.view.frame.origin.y -= yShift
-            }
-        } else if let textView = gemDescriptionTextView {
-            if self.view.frame.origin.y == 0 {
-                
-                let yShift = yShiftWhenKeyboardAppearsFor(textInput: textView, keyboardSize: keyboardSize, nextY: keyboardSize.height)
-                self.currentYShiftForKeyboard = yShift
-                self.view.frame.origin.y -= yShift
-            }
+        if self.view.frame.origin.y == 0 {
+            let yShift = yShiftWhenKeyboardAppearsFor(textInput: saveButton, keyboardSize: keyboardSize, nextY: keyboardSize.height)
+            currentYShiftForKeyboard = yShift
+            view.frame.origin.y -= yShift
         }
     }
     
