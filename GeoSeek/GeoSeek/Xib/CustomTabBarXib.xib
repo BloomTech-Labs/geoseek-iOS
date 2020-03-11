@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomTabBarXib" customModule="GeoSeek" customModuleProvider="target">
+            <connections>
+                <outlet property="addGemMapViewButton" destination="UEu-no-u3y" id="bQI-bE-WnK"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="Q1N-lF-eKI"/>
+                <outlet property="twoButton" destination="UaU-1y-wHs" id="kYs-7a-jAu"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UEu-no-u3y">
+                    <rect key="frame" x="187" y="30" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="3Sh-BJ-ipB"/>
+                        <constraint firstAttribute="width" constant="40" id="Dht-If-Rwy"/>
+                        <constraint firstAttribute="width" secondItem="UEu-no-u3y" secondAttribute="height" multiplier="1:1" id="ZVr-Nd-VeU"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" image="plus" catalog="system">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="addGemMapViewButtonTapped:" destination="-1" eventType="touchUpInside" id="or5-C7-wL9"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UaU-1y-wHs">
+                    <rect key="frame" x="364" y="35" width="30" height="30"/>
+                    <state key="normal" title="2"/>
+                    <connections>
+                        <action selector="twoButtonTapped:" destination="-1" eventType="touchUpInside" id="IBw-cd-q0l"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="UEu-no-u3y" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="PoB-Ew-gb1"/>
+                <constraint firstItem="UEu-no-u3y" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="S9c-zK-dqr"/>
+                <constraint firstItem="UaU-1y-wHs" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="hYf-H1-qIZ"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="UaU-1y-wHs" secondAttribute="trailing" constant="20" id="nji-er-RLs"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="UaU-1y-wHs"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="139" y="86"/>
+        </view>
+        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lUi-bH-kxv">
+            <rect key="frame" x="0.0" y="0.0" width="42" height="21"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+            <nil key="textColor"/>
+            <nil key="highlightedColor"/>
+            <point key="canvasLocation" x="70" y="14"/>
+        </label>
+    </objects>
+    <resources>
+        <image name="plus" catalog="system" width="64" height="56"/>
+    </resources>
+</document>
