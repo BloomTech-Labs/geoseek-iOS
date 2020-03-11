@@ -113,7 +113,7 @@ class NetworkController {
                 }
             }
         }.resume()
-        // I suspect we'll need some iteration of this code once the backend starts sending the user id when you register
+        // I suspect we'll need some iteration of the functionality below once the backend starts sending the user id when you register
         
         //        perform(request) { result in
         //            switch result {
@@ -195,8 +195,19 @@ class NetworkController {
     // MARK: - Completed Routes
     
     func markGemCompleted(_ gem: Gem, completedBy: CompletedBy, user: User?, completion: @escaping (Result<String, Error>) -> Void) {
-        let request = completedURL(with: .post, and: user)
-        let
+        var request = completedURL(with: .post, and: user)
+        let encodedCompletedBy = encode(item: completedBy)
+        request.httpBody = encodedCompletedBy
+        
+        perform(request) { result in
+            switch result {
+            case .failure(let error):
+                completion(.failure(error))
+                return
+            case .success(_):
+                completion(.success("Completed!"))
+            }
+        }
     }
     
     // MARK: - Helper Methods

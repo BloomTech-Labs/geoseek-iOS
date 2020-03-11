@@ -23,7 +23,7 @@ struct ReturnedUser: Codable {
     let email: String
 }
 
-struct CompletedBy {
+struct CompletedBy: Codable {
     let gemId: Int
     let completedAt: String
     let completedBy: Int
