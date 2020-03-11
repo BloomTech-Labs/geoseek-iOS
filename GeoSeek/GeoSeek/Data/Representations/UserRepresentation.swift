@@ -12,7 +12,21 @@ struct UserRepresentation: Codable {
     
     var email: String
     var id: Int
-    var password: String
+    var password: String?
     var username: String
+    var token: String
+}
 
+struct ReturnedUser: Codable {
+    let userID: Int
+    let token: String
+    let email: String
+}
+
+struct CompletedBy: Codable {
+    let gemId: Int
+    let completedAt: String
+    let completedBy: Int
+    let difficulty: Int
+    let comments: String
 }
