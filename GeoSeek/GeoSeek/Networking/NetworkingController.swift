@@ -75,8 +75,8 @@ class NetworkController {
                 let possibleReturnedGem: ReturnedGem? = self.decode(data: data)
                 guard let returnedGem = possibleReturnedGem,
                     let returnedID = returnedGem.gem.first else {
-                    completion(.failure(FetchError.badData))
-                    return
+                        completion(.failure(FetchError.badData))
+                        return
                 }
                 var completeGemRepresentation = gemRepresentation
                 completeGemRepresentation.id = returnedID
@@ -88,6 +88,16 @@ class NetworkController {
     
     // MARK: - Users
     
+    // Put this in the main coordinator to test the register method
+    //        let user = "user123"
+    //        let password = "aGoodPassword"
+    //        let email = "email@email.com"
+    //        NetworkController.shared.register(with: user, password: password, email: email) { result in
+    //            switch result {
+    //            case .failure(let error): print("\(error)")
+    //            case .success(let string): print(string)
+    //            }
+    //        }
     func register(with username: String, password: String, email: String, completion: @escaping (Result<String, Error>) -> Void) {
         let userToRegister = createUserJSON(username, password, and: email)
         var request = usersURL(with: .post, and: .register)
@@ -102,52 +112,57 @@ class NetworkController {
                     print("failed to register")
                 }
             }
-        }
-        // Put this in the main coordinator to test the register method
-//        let user = "user123"
-//        let password = "aGoodPassword"
-//        let email = "email@email.com"
-//        NetworkController.shared.register(with: user, password: password, email: email) { result in
-//            switch result {
-//            case .failure(let error): print("\(error)")
-//            case .success(let string): print(string)
-//            }
-//        }
+        }.resume()
+        // I suspect we'll need some iteration of this code once the backend starts sending the user id when you register
         
-        
-        
-        
-//        perform(request) { result in
-//            switch result {
-//            case .failure(let error): print(error)
-//            case.success(let data):
-//                let possibleUserRepresentation: UserRepresentation? = self.decode(data: data)
-//                guard var userRepresentation = possibleUserRepresentation else { completion(.failure(FetchError.badData))
-//                    return
-//                }
-//                userRepresentation.password = password
-//                if let user = User(representation: userRepresentation) {
-//                    #warning("Should this be on a background context?")
-//                    do {
-//                        try CoreDataStack.shared.save(context: .context)
-//                        completion(.success(user))
-//                    } catch {
-//                        completion(.failure(NSError()))
-//                    }
-//                }
-//            }
-//        }
+        //        perform(request) { result in
+        //            switch result {
+        //            case .failure(let error): print(error)
+        //            case.success(let data):
+        //                let possibleUserRepresentation: UserRepresentation? = self.decode(data: data)
+        //                guard var userRepresentation = possibleUserRepresentation else { completion(.failure(FetchError.badData))
+        //                    return
+        //                }
+        //                userRepresentation.password = password
+        //                if let user = User(representation: userRepresentation) {
+        //                    #warning("Should this be on a background context?")
+        //                    do {
+        //                        try CoreDataStack.shared.save(context: .context)
+        //                        completion(.success(user))
+        //                    } catch {
+        //                        completion(.failure(NSError()))
+        //                    }
+        //                }
+        //            }
+        //        }
     }
     
-    func signIn(with username: String, password: String, completion: Result<String, Error>) {
+    func signIn(with username: String, password: String, completion: @escaping (Result<String, Error>) -> Void) {
         let user = createUserJSON(username, password, and: "")
         var request = usersURL(with: .post, and: .login)
         request.httpBody = user
         
-        
-        
-        
-        
+        perform(request) { result in
+            switch result {
+            case .failure(let error):
+                completion(.failure(error))
+            case .success(let data):
+                let returnedUser: ReturnedUser? = self.decode(data: data)
+                guard let id = returnedUser?.userID,
+                    let email = returnedUser?.email,
+                    let token = returnedUser?.token else {
+                        completion(.failure(FetchError.badData))
+                        return
+                }
+                User(email: email, id: id, password: password, username: username, token: token, context: .context)
+                do {
+                    try CoreDataStack.shared.mainContext.save()
+                    completion(.success("Yay!"))
+                } catch {
+                    completion(.failure(FetchError.otherError))
+                }
+            }
+        }
     }
     
     private func createUserJSON(_ username: String, _ password: String, and email: String) -> Data? {
@@ -177,6 +192,13 @@ class NetworkController {
         return unwrapped
     }
     
+    // MARK: - Completed Routes
+    
+    func markGemCompleted(_ gem: Gem, completedBy: CompletedBy, user: User?, completion: @escaping (Result<String, Error>) -> Void) {
+        let request = completedURL(with: .post, and: user)
+        let
+    }
+    
     // MARK: - Helper Methods
     
     private func perform(_ request: URLRequest, completion: @escaping (Result<Data, Error>) -> Void) {
@@ -193,7 +215,7 @@ class NetworkController {
                 completion(.failure(FetchError.badData))
                 return
             }
-//            print(String(data: data, encoding: .utf8))
+            //            print(String(data: data, encoding: .utf8))
             completion(.success(data))
         }
         dataTask.resume()
@@ -235,25 +257,36 @@ class NetworkController {
     }
     
     private func usersURL(with method: HTTPMethod, and userAction: UserAction, for user: User? = nil) -> URLRequest {
-        var userID = ""
-        if let user = user {
-            userID = "\(user.id)"
-        }
-        let url = URL(string: baseURL)!
+        var url = URL(string: baseURL)!
             .appendingPathComponent("users")
             .appendingPathComponent(userAction.rawValue)
-            .appendingPathComponent(userID)
+        if let user = user {
+            url = url.appendingPathComponent("\(user.id)")
+        }
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         return request
     }
-
-let thing = """
+    
+    private func completedURL(with method: HTTPMethod, and user: User?) -> URLRequest {
+        var url = URL(string: baseURL)!
+            .appendingPathComponent("completed")
+        if let user = user {
+            url = url.appendingPathComponent("\(user.id)")
+        }
+        var request = URLRequest(url: url)
+        request.httpMethod = method.rawValue
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        return request
+    }
+    
+    let thing = """
 {
     "message": "Welcome testreg!",
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3RyZWciLCJpZCI6NywiaWF0IjoxNTgzODU2MDMzLCJleHAiOjE1ODM5NDI0MzN9.Yhyz9rdFkrWeYW8X-N1l3ZgWEujxRHOS1277_p1iyr4",
     "user_id": 7
+    "email" : "email@email.com
 }
 """
 }
