@@ -55,7 +55,7 @@ extension CreateGemCoordinator: CreateGemDelegate {
         let mapVC = ChooseLocationVC()
         mapVC.coordinator = self
         mapVC.delegate = self
-//        mapVC.locationManager = locationManager
+        mapVC.locationManager = locationManager
         mapVC.modalTransitionStyle = .coverVertical
         self.navigationController?.present(mapVC, animated: true)
     }

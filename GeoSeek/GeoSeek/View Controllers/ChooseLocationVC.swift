@@ -53,18 +53,11 @@ class ChooseLocationVC: UIViewController {
             removeAnnotation(point: point)
             
             pressedLocation = CLLocation(latitude: coordsFromTouchPoint.latitude, longitude: coordsFromTouchPoint.longitude)
-            
             guard let pressedLocation = pressedLocation else { return }
-     
             point.coordinate = pressedLocation.coordinate
-            
             containerView.addAnnotation(point)
             
-            coordinator?.gemLat = pressedLocation.coordinate.latitude
-            coordinator?.gemLong = pressedLocation.coordinate.longitude
-            
             enableDoneButton()
-            // myWaypoints.append(location)
             print("Location:", coordsFromTouchPoint.latitude, coordsFromTouchPoint.longitude)
         }
     }
@@ -102,9 +95,11 @@ class ChooseLocationVC: UIViewController {
     func configureMap() {
         containerView.styleURL = darkBlueMap
         guard let userLocation = locationManager?.location else {
+            print("No location")
             containerView.setCenter(CLLocationCoordinate2D(latitude: 0, longitude: 0), zoomLevel: 2, animated: false)
             return
         }
+        print("Have a location")
         containerView.setCenter(userLocation.coordinate, zoomLevel: 15, animated: false)
     }
     
