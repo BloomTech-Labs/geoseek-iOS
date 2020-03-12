@@ -41,19 +41,22 @@ class GemsMapVC: UIViewController, Storyboarded {
         super.viewWillAppear(animated)
         configureMapView()
     }
-    
+        
     func configureMapView() {
         
         var pointAnnotations: [MGLPointAnnotation] = []
         
         let userPoint = MGLPointAnnotation()
         
-        if let userLocation = userLocation {
+        if let recentGem = gemController?.recentGem {
+            let location = CLLocationCoordinate2D(latitude: recentGem.latitude, longitude: recentGem.longitude)
+            mapView.setCenter(location, animated: true)
+        } else if let userLocation = userLocation {
             userPoint.coordinate = CLLocationCoordinate2D(latitude: userLocation.latitude, longitude: userLocation.longitude)
             pointAnnotations.append(userPoint)
             mapView.setCenter(userLocation, zoomLevel: 15, animated: false)
         } else {
-            mapView.setCenter(CLLocationCoordinate2D(latitude: 33.812794, longitude: -117.9190981), zoomLevel: 15, animated: false)
+            mapView.setCenter(CLLocationCoordinate2D(latitude: 0, longitude: 0), zoomLevel: 2, animated: false)
         }
         
         mapView.styleURL = darkBlueMap
@@ -72,6 +75,7 @@ class GemsMapVC: UIViewController, Storyboarded {
             pointAnnotations.append(point)
         }
         mapView.addAnnotations(pointAnnotations)
+        gemController.recentGem = nil
     }
 }
 
