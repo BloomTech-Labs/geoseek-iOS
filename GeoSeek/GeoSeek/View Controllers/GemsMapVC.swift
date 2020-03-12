@@ -14,7 +14,6 @@ class GemsMapVC: UIViewController, Storyboarded {
     @IBOutlet weak var customTabBarXib: CustomTabBarXib!
     @IBOutlet weak var mapView: MGLMapView!
     
-    
     var coordinator: GemsMapCoordinator?
     var delegate: GemsMapCoordinatorDelegate?
     var gemController: GemController?
@@ -63,7 +62,6 @@ class GemsMapVC: UIViewController, Storyboarded {
         guard let gemController = gemController else { return }
         
         for gem in gemController.gems {
-            print(gem.title ?? "No Title", gem.latitude, gem.longitude)
             if gem.latitude > 90 || gem.latitude < -90 || gem.longitude > 180 || gem.longitude < -180 {
                 print(gem.description)
                 continue
@@ -78,22 +76,6 @@ class GemsMapVC: UIViewController, Storyboarded {
 }
 
 extension GemsMapVC: MGLMapViewDelegate {
-    //    func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
-    //        guard annotation is MGLPointAnnotation else { return nil }
-    //
-    //        let reuseIdentifier = "\(annotation.coordinate.latitude)\(annotation.coordinate.longitude)"
-    //
-    //        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
-    //        let hue = CGFloat((abs(Double(annotation.coordinate.longitude).rounded())) / 90)
-    //        let annotationColor = UIColor(hue: hue, saturation: 0.5, brightness: 1, alpha: 1)
-    //
-    //        if annotationView == nil {
-    //            annotationView = CustomAnnotationView(reuseIdentifier: reuseIdentifier)
-    //            annotationView?.backgroundColor = annotationColor
-    //            annotationView?.bounds = CGRect(x: 0, y: 0, width: 20, height: 20)
-    //        }
-    //        return annotationView
-    //    }
     
     func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
         return true
@@ -116,10 +98,6 @@ extension GemsMapVC: MGLMapViewDelegate {
         if annotationView == nil {
             annotationView = CustomAnnotationView(reuseIdentifier: reuseIdentifier, image: UIImage(named: imageName)!)
         }
-        
         return annotationView
-        
-        
-
     }
 }

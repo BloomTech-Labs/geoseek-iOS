@@ -24,30 +24,20 @@ class LandingPageVC: UIViewController, CLLocationManagerDelegate, Storyboarded {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         locationManager?.delegate = self
     }
     
 
 
     @IBAction func setLocationTapped(_ sender: Any) {
-        
         locationManager?.requestAlwaysAuthorization()
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        print(status.rawValue)
+        
         userLocation = locationManager?.location
         delegate?.userLocation = userLocation?.coordinate
         coordinator?.toGemsMapViewController()
-        if Int(status.rawValue) == 3 || Int(status.rawValue) == 4 {
-            if CLLocationManager.isMonitoringAvailable(for: CLBeaconRegion.self) {
-                if CLLocationManager.isRangingAvailable() {
-                    
-                }
-            }
-        }
-        print(
-            "Location BB: Lat \(String(describing: userLocation?.coordinate.latitude)) and Long \(String(describing: userLocation?.coordinate.longitude))")
-        
     }
 }

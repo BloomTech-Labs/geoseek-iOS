@@ -61,10 +61,5 @@ class ChooseYourLocationVC: UIViewController, Storyboarded {
     func passLocationType(_ type: LocationType) {
         self.dismiss(animated: true)
         delegate?.locationWasChosen(with: type)
-    }
-    
-    @IBAction func cancelTapped(_ sender: Any) {
-        self.dismiss(animated: true)
-    }
-    
+    }    
 }
