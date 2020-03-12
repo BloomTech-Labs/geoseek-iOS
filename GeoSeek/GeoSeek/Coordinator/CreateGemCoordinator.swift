@@ -17,6 +17,7 @@ protocol CreateGemCoordinatorDelegate {
 class CreateGemCoordinator: BaseCoordinator {
     var navigationController: UINavigationController?
     var createGemVC = CreateGemVC.instantiate()
+    var locationManager: CLLocationManager?
     var delegate: CreateGemCoordinatorDelegate?
     var userLocation: CLLocationCoordinate2D?
     var gemController: GemController?
@@ -54,6 +55,7 @@ extension CreateGemCoordinator: CreateGemDelegate {
         let mapVC = ChooseLocationVC()
         mapVC.coordinator = self
         mapVC.delegate = self
+//        mapVC.locationManager = locationManager
         mapVC.modalTransitionStyle = .coverVertical
         self.navigationController?.present(mapVC, animated: true)
     }

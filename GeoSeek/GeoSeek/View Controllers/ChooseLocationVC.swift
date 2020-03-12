@@ -15,7 +15,7 @@ protocol SetLocationDelegate {
 
 class ChooseLocationVC: UIViewController {
     let containerView = MGLMapView()
-    let locationManager = CLLocationManager() // This should come in from the coordinator
+    var locationManager: CLLocationManager? // This should come in from the coordinator
     let doneButton = UIButton() // TODO: Make a custom button that we use throughout the app
     let titleLabel = UILabel() // TODO: Make a custom label that we use throughout the app, this label can take a String and assign it's text property, then none of the configuration would need to be done here except for the constraints.
     //    weak var coordinator: BaseCoordinator?
@@ -75,8 +75,8 @@ class ChooseLocationVC: UIViewController {
     
     func configureLocationManager() {
         if CLLocationManager.locationServicesEnabled() {
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager?.delegate = self
+            locationManager?.desiredAccuracy = kCLLocationAccuracyBest
         }
     }
     
@@ -101,11 +101,11 @@ class ChooseLocationVC: UIViewController {
     
     func configureMap() {
         containerView.styleURL = darkBlueMap
-        guard let userLocation = userLocation else {
-            containerView.setCenter(CLLocationCoordinate2D(latitude: 33.812794, longitude: -117.9190981), zoomLevel: 15, animated: false)
+        guard let userLocation = locationManager?.location else {
+            containerView.setCenter(CLLocationCoordinate2D(latitude: 0, longitude: 0), zoomLevel: 2, animated: false)
             return
         }
-        containerView.setCenter(userLocation, zoomLevel: 15, animated: false)
+        containerView.setCenter(userLocation.coordinate, zoomLevel: 15, animated: false)
     }
     
     func configureDoneButton() {

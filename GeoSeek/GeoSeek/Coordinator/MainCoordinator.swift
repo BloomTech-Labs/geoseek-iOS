@@ -83,6 +83,7 @@ extension MainCoordinator: GemsMapCoordinatorDelegate {
         createGemCoordinator.gemController = gemController
         createGemCoordinator.navigationController = navigationController
         createGemCoordinator.delegate = self
+        createGemCoordinator.locationManager = locationManager
         createGemCoordinator.start()
         createGemCoordinator.userLocation = currentUserLocation
     }
