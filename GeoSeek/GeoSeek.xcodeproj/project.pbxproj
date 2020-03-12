@@ -26,6 +26,8 @@
 		85087DFE2400862400DD9D1B /* GemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85087DFD2400862400DD9D1B /* GemController.swift */; };
 		85087E02240087B900DD9D1B /* User+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85087E01240087B900DD9D1B /* User+Convenience.swift */; };
 		85087E042400887B00DD9D1B /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85087E032400887B00DD9D1B /* UserController.swift */; };
+		8518622E241AEEBA00BD3399 /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8518622D241AEEBA00BD3399 /* MenuVC.swift */; };
+		85186230241AF80A00BD3399 /* ListViewTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8518622F241AF80A00BD3399 /* ListViewTVC.swift */; };
 		851D556B2405EC50001CB19E /* GemRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851D556A2405EC50001CB19E /* GemRepresentation.swift */; };
 		851D556D2405EF0D001CB19E /* UserRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851D556C2405EF0D001CB19E /* UserRepresentation.swift */; };
 		851EBFAC24084FF300BB74B4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 851EBFAB24084FF300BB74B4 /* GoogleService-Info.plist */; };
@@ -66,6 +68,8 @@
 		85087DFD2400862400DD9D1B /* GemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GemController.swift; sourceTree = "<group>"; };
 		85087E01240087B900DD9D1B /* User+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Convenience.swift"; sourceTree = "<group>"; };
 		85087E032400887B00DD9D1B /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		8518622D241AEEBA00BD3399 /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
+		8518622F241AF80A00BD3399 /* ListViewTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewTVC.swift; sourceTree = "<group>"; };
 		851D556A2405EC50001CB19E /* GemRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GemRepresentation.swift; sourceTree = "<group>"; };
 		851D556C2405EF0D001CB19E /* UserRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepresentation.swift; sourceTree = "<group>"; };
 		851EBFAA240848ED00BB74B4 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
@@ -184,6 +188,8 @@
 				1C4BCDAF2409C9CE00EDF681 /* CreateGemVC.swift */,
 				85087DA223FF463900DD9D1B /* GemsMapVC.swift */,
 				85A683622416A9E000669C6C /* ChooseYourLocationVC.swift */,
+				8518622D241AEEBA00BD3399 /* MenuVC.swift */,
+				8518622F241AF80A00BD3399 /* ListViewTVC.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -387,6 +393,7 @@
 				85087DA323FF463900DD9D1B /* GemsMapVC.swift in Sources */,
 				85087DFE2400862400DD9D1B /* GemController.swift in Sources */,
 				C01EF35924105E6B0094CEAB /* GemsMapCoordinator.swift in Sources */,
+				85186230241AF80A00BD3399 /* ListViewTVC.swift in Sources */,
 				85087D9F23FF463900DD9D1B /* AppDelegate.swift in Sources */,
 				85A683632416A9E000669C6C /* ChooseYourLocationVC.swift in Sources */,
 				C01EF34B240D86B20094CEAB /* CustomAnnotationView.swift in Sources */,
@@ -397,6 +404,7 @@
 				C01EF35724105CCB0094CEAB /* BaseCoordinator.swift in Sources */,
 				1C4BCDAE2409B67000EDF681 /* CustomTabBarXib.swift in Sources */,
 				853F8C5F240597F200BF7B4D /* MainCoordinator.swift in Sources */,
+				8518622E241AEEBA00BD3399 /* MenuVC.swift in Sources */,
 				85087DA123FF463900DD9D1B /* SceneDelegate.swift in Sources */,
 				85087DB323FF49FA00DD9D1B /* CoreDataStack.swift in Sources */,
 				85087DFC2400845400DD9D1B /* Gems+Convenience.swift in Sources */,
