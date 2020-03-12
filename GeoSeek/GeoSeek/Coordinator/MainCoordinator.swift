@@ -42,7 +42,7 @@ class MainCoordinator: BaseCoordinator {
         }
     }
     
-    func locationsManager(_ status: CLAuthorizationStatus) {
+    func locationManager(_ status: CLAuthorizationStatus) {
         
         delegate?.userLocation = userLocation
 
