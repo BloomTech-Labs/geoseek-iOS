@@ -46,7 +46,6 @@ class CreateGemCoordinator: BaseCoordinator {
 extension CreateGemCoordinator: CreateGemDelegate {
     func createGem(_ gem: GemRepresentation) {
         gemController?.createGem(with: gem)
-//        navigationController?.dismiss(animated: true)
         delegate?.presentGemsMap()
     }
     
@@ -55,7 +54,6 @@ extension CreateGemCoordinator: CreateGemDelegate {
         let mapVC = ChooseLocationVC()
         mapVC.coordinator = self
         mapVC.delegate = self
-//        mapVC.modalPresentationStyle = .overFullScreen
         mapVC.modalTransitionStyle = .coverVertical
         self.navigationController?.present(mapVC, animated: true)
     }

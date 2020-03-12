@@ -14,30 +14,26 @@ protocol SetLocationDelegate {
 }
 
 class ChooseLocationVC: UIViewController {
-    let containerView = MGLMapView() // This should come in from the coordinator
+    let containerView = MGLMapView()
     let locationManager = CLLocationManager() // This should come in from the coordinator
     let doneButton = UIButton() // TODO: Make a custom button that we use throughout the app
     let titleLabel = UILabel() // TODO: Make a custom label that we use throughout the app, this label can take a String and assign it's text property, then none of the configuration would need to be done here except for the constraints.
-//    weak var coordinator: BaseCoordinator?
+    //    weak var coordinator: BaseCoordinator?
     weak var coordinator: CreateGemCoordinator?
     var userLocation: CLLocationCoordinate2D?
     var delegate: SetLocationDelegate?
     let darkBlueMap = URL(string: "mapbox://styles/geoseek/ck7b5gau8002g1ip7b81etzj4")
     
-    var pressedLocation:CLLocation? = nil {
-        didSet{
-            //            continueButton.isEnabled = true
-            //            continueButton.isHighlighted = true
-            print("pressedLocation was set")
-        }
-    }
+    var pressedLocation:CLLocation? = nil
     
     init() {
         super.init(nibName: nil, bundle: nil)
     }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.clear // (red: 0, green: 0, blue: 0, alpha: 0.6)
@@ -51,8 +47,6 @@ class ChooseLocationVC: UIViewController {
             //When lognpress is start or running
         }
         else {
-            print("I was long pressed...")
-            
             let touchPoint = gestureReconizer.location(in: containerView)
             let coordsFromTouchPoint = containerView.convert(touchPoint, toCoordinateFrom: containerView)
             pressedLocation = CLLocation(latitude: coordsFromTouchPoint.latitude, longitude: coordsFromTouchPoint.longitude)
@@ -67,7 +61,7 @@ class ChooseLocationVC: UIViewController {
             
             let action = UIAlertAction(title: "Continue", style: .default) { (_) in
                 self.delegate?.didSetLocation(to: coordsFromTouchPoint)
-                print(coordsFromTouchPoint, self.delegate)
+                
                 alert.dismiss(animated: true, completion: nil)
                 self.dismiss(animated: true, completion: nil)
                 self.coordinator?.toCreateGemVC()
