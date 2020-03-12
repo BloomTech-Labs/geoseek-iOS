@@ -221,7 +221,7 @@
                                         </state>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TsB-Kj-P46">
-                                        <rect key="frame" x="141" y="274" width="93" height="24"/>
+                                        <rect key="frame" x="140.5" y="274" width="93" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -253,6 +253,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HNx-dG-g8t"/>
                     </view>
+                    <connections>
+                        <outlet property="addGemButton" destination="vVu-Gu-DRI" id="wHz-wk-KWw"/>
+                        <outlet property="exitMenuButton" destination="TOt-Qg-9dx" id="BFu-6L-p2E"/>
+                        <outlet property="leaderboardButton" destination="GlO-8Y-fbQ" id="jp1-sY-2ox"/>
+                        <outlet property="listViewButton" destination="PwM-Ft-M3o" id="GnG-7f-uge"/>
+                        <outlet property="mapviewButton" destination="gzS-ZH-8gw" id="ILd-3Q-6Pu"/>
+                        <outlet property="menuView" destination="mTK-AW-EbN" id="hjq-RS-468"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KuN-ge-sg9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

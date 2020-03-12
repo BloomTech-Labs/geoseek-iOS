@@ -10,21 +10,23 @@ import UIKit
 
 class MenuVC: UIViewController {
 
+    @IBOutlet weak var menuView: UIView?
+    @IBOutlet weak var mapviewButton: UIButton!
+    @IBOutlet weak var listViewButton: UIButton!
+    @IBOutlet weak var leaderboardButton: UIButton!
+    @IBOutlet weak var addGemButton: UIButton!
+    @IBOutlet weak var exitMenuButton: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        configureExitButton()
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func configureExitButton() {
+        exitMenuButton.layer.cornerRadius = 50
     }
-    */
 
 }
