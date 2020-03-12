@@ -23,7 +23,7 @@ class ChooseLocationVC: UIViewController {
     var userLocation: CLLocationCoordinate2D?
     var delegate: SetLocationDelegate?
     let darkBlueMap = URL(string: "mapbox://styles/geoseek/ck7b5gau8002g1ip7b81etzj4")
-    
+    var point = MGLPointAnnotation()
     var pressedLocation:CLLocation? = nil
     
     init() {
@@ -49,35 +49,28 @@ class ChooseLocationVC: UIViewController {
         else {
             let touchPoint = gestureReconizer.location(in: containerView)
             let coordsFromTouchPoint = containerView.convert(touchPoint, toCoordinateFrom: containerView)
+            
+            removeAnnotation(point: point)
+            
             pressedLocation = CLLocation(latitude: coordsFromTouchPoint.latitude, longitude: coordsFromTouchPoint.longitude)
             
-            coordinator?.gemLat = pressedLocation?.coordinate.latitude
-            coordinator?.gemLong = pressedLocation?.coordinate.longitude
+            guard let pressedLocation = pressedLocation else { return }
+     
+            point.coordinate = pressedLocation.coordinate
             
+            containerView.addAnnotation(point)
+            
+            coordinator?.gemLat = pressedLocation.coordinate.latitude
+            coordinator?.gemLong = pressedLocation.coordinate.longitude
+            
+            enableDoneButton()
             // myWaypoints.append(location)
             print("Location:", coordsFromTouchPoint.latitude, coordsFromTouchPoint.longitude)
-            
-            let alert = UIAlertController(title: "Add Location?", message: "Would you like this to be your chosen location?", preferredStyle: .alert)
-            
-            let action = UIAlertAction(title: "Continue", style: .default) { (_) in
-                self.delegate?.didSetLocation(to: coordsFromTouchPoint)
-                
-                alert.dismiss(animated: true, completion: nil)
-                self.dismiss(animated: true, completion: nil)
-                self.coordinator?.toCreateGemVC()
-            }
-            
-            let cancel = UIAlertAction(title: "Cancel", style: .destructive) { (_) in
-                alert.dismiss(animated: true, completion: nil)
-            }
-            
-            alert.addAction(cancel)
-            alert.addAction(action)
-            
-            
-            
-            present(alert, animated: true, completion: nil)
         }
+    }
+    
+    func removeAnnotation(point: MGLPointAnnotation) {
+        containerView.removeAnnotation(point)
     }
     
     func configureLocationManager() {
@@ -107,7 +100,6 @@ class ChooseLocationVC: UIViewController {
     }
     
     func configureMap() {
-        
         containerView.styleURL = darkBlueMap
         guard let userLocation = userLocation else {
             containerView.setCenter(CLLocationCoordinate2D(latitude: 33.812794, longitude: -117.9190981), zoomLevel: 15, animated: false)
@@ -119,17 +111,25 @@ class ChooseLocationVC: UIViewController {
     func configureDoneButton() {
         containerView.addSubview(doneButton)
         doneButton.translatesAutoresizingMaskIntoConstraints = false
-        doneButton.backgroundColor = .systemYellow
+        doneButton.isEnabled = false
+        doneButton.backgroundColor = .systemGray
         doneButton.layer.cornerRadius = 5
         doneButton.layer.cornerCurve = .continuous
-        doneButton.setTitle("This is it!", for: .normal)
+        doneButton.setTitle("Continue", for: .normal)
         doneButton.addTarget(self, action: #selector(dismissVC), for: .touchUpInside)
+        
+        
         NSLayoutConstraint.activate([
             doneButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -40),
             doneButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 120),
             doneButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -120),
-            doneButton.heightAnchor.constraint(equalToConstant: 30)
+            doneButton.heightAnchor.constraint(equalToConstant: 40)
         ])
+    }
+    
+    func enableDoneButton() {
+        doneButton.isEnabled = true
+        doneButton.backgroundColor = #colorLiteral(red: 0.9568627451, green: 0.2509803922, blue: 0.462745098, alpha: 1)
     }
     
     func configureTitleLabel() {
@@ -150,7 +150,11 @@ class ChooseLocationVC: UIViewController {
     }
     
     @objc func dismissVC() {
-        dismiss(animated: true)
+        guard let pressedLocation = pressedLocation else { return }
+        self.delegate?.didSetLocation(to: pressedLocation.coordinate)
+        
+        self.dismiss(animated: true, completion: nil)
+        self.coordinator?.toCreateGemVC()
     }
 }
 
