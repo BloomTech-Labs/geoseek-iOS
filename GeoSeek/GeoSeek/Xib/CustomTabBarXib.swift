@@ -14,11 +14,7 @@ class CustomTabBarXib: UIView, Storyboarded {
     @IBOutlet weak var addGemMapViewButton: UIButton!
     @IBOutlet weak var twoButton: UIButton!
     
-    var delegate: GemsMapCoordinatorDelegate? {
-        didSet {
-            print("TAbBar.delegate", delegate)
-        }
-    }
+    var delegate: GemsMapCoordinatorDelegate?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
