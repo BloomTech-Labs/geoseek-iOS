@@ -63,15 +63,18 @@ class GemsMapVC: UIViewController, Storyboarded {
         
         guard let gemController = gemController else { return }
         
-        for gem in gemController.gems {
-            if gem.latitude > 90 || gem.latitude < -90 || gem.longitude > 180 || gem.longitude < -180 {
-                print(gem.description)
-                continue
+            for gem in gemController.gems {
+                if gem.latitude > 90 || gem.latitude < -90 || gem.longitude > 180 || gem.longitude < -180 {
+                    print(gem.description)
+                    continue
+                }
+                let point = MGLPointAnnotation()
+                point.coordinate = CLLocationCoordinate2D(latitude: gem.latitude, longitude: gem.longitude)
+                point.title = "\(gem.title ?? "No Title")"
+                pointAnnotations.append(point)
             }
-            let point = MGLPointAnnotation()
-            point.coordinate = CLLocationCoordinate2D(latitude: gem.latitude, longitude: gem.longitude)
-            point.title = "\(gem.title ?? "No Title")"
-            pointAnnotations.append(point)
+            mapView.addAnnotations(pointAnnotations)
+            gemController.recentGem = nil
         }
         mapView.addAnnotations(pointAnnotations)
         gemController.recentGem = nil
