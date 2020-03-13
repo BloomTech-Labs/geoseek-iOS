@@ -269,6 +269,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HNx-dG-g8t"/>
                     </view>
+                    <connections>
+                        <outlet property="addGemButton" destination="vVu-Gu-DRI" id="wHz-wk-KWw"/>
+                        <outlet property="exitMenuButton" destination="TOt-Qg-9dx" id="BFu-6L-p2E"/>
+                        <outlet property="leaderboardButton" destination="GlO-8Y-fbQ" id="jp1-sY-2ox"/>
+                        <outlet property="listViewButton" destination="PwM-Ft-M3o" id="GnG-7f-uge"/>
+                        <outlet property="mapviewButton" destination="gzS-ZH-8gw" id="ILd-3Q-6Pu"/>
+                        <outlet property="menuView" destination="mTK-AW-EbN" id="hjq-RS-468"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KuN-ge-sg9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -76,6 +76,9 @@ class GemsMapVC: UIViewController, Storyboarded {
             mapView.addAnnotations(pointAnnotations)
             gemController.recentGem = nil
         }
+        mapView.addAnnotations(pointAnnotations)
+        gemController.recentGem = nil
+    }
 }
 
 extension GemsMapVC: MGLMapViewDelegate {
