@@ -8,10 +8,15 @@
 
 import UIKit
 
+protocol RegisterCoordinatorDelegate {
+    func didRequestLogIn()
+}
+
 class RegisterCoordinator: BaseCoordinator {
     
     var navigationController: UINavigationController?
     var registerVC = RegisterVC.instantiate()
+    var delegate: RegisterCoordinatorDelegate?
     
     override func start() {
         showRegisterVC()
@@ -38,6 +43,6 @@ extension RegisterCoordinator: RegisterUserDelegate {
     }
     
     func logIn() {
-        // Call method to show loginVC. Probably need a delegate for that
+        delegate?.didRequestLogIn()
     }
 }
