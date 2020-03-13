@@ -18,3 +18,17 @@ class LogInCoordinator: BaseCoordinator {
     
     
 }
+
+extension LogInCoordinator: LogInDelegate {
+    func attemptLogIn(with username: String, password: String) {
+        NetworkController.shared.signIn(with: username, password: password) { result in
+            switch result {
+            case .failure(let error):
+                print("Problem logging in: \(error)")
+            case .success(let message):
+                print("Logged In: \(message)")
+            }
+        }
+        logInVC.dismiss(animated: true, completion: nil)
+    }
+}
