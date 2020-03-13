@@ -32,7 +32,12 @@ class LogInVC: UIViewController, Storyboarded {
     }
     
     func logIn() {
+        guard let username = usernameTextField.text,
+            let password = passwordTextField.text,
+            !username.isEmpty,
+            !password.isEmpty else { return }
         
+        delegate?.attemptLogIn(with: username, password: password)
     }
 }
 
