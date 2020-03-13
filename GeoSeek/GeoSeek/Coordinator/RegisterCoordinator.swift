@@ -24,3 +24,13 @@ class RegisterCoordinator: BaseCoordinator {
     }
 }
 
+
+extension RegisterCoordinator: RegisterUserDelegate {
+    func registerUser(with username: String, password: String, email: String) {
+        
+    }
+    
+    func logIn() {
+        
+    }
+}
