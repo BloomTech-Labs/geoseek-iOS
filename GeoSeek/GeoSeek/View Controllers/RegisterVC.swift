@@ -15,5 +15,22 @@ protocol RegisterUserDelegate {
 
 class RegisterVC: UIViewController {
 
-    
+    @IBOutlet weak var usernameTextField: UITextField!
+        @IBOutlet weak var emailTextField: UITextField!
+        @IBOutlet weak var passwordTextField: UITextField!
+        @IBOutlet weak var signUpButton: UIButton!
+        
+        var delegate: RegisterUserDelegate?
+        var passwordIsValid: Bool = false
+        var emailIsValid: Bool = false
+        
+        override func viewDidLoad() {
+            super.viewDidLoad()
+            
+            usernameTextField.delegate = self
+            emailTextField.delegate = self
+            passwordTextField.delegate = self
+        }
+        
+        
 }
