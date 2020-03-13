@@ -13,11 +13,13 @@ class LogInCoordinator: BaseCoordinator {
     var logInVC = LogInVC.instantiate()
     
     override func start() {
+        showLogInVC()
+    }
+    
+    func showLogInVC() {
         logInVC.delegate = self
         navigationController?.pushViewController(logInVC, animated: true)
     }
-    
-    
 }
 
 extension LogInCoordinator: LogInDelegate {
