@@ -30,15 +30,20 @@ class RegisterVC: UIViewController, Storyboarded {
         usernameTextField.delegate = self
         emailTextField.delegate = self
         passwordTextField.delegate = self
+        usernameTextField.becomeFirstResponder()
     }
     
     @IBAction func registerTapped(_ sender: Any) {
+        attemptToRegister()
+    }
+    
+    func attemptToRegister() {
         guard let username = usernameTextField.text,
-            let password = passwordTextField.text,
-            let email = emailTextField.text,
-            !username.isEmpty,
-            passwordIsValid,
-            emailIsValid else { return }
+        let password = passwordTextField.text,
+        let email = emailTextField.text,
+        !username.isEmpty,
+        passwordIsValid,
+        emailIsValid else { return }
         
         delegate?.registerUser(with: username, password: password, email: email)
     }
@@ -50,6 +55,10 @@ class RegisterVC: UIViewController, Storyboarded {
 
 extension RegisterVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        if textField == passwordTextField {
+            attemptToRegister()
+        }
         return true
     }
     
