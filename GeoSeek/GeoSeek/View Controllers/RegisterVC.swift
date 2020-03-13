@@ -47,3 +47,12 @@ class RegisterVC: UIViewController {
         delegate?.logIn()
     }
 }
+
+extension RegisterVC: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return true
+    }
+    
+    
+}
+
