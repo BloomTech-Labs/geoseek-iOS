@@ -11,16 +11,14 @@ import UIKit
 class RegisterCoordinator: BaseCoordinator {
     
     var navigationController: UINavigationController?
-    var registerVC: RegisterVC?
+    var registerVC = RegisterVC()
     
     override func start() {
         showRegisterVC()
     }
     
     func showRegisterVC() {
-        registerVC = RegisterVC()
-        registerVC?.delegate = self
-        guard let registerVC = registerVC else { return }
+        registerVC.delegate = self
         navigationController?.pushViewController(registerVC, animated: true)
     }
 }
