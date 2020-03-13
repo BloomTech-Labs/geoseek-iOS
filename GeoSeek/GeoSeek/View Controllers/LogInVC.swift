@@ -8,10 +8,22 @@
 
 import UIKit
 
+protocol LogInDelegate {
+    func attemptLogIn(with username: String, password: String)
+}
+
 class LogInVC: UIViewController {
+    
+    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    
+    var delegate: LogInDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
     }
+    
+    
 }
