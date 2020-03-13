@@ -32,5 +32,16 @@ class RegisterVC: UIViewController {
             passwordTextField.delegate = self
         }
         
-        
+        @IBAction func registerTapped(_ sender: Any) {
+                guard let username = usernameTextField.text,
+                    let password = passwordTextField.text,
+                    let email = emailTextField.text,
+                    !username.isEmpty,
+                    passwordIsValid,
+                    emailIsValid else { return }
+                
+                delegate?.registerUser(with: username, password: password, email: email)
+            }
+            
+            
 }
