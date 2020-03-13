@@ -22,6 +22,9 @@ protocol ChooseLocationDelegate {
 class ChooseYourLocationVC: UIViewController, Storyboarded {
     
     @IBOutlet weak var chooseView: UIView?
+    @IBOutlet weak var currentLocationButton: UIButton!
+    @IBOutlet weak var newLocationButton: UIButton!
+    
     var delegate: ChooseLocationDelegate?
     
     override func viewDidLoad() {
@@ -46,6 +49,12 @@ class ChooseYourLocationVC: UIViewController, Storyboarded {
     func styleChooseView() {
         chooseView?.layer.cornerRadius = 20.0
         chooseView?.clipsToBounds = true
+        
+        currentLocationButton.layer.cornerRadius = 4
+        currentLocationButton.clipsToBounds = true
+        
+        newLocationButton.layer.cornerRadius = 4
+        newLocationButton.clipsToBounds = true
     }
     
     @IBAction func currentLocationTapped(_ sender: Any) {
