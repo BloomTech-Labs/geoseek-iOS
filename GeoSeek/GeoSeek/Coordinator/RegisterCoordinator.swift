@@ -6,9 +6,21 @@
 //  Copyright © 2020 Brandi Bailey. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class RegisterCoordinator: BaseCoordinator {
     
+    var navigationController: UINavigationController?
+    var registerVC: RegisterVC?
     
+    override func start() {
+        showRegisterVC()
+    }
+    
+    func showRegisterVC() {
+        registerVC = RegisterVC()
+        registerVC?.delegate = self
+        
+    }
 }
+
