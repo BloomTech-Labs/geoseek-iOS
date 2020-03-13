@@ -12,7 +12,7 @@ protocol LogInDelegate {
     func attemptLogIn(with username: String, password: String)
 }
 
-class LogInVC: UIViewController {
+class LogInVC: UIViewController, Storyboarded {
     
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
