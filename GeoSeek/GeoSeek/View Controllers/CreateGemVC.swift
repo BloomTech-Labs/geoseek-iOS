@@ -18,11 +18,10 @@ protocol CreateGemDelegate {
 class CreateGemVC: UIViewController, Storyboarded, UITextFieldDelegate, UITextViewDelegate, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var addGemView: UIView!
-    
+    @IBOutlet weak var viewContainer: UIView!
     @IBOutlet weak var gemTitleTextField: UITextField!
     @IBOutlet weak var addDescriptionLabel: UILabel!
     @IBOutlet weak var gemDescriptionTextView: UITextView!
-    
     @IBOutlet weak var saveButton: UIButton!
     
     var keyboardDismissTapGestureRecognizer: UITapGestureRecognizer!
@@ -132,8 +131,15 @@ class CreateGemVC: UIViewController, Storyboarded, UITextFieldDelegate, UITextVi
     }
     
     func styleAddGemView() {
-        addGemView.layer.cornerRadius = 20.0
+        
+
+        viewContainer.layer.cornerRadius = 30
+        viewContainer.clipsToBounds = true
+        viewContainer.layer.cornerCurve = .continuous
+
+        addGemView.layer.cornerRadius = 30.0
         addGemView.clipsToBounds = true
+        
         gemTitleTextField.layer.cornerRadius = 20.0
         
         gemDescriptionTextView.layer.cornerRadius = 10.0

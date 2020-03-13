@@ -14,6 +14,8 @@ protocol SetLocationDelegate {
 }
 
 class ChooseLocationVC: UIViewController {
+    
+    let viewContainer = UIView()
     let containerView = MGLMapView()
     var locationManager: CLLocationManager? // This should come in from the coordinator
     let doneButton = UIButton() // TODO: Make a custom button that we use throughout the app
@@ -55,6 +57,7 @@ class ChooseLocationVC: UIViewController {
             pressedLocation = CLLocation(latitude: coordsFromTouchPoint.latitude, longitude: coordsFromTouchPoint.longitude)
             guard let pressedLocation = pressedLocation else { return }
             point.coordinate = pressedLocation.coordinate
+            
             containerView.addAnnotation(point)
             
             enableDoneButton()
@@ -74,6 +77,19 @@ class ChooseLocationVC: UIViewController {
     }
     
     func configureContainerView() {
+        
+        view.addSubview(viewContainer)
+        viewContainer.translatesAutoresizingMaskIntoConstraints = false
+        viewContainer.backgroundColor = #colorLiteral(red: 0.9568627451, green: 0.2509803922, blue: 0.462745098, alpha: 1)
+        viewContainer.layer.cornerRadius = 30
+        viewContainer.layer.cornerCurve = .continuous
+        NSLayoutConstraint.activate([
+            viewContainer.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
+            viewContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            viewContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            viewContainer.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+        
         view.addSubview(containerView)
         configureMap()
         containerView.translatesAutoresizingMaskIntoConstraints = false
@@ -87,7 +103,7 @@ class ChooseLocationVC: UIViewController {
             containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         let lpgr = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))
-        lpgr.minimumPressDuration = 0.5
+        lpgr.minimumPressDuration = 0.1
         lpgr.delaysTouchesBegan = false
         containerView.addGestureRecognizer(lpgr)
     }
@@ -130,12 +146,12 @@ class ChooseLocationVC: UIViewController {
     func configureTitleLabel() {
         containerView.addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.backgroundColor = .lightGray
+        titleLabel.backgroundColor = .clear
         titleLabel.layer.cornerRadius = 5
         titleLabel.layer.cornerCurve = .continuous
         titleLabel.layer.masksToBounds = true
         titleLabel.textAlignment = .center
-        titleLabel.text = "Create a Spot"
+        titleLabel.text = "Tap the map to select a location."
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 20),
             titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 20),
