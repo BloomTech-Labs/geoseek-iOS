@@ -8,10 +8,12 @@
 
 import UIKit
 
+protocol RegisterUserDelegate {
+    func registerUser(with username: String, password: String, email: String)
+    func logIn()
+}
+
 class RegisterVC: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-    }
+    
 }
