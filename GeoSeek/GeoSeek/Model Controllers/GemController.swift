@@ -12,6 +12,7 @@ import CoreData
 class GemController {
     
     var gems: [Gem] = []
+    var recentGem: Gem?
     
     func createGem(with gem: GemRepresentation) {
         NetworkController.shared.createGem(from: gem) { result in
@@ -21,6 +22,7 @@ class GemController {
             case .success(let gem):
                 print("Yay! Created \(gem.title ?? "wut?")")
                 self.gems.append(gem)
+                self.recentGem = gem
             }
         }
     }
