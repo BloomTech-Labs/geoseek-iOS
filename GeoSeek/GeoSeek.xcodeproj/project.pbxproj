@@ -45,6 +45,7 @@
 		C01EF35B241063490094CEAB /* CreateGemCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01EF35A241063490094CEAB /* CreateGemCoordinator.swift */; };
 		C01EF35D241065570094CEAB /* ChooseLocationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01EF35C241065570094CEAB /* ChooseLocationCoordinator.swift */; };
 		C05CA084241BE49F00BB2A03 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05CA083241BE49F00BB2A03 /* RegisterVC.swift */; };
+		C05CA087241BE90700BB2A03 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05CA086241BE90700BB2A03 /* String+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +93,7 @@
 		C01EF35A241063490094CEAB /* CreateGemCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGemCoordinator.swift; sourceTree = "<group>"; };
 		C01EF35C241065570094CEAB /* ChooseLocationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLocationCoordinator.swift; sourceTree = "<group>"; };
 		C05CA083241BE49F00BB2A03 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
+		C05CA086241BE90700BB2A03 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 				85087DAC23FF463A00DD9D1B /* Info.plist */,
 				851EBFAB24084FF300BB74B4 /* GoogleService-Info.plist */,
 				85087DA723FF463A00DD9D1B /* Assets.xcassets */,
+				C05CA085241BE8DB00BB2A03 /* Extensions */,
 				853F8C6224059AF000BF7B4D /* Coordinator */,
 				85087DB723FF666A00DD9D1B /* Data */,
 				85087DFF2400862A00DD9D1B /* Model Controllers */,
@@ -241,6 +244,14 @@
 				5EBF778F07D57AF029E0F771 /* Pods_GeoSeek.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C05CA085241BE8DB00BB2A03 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C05CA086241BE90700BB2A03 /* String+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		E1537D308A57C09B3AACC8B5 /* Pods */ = {
@@ -398,6 +409,7 @@
 				851D556D2405EF0D001CB19E /* UserRepresentation.swift in Sources */,
 				C01EF35B241063490094CEAB /* CreateGemCoordinator.swift in Sources */,
 				85087E02240087B900DD9D1B /* User+Convenience.swift in Sources */,
+				C05CA087241BE90700BB2A03 /* String+Extension.swift in Sources */,
 				85087DB623FF50E400DD9D1B /* GeoSeek.xcdatamodeld in Sources */,
 				853F8C5D240597C700BF7B4D /* Coordinator.swift in Sources */,
 				C05CA084241BE49F00BB2A03 /* RegisterVC.swift in Sources */,
