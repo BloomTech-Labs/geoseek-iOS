@@ -20,7 +20,8 @@ class RegisterCoordinator: BaseCoordinator {
     func showRegisterVC() {
         registerVC = RegisterVC()
         registerVC?.delegate = self
-        
+        guard let registerVC = registerVC else { return }
+        navigationController?.pushViewController(registerVC, animated: true)
     }
 }
 
