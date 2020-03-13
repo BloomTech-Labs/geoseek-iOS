@@ -13,7 +13,7 @@ protocol RegisterUserDelegate {
     func logIn()
 }
 
-class RegisterVC: UIViewController {
+class RegisterVC: UIViewController, Storyboarded {
     
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
