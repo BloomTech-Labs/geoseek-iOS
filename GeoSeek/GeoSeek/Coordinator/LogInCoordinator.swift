@@ -26,12 +26,17 @@ extension LogInCoordinator: LogInDelegate {
     func attemptLogIn(with username: String, password: String) {
         NetworkController.shared.signIn(with: username, password: password) { result in
             switch result {
-            case .failure(let error):
-                print("Problem logging in: \(error)")
+            case .failure(_):
+                self.showLogInFailedAlert()
             case .success(let message):
-                print("Logged In: \(message)")
+                print("Logged In: \(message)") // Do we want to show a success alert?
+                self.logInVC.dismiss(animated: true, completion: nil)
             }
         }
-        logInVC.dismiss(animated: true, completion: nil)
+    }
+    
+    func showLogInFailedAlert() {
+        print("Problem logging in!")
+        // This should be a custom class for all errors. It can take a string which can come from the error type. 
     }
 }
