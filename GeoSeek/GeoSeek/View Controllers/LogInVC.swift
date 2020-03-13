@@ -27,14 +27,20 @@ class LogInVC: UIViewController {
         usernameTextField.becomeFirstResponder()
     }
     
+    @IBAction func logInTapped(_ sender: Any) {
+        logIn()
+    }
     
+    func logIn() {
+        
+    }
 }
 
 extension LogInVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         if textField == passwordTextField {
-            // trigger logIn
+            logIn()
         }
         return true
     }
