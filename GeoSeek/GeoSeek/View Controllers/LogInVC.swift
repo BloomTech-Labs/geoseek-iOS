@@ -22,8 +22,20 @@ class LogInVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        usernameTextField.delegate = self
+        passwordTextField.delegate = self
+        usernameTextField.becomeFirstResponder()
     }
     
     
+}
+
+extension LogInVC: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        if textField == passwordTextField {
+            // trigger logIn
+        }
+        return true
+    }
 }
