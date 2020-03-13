@@ -53,6 +53,18 @@ extension RegisterVC: UITextFieldDelegate {
         return true
     }
     
-    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        print(textField.text ?? "none")
+        
+        switch textField {
+        case emailTextField:
+            guard let email = emailTextField.text else { return }
+            emailIsValid = email.isValidEmail
+        case passwordTextField:
+            guard let password = passwordTextField.text else { return }
+            passwordIsValid = password.isValidPassword
+        default: return
+        }
+    }
 }
 
