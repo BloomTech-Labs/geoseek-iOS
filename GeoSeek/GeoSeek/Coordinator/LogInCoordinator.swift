@@ -10,6 +10,11 @@ import UIKit
 
 class LogInCoordinator: BaseCoordinator {
     var navigationController: UINavigationController?
-    var logInVC = 
+    var logInVC = LogInVC()
+    
+    override func start() {
+        navigationController?.pushViewController(logInVC, animated: true)
+    }
+    
     
 }
