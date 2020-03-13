@@ -132,7 +132,6 @@ class CreateGemVC: UIViewController, Storyboarded, UITextFieldDelegate, UITextVi
     
     func styleAddGemView() {
         
-
         viewContainer.layer.cornerRadius = 30
         viewContainer.clipsToBounds = true
         viewContainer.layer.cornerCurve = .continuous

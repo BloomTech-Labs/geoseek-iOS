@@ -84,7 +84,7 @@ class ChooseLocationVC: UIViewController {
         viewContainer.layer.cornerRadius = 30
         viewContainer.layer.cornerCurve = .continuous
         NSLayoutConstraint.activate([
-            viewContainer.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
+            viewContainer.topAnchor.constraint(equalTo: view.topAnchor, constant: 114),
             viewContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             viewContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             viewContainer.bottomAnchor.constraint(equalTo: view.bottomAnchor)
