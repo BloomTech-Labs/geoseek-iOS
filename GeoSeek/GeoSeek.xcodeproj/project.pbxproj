@@ -28,6 +28,8 @@
 		85087E042400887B00DD9D1B /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85087E032400887B00DD9D1B /* UserController.swift */; };
 		8518622E241AEEBA00BD3399 /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8518622D241AEEBA00BD3399 /* MenuVC.swift */; };
 		85186230241AF80A00BD3399 /* ListViewTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8518622F241AF80A00BD3399 /* ListViewTVC.swift */; };
+		85186232241B06DE00BD3399 /* NavButtonsXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85186231241B06DE00BD3399 /* NavButtonsXib.swift */; };
+		85186234241B075E00BD3399 /* NavButtonsXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85186233241B075E00BD3399 /* NavButtonsXib.xib */; };
 		851D556B2405EC50001CB19E /* GemRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851D556A2405EC50001CB19E /* GemRepresentation.swift */; };
 		851D556D2405EF0D001CB19E /* UserRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851D556C2405EF0D001CB19E /* UserRepresentation.swift */; };
 		851EBFAC24084FF300BB74B4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 851EBFAB24084FF300BB74B4 /* GoogleService-Info.plist */; };
@@ -70,6 +72,8 @@
 		85087E032400887B00DD9D1B /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		8518622D241AEEBA00BD3399 /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
 		8518622F241AF80A00BD3399 /* ListViewTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewTVC.swift; sourceTree = "<group>"; };
+		85186231241B06DE00BD3399 /* NavButtonsXib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavButtonsXib.swift; sourceTree = "<group>"; };
+		85186233241B075E00BD3399 /* NavButtonsXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavButtonsXib.xib; sourceTree = "<group>"; };
 		851D556A2405EC50001CB19E /* GemRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GemRepresentation.swift; sourceTree = "<group>"; };
 		851D556C2405EF0D001CB19E /* UserRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepresentation.swift; sourceTree = "<group>"; };
 		851EBFAA240848ED00BB74B4 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
@@ -108,6 +112,8 @@
 				1C4BCDB12409D6EF00EDF681 /* MapXib.xib */,
 				1C4BCDB32409D70900EDF681 /* MapXib.swift */,
 				C01EF34A240D86B20094CEAB /* CustomAnnotationView.swift */,
+				85186233241B075E00BD3399 /* NavButtonsXib.xib */,
+				85186231241B06DE00BD3399 /* NavButtonsXib.swift */,
 			);
 			path = Xib;
 			sourceTree = "<group>";
@@ -304,6 +310,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85186234241B075E00BD3399 /* NavButtonsXib.xib in Resources */,
 				85087DAB23FF463A00DD9D1B /* LaunchScreen.storyboard in Resources */,
 				851EBFAC24084FF300BB74B4 /* GoogleService-Info.plist in Resources */,
 				85087DA823FF463A00DD9D1B /* Assets.xcassets in Resources */,
@@ -383,6 +390,7 @@
 			files = (
 				1C4BCDB8240ED89E00EDF681 /* ChooseLocationVC.swift in Sources */,
 				85087E042400887B00DD9D1B /* UserController.swift in Sources */,
+				85186232241B06DE00BD3399 /* NavButtonsXib.swift in Sources */,
 				1C4BCDB02409C9CE00EDF681 /* CreateGemVC.swift in Sources */,
 				851D556D2405EF0D001CB19E /* UserRepresentation.swift in Sources */,
 				C01EF35B241063490094CEAB /* CreateGemCoordinator.swift in Sources */,

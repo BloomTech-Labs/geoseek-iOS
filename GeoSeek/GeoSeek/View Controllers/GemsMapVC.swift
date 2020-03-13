@@ -11,6 +11,8 @@ import Mapbox
 
 class GemsMapVC: UIViewController, Storyboarded {
     
+    
+    @IBOutlet weak var navButtonsXib: NavButtonsXib!
     @IBOutlet weak var customTabBarXib: CustomTabBarXib!
     @IBOutlet weak var mapView: MGLMapView!
     
