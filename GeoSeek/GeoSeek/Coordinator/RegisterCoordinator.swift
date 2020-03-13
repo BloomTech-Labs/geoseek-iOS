@@ -11,7 +11,7 @@ import UIKit
 class RegisterCoordinator: BaseCoordinator {
     
     var navigationController: UINavigationController?
-    var registerVC = RegisterVC()
+    var registerVC = RegisterVC.instantiate()
     
     override func start() {
         showRegisterVC()
@@ -32,7 +32,7 @@ extension RegisterCoordinator: RegisterUserDelegate {
                 print("Registration error: \(error)")
             case .success(let message):
                 print("Success: \(message)")
-                self.registerVC?.dismiss(animated: true, completion: nil)
+                self.registerVC.dismiss(animated: true, completion: nil)
             }
         }
     }
