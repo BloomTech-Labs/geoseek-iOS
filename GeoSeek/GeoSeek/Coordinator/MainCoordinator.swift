@@ -49,8 +49,9 @@ class MainCoordinator: BaseCoordinator {
         
         delegate?.userLocation = userLocation
         toGemsMapViewController()
-    }
 
+    }
+    
     
     func toGemsMapViewController() {
         gemsMapCoordinator.navigationController = navigationController

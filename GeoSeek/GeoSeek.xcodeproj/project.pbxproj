@@ -30,6 +30,7 @@
 		85186230241AF80A00BD3399 /* ListViewTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8518622F241AF80A00BD3399 /* ListViewTVC.swift */; };
 		85186232241B06DE00BD3399 /* NavButtonsXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85186231241B06DE00BD3399 /* NavButtonsXib.swift */; };
 		85186234241B075E00BD3399 /* NavButtonsXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85186233241B075E00BD3399 /* NavButtonsXib.xib */; };
+		85186236241C223A00BD3399 /* MenuCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85186235241C223A00BD3399 /* MenuCoordinator.swift */; };
 		851D556B2405EC50001CB19E /* GemRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851D556A2405EC50001CB19E /* GemRepresentation.swift */; };
 		851D556D2405EF0D001CB19E /* UserRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851D556C2405EF0D001CB19E /* UserRepresentation.swift */; };
 		851EBFAC24084FF300BB74B4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 851EBFAB24084FF300BB74B4 /* GoogleService-Info.plist */; };
@@ -79,6 +80,7 @@
 		8518622F241AF80A00BD3399 /* ListViewTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewTVC.swift; sourceTree = "<group>"; };
 		85186231241B06DE00BD3399 /* NavButtonsXib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavButtonsXib.swift; sourceTree = "<group>"; };
 		85186233241B075E00BD3399 /* NavButtonsXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavButtonsXib.xib; sourceTree = "<group>"; };
+		85186235241C223A00BD3399 /* MenuCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCoordinator.swift; sourceTree = "<group>"; };
 		851D556A2405EC50001CB19E /* GemRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GemRepresentation.swift; sourceTree = "<group>"; };
 		851D556C2405EF0D001CB19E /* UserRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepresentation.swift; sourceTree = "<group>"; };
 		851EBFAA240848ED00BB74B4 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 				C05CA088241BF6EB00BB2A03 /* RegisterCoordinator.swift */,
 				C05CA08C241C06FA00BB2A03 /* LogInCoordinator.swift */,
 				C01EF35C241065570094CEAB /* ChooseLocationCoordinator.swift */,
+				85186235241C223A00BD3399 /* MenuCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 				C01EF35B241063490094CEAB /* CreateGemCoordinator.swift in Sources */,
 				C05CA08F241C07AC00BB2A03 /* LogInVC.swift in Sources */,
 				85087E02240087B900DD9D1B /* User+Convenience.swift in Sources */,
+				85186236241C223A00BD3399 /* MenuCoordinator.swift in Sources */,
 				C05CA087241BE90700BB2A03 /* String+Extension.swift in Sources */,
 				85087DB623FF50E400DD9D1B /* GeoSeek.xcdatamodeld in Sources */,
 				853F8C5D240597C700BF7B4D /* Coordinator.swift in Sources */,

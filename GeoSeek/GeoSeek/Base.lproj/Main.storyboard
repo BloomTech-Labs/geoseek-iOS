@@ -119,6 +119,7 @@
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.18823529410000001" green="0.21176470589999999" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="FqS-9h-B6B" secondAttribute="trailing" constant="15" id="1Vh-KU-luY"/>
                                     <constraint firstItem="nf0-RS-QLz" firstAttribute="top" secondItem="OIg-TZ-PUf" secondAttribute="top" constant="10" id="2NX-b8-r3c"/>
@@ -247,6 +248,7 @@
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.18823529410000001" green="0.21176470589999999" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="TOt-Qg-9dx" firstAttribute="centerX" secondItem="TsB-Kj-P46" secondAttribute="centerX" id="8df-sk-Y3g"/>
                                     <constraint firstItem="TsB-Kj-P46" firstAttribute="top" secondItem="ANR-aq-sTn" secondAttribute="bottom" constant="8" id="IGa-N6-MNV"/>
