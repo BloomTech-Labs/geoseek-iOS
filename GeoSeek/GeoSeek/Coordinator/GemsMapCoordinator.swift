@@ -20,7 +20,7 @@ class GemsMapCoordinator: BaseCoordinator {
     let window: UIWindow
     var gemController: GemController?
     var navigationController: UINavigationController?
-    var userLocation: CLLocationCoordinate2D?
+    var locationManager: CLLocationManager?
     
     var delegate: GemsMapCoordinatorDelegate?
     
@@ -33,7 +33,7 @@ class GemsMapCoordinator: BaseCoordinator {
         let viewController = GemsMapVC.instantiate()
         viewController.coordinator = self
         viewController.delegate = delegate
-        viewController.userLocation = userLocation
+        viewController.locationManager = locationManager
         viewController.gemController = gemController
         navigationController?.isNavigationBarHidden = true
         navigationController?.setViewControllers([viewController], animated: true)
