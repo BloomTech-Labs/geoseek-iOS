@@ -16,11 +16,10 @@ protocol CreateGemCoordinatorDelegate {
 class CreateGemCoordinator: BaseCoordinator {
     var navigationController: UINavigationController?
     var createGemVC = CreateGemVC.instantiate()
+    var chooseYourLocationVC = ChooseYourLocationVC.instantiate()
     var locationManager: CLLocationManager?
     var delegate: CreateGemCoordinatorDelegate?
-    var userLocation: CLLocationCoordinate2D?
     var gemController: GemController?
-    var chooseYourLocationVC = ChooseYourLocationVC.instantiate()
     var gemLocation: CLLocationCoordinate2D?
     
     override func start() {
@@ -72,7 +71,7 @@ extension CreateGemCoordinator: ChooseLocationDelegate {
     func locationWasChosen(with type: LocationType) {
         switch type {
         case .current:
-            gemLocation = userLocation
+            gemLocation = locationManager?.location?.coordinate
             toCreateGemVC()
         case .choose:
             getGemLocation()

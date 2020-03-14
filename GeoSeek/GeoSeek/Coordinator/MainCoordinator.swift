@@ -13,6 +13,7 @@ import CoreLocation
 class MainCoordinator: BaseCoordinator {
     
     var window: UIWindow
+    
     var navigationController = UINavigationController()
     let locationManager = CLLocationManager()
     let gemController = GemController()
