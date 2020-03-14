@@ -8,19 +8,23 @@
 
 import UIKit
 
+protocol RegisterCoordinatorDelegate {
+    func didRequestLogIn()
+}
+
 class RegisterCoordinator: BaseCoordinator {
     
     var navigationController: UINavigationController?
-    var registerVC: RegisterVC?
+    var registerVC = RegisterVC.instantiate()
+    var delegate: RegisterCoordinatorDelegate?
     
     override func start() {
         showRegisterVC()
     }
     
     func showRegisterVC() {
-        registerVC = RegisterVC()
-        registerVC?.delegate = self
-        
+        registerVC.delegate = self
+        navigationController?.pushViewController(registerVC, animated: true)
     }
 }
 
@@ -33,12 +37,12 @@ extension RegisterCoordinator: RegisterUserDelegate {
                 print("Registration error: \(error)")
             case .success(let message):
                 print("Success: \(message)")
-                self.registerVC?.dismiss(animated: true, completion: nil)
+                self.registerVC.dismiss(animated: true, completion: nil)
             }
         }
     }
     
     func logIn() {
-        // Call method to show loginVC. Probably need a delegate for that
+        delegate?.didRequestLogIn()
     }
 }

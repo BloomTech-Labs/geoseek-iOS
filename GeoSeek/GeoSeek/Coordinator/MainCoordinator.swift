@@ -20,6 +20,9 @@ class MainCoordinator: BaseCoordinator {
     var gemsMapVC = GemsMapVC()
     
     let gemsMapCoordinator: GemsMapCoordinator
+    var logInCoordinator: LogInCoordinator?
+    var registerCoordinator: RegisterCoordinator?
+    
     var navControllers: [UINavigationController] = []
     var currentUserLocation: CLLocationCoordinate2D?
     var delegate: UserLocationDelegate?
@@ -45,18 +48,8 @@ class MainCoordinator: BaseCoordinator {
     func locationManager(_ status: CLAuthorizationStatus) {
         
         delegate?.userLocation = userLocation
-        
         toGemsMapViewController()
-        //        if Int(status.rawValue) == 3 || Int(status.rawValue) == 4 {
-        //            if CLLocationManager.isMonitoringAvailable(for: CLBeaconRegion.self) {
-        //                if CLLocationManager.isRangingAvailable() {
-        //
-        //                }
-        //            }
-        //        }
-        //        print(
-        //            "Location BB: Lat \(String(describing: userLocation?.coordinate.latitude)) and Long \(String(describing: userLocation?.coordinate.longitude))")
-        
+
     }
     
     
@@ -108,5 +101,12 @@ extension MainCoordinator: UserLocationDelegate {
         set {
             currentUserLocation = newValue
         }
+    }
+}
+
+extension MainCoordinator: RegisterCoordinatorDelegate {
+    func didRequestLogIn() {
+        logInCoordinator = LogInCoordinator()
+        logInCoordinator?.start()
     }
 }
