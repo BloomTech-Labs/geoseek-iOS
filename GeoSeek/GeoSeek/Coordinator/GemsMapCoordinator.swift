@@ -17,17 +17,11 @@ protocol GemsMapCoordinatorDelegate: class {
 
 class GemsMapCoordinator: BaseCoordinator {
     
-    let window: UIWindow
     var gemController: GemController?
     var navigationController: UINavigationController?
     var locationManager: CLLocationManager?
     
     var delegate: GemsMapCoordinatorDelegate?
-    
-    init(window: UIWindow) {
-        self.window = window
-        super.init()
-    }
     
     override func start() {
         let viewController = GemsMapVC.instantiate()
