@@ -103,7 +103,12 @@ class NetworkController {
         var request = usersURL(with: .post, and: .register)
         request.httpBody = userToRegister
         
-        URLSession.shared.dataTask(with: request) { _, response, _ in
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            
+            if let error = error {
+                print("Register error: \(error)")
+                completion(.failure(FetchError.otherError))
+            }
             if let response = response as? HTTPURLResponse {
                 switch response.statusCode {
                 case 200...299:
@@ -112,29 +117,19 @@ class NetworkController {
                     print("failed to register")
                 }
             }
+            if let data = data {
+                let possibleIdHolder: ReturnedRegister? = self.decode(data: data)
+                if let idHolder = possibleIdHolder {
+                    User(email: email, id: idHolder.id, password: password, username: username, context: .context)
+                    do {
+                        // Does this need to go on a background context? If so, the above does too.
+                        try CoreDataStack.shared.mainContext.save()
+                    } catch {
+                        print("User was registered, but the user data was not saved to CoreData: \(error)")
+                    }
+                }
+            }
         }.resume()
-        // I suspect we'll need some iteration of the functionality below once the backend starts sending the user id when you register
-        
-        //        perform(request) { result in
-        //            switch result {
-        //            case .failure(let error): print(error)
-        //            case.success(let data):
-        //                let possibleUserRepresentation: UserRepresentation? = self.decode(data: data)
-        //                guard var userRepresentation = possibleUserRepresentation else { completion(.failure(FetchError.badData))
-        //                    return
-        //                }
-        //                userRepresentation.password = password
-        //                if let user = User(representation: userRepresentation) {
-        //                    #warning("Should this be on a background context?")
-        //                    do {
-        //                        try CoreDataStack.shared.save(context: .context)
-        //                        completion(.success(user))
-        //                    } catch {
-        //                        completion(.failure(NSError()))
-        //                    }
-        //                }
-        //            }
-        //        }
     }
     
     func signIn(with username: String, password: String, completion: @escaping (Result<String, Error>) -> Void) {
@@ -148,7 +143,7 @@ class NetworkController {
                 completion(.failure(error))
             case .success(let data):
                 let returnedUser: ReturnedUser? = self.decode(data: data)
-                guard let id = returnedUser?.userID,
+                guard let id = returnedUser?.userId,
                     let email = returnedUser?.email,
                     let token = returnedUser?.token else {
                         completion(.failure(FetchError.badData))
@@ -291,13 +286,33 @@ class NetworkController {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         return request
     }
-    
-    let thing = """
+}
+
+let thing = """
+/api/users/login
+
 {
-    "message": "Welcome testreg!",
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3RyZWciLCJpZCI6NywiaWF0IjoxNTgzODU2MDMzLCJleHAiOjE1ODM5NDI0MzN9.Yhyz9rdFkrWeYW8X-N1l3ZgWEujxRHOS1277_p1iyr4",
-    "user_id": 7
-    "email" : "email@email.com
+    "username": "duds00",
+    "password": "duds00"
 }
+{
+  "message": "Welcome duds00!",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImR1ZHMwMCIsImlkIjoxNiwiaWF0IjoxNTgzOTQ2Mjk2LCJleHAiOjE1ODQwMzI2OTZ9.0gEq64_fSZtf7qGL7J3ASjGsdPyBZC7WTDKX4IaiQQU",
+  "user_id": 16,
+  "email": "test5@teste21.com"
+}
+
+/api/users/register
+
+{
+    "username": "duds00",
+    "email": "test5@teste21.com",
+    "password": "duds00"
+}
+
+  {
+    "id": 16,
+    "username": "duds00",
+    "email": "test5@teste21.com"
+  }
 """
-}
