@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ListViewTVC: UITableViewController {
+class ListViewTVC: UITableViewController, Storyboarded {
 
     override func viewDidLoad() {
         super.viewDidLoad()
