@@ -17,8 +17,12 @@ struct UserRepresentation: Codable {
     var token: String
 }
 
+struct ReturnedRegister: Codable {
+    let id: Int
+}
+
 struct ReturnedUser: Codable {
-    let userID: Int
+    let userId: Int
     let token: String
     let email: String
 }
