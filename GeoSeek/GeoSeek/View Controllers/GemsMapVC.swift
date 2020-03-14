@@ -16,7 +16,7 @@ class GemsMapVC: UIViewController, Storyboarded {
     @IBOutlet weak var customTabBarXib: CustomTabBarXib!
     @IBOutlet weak var mapView: MGLMapView!
     
-    var coordinator: GemsMapCoordinator?
+    var coordinator: BaseCoordinator?
     var delegate: GemsMapCoordinatorDelegate?
     var gemController: GemController?
     var locationManager: CLLocationManager?
