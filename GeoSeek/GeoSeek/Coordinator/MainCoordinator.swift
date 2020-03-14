@@ -25,7 +25,7 @@ class MainCoordinator: BaseCoordinator {
     
     var navControllers: [UINavigationController] = []
     var currentUserLocation: CLLocationCoordinate2D?
-    var delegate: UserLocationDelegate?
+    var delegate: LandingPageDelegate?
     var addGemCoordinates: CLLocation?
     
     init(window: UIWindow) {
@@ -45,18 +45,10 @@ class MainCoordinator: BaseCoordinator {
         }
     }
     
-    func locationManager(_ status: CLAuthorizationStatus) {
-        
-        delegate?.userLocation = userLocation
-        toGemsMapViewController()
-
-    }
-    
-    
     func toGemsMapViewController() {
         gemsMapCoordinator.navigationController = navigationController
         gemsMapCoordinator.delegate = self
-        gemsMapCoordinator.userLocation = userLocation
+        gemsMapCoordinator.locationManager = locationManager
         gemsMapCoordinator.gemController = gemController
         gemsMapCoordinator.start()
     }
@@ -83,24 +75,15 @@ extension MainCoordinator: GemsMapCoordinatorDelegate {
 }
 
 extension MainCoordinator: CreateGemCoordinatorDelegate {
-    
-    func presentChooseLocationVC() {
-    }
-    
     func presentGemsMap() {
         gemsMapCoordinator.start()
         navigationController.topViewController?.dismiss(animated: true)
     }
 }
 
-extension MainCoordinator: UserLocationDelegate {
-    var userLocation: CLLocationCoordinate2D? {
-        get {
-            currentUserLocation
-        }
-        set {
-            currentUserLocation = newValue
-        }
+extension MainCoordinator: LandingPageDelegate {
+    func showMapVC() {
+        toGemsMapViewController()
     }
 }
 
