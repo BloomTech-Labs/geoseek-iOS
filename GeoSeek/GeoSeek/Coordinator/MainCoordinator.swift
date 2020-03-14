@@ -14,23 +14,16 @@ class MainCoordinator: BaseCoordinator {
     
     var window: UIWindow
     var navigationController = UINavigationController()
-    var childCoordinators = [BaseCoordinator]()
     let locationManager = CLLocationManager()
     let gemController = GemController()
     var gemsMapVC = GemsMapVC()
+    let gemsMapCoordinator = GemsMapCoordinator()
     
-    let gemsMapCoordinator: GemsMapCoordinator
     var logInCoordinator: LogInCoordinator?
     var registerCoordinator: RegisterCoordinator?
     
-    var navControllers: [UINavigationController] = []
-    var currentUserLocation: CLLocationCoordinate2D?
-    var delegate: LandingPageDelegate?
-    var addGemCoordinates: CLLocation?
-    
     init(window: UIWindow) {
         self.window = window
-        self.gemsMapCoordinator = GemsMapCoordinator(window: self.window)
     }
     
     override func start() {
@@ -38,7 +31,6 @@ class MainCoordinator: BaseCoordinator {
         window.rootViewController = self.navigationController
         
         if CLLocationManager.authorizationStatus() == .authorizedAlways || CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
-            currentUserLocation = locationManager.location?.coordinate
             toGemsMapViewController()
         } else {
             toLandingPageVC()
@@ -70,7 +62,6 @@ extension MainCoordinator: GemsMapCoordinatorDelegate {
         createGemCoordinator.delegate = self
         createGemCoordinator.locationManager = locationManager
         createGemCoordinator.start()
-        createGemCoordinator.userLocation = currentUserLocation
     }
 }
 
