@@ -29,6 +29,7 @@ class MainCoordinator: BaseCoordinator {
     
     override func start() {
         window.makeKeyAndVisible()
+        navigationController.isNavigationBarHidden = true
         window.rootViewController = self.navigationController
         
         if CLLocationManager.authorizationStatus() == .authorizedAlways || CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
