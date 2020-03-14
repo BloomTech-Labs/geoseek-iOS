@@ -18,7 +18,7 @@ class MenuVC: UIViewController, Storyboarded {
     @IBOutlet weak var exitMenuButton: UIButton!
     
     var delegate: MenuDelegate?
-    var coordinator: MainCoordinator?
+    var coordinator: BaseCoordinator?
     
     override func viewDidLoad() {
         super.viewDidLoad()

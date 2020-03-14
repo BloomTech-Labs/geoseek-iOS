@@ -9,26 +9,23 @@
 import UIKit
 import CoreLocation
 
-protocol UserLocationDelegate {
-    var userLocation: CLLocationCoordinate2D? { get set }
+protocol LandingPageDelegate {
+    func showMapVC()
 }
 
 class LandingPageVC: UIViewController, CLLocationManagerDelegate, Storyboarded {
     
     var locationManager: CLLocationManager?
-    var coordinator: MainCoordinator?
+    var coordinator: BaseCoordinator?
     var userLocation: CLLocation?
     
-    var delegate: UserLocationDelegate?
+    var delegate: LandingPageDelegate?
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
         locationManager?.delegate = self
     }
-    
-
 
     @IBAction func setLocationTapped(_ sender: Any) {
         locationManager?.requestAlwaysAuthorization()
@@ -37,7 +34,6 @@ class LandingPageVC: UIViewController, CLLocationManagerDelegate, Storyboarded {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         
         userLocation = locationManager?.location
-        delegate?.userLocation = userLocation?.coordinate
-        coordinator?.toGemsMapViewController()
+        delegate?.showMapVC()
     }
 }

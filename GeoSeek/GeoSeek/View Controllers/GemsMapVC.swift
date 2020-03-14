@@ -16,10 +16,10 @@ class GemsMapVC: UIViewController, Storyboarded {
     @IBOutlet weak var customTabBarXib: CustomTabBarXib!
     @IBOutlet weak var mapView: MGLMapView!
     
-    var coordinator: GemsMapCoordinator?
+    var coordinator: BaseCoordinator?
     var delegate: GemsMapCoordinatorDelegate?
     var gemController: GemController?
-    var userLocation: CLLocationCoordinate2D?
+    var locationManager: CLLocationManager?
     let darkBlueMap = URL(string: "mapbox://styles/geoseek/ck7b5gau8002g1ip7b81etzj4")
     
     override func viewDidLoad() {
@@ -52,8 +52,9 @@ class GemsMapVC: UIViewController, Storyboarded {
         if let recentGem = gemController?.recentGem {
             let location = CLLocationCoordinate2D(latitude: recentGem.latitude, longitude: recentGem.longitude)
             mapView.setCenter(location, animated: true)
-        } else if let userLocation = userLocation {
-            mapView.setCenter(userLocation, zoomLevel: 15, animated: false)
+        } else if let locationManager = locationManager,
+            let location = locationManager.location {
+            mapView.setCenter(location.coordinate, zoomLevel: 15, animated: false)
         } else {
             mapView.setCenter(CLLocationCoordinate2D(latitude: 33.812794, longitude: -117.9190981), zoomLevel: 15, animated: false)
         }

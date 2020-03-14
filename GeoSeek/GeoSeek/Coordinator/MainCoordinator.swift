@@ -13,24 +13,18 @@ import CoreLocation
 class MainCoordinator: BaseCoordinator {
     
     var window: UIWindow
+    
     var navigationController = UINavigationController()
-    var childCoordinators = [BaseCoordinator]()
     let locationManager = CLLocationManager()
     let gemController = GemController()
     var gemsMapVC = GemsMapVC()
+    let gemsMapCoordinator = GemsMapCoordinator()
     
-    let gemsMapCoordinator: GemsMapCoordinator
     var logInCoordinator: LogInCoordinator?
     var registerCoordinator: RegisterCoordinator?
     
-    var navControllers: [UINavigationController] = []
-    var currentUserLocation: CLLocationCoordinate2D?
-    var delegate: UserLocationDelegate?
-    var addGemCoordinates: CLLocation?
-    
     init(window: UIWindow) {
         self.window = window
-        self.gemsMapCoordinator = GemsMapCoordinator(window: self.window)
     }
     
     override func start() {
@@ -38,25 +32,16 @@ class MainCoordinator: BaseCoordinator {
         window.rootViewController = self.navigationController
         
         if CLLocationManager.authorizationStatus() == .authorizedAlways || CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
-            currentUserLocation = locationManager.location?.coordinate
             toGemsMapViewController()
         } else {
             toLandingPageVC()
         }
     }
     
-    func locationManager(_ status: CLAuthorizationStatus) {
-        
-        delegate?.userLocation = userLocation
-        toGemsMapViewController()
-
-    }
-    
-    
     func toGemsMapViewController() {
         gemsMapCoordinator.navigationController = navigationController
         gemsMapCoordinator.delegate = self
-        gemsMapCoordinator.userLocation = userLocation
+        gemsMapCoordinator.locationManager = locationManager
         gemsMapCoordinator.gemController = gemController
         gemsMapCoordinator.start()
     }
@@ -78,29 +63,19 @@ extension MainCoordinator: GemsMapCoordinatorDelegate {
         createGemCoordinator.delegate = self
         createGemCoordinator.locationManager = locationManager
         createGemCoordinator.start()
-        createGemCoordinator.userLocation = currentUserLocation
     }
 }
 
 extension MainCoordinator: CreateGemCoordinatorDelegate {
-    
-    func presentChooseLocationVC() {
-    }
-    
     func presentGemsMap() {
         gemsMapCoordinator.start()
         navigationController.topViewController?.dismiss(animated: true)
     }
 }
 
-extension MainCoordinator: UserLocationDelegate {
-    var userLocation: CLLocationCoordinate2D? {
-        get {
-            currentUserLocation
-        }
-        set {
-            currentUserLocation = newValue
-        }
+extension MainCoordinator: LandingPageDelegate {
+    func showMapVC() {
+        toGemsMapViewController()
     }
 }
 

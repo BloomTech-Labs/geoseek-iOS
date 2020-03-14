@@ -44,7 +44,6 @@
 		C01EF35724105CCB0094CEAB /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01EF35624105CCB0094CEAB /* BaseCoordinator.swift */; };
 		C01EF35924105E6B0094CEAB /* GemsMapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01EF35824105E6B0094CEAB /* GemsMapCoordinator.swift */; };
 		C01EF35B241063490094CEAB /* CreateGemCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01EF35A241063490094CEAB /* CreateGemCoordinator.swift */; };
-		C01EF35D241065570094CEAB /* ChooseLocationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01EF35C241065570094CEAB /* ChooseLocationCoordinator.swift */; };
 		C05CA084241BE49F00BB2A03 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05CA083241BE49F00BB2A03 /* RegisterVC.swift */; };
 		C05CA087241BE90700BB2A03 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05CA086241BE90700BB2A03 /* String+Extension.swift */; };
 		C05CA089241BF6EB00BB2A03 /* RegisterCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05CA088241BF6EB00BB2A03 /* RegisterCoordinator.swift */; };
@@ -96,7 +95,6 @@
 		C01EF35624105CCB0094CEAB /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		C01EF35824105E6B0094CEAB /* GemsMapCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GemsMapCoordinator.swift; sourceTree = "<group>"; };
 		C01EF35A241063490094CEAB /* CreateGemCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGemCoordinator.swift; sourceTree = "<group>"; };
-		C01EF35C241065570094CEAB /* ChooseLocationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLocationCoordinator.swift; sourceTree = "<group>"; };
 		C05CA083241BE49F00BB2A03 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		C05CA086241BE90700BB2A03 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		C05CA088241BF6EB00BB2A03 /* RegisterCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCoordinator.swift; sourceTree = "<group>"; };
@@ -235,7 +233,6 @@
 				C01EF35A241063490094CEAB /* CreateGemCoordinator.swift */,
 				C05CA088241BF6EB00BB2A03 /* RegisterCoordinator.swift */,
 				C05CA08C241C06FA00BB2A03 /* LogInCoordinator.swift */,
-				C01EF35C241065570094CEAB /* ChooseLocationCoordinator.swift */,
 				85186235241C223A00BD3399 /* MenuCoordinator.swift */,
 			);
 			path = Coordinator;
@@ -427,7 +424,6 @@
 				85087DB623FF50E400DD9D1B /* GeoSeek.xcdatamodeld in Sources */,
 				853F8C5D240597C700BF7B4D /* Coordinator.swift in Sources */,
 				C05CA084241BE49F00BB2A03 /* RegisterVC.swift in Sources */,
-				C01EF35D241065570094CEAB /* ChooseLocationCoordinator.swift in Sources */,
 				85087DA323FF463900DD9D1B /* GemsMapVC.swift in Sources */,
 				85087DFE2400862400DD9D1B /* GemController.swift in Sources */,
 				C01EF35924105E6B0094CEAB /* GemsMapCoordinator.swift in Sources */,
