@@ -143,7 +143,7 @@ class NetworkController {
                 completion(.failure(error))
             case .success(let data):
                 let returnedUser: ReturnedUser? = self.decode(data: data)
-                guard let id = returnedUser?.userID,
+                guard let id = returnedUser?.userId,
                     let email = returnedUser?.email,
                     let token = returnedUser?.token else {
                         completion(.failure(FetchError.badData))
