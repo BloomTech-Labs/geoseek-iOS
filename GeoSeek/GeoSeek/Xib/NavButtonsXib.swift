@@ -13,7 +13,7 @@ class NavButtonsXib: UIView, Storyboarded {
     @IBOutlet weak var navButtonsView: UIView!
     @IBOutlet weak var userMenuButton: UIButton!
     
-    var delegate: GemsMapCoordinatorDelegate?
+//    var delegate: MenuDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -42,7 +42,7 @@ class NavButtonsXib: UIView, Storyboarded {
     }
     
     @IBAction func userMenuButtonTapped(_ sender: Any) {
-        print("Menu Button Tapped...")
+//        delegate?.toMenuVC()
     }
     
 }

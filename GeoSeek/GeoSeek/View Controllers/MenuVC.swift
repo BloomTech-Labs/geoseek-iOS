@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MenuVC: UIViewController {
+class MenuVC: UIViewController, Storyboarded {
 
     @IBOutlet weak var menuView: UIView?
     @IBOutlet weak var mapviewButton: UIButton!
@@ -17,6 +17,8 @@ class MenuVC: UIViewController {
     @IBOutlet weak var addGemButton: UIButton!
     @IBOutlet weak var exitMenuButton: UIButton!
     
+    var delegate: MenuDelegate?
+    var coordinator: MainCoordinator?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +26,6 @@ class MenuVC: UIViewController {
         configureExitButton()
     }
     
-
     func configureExitButton() {
         exitMenuButton.layer.cornerRadius = 50
     }
