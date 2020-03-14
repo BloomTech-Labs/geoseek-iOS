@@ -11,6 +11,7 @@ import UIKit
 
 protocol SetLocationDelegate {
     func didSetLocation(to location: CLLocationCoordinate2D)
+    func toCreateGemVC()
 }
 
 class ChooseLocationVC: UIViewController {
@@ -21,7 +22,7 @@ class ChooseLocationVC: UIViewController {
     let doneButton = UIButton() // TODO: Make a custom button that we use throughout the app
     let titleLabel = UILabel() // TODO: Make a custom label that we use throughout the app, this label can take a String and assign it's text property, then none of the configuration would need to be done here except for the constraints.
     //    weak var coordinator: BaseCoordinator?
-    weak var coordinator: CreateGemCoordinator?
+    weak var coordinator: BaseCoordinator?
     var userLocation: CLLocationCoordinate2D?
     var delegate: SetLocationDelegate?
     let darkBlueMap = URL(string: "mapbox://styles/geoseek/ck7b5gau8002g1ip7b81etzj4")
@@ -165,7 +166,7 @@ class ChooseLocationVC: UIViewController {
         self.delegate?.didSetLocation(to: pressedLocation.coordinate)
         
         self.dismiss(animated: true, completion: nil)
-        self.coordinator?.toCreateGemVC()
+        delegate?.toCreateGemVC()
     }
 }
 
