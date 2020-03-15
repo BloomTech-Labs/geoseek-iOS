@@ -23,11 +23,9 @@ class CreateGemCoordinator: BaseCoordinator {
     var gemLocation: CLLocationCoordinate2D?
     
     override func start() {
-        navigationController?.isNavigationBarHidden = true
-
-        chooseYourLocationVC.delegate = self
         
-         navigationController?.present(chooseYourLocationVC, animated: true, completion: nil)
+        chooseYourLocationVC.delegate = self
+        navigationController?.present(chooseYourLocationVC, animated: true, completion: nil)
     }
     
     func toGemsMapViewController() {
@@ -75,8 +73,8 @@ extension CreateGemCoordinator: ChooseLocationDelegate {
             toCreateGemVC()
         case .choose:
             getGemLocation()
-//        @unknown default:
-//            fatalError("LocationType Enum has a new type.")
+            //        @unknown default:
+            //            fatalError("LocationType Enum has a new type.")
         }
     }
 }

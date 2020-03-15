@@ -19,7 +19,6 @@ class MenuCoordinator: BaseCoordinator {
 //    var menuVC = MenuVC.instantiate()
 //    
 //    override func start() {
-//        navigationController?.isNavigationBarHidden = true
 //        navigationController?.present(menuVC, animated: true, completion: nil)
 //    }
 }

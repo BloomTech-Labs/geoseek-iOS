@@ -29,7 +29,6 @@ class GemsMapCoordinator: BaseCoordinator {
         viewController.delegate = delegate
         viewController.locationManager = locationManager
         viewController.gemController = gemController
-        navigationController?.isNavigationBarHidden = true
         navigationController?.setViewControllers([viewController], animated: true)
     }
 }
