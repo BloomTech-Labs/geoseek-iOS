@@ -27,15 +27,25 @@ class RegisterVC: UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        usernameTextField.delegate = self
-        emailTextField.delegate = self
-        passwordTextField.delegate = self
+        signUpButton.isEnabled = false
+        signUpButton.backgroundColor = .systemGray2
+        configureTextFields()
+    }
+    
+    func configureTextFields() {
+        let textFields = [usernameTextField, emailTextField, passwordTextField]
+        for textField in textFields {
+            textField?.delegate = self
+            textField?.addTarget(self, action: #selector(checkFormat(textField:)), for: .editingChanged)
+        }
         usernameTextField.becomeFirstResponder()
     }
     
     @IBAction func registerTapped(_ sender: Any) {
         attemptToRegister()
     }
+    
+    
     
     func attemptToRegister() {
         guard let username = usernameTextField.text,
@@ -51,6 +61,22 @@ class RegisterVC: UIViewController, Storyboarded {
     @IBAction func logInTapped(_ sender: Any) {
         delegate?.logIn()
     }
+    
+    @objc func checkFormat(textField: UITextField) {
+        switch textField {
+        case emailTextField:
+            guard let email = emailTextField.text else { return }
+            emailIsValid = email.isValidEmail
+        case passwordTextField:
+            guard let password = passwordTextField.text else { return }
+            passwordIsValid = password.isValidPassword
+        default: return
+        }
+        if emailIsValid && passwordIsValid {
+            signUpButton.backgroundColor = #colorLiteral(red: 0.9568627451, green: 0.2509803922, blue: 0.462745098, alpha: 1)
+            signUpButton.isEnabled = true
+        }
+    }
 }
 
 extension RegisterVC: UITextFieldDelegate {
@@ -61,28 +87,5 @@ extension RegisterVC: UITextFieldDelegate {
         }
         return true
     }
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        print(textField.text ?? "none")
-        
-        switch textField {
-        case emailTextField:
-            guard let email = emailTextField.text else { return }
-            emailIsValid = email.isValidEmail
-        case passwordTextField:
-            guard let password = passwordTextField.text else { return }
-            passwordIsValid = password.isValidPassword
-        default: return
-        }
-    }
-    
-    // Maybe need the below method instead of DidBeginEditing TBD once we have a storyboard view
-    //    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-    //        let oldText = textField.text!
-    //        let stringRange = Range(range, in: oldText)!
-    //        let newText = oldText.replacingCharacters(in: stringRange, with: string)
-    //        self.determineStrength(of: newText)
-    //        return true
-    //    }
 }
 

@@ -10,6 +10,7 @@ import UIKit
 
 protocol LogInDelegate {
     func attemptLogIn(with username: String, password: String)
+    func register()
 }
 
 class LogInVC: UIViewController, Storyboarded {
@@ -31,6 +32,10 @@ class LogInVC: UIViewController, Storyboarded {
         logIn()
     }
     
+    @IBAction func registerTapped(_ sender: Any) {
+        register()
+    }
+    
     func logIn() {
         guard let username = usernameTextField.text,
             let password = passwordTextField.text,
@@ -38,6 +43,10 @@ class LogInVC: UIViewController, Storyboarded {
             !password.isEmpty else { return }
         
         delegate?.attemptLogIn(with: username, password: password)
+    }
+    
+    func register() {
+        delegate?.register()
     }
 }
 

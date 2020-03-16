@@ -32,7 +32,8 @@ class NetworkController {
     // MARK: - Properties
     
     static let shared = NetworkController()
-    private let baseURL = "https://geoseek-be-stage.herokuapp.com/api/"
+//    private let baseURL = "https://geoseek-be-stage.herokuapp.com/api/"
+    private let baseURL = "https://geoseek-be.herokuapp.com/api/"
     
     // MARK: - Lifecycle Methods
     
@@ -89,8 +90,8 @@ class NetworkController {
     // MARK: - Users
     
     // Put this in the main coordinator to test the register method
-    //        let user = "user123"
-    //        let password = "aGoodPassword"
+    //        let user = "user123" // also "user223"
+    //        let password = "aGoodPassword2"
     //        let email = "email@email.com"
     //        NetworkController.shared.register(with: user, password: password, email: email) { result in
     //            switch result {
@@ -118,12 +119,13 @@ class NetworkController {
                 }
             }
             if let data = data {
-                let possibleIdHolder: ReturnedRegister? = self.decode(data: data)
-                if let idHolder = possibleIdHolder {
+                let possibleIdHolder: [ReturnedRegister]? = self.decode(data: data)
+                if let idHolder = possibleIdHolder?.first {
                     User(email: email, id: idHolder.id, password: password, username: username, context: .context)
                     do {
                         // Does this need to go on a background context? If so, the above does too.
                         try CoreDataStack.shared.mainContext.save()
+                        completion(.success("Registered!"))
                     } catch {
                         print("User was registered, but the user data was not saved to CoreData: \(error)")
                     }
@@ -235,6 +237,7 @@ class NetworkController {
             return decoded
         } catch {
             print("Error decoding item from data: \(error)")
+            print(String(data: data, encoding: .utf8)!)
             return nil
         }
     }
