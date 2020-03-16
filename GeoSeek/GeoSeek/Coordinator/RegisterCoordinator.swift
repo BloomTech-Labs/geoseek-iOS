@@ -37,12 +37,15 @@ extension RegisterCoordinator: RegisterUserDelegate {
                 print("Registration error: \(error)")
             case .success(let message):
                 print("Success: \(message)")
-                self.registerVC.dismiss(animated: true, completion: nil)
+                DispatchQueue.main.async {
+                    self.registerVC.dismiss(animated: true, completion: nil)
+                }
             }
         }
     }
     
     func logIn() {
         delegate?.didRequestLogIn()
+        registerVC.dismiss(animated: true, completion: nil)
     }
 }
