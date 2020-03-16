@@ -32,7 +32,7 @@ class NetworkController {
     // MARK: - Properties
     
     static let shared = NetworkController()
-//    private let baseURL = "https://geoseek-be-stage.herokuapp.com/api/"
+    //    private let baseURL = "https://geoseek-be-stage.herokuapp.com/api/"
     private let baseURL = "https://geoseek-be.herokuapp.com/api/"
     
     // MARK: - Lifecycle Methods
@@ -89,36 +89,21 @@ class NetworkController {
     
     // MARK: - Users
     
-    // Put this in the main coordinator to test the register method
-    //        let user = "user123" // also "user223"
+    //        let user = "user123" // also "user223", "user323", "user423"
     //        let password = "aGoodPassword2"
     //        let email = "email@email.com"
-    //        NetworkController.shared.register(with: user, password: password, email: email) { result in
-    //            switch result {
-    //            case .failure(let error): print("\(error)")
-    //            case .success(let string): print(string)
-    //            }
-    //        }
+
     func register(with username: String, password: String, email: String, completion: @escaping (Result<String, Error>) -> Void) {
         let userToRegister = createUserJSON(username, password, and: email)
         var request = usersURL(with: .post, and: .register)
         request.httpBody = userToRegister
         
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            
-            if let error = error {
+        perform(request) { result in
+            switch result {
+            case .failure(let error):
                 print("Register error: \(error)")
                 completion(.failure(FetchError.otherError))
-            }
-            if let response = response as? HTTPURLResponse {
-                switch response.statusCode {
-                case 200...299:
-                    print("successfully registered")
-                default:
-                    print("failed to register")
-                }
-            }
-            if let data = data {
+            case .success(let data):
                 let possibleIdHolder: [ReturnedRegister]? = self.decode(data: data)
                 if let idHolder = possibleIdHolder?.first {
                     User(email: email, id: idHolder.id, password: password, username: username, context: .context)
@@ -131,7 +116,7 @@ class NetworkController {
                     }
                 }
             }
-        }.resume()
+        }
     }
     
     func signIn(with username: String, password: String, completion: @escaping (Result<String, Error>) -> Void) {
@@ -295,27 +280,27 @@ let thing = """
 /api/users/login
 
 {
-    "username": "duds00",
-    "password": "duds00"
+"username": "duds00",
+"password": "duds00"
 }
 {
-  "message": "Welcome duds00!",
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImR1ZHMwMCIsImlkIjoxNiwiaWF0IjoxNTgzOTQ2Mjk2LCJleHAiOjE1ODQwMzI2OTZ9.0gEq64_fSZtf7qGL7J3ASjGsdPyBZC7WTDKX4IaiQQU",
-  "user_id": 16,
-  "email": "test5@teste21.com"
+"message": "Welcome duds00!",
+"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImR1ZHMwMCIsImlkIjoxNiwiaWF0IjoxNTgzOTQ2Mjk2LCJleHAiOjE1ODQwMzI2OTZ9.0gEq64_fSZtf7qGL7J3ASjGsdPyBZC7WTDKX4IaiQQU",
+"user_id": 16,
+"email": "test5@teste21.com"
 }
 
 /api/users/register
 
 {
-    "username": "duds00",
-    "email": "test5@teste21.com",
-    "password": "duds00"
+"username": "duds00",
+"email": "test5@teste21.com",
+"password": "duds00"
 }
 
-  {
-    "id": 16,
-    "username": "duds00",
-    "email": "test5@teste21.com"
-  }
+{
+"id": 16,
+"username": "duds00",
+"email": "test5@teste21.com"
+}
 """
