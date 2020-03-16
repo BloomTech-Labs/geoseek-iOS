@@ -506,89 +506,89 @@
                                 <color key="backgroundColor" red="0.18823529410000001" green="0.21176470589999999" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ydX-0C-Bof">
-                                <rect key="frame" x="20" y="652" width="374" height="100"/>
-                                <color key="backgroundColor" red="0.065821103751659393" green="0.16424188017845154" blue="0.24315750598907471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="31" translatesAutoresizingMaskIntoConstraints="NO" id="nUF-uS-2Ck">
+                                <rect key="frame" x="8" y="388" width="398" height="446"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blueGem" translatesAutoresizingMaskIntoConstraints="NO" id="bSR-yM-e7a">
+                                        <rect key="frame" x="169" y="0.0" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="PeC-3y-WdY"/>
+                                            <constraint firstAttribute="width" constant="60" id="ygu-5c-4gq"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Gem Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hke-3I-WSY">
+                                        <rect key="frame" x="162" y="91" width="74" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Gem Title" textAlignment="natural" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="3mD-O4-lLD">
+                                        <rect key="frame" x="8" y="142.5" width="382" height="40"/>
+                                        <color key="backgroundColor" red="0.065821103751659393" green="0.16424188017845154" blue="0.24315750598907471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="KdJ-tE-zTY"/>
+                                        </constraints>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About Gem" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fcD-jn-j7c">
+                                        <rect key="frame" x="155.5" y="213.5" width="87" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ydX-0C-Bof">
+                                        <rect key="frame" x="8" y="265" width="382" height="100"/>
+                                        <color key="backgroundColor" red="0.065821103751659393" green="0.16424188017845154" blue="0.24315750598907471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="Ou5-gB-Wng"/>
+                                        </constraints>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4PH-sf-Yd9">
+                                        <rect key="frame" x="8" y="396" width="382" height="50"/>
+                                        <color key="backgroundColor" red="0.95686274510000002" green="0.25098039220000001" blue="0.46274509800000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="ri9-ow-aDY"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <state key="normal" title="Add Gem">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="saveButtonTapped:" destination="a5u-1R-hfy" eventType="touchUpInside" id="7O2-Ps-83D"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="Ou5-gB-Wng"/>
+                                    <constraint firstItem="4PH-sf-Yd9" firstAttribute="leading" secondItem="nUF-uS-2Ck" secondAttribute="leading" constant="8" id="2KO-vQ-TX8"/>
+                                    <constraint firstItem="3mD-O4-lLD" firstAttribute="leading" secondItem="nUF-uS-2Ck" secondAttribute="leading" constant="8" id="Lbl-GE-oxa"/>
+                                    <constraint firstAttribute="trailing" secondItem="ydX-0C-Bof" secondAttribute="trailing" constant="8" id="Ogt-sT-K29"/>
+                                    <constraint firstAttribute="trailing" secondItem="3mD-O4-lLD" secondAttribute="trailing" constant="8" id="T8X-fQ-7ED"/>
+                                    <constraint firstAttribute="trailing" secondItem="4PH-sf-Yd9" secondAttribute="trailing" constant="8" id="xJh-hN-qQB"/>
+                                    <constraint firstItem="ydX-0C-Bof" firstAttribute="leading" secondItem="nUF-uS-2Ck" secondAttribute="leading" constant="8" id="yEW-Tq-qHk"/>
                                 </constraints>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Gem Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hke-3I-WSY">
-                                <rect key="frame" x="170" y="460" width="74" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4PH-sf-Yd9">
-                                <rect key="frame" x="20" y="772" width="374" height="50"/>
-                                <color key="backgroundColor" red="0.95686274510000002" green="0.25098039220000001" blue="0.46274509800000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="ri9-ow-aDY"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <state key="normal" title="Add Gem">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="saveButtonTapped:" destination="a5u-1R-hfy" eventType="touchUpInside" id="7O2-Ps-83D"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About Gem" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fcD-jn-j7c">
-                                <rect key="frame" x="163.5" y="608" width="87" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Gem Title" textAlignment="natural" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="3mD-O4-lLD">
-                                <rect key="frame" x="20" y="501" width="374" height="40"/>
-                                <color key="backgroundColor" red="0.065821103751659393" green="0.16424188017845154" blue="0.24315750598907471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="KdJ-tE-zTY"/>
-                                </constraints>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blueGem" translatesAutoresizingMaskIntoConstraints="NO" id="bSR-yM-e7a">
-                                <rect key="frame" x="177" y="380" width="60" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="PeC-3y-WdY"/>
-                                    <constraint firstAttribute="width" constant="60" id="ygu-5c-4gq"/>
-                                </constraints>
-                            </imageView>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="UiI-3t-vhg" firstAttribute="leading" secondItem="YxU-rU-PeQ" secondAttribute="leading" id="9qA-Oh-9l6"/>
                             <constraint firstItem="9iw-7g-0LY" firstAttribute="trailing" secondItem="bUN-TD-oSZ" secondAttribute="trailing" id="BUJ-C4-Wkm"/>
-                            <constraint firstItem="4PH-sf-Yd9" firstAttribute="top" secondItem="ydX-0C-Bof" secondAttribute="bottom" constant="20" id="BXa-jP-Ly8"/>
                             <constraint firstAttribute="bottom" secondItem="UiI-3t-vhg" secondAttribute="bottom" id="C6i-EN-dcz"/>
-                            <constraint firstItem="ydX-0C-Bof" firstAttribute="leading" secondItem="bUN-TD-oSZ" secondAttribute="leading" constant="20" id="FCm-Dn-FD1"/>
                             <constraint firstItem="9iw-7g-0LY" firstAttribute="top" secondItem="bUN-TD-oSZ" secondAttribute="top" constant="294" id="MPZ-tq-OH5"/>
-                            <constraint firstItem="UiI-3t-vhg" firstAttribute="centerY" secondItem="fcD-jn-j7c" secondAttribute="centerY" id="NsQ-3a-G1g"/>
-                            <constraint firstItem="3mD-O4-lLD" firstAttribute="top" secondItem="Hke-3I-WSY" secondAttribute="bottom" constant="20" id="PGE-A0-pNU"/>
-                            <constraint firstItem="4PH-sf-Yd9" firstAttribute="leading" secondItem="bUN-TD-oSZ" secondAttribute="leading" constant="20" id="RCV-MQ-mLW"/>
+                            <constraint firstItem="bUN-TD-oSZ" firstAttribute="trailing" secondItem="nUF-uS-2Ck" secondAttribute="trailing" constant="8" id="Nhu-aR-7P1"/>
                             <constraint firstItem="9iw-7g-0LY" firstAttribute="leading" secondItem="bUN-TD-oSZ" secondAttribute="leading" id="U6Y-YG-HKc"/>
-                            <constraint firstItem="Hke-3I-WSY" firstAttribute="top" secondItem="bSR-yM-e7a" secondAttribute="bottom" constant="20" id="Ulq-8S-vsD"/>
-                            <constraint firstItem="bUN-TD-oSZ" firstAttribute="trailing" secondItem="3mD-O4-lLD" secondAttribute="trailing" constant="20" id="Vf5-5h-tiV"/>
-                            <constraint firstItem="fcD-jn-j7c" firstAttribute="centerX" secondItem="YxU-rU-PeQ" secondAttribute="centerX" id="asE-yY-dBf"/>
-                            <constraint firstItem="bUN-TD-oSZ" firstAttribute="trailing" secondItem="4PH-sf-Yd9" secondAttribute="trailing" constant="20" id="dud-ag-u6J"/>
+                            <constraint firstItem="nUF-uS-2Ck" firstAttribute="leading" secondItem="bUN-TD-oSZ" secondAttribute="leading" constant="8" id="UN5-FR-fnD"/>
                             <constraint firstItem="UiI-3t-vhg" firstAttribute="top" secondItem="bUN-TD-oSZ" secondAttribute="top" constant="300" id="eU2-TI-oGc"/>
-                            <constraint firstItem="UiI-3t-vhg" firstAttribute="centerX" secondItem="bSR-yM-e7a" secondAttribute="centerX" id="hfg-4X-3np"/>
-                            <constraint firstItem="bSR-yM-e7a" firstAttribute="centerX" secondItem="YxU-rU-PeQ" secondAttribute="centerX" id="hwq-2D-zMt"/>
-                            <constraint firstItem="ydX-0C-Bof" firstAttribute="top" secondItem="fcD-jn-j7c" secondAttribute="bottom" constant="20" id="iCN-rR-7mp"/>
-                            <constraint firstItem="bSR-yM-e7a" firstAttribute="top" secondItem="bUN-TD-oSZ" secondAttribute="top" constant="336" id="iOv-c6-UiA"/>
-                            <constraint firstItem="bUN-TD-oSZ" firstAttribute="bottom" secondItem="4PH-sf-Yd9" secondAttribute="bottom" constant="40" id="kEl-No-ARq"/>
-                            <constraint firstItem="Hke-3I-WSY" firstAttribute="centerX" secondItem="YxU-rU-PeQ" secondAttribute="centerX" id="kbP-9m-u6u"/>
+                            <constraint firstItem="bUN-TD-oSZ" firstAttribute="bottom" secondItem="nUF-uS-2Ck" secondAttribute="bottom" constant="28" id="hGl-aj-MfJ"/>
                             <constraint firstAttribute="bottom" secondItem="9iw-7g-0LY" secondAttribute="bottom" constant="20" symbolic="YES" id="oqU-rO-Qhy"/>
-                            <constraint firstItem="bUN-TD-oSZ" firstAttribute="trailing" secondItem="ydX-0C-Bof" secondAttribute="trailing" constant="20" id="w01-Yc-FlF"/>
-                            <constraint firstItem="3mD-O4-lLD" firstAttribute="leading" secondItem="bUN-TD-oSZ" secondAttribute="leading" constant="20" id="xxt-O0-pur"/>
+                            <constraint firstItem="UiI-3t-vhg" firstAttribute="trailing" secondItem="9iw-7g-0LY" secondAttribute="trailing" id="xKS-mG-Os6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bUN-TD-oSZ"/>
                     </view>
