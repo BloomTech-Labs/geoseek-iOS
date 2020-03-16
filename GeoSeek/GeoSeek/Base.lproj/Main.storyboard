@@ -342,10 +342,10 @@
             </objects>
             <point key="canvasLocation" x="1794.2028985507247" y="816.96428571428567"/>
         </scene>
-        <!--View Controller-->
+        <!--RegisterVC-->
         <scene sceneID="bDQ-Z0-ufO">
             <objects>
-                <viewController id="H64-YM-7XX" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegisterVC" id="H64-YM-7XX" customClass="RegisterVC" customModule="GeoSeek" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QOq-Hy-aTy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -362,8 +362,8 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ptR-nu-Bmf">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="72.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pkg-l4-h0j">
-                                                <rect key="frame" x="0.0" y="0.0" width="45" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pkg-l4-h0j">
+                                                <rect key="frame" x="0.0" y="0.0" width="78.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -448,6 +448,9 @@
                                 <state key="normal" title="Sign Up">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="registerTapped:" destination="H64-YM-7XX" eventType="touchUpInside" id="zDR-o9-PYG"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Z4X-0h-YNN">
                                 <rect key="frame" x="79" y="811" width="256" height="33"/>
@@ -464,6 +467,9 @@
                                         <state key="normal" title="Sign In">
                                             <color key="titleColor" red="0.95686274510000002" green="0.25098039220000001" blue="0.46274509800000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="logInTapped:" destination="H64-YM-7XX" eventType="touchUpInside" id="wHy-6v-Ot4"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -484,6 +490,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3p7-ZK-qPJ"/>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="Ook-MB-bvT" id="Jts-cv-5Dr"/>
+                        <outlet property="passwordTextField" destination="j0Y-Bz-NCv" id="qIp-Dh-sNK"/>
+                        <outlet property="signUpButton" destination="1Wf-ok-xWp" id="GMh-9m-Cc2"/>
+                        <outlet property="usernameTextField" destination="Ypm-Jg-qRX" id="PYT-KG-7A5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SLv-cG-qdA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -659,10 +671,10 @@
             </objects>
             <point key="canvasLocation" x="-1467" y="127"/>
         </scene>
-        <!--View Controller-->
+        <!--Log InVC-->
         <scene sceneID="X8Y-Bw-IOJ">
             <objects>
-                <viewController id="AHK-N9-j5O" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LogInVC" id="AHK-N9-j5O" customClass="LogInVC" customModule="GeoSeek" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eUN-9d-D0A">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -679,8 +691,8 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="kbJ-Sz-zKD">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="72.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u3W-T3-KAq">
-                                                <rect key="frame" x="0.0" y="0.0" width="41" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u3W-T3-KAq">
+                                                <rect key="frame" x="0.0" y="0.0" width="78.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -739,6 +751,9 @@
                                 <state key="normal" title="Sign In">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="logInTapped:" destination="AHK-N9-j5O" eventType="touchUpInside" id="uB1-hY-Cqi"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="LaZ-Zy-kRj">
                                 <rect key="frame" x="83" y="811" width="248" height="33"/>
@@ -755,6 +770,9 @@
                                         <state key="normal" title="Sign Up">
                                             <color key="titleColor" red="0.95686274510000002" green="0.25098039220000001" blue="0.46274509800000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="registerTapped:" destination="AHK-N9-j5O" eventType="touchUpInside" id="1C6-S8-bj9"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -775,6 +793,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bsd-6u-dc1"/>
                     </view>
+                    <connections>
+                        <outlet property="passwordTextField" destination="qRs-hX-L7u" id="VDG-KT-RgA"/>
+                        <outlet property="usernameTextField" destination="8tB-0s-wfL" id="zHx-RP-WWd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GT8-nG-5b6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
