@@ -139,7 +139,7 @@ class CreateGemVC: UIViewController, Storyboarded, UITextFieldDelegate, UITextVi
         addGemView.layer.cornerRadius = 30.0
         addGemView.clipsToBounds = true
         
-        gemTitleTextField.layer.cornerRadius = 20.0
+        gemTitleTextField.layer.cornerRadius = 6.0
         
         gemDescriptionTextView.layer.cornerRadius = 10.0
         gemDescriptionTextView.clipsToBounds = true
