@@ -83,6 +83,17 @@ extension MainCoordinator: LandingPageDelegate {
 extension MainCoordinator: RegisterCoordinatorDelegate {
     func didRequestLogIn() {
         logInCoordinator = LogInCoordinator()
+        logInCoordinator?.delegate = self
+        logInCoordinator?.navigationController = navigationController
         logInCoordinator?.start()
+    }
+}
+
+extension MainCoordinator: LoginCoordinatorDelegate {
+    func didRequestRegister() {
+        registerCoordinator = RegisterCoordinator()
+        registerCoordinator?.delegate = self
+        registerCoordinator?.navigationController = navigationController
+        registerCoordinator?.start()
     }
 }
