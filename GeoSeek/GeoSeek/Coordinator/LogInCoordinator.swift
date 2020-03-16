@@ -8,9 +8,14 @@
 
 import UIKit
 
+protocol LoginCoordinatorDelegate {
+    func didRequestRegister()
+}
+
 class LogInCoordinator: BaseCoordinator {
     var navigationController: UINavigationController?
     var logInVC = LogInVC.instantiate()
+    var delegate: LoginCoordinatorDelegate?
     
     override func start() {
         showLogInVC()
@@ -23,6 +28,7 @@ class LogInCoordinator: BaseCoordinator {
 }
 
 extension LogInCoordinator: LogInDelegate {
+    
     func attemptLogIn(with username: String, password: String) {
         NetworkController.shared.signIn(with: username, password: password) { result in
             switch result {
@@ -30,9 +36,16 @@ extension LogInCoordinator: LogInDelegate {
                 self.showLogInFailedAlert()
             case .success(let message):
                 print("Logged In: \(message)") // Do we want to show a success alert?
-                self.logInVC.dismiss(animated: true, completion: nil)
+                DispatchQueue.main.async {
+                    self.logInVC.dismiss(animated: true, completion: nil)
+                }
             }
         }
+    }
+    
+    func register() {
+        delegate?.didRequestRegister()
+        logInVC.dismiss(animated: true, completion: nil)
     }
     
     func showLogInFailedAlert() {
