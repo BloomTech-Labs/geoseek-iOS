@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 
 enum FetchError: String, Error {
     case badData = "There was a data error. Please try again." // TODO Fix error messages
@@ -89,11 +90,12 @@ class NetworkController {
     
     // MARK: - Users
     
-    //        let user = "user123" // also "user223", "user323", "user423"
+    //        let user = "user123" // also user223, user323, user423, user001, user002, user003, user004, user005, user006
     //        let password = "aGoodPassword2"
     //        let email = "email@email.com"
 
-    func register(with username: String, password: String, email: String, completion: @escaping (Result<String, Error>) -> Void) {
+    func register(with username: String, password: String, email: String, completion: @escaping (Result<User, Error>) -> Void) {
+        removeUser()
         let userToRegister = createUserJSON(username, password, and: email)
         var request = usersURL(with: .post, and: .register)
         request.httpBody = userToRegister
@@ -106,11 +108,11 @@ class NetworkController {
             case .success(let data):
                 let possibleIdHolder: [ReturnedRegister]? = self.decode(data: data)
                 if let idHolder = possibleIdHolder?.first {
-                    User(email: email, id: idHolder.id, password: password, username: username, context: .context)
+                    let user = User(email: email, id: idHolder.id, password: password, username: username, context: .context)
                     do {
                         // Does this need to go on a background context? If so, the above does too.
                         try CoreDataStack.shared.mainContext.save()
-                        completion(.success("Registered!"))
+                        completion(.success(user))
                     } catch {
                         print("User was registered, but the user data was not saved to CoreData: \(error)")
                     }
@@ -120,6 +122,7 @@ class NetworkController {
     }
     
     func signIn(with username: String, password: String, completion: @escaping (Result<String, Error>) -> Void) {
+        removeUser()
         let user = createUserJSON(username, password, and: "")
         var request = usersURL(with: .post, and: .login)
         request.httpBody = user
@@ -236,6 +239,20 @@ class NetworkController {
         } catch {
             print("Error encoding item from data: \(error)")
             return nil
+        }
+    }
+    
+    func removeUser() {
+        let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
+        let context = CoreDataStack.shared.mainContext
+        do {
+            let profiles = try context.fetch(fetchRequest)
+            for profile in profiles {
+                context.delete(profile)
+            }
+            try CoreDataStack.shared.save(context: context)
+        } catch {
+            print("Could not log User(s) out")
         }
     }
     

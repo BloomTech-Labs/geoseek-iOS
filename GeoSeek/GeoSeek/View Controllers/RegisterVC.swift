@@ -27,9 +27,8 @@ class RegisterVC: UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        signUpButton.isEnabled = false
-        signUpButton.backgroundColor = .systemGray2
         configureTextFields()
+        updateUI()
     }
     
     func configureTextFields() {
@@ -45,15 +44,13 @@ class RegisterVC: UIViewController, Storyboarded {
         attemptToRegister()
     }
     
-    
-    
     func attemptToRegister() {
         guard let username = usernameTextField.text,
-        let password = passwordTextField.text,
-        let email = emailTextField.text,
-        !username.isEmpty,
-        passwordIsValid,
-        emailIsValid else { return }
+            let password = passwordTextField.text,
+            let email = emailTextField.text,
+            !username.isEmpty,
+            passwordIsValid,
+            emailIsValid else { return }
         
         delegate?.registerUser(with: username, password: password, email: email)
     }
@@ -72,9 +69,16 @@ class RegisterVC: UIViewController, Storyboarded {
             passwordIsValid = password.isValidPassword
         default: return
         }
-        if emailIsValid && passwordIsValid {
+        updateUI()
+    }
+    
+    func updateUI() {
+        if emailIsValid && passwordIsValid && !(usernameTextField.text?.isEmpty ?? true) {
             signUpButton.backgroundColor = #colorLiteral(red: 0.9568627451, green: 0.2509803922, blue: 0.462745098, alpha: 1)
             signUpButton.isEnabled = true
+        } else {
+            signUpButton.backgroundColor = .systemGray3
+            signUpButton.isEnabled = false
         }
     }
 }

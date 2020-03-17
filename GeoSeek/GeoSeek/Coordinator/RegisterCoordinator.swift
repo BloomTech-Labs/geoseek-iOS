@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 protocol RegisterCoordinatorDelegate {
     func didRequestLogIn()
@@ -26,6 +27,19 @@ class RegisterCoordinator: BaseCoordinator {
         registerVC.delegate = self
         navigationController?.pushViewController(registerVC, animated: true)
     }
+    
+    func logInAfterRegistering(user: User) {
+        guard let username = user.username,
+            let password = user.password else { return }
+        NetworkController.shared.signIn(with: username, password: password) { result in
+            switch result {
+            case .failure(let error):
+                print("There was an error logging in after registering: \(error)")
+            case .success(let message):
+                print("Logged in after registering! Message: \(message)")
+            }
+        }
+    }
 }
 
 
@@ -35,11 +49,12 @@ extension RegisterCoordinator: RegisterUserDelegate {
             switch result {
             case .failure(let error):
                 print("Registration error: \(error)")
-            case .success(let message):
-                print("Success: \(message)")
+            case .success(let user):
+                self.logInAfterRegistering(user: user)
                 DispatchQueue.main.async {
                     self.registerVC.dismiss(animated: true, completion: nil)
                 }
+                
             }
         }
     }

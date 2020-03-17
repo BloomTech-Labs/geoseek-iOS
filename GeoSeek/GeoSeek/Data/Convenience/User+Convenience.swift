@@ -36,6 +36,7 @@ extension User {
         self.init(context: context)
         self.email = email
         self.id = Int16(id)
+        self.token = token
         self.password = password
         self.username = username
     }
