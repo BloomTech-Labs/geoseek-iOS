@@ -37,19 +37,7 @@ class RegisterCoordinator: BaseCoordinator {
                 print("There was an error logging in after registering: \(error)")
             case .success(let message):
                 print("Logged in after registering! Message: \(message)")
-                self.printToken()
             }
-        }
-    }
-    
-    func printToken() {
-        let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
-        let context = CoreDataStack.shared.mainContext
-        do {
-            let user = try context.fetch(fetchRequest).first
-            print("User's token: \(user?.token)")
-        } catch {
-            print("No user :(")
         }
     }
 }
