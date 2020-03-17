@@ -90,7 +90,7 @@ class NetworkController {
     
     // MARK: - Users
     
-    //        let user = "user123" // also "user223", "user323", "user423"
+    //        let user = "user123" // also user223, user323, user423, user001, user002, user003, user004, user005, user006
     //        let password = "aGoodPassword2"
     //        let email = "email@email.com"
 
