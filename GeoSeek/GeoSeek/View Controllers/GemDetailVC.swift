@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import Mapbox
 
-class GemDetailVC: UIViewController {
+class GemDetailVC: UIViewController, Storyboarded {
     
     @IBOutlet weak var gemIconImageView: UIImageView!
     @IBOutlet weak var gemTitleLabel: UILabel!
@@ -19,6 +20,10 @@ class GemDetailVC: UIViewController {
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var commentsTableView: UITableView!
     
+    var coordinator: BaseCoordinator?
+    var delegate: GemDetailVCCoordinatorDelegate?
+    var gemController: GemController?
+    var locationManager: CLLocationManager?
     
     
     override func viewDidLoad() {

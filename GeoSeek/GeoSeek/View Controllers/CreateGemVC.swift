@@ -48,14 +48,9 @@ class CreateGemVC: UIViewController, Storyboarded, UITextFieldDelegate, UITextVi
             
             gemTitleTextField.resignFirstResponder()
             
-//            self.gemTitleTextField = nil
-//            self.gemDescriptionTextView = nil
         } else if let gemDescriptionTextView = self.gemDescriptionTextView {
             
             gemDescriptionTextView.resignFirstResponder()
-            
-//            self.gemTitleTextField = nil
-//            self.gemDescriptionTextView = nil
         }
         
         guard keyboardDismissTapGestureRecognizer.isEnabled else { return }

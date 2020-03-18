@@ -22,6 +22,8 @@ class GemsMapVC: UIViewController, Storyboarded {
     var locationManager: CLLocationManager?
     let darkBlueMap = URL(string: "mapbox://styles/geoseek/ck7b5gau8002g1ip7b81etzj4")
     
+    var thisCoordinator: MainCoordinator?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -56,7 +58,7 @@ class GemsMapVC: UIViewController, Storyboarded {
             let location = locationManager.location {
             mapView.setCenter(location.coordinate, zoomLevel: 15, animated: false)
         } else {
-            mapView.setCenter(CLLocationCoordinate2D(latitude: 33.812794, longitude: -117.9190981), zoomLevel: 15, animated: false)
+            mapView.setCenter(CLLocationCoordinate2D(latitude: 0, longitude: 0), zoomLevel: 2, animated: false)
         }
         
         mapView.styleURL = darkBlueMap
@@ -84,6 +86,20 @@ extension GemsMapVC: MGLMapViewDelegate {
     
     func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
         return true
+    }
+    
+    func mapView(_ mapView: MGLMapView, calloutViewFor annotation: MGLAnnotation) -> MGLCalloutView? {
+    // Instantiate and return our custom callout view.
+    return CustomCalloutView(representedObject: annotation)
+    }
+    
+    func mapView(_ mapView: MGLMapView, tapOnCalloutFor annotation: MGLAnnotation) {
+    // Optionally handle taps on the callout.
+
+    print("Tapped the callout for: \(annotation)")
+     
+    // Hide the callout.
+    mapView.deselectAnnotation(annotation, animated: true)
     }
     
     func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
