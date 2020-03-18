@@ -28,8 +28,18 @@ class PasswordView: UIView {
         nib.instantiate(withOwner: self, options: nil)
         
         addSubview(contentView)
-//        configureContentView()
-//        configureTextField()
+        configureContentView()
+        configureTextField()
+    }
+    
+    @IBAction func hideButtonTapped(_ sender: Any) {
+        textField.isSecureTextEntry.toggle()
+        switch textField.isSecureTextEntry {
+        case true:
+            hideButton.setImage(UIImage(systemName: "eye"), for: .normal)
+        case false:
+            hideButton.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+        }
     }
     
     func configureContentView() {
