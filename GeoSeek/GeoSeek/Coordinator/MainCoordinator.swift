@@ -8,6 +8,7 @@
 
 import UIKit
 import Mapbox
+import CoreData
 import CoreLocation
 
 class MainCoordinator: BaseCoordinator {
@@ -33,9 +34,22 @@ class MainCoordinator: BaseCoordinator {
         window.rootViewController = self.navigationController
         
         if CLLocationManager.authorizationStatus() == .authorizedAlways || CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+            logOut()
             toGemsMapViewController()
         } else {
             toLandingPageVC()
+        }
+    }
+    
+    func logOut() {
+        let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
+        let context = CoreDataStack.shared.mainContext
+        let possibleUsers = try? context.fetch(fetchRequest)
+        if let users = possibleUsers {
+            for user in users {
+                context.delete(user)
+                try? context.save()
+            }
         }
     }
     

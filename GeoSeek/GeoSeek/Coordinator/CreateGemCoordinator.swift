@@ -25,7 +25,6 @@ class CreateGemCoordinator: BaseCoordinator {
     var gemLocation: CLLocationCoordinate2D?
     
     override func start() {
-        
         chooseYourLocationVC.delegate = self
         if loggedIn() {
             navigationController?.present(chooseYourLocationVC, animated: true, completion: nil)
@@ -50,6 +49,7 @@ class CreateGemCoordinator: BaseCoordinator {
         let context = CoreDataStack.shared.mainContext
         do {
             let possibleUsers = try context.fetch(fetchRequest)
+            print("Token: \(String(describing: possibleUsers.first?.token))")
             if !(possibleUsers.first?.token?.isEmpty ?? true) {
                 return true
             }
