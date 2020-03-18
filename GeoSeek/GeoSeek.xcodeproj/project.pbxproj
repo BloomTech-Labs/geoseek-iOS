@@ -50,6 +50,7 @@
 		C05CA089241BF6EB00BB2A03 /* RegisterCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05CA088241BF6EB00BB2A03 /* RegisterCoordinator.swift */; };
 		C05CA08D241C06FA00BB2A03 /* LogInCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05CA08C241C06FA00BB2A03 /* LogInCoordinator.swift */; };
 		C05CA08F241C07AC00BB2A03 /* LogInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05CA08E241C07AC00BB2A03 /* LogInVC.swift */; };
+		C087243B2422A4F3002E1105 /* PasswordView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C087243A2422A4F3002E1105 /* PasswordView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -102,6 +103,7 @@
 		C05CA088241BF6EB00BB2A03 /* RegisterCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCoordinator.swift; sourceTree = "<group>"; };
 		C05CA08C241C06FA00BB2A03 /* LogInCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInCoordinator.swift; sourceTree = "<group>"; };
 		C05CA08E241C07AC00BB2A03 /* LogInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInVC.swift; sourceTree = "<group>"; };
+		C087243A2422A4F3002E1105 /* PasswordView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PasswordView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 				C01EF34A240D86B20094CEAB /* CustomAnnotationView.swift */,
 				85186233241B075E00BD3399 /* NavButtonsXib.xib */,
 				85186231241B06DE00BD3399 /* NavButtonsXib.swift */,
+				C087243A2422A4F3002E1105 /* PasswordView.xib */,
 			);
 			path = Xib;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				1C4BCDA92409B37E00EDF681 /* CustomTabBarXib.xib in Resources */,
 				85087DA623FF463900DD9D1B /* Main.storyboard in Resources */,
 				1C4BCDB22409D6EF00EDF681 /* MapXib.xib in Resources */,
+				C087243B2422A4F3002E1105 /* PasswordView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
