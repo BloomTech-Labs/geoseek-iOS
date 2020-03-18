@@ -503,6 +503,7 @@
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="Ook-MB-bvT" id="Jts-cv-5Dr"/>
+                        <outlet property="passwordField" destination="hni-6J-bOX" id="koG-iQ-Z71"/>
                         <outlet property="signUpButton" destination="1Wf-ok-xWp" id="GMh-9m-Cc2"/>
                         <outlet property="usernameTextField" destination="Ypm-Jg-qRX" id="PYT-KG-7A5"/>
                     </connections>
@@ -1043,6 +1044,7 @@
                         <viewLayoutGuide key="safeArea" id="bsd-6u-dc1"/>
                     </view>
                     <connections>
+                        <outlet property="passwordField" destination="icm-8r-O8w" id="uGi-XU-AWe"/>
                         <outlet property="usernameTextField" destination="8tB-0s-wfL" id="zHx-RP-WWd"/>
                     </connections>
                 </viewController>
