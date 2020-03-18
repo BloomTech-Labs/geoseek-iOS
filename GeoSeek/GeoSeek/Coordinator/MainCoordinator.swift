@@ -81,8 +81,8 @@ class MainCoordinator: BaseCoordinator {
 
 extension MainCoordinator: GemsMapCoordinatorDelegate {
     func showMenuVC() {
-        let menuVC = MenuVC()
-        navigationController.pushViewController(menuVC, animated: true)
+        let menuVC = MenuVC.instantiate()
+        navigationController.present(menuVC, animated: true)
     }
     
     func goToCreateGemController() {

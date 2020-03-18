@@ -19,7 +19,6 @@ class MenuVC: UIViewController, Storyboarded {
     
     var delegate: MenuDelegate?
     var coordinator: BaseCoordinator?
-    var controller: NetworkController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +31,6 @@ class MenuVC: UIViewController, Storyboarded {
 //    }
     
     @IBAction func logoutTapped(_ sender: Any) {
-        controller?.removeUser()
+        NetworkController.shared.removeUser()
     }
-    
 }

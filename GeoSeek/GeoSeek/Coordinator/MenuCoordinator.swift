@@ -18,7 +18,7 @@ class MenuCoordinator: BaseCoordinator {
     var delegate: MenuDelegate?
     var menuVC = MenuVC.instantiate()
     
-    override func start() {
-        navigationController?.present(menuVC, animated: true, completion: nil)
-    }
+//    override func start() {
+//        navigationController?.present(menuVC, animated: true, completion: nil)
+//    }
 } 
