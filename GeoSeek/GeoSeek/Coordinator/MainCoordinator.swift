@@ -115,3 +115,7 @@ extension MainCoordinator: LoginCoordinatorDelegate {
         registerCoordinator?.start()
     }
 }
+
+extension MainCoordinator: GemDetailVCCoordinatorDelegate {
+    
+}

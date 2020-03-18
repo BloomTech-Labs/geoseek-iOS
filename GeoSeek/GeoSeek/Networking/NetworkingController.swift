@@ -33,8 +33,8 @@ class NetworkController {
     // MARK: - Properties
     
     static let shared = NetworkController()
-    //    private let baseURL = "https://geoseek-be-stage.herokuapp.com/api/"
-    private let baseURL = "https://geoseek-be.herokuapp.com/api/"
+        private let baseURL = "https://geoseek-be-stage.herokuapp.com/api/"
+    //private let baseURL = "https://geoseek-be.herokuapp.com/api/"
     
     // MARK: - Lifecycle Methods
     
