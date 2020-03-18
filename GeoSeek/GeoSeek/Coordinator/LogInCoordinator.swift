@@ -37,7 +37,7 @@ extension LogInCoordinator: LogInDelegate {
             case .success(let message):
                 print("Logged In: \(message)") // Do we want to show a success alert?
                 DispatchQueue.main.async {
-                    self.logInVC.dismiss(animated: true, completion: nil)
+                    self.navigationController?.popViewController(animated: true)
                 }
             }
         }
@@ -45,7 +45,7 @@ extension LogInCoordinator: LogInDelegate {
     
     func register() {
         delegate?.didRequestRegister()
-        logInVC.dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
     }
     
     func showLogInFailedAlert() {
