@@ -16,7 +16,7 @@ protocol LogInDelegate {
 class LogInVC: UIViewController, Storyboarded {
     
     @IBOutlet weak var usernameTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var passwordField: PasswordView!
     
     var delegate: LogInDelegate?
 
@@ -24,7 +24,7 @@ class LogInVC: UIViewController, Storyboarded {
         super.viewDidLoad()
         
         usernameTextField.delegate = self
-        passwordTextField.delegate = self
+        passwordField.textField.delegate = self
         usernameTextField.becomeFirstResponder()
     }
     
@@ -38,7 +38,7 @@ class LogInVC: UIViewController, Storyboarded {
     
     func logIn() {
         guard let username = usernameTextField.text,
-            let password = passwordTextField.text,
+            let password = passwordField.textField.text,
             !username.isEmpty,
             !password.isEmpty else { return }
         
@@ -53,7 +53,7 @@ class LogInVC: UIViewController, Storyboarded {
 extension LogInVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        if textField == passwordTextField {
+        if textField == passwordField.textField {
             logIn()
         }
         return true

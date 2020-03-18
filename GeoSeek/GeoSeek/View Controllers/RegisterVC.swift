@@ -17,7 +17,7 @@ class RegisterVC: UIViewController, Storyboarded {
     
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var passwordField: PasswordView!
     @IBOutlet weak var signUpButton: UIButton!
     
     var delegate: RegisterUserDelegate?
@@ -32,7 +32,7 @@ class RegisterVC: UIViewController, Storyboarded {
     }
     
     func configureTextFields() {
-        let textFields = [usernameTextField, emailTextField, passwordTextField]
+        let textFields = [usernameTextField, emailTextField, passwordField.textField]
         for textField in textFields {
             textField?.delegate = self
             textField?.addTarget(self, action: #selector(checkFormat(textField:)), for: .editingChanged)
@@ -46,7 +46,7 @@ class RegisterVC: UIViewController, Storyboarded {
     
     func attemptToRegister() {
         guard let username = usernameTextField.text,
-            let password = passwordTextField.text,
+            let password = passwordField.textField.text,
             let email = emailTextField.text,
             !username.isEmpty,
             passwordIsValid,
@@ -64,8 +64,8 @@ class RegisterVC: UIViewController, Storyboarded {
         case emailTextField:
             guard let email = emailTextField.text else { return }
             emailIsValid = email.isValidEmail
-        case passwordTextField:
-            guard let password = passwordTextField.text else { return }
+        case passwordField.textField:
+            guard let password = passwordField.textField.text else { return }
             passwordIsValid = password.isValidPassword
         default: return
         }
@@ -86,7 +86,7 @@ class RegisterVC: UIViewController, Storyboarded {
 extension RegisterVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        if textField == passwordTextField {
+        if textField == passwordField.textField {
             attemptToRegister()
         }
         return true
