@@ -34,13 +34,13 @@ class MainCoordinator: BaseCoordinator {
         window.rootViewController = self.navigationController
         
         if CLLocationManager.authorizationStatus() == .authorizedAlways || CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
-            logOut()
             toGemsMapViewController()
         } else {
             toLandingPageVC()
         }
     }
     
+    // This is here for when we actually add a log out button
     func logOut() {
         let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
         let context = CoreDataStack.shared.mainContext
