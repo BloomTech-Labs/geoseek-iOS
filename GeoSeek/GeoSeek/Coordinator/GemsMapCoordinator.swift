@@ -13,6 +13,7 @@ import CoreLocation
 
 protocol GemsMapCoordinatorDelegate: class {
     func goToCreateGemController()
+    func showMenuVC()
 }
 
 class GemsMapCoordinator: BaseCoordinator {
