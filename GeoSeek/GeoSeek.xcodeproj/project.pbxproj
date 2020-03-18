@@ -51,6 +51,7 @@
 		C05CA08D241C06FA00BB2A03 /* LogInCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05CA08C241C06FA00BB2A03 /* LogInCoordinator.swift */; };
 		C05CA08F241C07AC00BB2A03 /* LogInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05CA08E241C07AC00BB2A03 /* LogInVC.swift */; };
 		C087243B2422A4F3002E1105 /* PasswordView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C087243A2422A4F3002E1105 /* PasswordView.xib */; };
+		C087243D2422AB57002E1105 /* PasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C087243C2422AB57002E1105 /* PasswordView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -104,6 +105,7 @@
 		C05CA08C241C06FA00BB2A03 /* LogInCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInCoordinator.swift; sourceTree = "<group>"; };
 		C05CA08E241C07AC00BB2A03 /* LogInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInVC.swift; sourceTree = "<group>"; };
 		C087243A2422A4F3002E1105 /* PasswordView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PasswordView.xib; sourceTree = "<group>"; };
+		C087243C2422AB57002E1105 /* PasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 				85186233241B075E00BD3399 /* NavButtonsXib.xib */,
 				85186231241B06DE00BD3399 /* NavButtonsXib.swift */,
 				C087243A2422A4F3002E1105 /* PasswordView.xib */,
+				C087243C2422AB57002E1105 /* PasswordView.swift */,
 			);
 			path = Xib;
 			sourceTree = "<group>";
@@ -437,6 +440,7 @@
 				C01EF35924105E6B0094CEAB /* GemsMapCoordinator.swift in Sources */,
 				85186230241AF80A00BD3399 /* ListViewTVC.swift in Sources */,
 				85087D9F23FF463900DD9D1B /* AppDelegate.swift in Sources */,
+				C087243D2422AB57002E1105 /* PasswordView.swift in Sources */,
 				85A683632416A9E000669C6C /* ChooseYourLocationVC.swift in Sources */,
 				C01EF34B240D86B20094CEAB /* CustomAnnotationView.swift in Sources */,
 				851D556B2405EC50001CB19E /* GemRepresentation.swift in Sources */,

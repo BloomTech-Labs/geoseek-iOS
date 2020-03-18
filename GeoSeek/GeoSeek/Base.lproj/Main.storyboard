@@ -922,8 +922,8 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="9o4-7W-qIb">
-                                <rect key="frame" x="40" y="231" width="334" height="175"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="9o4-7W-qIb">
+                                <rect key="frame" x="40" y="231" width="334" height="256"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="kbJ-Sz-zKD">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="72.5"/>
@@ -949,8 +949,8 @@
                                             <constraint firstItem="8tB-0s-wfL" firstAttribute="top" secondItem="u3W-T3-KAq" secondAttribute="bottom" constant="8" id="qBS-K8-TJp"/>
                                         </constraints>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="BvL-tg-zaT">
-                                        <rect key="frame" x="0.0" y="102.5" width="334" height="72.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="BvL-tg-zaT">
+                                        <rect key="frame" x="0.0" y="102.5" width="334" height="153.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yda-OA-t1z">
                                                 <rect key="frame" x="0.0" y="0.0" width="74" height="20.5"/>
@@ -958,8 +958,12 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qRs-hX-L7u">
-                                                <rect key="frame" x="0.0" y="28.5" width="334" height="44"/>
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gks-22-zWH" customClass="PasswordView" customModule="GeoSeek" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28.5" width="314" height="73"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                            </view>
+                                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qRs-hX-L7u" customClass="I">
+                                                <rect key="frame" x="0.0" y="109.5" width="334" height="44"/>
                                                 <color key="backgroundColor" red="0.065821103751659393" green="0.16424188017845154" blue="0.24315750598907471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="06n-G6-Ffn"/>
@@ -969,7 +973,9 @@
                                             </textField>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstItem="gks-22-zWH" firstAttribute="leading" secondItem="BvL-tg-zaT" secondAttribute="leading" constant="20" id="7xk-Ro-LCx"/>
                                             <constraint firstAttribute="trailing" secondItem="qRs-hX-L7u" secondAttribute="trailing" id="FO2-xX-mqX"/>
+                                            <constraint firstAttribute="trailing" secondItem="gks-22-zWH" secondAttribute="trailing" constant="20" id="ruc-nZ-hAW"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
@@ -978,7 +984,7 @@
                                     <constraint firstAttribute="trailing" secondItem="BvL-tg-zaT" secondAttribute="trailing" id="oNc-18-Jkn"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I6I-Sn-oHj">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I6I-Sn-oHj">
                                 <rect key="frame" x="40" y="451.5" width="334" height="52"/>
                                 <color key="backgroundColor" red="0.95686274510000002" green="0.25098039220000001" blue="0.46274509800000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -1037,7 +1043,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GT8-nG-5b6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-659" y="852"/>
+            <point key="canvasLocation" x="-659.4202898550725" y="851.78571428571422"/>
         </scene>
     </scenes>
     <resources>

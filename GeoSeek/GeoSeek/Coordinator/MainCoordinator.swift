@@ -34,7 +34,8 @@ class MainCoordinator: BaseCoordinator {
         window.rootViewController = self.navigationController
         
         if CLLocationManager.authorizationStatus() == .authorizedAlways || CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
-            toGemsMapViewController()
+            reqeustLogIn()
+//            toGemsMapViewController()
         } else {
             toLandingPageVC()
         }
