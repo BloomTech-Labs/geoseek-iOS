@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 
 protocol GemDetailVCCoordinatorDelegate: class {
-    
+    func goToGemsMapDetailVC()
 }
 
 class GemDetailVCCoordinator: BaseCoordinator {

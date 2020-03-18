@@ -68,6 +68,15 @@ class MainCoordinator: BaseCoordinator {
         vc.delegate = self
         navigationController.pushViewController(vc, animated: true)
     }
+    
+    func toGemDetailVC() {
+        let createGemCoordinator = GemDetailVCCoordinator()
+        createGemCoordinator.gemController = gemController
+        createGemCoordinator.navigationController = navigationController
+        createGemCoordinator.delegate = self
+        createGemCoordinator.locationManager = locationManager
+        createGemCoordinator.start()
+    }
 }
 
 extension MainCoordinator: GemsMapCoordinatorDelegate {
@@ -117,5 +126,12 @@ extension MainCoordinator: LoginCoordinatorDelegate {
 }
 
 extension MainCoordinator: GemDetailVCCoordinatorDelegate {
-    
+    func goToGemsMapDetailVC() {
+        let createGemCoordinator = GemDetailVCCoordinator()
+        createGemCoordinator.gemController = gemController
+        createGemCoordinator.navigationController = navigationController
+        createGemCoordinator.delegate = self
+        createGemCoordinator.locationManager = locationManager
+        createGemCoordinator.start()
+    }
 }

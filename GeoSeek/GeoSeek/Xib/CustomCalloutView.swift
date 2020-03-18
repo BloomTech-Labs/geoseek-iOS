@@ -12,10 +12,18 @@ import Mapbox
 class CustomCalloutView: UIView, MGLCalloutView {
     var representedObject: MGLAnnotation
     
+    
+    var navigationController = UINavigationController()
+    let locationManager = CLLocationManager()
+    let gemController = GemController()
+    var gemsMapVC = GemsMapVC()
+    let gemsMapCoordinator = GemsMapCoordinator()
+    
+    
     // Allow the callout to remain open during panning.
     let dismissesAutomatically: Bool = false
     let isAnchoredToAnnotation: Bool = true
-    var coordinator: MainCoordinator?
+    var coordinator: GemDetailVCCoordinator?
     // https://github.com/mapbox/mapbox-gl-native/issues/9228
     override var center: CGPoint {
         set {
@@ -126,7 +134,12 @@ class CustomCalloutView: UIView, MGLCalloutView {
     }
     
     @objc func doStuff() {
-        coordinator?.toLandingPageVC()
+        let createGemCoordinator = GemDetailVCCoordinator()
+        createGemCoordinator.gemController = gemController
+        createGemCoordinator.navigationController = navigationController
+        //createGemCoordinator.delegate = self
+        createGemCoordinator.locationManager = locationManager
+        createGemCoordinator.start()
         print("Stuff done")
     }
     
