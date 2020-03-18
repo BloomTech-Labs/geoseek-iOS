@@ -31,4 +31,18 @@ class PasswordView: UIView {
 //        configureContentView()
 //        configureTextField()
     }
+    
+    func configureContentView() {
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            contentView.topAnchor.constraint(equalTo: topAnchor),
+            contentView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            contentView.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ])
+    }
+    
+    func configureTextField() {
+        textField.isSecureTextEntry = true
+    }
 }
