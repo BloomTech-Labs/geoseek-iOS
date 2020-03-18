@@ -418,18 +418,17 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j0Y-Bz-NCv">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hni-6J-bOX" customClass="PasswordView" customModule="GeoSeek" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28.5" width="334" height="44"/>
-                                                <color key="backgroundColor" red="0.21998545529999999" green="0.25737196210000002" blue="0.33336603640000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="44" id="4g0-um-RmB"/>
+                                                    <constraint firstAttribute="height" constant="44" id="eRD-w5-J95"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
+                                            </view>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="j0Y-Bz-NCv" secondAttribute="trailing" id="dXY-54-d2q"/>
+                                            <constraint firstItem="hni-6J-bOX" firstAttribute="top" secondItem="7SB-5K-Vvk" secondAttribute="bottom" constant="8" id="fQe-jY-kHR"/>
+                                            <constraint firstAttribute="trailing" secondItem="hni-6J-bOX" secondAttribute="trailing" id="xsJ-Qz-ZJ5"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
@@ -493,7 +492,6 @@
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="Ook-MB-bvT" id="Jts-cv-5Dr"/>
-                        <outlet property="passwordTextField" destination="j0Y-Bz-NCv" id="qIp-Dh-sNK"/>
                         <outlet property="signUpButton" destination="1Wf-ok-xWp" id="GMh-9m-Cc2"/>
                         <outlet property="usernameTextField" destination="Ypm-Jg-qRX" id="PYT-KG-7A5"/>
                     </connections>
@@ -963,18 +961,16 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qRs-hX-L7u">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="icm-8r-O8w" customClass="PasswordView" customModule="GeoSeek" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28.5" width="334" height="44"/>
-                                                <color key="backgroundColor" red="0.2111319304" green="0.24428403379999999" blue="0.32910996679999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="44" id="06n-G6-Ffn"/>
+                                                    <constraint firstAttribute="height" constant="44" id="SN3-4s-hYr"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
+                                            </view>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="qRs-hX-L7u" secondAttribute="trailing" id="FO2-xX-mqX"/>
+                                            <constraint firstAttribute="trailing" secondItem="icm-8r-O8w" secondAttribute="trailing" id="ugv-ei-PQc"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
@@ -1036,7 +1032,6 @@
                         <viewLayoutGuide key="safeArea" id="bsd-6u-dc1"/>
                     </view>
                     <connections>
-                        <outlet property="passwordTextField" destination="qRs-hX-L7u" id="VDG-KT-RgA"/>
                         <outlet property="usernameTextField" destination="8tB-0s-wfL" id="zHx-RP-WWd"/>
                     </connections>
                 </viewController>
