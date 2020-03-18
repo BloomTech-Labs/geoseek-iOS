@@ -68,6 +68,10 @@ extension MainCoordinator: GemsMapCoordinatorDelegate {
 }
 
 extension MainCoordinator: CreateGemCoordinatorDelegate {
+    func reqeustLogIn() {
+        didRequestLogIn()
+    }
+    
     func presentGemsMap() {
         gemsMapCoordinator.start()
         navigationController.topViewController?.dismiss(animated: true)
