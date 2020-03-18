@@ -14,6 +14,7 @@
 		1C4BCDB42409D70900EDF681 /* MapXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4BCDB32409D70900EDF681 /* MapXib.swift */; };
 		1C4BCDB8240ED89E00EDF681 /* ChooseLocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4BCDB7240ED89D00EDF681 /* ChooseLocationVC.swift */; };
 		1C4C240124228A9400E8765E /* GemDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C240024228A9400E8765E /* GemDetailVC.swift */; };
+		1C4C2403242296E100E8765E /* CustomCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C2402242296E100E8765E /* CustomCalloutView.swift */; };
 		492590FD7FB81556E40F8502 /* Pods_GeoSeek.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EBF778F07D57AF029E0F771 /* Pods_GeoSeek.framework */; };
 		85087D9F23FF463900DD9D1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85087D9E23FF463900DD9D1B /* AppDelegate.swift */; };
 		85087DA123FF463900DD9D1B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85087DA023FF463900DD9D1B /* SceneDelegate.swift */; };
@@ -61,6 +62,7 @@
 		1C4BCDB32409D70900EDF681 /* MapXib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapXib.swift; sourceTree = "<group>"; };
 		1C4BCDB7240ED89D00EDF681 /* ChooseLocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLocationVC.swift; sourceTree = "<group>"; };
 		1C4C240024228A9400E8765E /* GemDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GemDetailVC.swift; sourceTree = "<group>"; };
+		1C4C2402242296E100E8765E /* CustomCalloutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCalloutView.swift; sourceTree = "<group>"; };
 		58F779FF21069148145470A3 /* Pods-GeoSeek.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoSeek.release.xcconfig"; path = "Target Support Files/Pods-GeoSeek/Pods-GeoSeek.release.xcconfig"; sourceTree = "<group>"; };
 		5EBF778F07D57AF029E0F771 /* Pods_GeoSeek.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeoSeek.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		85087D9B23FF463900DD9D1B /* GeoSeek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeoSeek.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,6 +128,7 @@
 				C01EF34A240D86B20094CEAB /* CustomAnnotationView.swift */,
 				85186233241B075E00BD3399 /* NavButtonsXib.xib */,
 				85186231241B06DE00BD3399 /* NavButtonsXib.swift */,
+				1C4C2402242296E100E8765E /* CustomCalloutView.swift */,
 			);
 			path = Xib;
 			sourceTree = "<group>";
@@ -426,6 +429,7 @@
 				85186236241C223A00BD3399 /* MenuCoordinator.swift in Sources */,
 				C05CA087241BE90700BB2A03 /* String+Extension.swift in Sources */,
 				85087DB623FF50E400DD9D1B /* GeoSeek.xcdatamodeld in Sources */,
+				1C4C2403242296E100E8765E /* CustomCalloutView.swift in Sources */,
 				853F8C5D240597C700BF7B4D /* Coordinator.swift in Sources */,
 				C05CA084241BE49F00BB2A03 /* RegisterVC.swift in Sources */,
 				85087DA323FF463900DD9D1B /* GemsMapVC.swift in Sources */,
