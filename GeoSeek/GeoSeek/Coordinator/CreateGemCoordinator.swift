@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import CoreData
 import CoreLocation
 
 protocol CreateGemCoordinatorDelegate {
     func presentGemsMap()
+    func reqeustLogIn()
 }
 
 class CreateGemCoordinator: BaseCoordinator {
@@ -25,7 +27,11 @@ class CreateGemCoordinator: BaseCoordinator {
     override func start() {
         
         chooseYourLocationVC.delegate = self
-        navigationController?.present(chooseYourLocationVC, animated: true, completion: nil)
+        if loggedIn() {
+            navigationController?.present(chooseYourLocationVC, animated: true, completion: nil)
+        } else {
+            delegate?.reqeustLogIn()
+        }
     }
     
     func toGemsMapViewController() {
@@ -37,6 +43,20 @@ class CreateGemCoordinator: BaseCoordinator {
         createGemVC.coordinator = self
         createGemVC.gemLocation = gemLocation
         navigationController?.present(createGemVC, animated: true)
+    }
+    
+    func loggedIn() -> Bool {
+        let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
+        let context = CoreDataStack.shared.mainContext
+        do {
+            let possibleUsers = try context.fetch(fetchRequest)
+            if !(possibleUsers.first?.token?.isEmpty ?? true) {
+                return true
+            }
+        } catch {
+            return false
+        }
+        return false
     }
 }
 
