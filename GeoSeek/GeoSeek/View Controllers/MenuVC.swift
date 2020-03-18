@@ -23,11 +23,14 @@ class MenuVC: UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        configureExitButton()
+//        configureExitButton()
     }
     
-    func configureExitButton() {
-        exitMenuButton.layer.cornerRadius = 50
+//    func configureExitButton() {
+//        exitMenuButton.layer.cornerRadius = 50
+//    }
+    
+    @IBAction func logoutTapped(_ sender: Any) {
+        NetworkController.shared.removeUser()
     }
-
 }

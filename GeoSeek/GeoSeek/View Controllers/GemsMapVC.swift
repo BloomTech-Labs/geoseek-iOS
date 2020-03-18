@@ -28,6 +28,8 @@ class GemsMapVC: UIViewController, Storyboarded {
         super.viewDidLoad()
         
         customTabBarXib.delegate = delegate
+        navButtonsXib.delegate = delegate
+        
         NetworkController.shared.fetchGems { result in
             switch result {
             case .failure(let error):

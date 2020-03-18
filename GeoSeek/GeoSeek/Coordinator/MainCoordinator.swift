@@ -80,6 +80,11 @@ class MainCoordinator: BaseCoordinator {
 }
 
 extension MainCoordinator: GemsMapCoordinatorDelegate {
+    func showMenuVC() {
+        let menuVC = MenuVC.instantiate()
+        navigationController.present(menuVC, animated: true)
+    }
+    
     func goToCreateGemController() {
         let createGemCoordinator = CreateGemCoordinator()
         createGemCoordinator.gemController = gemController

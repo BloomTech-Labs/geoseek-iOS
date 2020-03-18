@@ -14,10 +14,10 @@ protocol MenuDelegate {
 
 class MenuCoordinator: BaseCoordinator {
     
-//    var navigationController: UINavigationController?
-//    var delegate: MenuDelegate?
-//    var menuVC = MenuVC.instantiate()
-//    
+    var navigationController: UINavigationController?
+    var delegate: MenuDelegate?
+    var menuVC = MenuVC.instantiate()
+    
 //    override func start() {
 //        navigationController?.present(menuVC, animated: true, completion: nil)
 //    }
