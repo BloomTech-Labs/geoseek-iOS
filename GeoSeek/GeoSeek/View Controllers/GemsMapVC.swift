@@ -56,7 +56,7 @@ class GemsMapVC: UIViewController, Storyboarded {
             let location = locationManager.location {
             mapView.setCenter(location.coordinate, zoomLevel: 15, animated: false)
         } else {
-            mapView.setCenter(CLLocationCoordinate2D(latitude: 33.812794, longitude: -117.9190981), zoomLevel: 15, animated: false)
+            mapView.setCenter(CLLocationCoordinate2D(latitude: 0, longitude: 0), zoomLevel: 2, animated: false)
         }
         
         mapView.styleURL = darkBlueMap

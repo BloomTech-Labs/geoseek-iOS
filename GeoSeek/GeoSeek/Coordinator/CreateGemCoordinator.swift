@@ -41,7 +41,7 @@ class CreateGemCoordinator: BaseCoordinator {
         createGemVC.delegate = self
         createGemVC.coordinator = self
         createGemVC.gemLocation = gemLocation
-        navigationController?.present(createGemVC, animated: true)
+        navigationController?.present(createGemVC, animated: true) // Can we make this go slower?
     }
     
     func loggedIn() -> Bool {
@@ -71,6 +71,7 @@ extension CreateGemCoordinator: CreateGemDelegate {
         let mapVC = ChooseLocationVC()
         mapVC.coordinator = self
         mapVC.delegate = self
+        mapVC.gemController = gemController
         mapVC.locationManager = locationManager
         mapVC.modalTransitionStyle = .coverVertical
         self.navigationController?.present(mapVC, animated: true)
