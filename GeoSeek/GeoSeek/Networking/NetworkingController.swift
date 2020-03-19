@@ -14,6 +14,7 @@ enum FetchError: String, Error {
     case badResponse = "There was a bad response. Please try again."
     case badEncode = "There was a problem encoding. Please try again."
     case otherError = "Something went wrong. Please try again."
+    case noUser = "Please log in."
 }
 
 enum HTTPMethod: String {
@@ -179,7 +180,11 @@ class NetworkController {
     
     // MARK: - Completed Routes
     
-    func markGemCompleted(_ gem: Gem, completedBy: CompletedBy, user: User?, completion: @escaping (Result<String, Error>) -> Void) {
+    func markGemCompleted(_ gem: Gem, completedBy: CompletedBy, completion: @escaping (Result<String, Error>) -> Void) {
+        guard let user = retrieveUser() else {
+            completion(.failure(FetchError.noUser))
+            return
+        }
         var request = completedURL(with: .post, and: user)
         let encodedCompletedBy = encode(item: completedBy)
         request.httpBody = encodedCompletedBy
@@ -254,6 +259,18 @@ class NetworkController {
         } catch {
             print("Could not log User(s) out")
         }
+    }
+    
+    private func retrieveUser() -> User? {
+        let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
+        let context = CoreDataStack.shared.mainContext
+        let possibleUsers = try? context.fetch(fetchRequest)
+        if let users = possibleUsers {
+            if let user = users.first {
+                return user
+            }
+        }
+        return nil
     }
     
     // MARK: - URLs
