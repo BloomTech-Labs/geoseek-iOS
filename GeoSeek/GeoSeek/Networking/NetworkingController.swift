@@ -257,7 +257,17 @@ class NetworkController {
         }
     }
     
-    
+    private func retrieveUser() -> User? {
+        let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
+        let context = CoreDataStack.shared.mainContext
+        let possibleUsers = try? context.fetch(fetchRequest)
+        if let users = possibleUsers {
+            if let user = users.first {
+                return user
+            }
+        }
+        return nil
+    }
     
     // MARK: - URLs
     
