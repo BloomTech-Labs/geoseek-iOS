@@ -21,7 +21,6 @@ class GemsMapVC: UIViewController, Storyboarded {
     var gemController: GemController?
     var locationManager: CLLocationManager?
     let darkBlueMap = URL(string: "mapbox://styles/geoseek/ck7b5gau8002g1ip7b81etzj4")
-    //let gdvc = GemDetailVC()
     
     var thisCoordinator: MainCoordinator?
     
@@ -103,7 +102,9 @@ extension GemsMapVC: MGLMapViewDelegate {
     // Optionally handle taps on the callout.
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        let gdvc = storyboard.instantiateViewController(identifier: "GemDetailVC")
+        //let gdvc = storyboard.instantiateViewController(identifier: "GemDetailVC")
+        let gdvc = GemDetailVC.instantiate()
+        gdvc.gemController = gemController
         //gdvc.view.backgroundColor = .systemPink
         guard let gem = gemController?.gemDictionary[annotation.hash] else { return }
 //        gdvc.gem = gem
