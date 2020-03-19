@@ -134,7 +134,7 @@ extension MainCoordinator: GemDetailDelegate {
         NetworkController.shared.markGemCompleted(gem) { result in
             switch result {
             case .failure(let error):
-                print(error)
+                print("Did not mark completed: \(error)")
             case .success(let message):
                 print("Gem marked completed: \(message)")
             }
