@@ -180,7 +180,11 @@ class NetworkController {
     
     // MARK: - Completed Routes
     
-    func markGemCompleted(_ gem: Gem, completedBy: CompletedBy, user: User?, completion: @escaping (Result<String, Error>) -> Void) {
+    func markGemCompleted(_ gem: Gem, completedBy: CompletedBy, completion: @escaping (Result<String, Error>) -> Void) {
+        guard let user = retrieveUser() else {
+            completion(.failure(FetchError.noUser))
+            return
+        }
         var request = completedURL(with: .post, and: user)
         let encodedCompletedBy = encode(item: completedBy)
         request.httpBody = encodedCompletedBy
