@@ -75,9 +75,12 @@ class GemsMapVC: UIViewController, Storyboarded {
                 continue
             }
             let point = MGLPointAnnotation()
+            
+            
             point.coordinate = CLLocationCoordinate2D(latitude: gem.latitude, longitude: gem.longitude)
             point.title = "\(gem.title ?? "No Title")"
             pointAnnotations.append(point)
+            gemController.gemDictionary[point.hash] = gem
         }
         mapView.addAnnotations(pointAnnotations)
         gemController.recentGem = nil
@@ -102,9 +105,12 @@ extension GemsMapVC: MGLMapViewDelegate {
         
         let gdvc = storyboard.instantiateViewController(identifier: "GemDetailVC")
         //gdvc.view.backgroundColor = .systemPink
+        guard let gem = gemController?.gemDictionary[annotation.hash] else { return }
+//        gdvc.gem = gem
         self.present(gdvc, animated: true, completion: nil)
     //present(gdvc, animated: true, completion: nil)
         print("Tapped the callout for: \(annotation)")
+        
      
     // Hide the callout.
         mapView.deselectAnnotation(annotation, animated: true)
