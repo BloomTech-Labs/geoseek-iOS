@@ -38,7 +38,7 @@ class GemDetailVC: UIViewController, Storyboarded {
     }
     
     private func setViews() {
-        guard let gem = gemController?.gems[3] else { return }
+        guard let gem = gem else { return }
         gemTitleLabel.text = gem.title
        // categoryLabel.text = gem.category
         gemDescriptionTextView.text = gem.description
