@@ -54,10 +54,10 @@ class CustomCalloutView: UIView, MGLCalloutView {
         
         backgroundColor = .clear
         
-        mainBody.backgroundColor = .darkGray
+        mainBody.backgroundColor = .systemPink
         mainBody.tintColor = .white
         mainBody.contentEdgeInsets = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
-        mainBody.layer.cornerRadius = 4.0
+        mainBody.layer.cornerRadius = 20.0
         addSubview(mainBody)
     }
     
@@ -75,7 +75,6 @@ class CustomCalloutView: UIView, MGLCalloutView {
         // Prepare title label.
         mainBody.setTitle(representedObject.title!, for: .normal)
         mainBody.sizeToFit()
-        
         if isCalloutTappable() {
             // Handle taps and eventually try to send them to the delegate (usually the map view).
             mainBody.addTarget(self, action: #selector(CustomCalloutView.calloutTapped), for: .touchUpInside)
@@ -153,7 +152,7 @@ class CustomCalloutView: UIView, MGLCalloutView {
     
     override func draw(_ rect: CGRect) {
         // Draw the pointed tip at the bottom.
-        let fillColor: UIColor = .darkGray
+        let fillColor: UIColor = .systemPink
         
         let tipLeft = rect.origin.x + (rect.size.width / 2.0) - (tipWidth / 2.0)
         let tipBottom = CGPoint(x: rect.origin.x + (rect.size.width / 2.0), y: rect.origin.y + rect.size.height)
