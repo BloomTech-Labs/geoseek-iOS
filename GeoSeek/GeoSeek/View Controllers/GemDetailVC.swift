@@ -24,12 +24,21 @@ class GemDetailVC: UIViewController, Storyboarded {
     var delegate: GemDetailVCCoordinatorDelegate?
     var gemController: GemController?
     var locationManager: CLLocationManager?
-    
+    var gem: Gem?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateViews()
 
         // Do any additional setup after loading the view.
+    }
+    
+    private func updateViews() {
+        guard let gem = gem else { return }
+        gemTitleLabel.text = gem.title
+       // categoryLabel.text = gem.category
+        gemDescriptionTextView.text = gem.description
+        difficultyLabel.text = "\(gem.difficulty)"
     }
     
     @IBAction func addCommentButtonTapped(_ sender: UIButton) {

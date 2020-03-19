@@ -21,7 +21,6 @@ class GemsMapVC: UIViewController, Storyboarded {
     var gemController: GemController?
     var locationManager: CLLocationManager?
     let darkBlueMap = URL(string: "mapbox://styles/geoseek/ck7b5gau8002g1ip7b81etzj4")
-    //let gdvc = GemDetailVC()
     
     var thisCoordinator: MainCoordinator?
     
