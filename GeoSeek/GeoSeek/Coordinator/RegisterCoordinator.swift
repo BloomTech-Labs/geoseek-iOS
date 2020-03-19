@@ -52,7 +52,7 @@ extension RegisterCoordinator: RegisterUserDelegate {
             case .success(let user):
                 self.logInAfterRegistering(user: user)
                 DispatchQueue.main.async {
-                    self.navigationController?.popViewController(animated: true)
+                    self.navigationController?.popToRootViewController(animated: true)
                 }
                 
             }
@@ -61,6 +61,5 @@ extension RegisterCoordinator: RegisterUserDelegate {
     
     func logIn() {
         delegate?.didRequestLogIn()
-        navigationController?.popViewController(animated: true)
     }
 }
