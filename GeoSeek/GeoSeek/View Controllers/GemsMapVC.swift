@@ -94,26 +94,19 @@ extension GemsMapVC: MGLMapViewDelegate {
     }
     
     func mapView(_ mapView: MGLMapView, calloutViewFor annotation: MGLAnnotation) -> MGLCalloutView? {
-    // Instantiate and return our custom callout view.
-    return CustomCalloutView(representedObject: annotation)
+        // Instantiate and return our custom callout view.
+        return CustomCalloutView(representedObject: annotation)
     }
     
     func mapView(_ mapView: MGLMapView, tapOnCalloutFor annotation: MGLAnnotation) {
-    // Optionally handle taps on the callout.
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        //let gdvc = storyboard.instantiateViewController(identifier: "GemDetailVC")
+        // Optionally handle taps on the callout.
         let gdvc = GemDetailVC.instantiate()
         gdvc.gemController = gemController
-        //gdvc.view.backgroundColor = .systemPink
         guard let gem = gemController?.gemDictionary[annotation.hash] else { return }
-//        gdvc.gem = gem
+        gdvc.gem = gem
         self.present(gdvc, animated: true, completion: nil)
-    //present(gdvc, animated: true, completion: nil)
         print("Tapped the callout for: \(annotation)")
-        
-     
-    // Hide the callout.
+        // Hide the callout.
         mapView.deselectAnnotation(annotation, animated: true)
     }
     
