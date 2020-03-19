@@ -31,6 +31,7 @@ class MenuVC: UIViewController, Storyboarded {
 //    }
     
     @IBAction func logoutTapped(_ sender: Any) {
-        NetworkController.shared.removeUser()
+        // This should use a delegate to use a coordinator to log out.
+//        NetworkController.shared.removeUser()
     }
 }

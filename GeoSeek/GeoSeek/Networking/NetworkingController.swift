@@ -33,8 +33,8 @@ class NetworkController {
     // MARK: - Properties
     
     static let shared = NetworkController()
-        private let baseURL = "https://geoseek-be-stage.herokuapp.com/api/"
-    //private let baseURL = "https://geoseek-be.herokuapp.com/api/"
+//    private let baseURL = "https://geoseek-be-stage.herokuapp.com/api/"
+    private let baseURL = "https://geoseek-be.herokuapp.com/api/"
     
     // MARK: - Lifecycle Methods
     
@@ -93,7 +93,7 @@ class NetworkController {
     //        let user = "user123" // also user223, user323, user423, user001, user002, user003, user004, user005, user006
     //        let password = "aGoodPassword2"
     //        let email = "email@email.com"
-
+    
     func register(with username: String, password: String, email: String, completion: @escaping (Result<User, Error>) -> Void) {
         removeUser()
         let userToRegister = createUserJSON(username, password, and: email)
@@ -242,7 +242,7 @@ class NetworkController {
         }
     }
     
-    func removeUser() {
+    private func removeUser() {
         let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
         let context = CoreDataStack.shared.mainContext
         do {
