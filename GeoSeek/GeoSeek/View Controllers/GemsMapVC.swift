@@ -99,7 +99,9 @@ extension GemsMapVC: MGLMapViewDelegate {
     // Optionally handle taps on the callout.
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        let gdvc = storyboard.instantiateViewController(identifier: "GemDetailVC")
+        //let gdvc = storyboard.instantiateViewController(identifier: "GemDetailVC")
+        let gdvc = GemDetailVC.instantiate()
+        gdvc.gemController = gemController
         //gdvc.view.backgroundColor = .systemPink
         self.present(gdvc, animated: true, completion: nil)
     //present(gdvc, animated: true, completion: nil)

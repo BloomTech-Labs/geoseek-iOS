@@ -28,13 +28,17 @@ class GemDetailVC: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateViews()
+       // setViews()
 
         // Do any additional setup after loading the view.
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setViews()
+    }
     
-    private func updateViews() {
-        guard let gem = gem else { return }
+    private func setViews() {
+        guard let gem = gemController?.gems[3] else { return }
         gemTitleLabel.text = gem.title
        // categoryLabel.text = gem.category
         gemDescriptionTextView.text = gem.description
@@ -42,6 +46,7 @@ class GemDetailVC: UIViewController, Storyboarded {
     }
     
     @IBAction func addCommentButtonTapped(_ sender: UIButton) {
+        
     }
     
     /*
