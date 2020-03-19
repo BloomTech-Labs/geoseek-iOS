@@ -21,6 +21,7 @@ class GemsMapVC: UIViewController, Storyboarded {
     var gemController: GemController?
     var locationManager: CLLocationManager?
     let darkBlueMap = URL(string: "mapbox://styles/geoseek/ck7b5gau8002g1ip7b81etzj4")
+    //let gdvc = GemDetailVC()
     
     var thisCoordinator: MainCoordinator?
     
@@ -97,11 +98,16 @@ extension GemsMapVC: MGLMapViewDelegate {
     
     func mapView(_ mapView: MGLMapView, tapOnCalloutFor annotation: MGLAnnotation) {
     // Optionally handle taps on the callout.
-
-    print("Tapped the callout for: \(annotation)")
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let gdvc = storyboard.instantiateViewController(identifier: "GemDetailVC")
+        //gdvc.view.backgroundColor = .systemPink
+        self.present(gdvc, animated: true, completion: nil)
+    //present(gdvc, animated: true, completion: nil)
+        print("Tapped the callout for: \(annotation)")
      
     // Hide the callout.
-    mapView.deselectAnnotation(annotation, animated: true)
+        mapView.deselectAnnotation(annotation, animated: true)
     }
     
     func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {

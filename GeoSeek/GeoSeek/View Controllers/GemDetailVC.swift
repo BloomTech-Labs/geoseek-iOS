@@ -46,3 +46,18 @@ class GemDetailVC: UIViewController, Storyboarded {
     */
 
 }
+
+extension GemDetailVC: MGLMapViewDelegate {
+    // Added this but not sure it belongs here
+    
+//  func mapView(_ mapView: MGLMapView, tapOnCalloutFor annotation: MGLAnnotation) {
+//    // Optionally handle taps on the callout.
+//   // let gdvc = GemDetailVC()
+//    self.present(self, animated: true, completion: nil)
+//    //present(gdvc, animated: true, completion: nil)
+//    print("Tapped the callout for: \(annotation)")
+//
+//    // Hide the callout.
+//    mapView.deselectAnnotation(annotation, animated: true)
+//    }
+}
