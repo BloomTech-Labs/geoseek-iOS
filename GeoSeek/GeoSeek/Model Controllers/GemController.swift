@@ -8,11 +8,13 @@
 
 import Foundation
 import CoreData
+import Mapbox
 
 class GemController {
     
     var gems: [Gem] = []
     var recentGem: Gem?
+    var gemDictionary: [Int:Gem] = [:]
     
     func createGem(with gem: GemRepresentation) {
         NetworkController.shared.createGem(from: gem) { result in
