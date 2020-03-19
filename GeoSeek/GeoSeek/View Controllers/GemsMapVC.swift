@@ -11,7 +11,6 @@ import Mapbox
 
 class GemsMapVC: UIViewController, Storyboarded {
     
-    
     @IBOutlet weak var navButtonsXib: NavButtonsXib!
     @IBOutlet weak var customTabBarXib: CustomTabBarXib!
     @IBOutlet weak var mapView: MGLMapView!
@@ -75,7 +74,6 @@ class GemsMapVC: UIViewController, Storyboarded {
             }
             let point = MGLPointAnnotation()
             
-            
             point.coordinate = CLLocationCoordinate2D(latitude: gem.latitude, longitude: gem.longitude)
             point.title = "\(gem.title ?? "No Title")"
             pointAnnotations.append(point)
@@ -100,12 +98,7 @@ extension GemsMapVC: MGLMapViewDelegate {
     
     func mapView(_ mapView: MGLMapView, tapOnCalloutFor annotation: MGLAnnotation) {
         // Optionally handle taps on the callout.
-        let gdvc = GemDetailVC.instantiate()
-        gdvc.gemController = gemController
-        guard let gem = gemController?.gemDictionary[annotation.hash] else { return }
-        gdvc.gem = gem
-        self.present(gdvc, animated: true, completion: nil)
-        print("Tapped the callout for: \(annotation)")
+        delegate?.showGemDetails(for: annotation)
         // Hide the callout.
         mapView.deselectAnnotation(annotation, animated: true)
     }

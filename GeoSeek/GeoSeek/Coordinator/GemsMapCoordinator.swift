@@ -9,11 +9,13 @@
 // protocol
 
 import UIKit
+import Mapbox
 import CoreLocation
 
 protocol GemsMapCoordinatorDelegate: class {
     func goToCreateGemController()
     func showMenuVC()
+    func showGemDetails(for annotation: MGLAnnotation)
 }
 
 class GemsMapCoordinator: BaseCoordinator {

@@ -68,18 +68,17 @@ class MainCoordinator: BaseCoordinator {
         vc.delegate = self
         navigationController.pushViewController(vc, animated: true)
     }
-    
-    func toGemDetailVC() {
-        let createGemCoordinator = GemDetailVCCoordinator()
-        createGemCoordinator.gemController = gemController
-        createGemCoordinator.navigationController = navigationController
-        createGemCoordinator.delegate = self
-        createGemCoordinator.locationManager = locationManager
-        createGemCoordinator.start()
-    }
 }
 
 extension MainCoordinator: GemsMapCoordinatorDelegate {
+    func showGemDetails(for annotation: MGLAnnotation) {
+        let gdvc = GemDetailVC.instantiate()
+        gdvc.delegate = self
+        guard let gem = gemController.gemDictionary[annotation.hash] else { return }
+        gdvc.gem = gem
+        navigationController.present(gdvc, animated: true, completion: nil)
+    }
+    
     func showMenuVC() {
         let menuVC = MenuVC.instantiate()
         navigationController.present(menuVC, animated: true)
@@ -130,13 +129,15 @@ extension MainCoordinator: LoginCoordinatorDelegate {
     }
 }
 
-extension MainCoordinator: GemDetailVCCoordinatorDelegate {
-    func goToGemsMapDetailVC() {
-        let createGemCoordinator = GemDetailVCCoordinator()
-        createGemCoordinator.gemController = gemController
-        createGemCoordinator.navigationController = navigationController
-        createGemCoordinator.delegate = self
-        createGemCoordinator.locationManager = locationManager
-        createGemCoordinator.start()
+extension MainCoordinator: GemDetailDelegate {
+    func markGemCompleted(_ gem: Gem) {
+        NetworkController.shared.markGemCompleted(gem) { result in
+            switch result {
+            case .failure(let error):
+                print("Did not mark completed: \(error)")
+            case .success(let message):
+                print("Gem marked completed: \(message)")
+            }
+        }
     }
 }

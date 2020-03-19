@@ -658,6 +658,9 @@
                                 <color key="tintColor" red="0.99344509839999995" green="0.29326742890000002" blue="0.4994326234" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="checkmark.square" catalog="system"/>
                                 <state key="selected" image="checkmark.rectangle.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="checkButtonTapped:" destination="rx4-s0-NZY" eventType="touchUpInside" id="VoJ-3x-DU9"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ozy-q4-VHx">
                                 <rect key="frame" x="20" y="164" width="374" height="120"/>

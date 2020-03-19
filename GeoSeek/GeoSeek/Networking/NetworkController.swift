@@ -34,8 +34,9 @@ class NetworkController {
     // MARK: - Properties
     
     static let shared = NetworkController()
-//    private let baseURL = "https://geoseek-be-stage.herokuapp.com/api/"
-    private let baseURL = "https://geoseek-be.herokuapp.com/api/"
+    private let baseURL = "https://geoseek-be-stage.herokuapp.com/api/"
+//    private let baseURL = "https://geoseek-be.herokuapp.com/api/"
+//    private let baseURL = "https://labs21-geoseek-be.herokuapp.com/"
     
     // MARK: - Lifecycle Methods
     
@@ -180,11 +181,12 @@ class NetworkController {
     
     // MARK: - Completed Routes
     
-    func markGemCompleted(_ gem: Gem, completedBy: CompletedBy, completion: @escaping (Result<String, Error>) -> Void) {
+    func markGemCompleted(_ gem: Gem, completion: @escaping (Result<String, Error>) -> Void) {
         guard let user = retrieveUser() else {
             completion(.failure(FetchError.noUser))
             return
         }
+        let completedBy = getCreatedBy(user: user, gem)
         var request = completedURL(with: .post, and: user)
         let encodedCompletedBy = encode(item: completedBy)
         request.httpBody = encodedCompletedBy
@@ -271,6 +273,10 @@ class NetworkController {
             }
         }
         return nil
+    }
+    
+    func getCreatedBy(user: User, _ gem: Gem) -> CompletedBy {
+        return CompletedBy(gemId: Int(gem.id), completedAt: "\(Date())", completedBy: Int(user.id), difficulty: Int(gem.difficulty), comments: "")
     }
     
     // MARK: - URLs
