@@ -14,6 +14,7 @@ enum FetchError: String, Error {
     case badResponse = "There was a bad response. Please try again."
     case badEncode = "There was a problem encoding. Please try again."
     case otherError = "Something went wrong. Please try again."
+    case noUser = "Please log in."
 }
 
 enum HTTPMethod: String {
@@ -255,6 +256,8 @@ class NetworkController {
             print("Could not log User(s) out")
         }
     }
+    
+    
     
     // MARK: - URLs
     
