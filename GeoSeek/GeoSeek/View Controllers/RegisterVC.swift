@@ -44,6 +44,10 @@ class RegisterVC: UIViewController, Storyboarded {
         attemptToRegister()
     }
     
+    @IBAction func dismiss(_ sender: Any) {
+    }
+    
+    
     func attemptToRegister() {
         guard let username = usernameTextField.text,
             let password = passwordField.textField.text,

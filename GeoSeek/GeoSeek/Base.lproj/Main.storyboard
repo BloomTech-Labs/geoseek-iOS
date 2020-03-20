@@ -488,6 +488,9 @@
                                 <rect key="frame" x="36" y="52" width="78" height="30"/>
                                 <color key="tintColor" red="0.88179582359999997" green="0.3141108453" blue="0.46665757889999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Dismiss"/>
+                                <connections>
+                                    <action selector="dismiss:" destination="H64-YM-7XX" eventType="touchUpInside" id="Wrb-de-kBc"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.18722313639999999" green="0.21019706129999999" blue="0.28901791570000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
