@@ -62,4 +62,8 @@ extension RegisterCoordinator: RegisterUserDelegate {
     func logIn() {
         delegate?.didRequestLogIn()
     }
+    
+    func dismiss() {
+        navigationController?.popToRootViewController(animated: true)
+    }
 }
