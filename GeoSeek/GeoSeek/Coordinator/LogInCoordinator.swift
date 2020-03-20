@@ -47,6 +47,10 @@ extension LogInCoordinator: LogInDelegate {
         delegate?.didRequestRegister()
     }
     
+    func dismiss() {
+        navigationController?.popToRootViewController(animated: true)
+    }
+    
     func showLogInFailedAlert() {
         print("Problem logging in!")
         // This should be a custom class for all errors. It can take a string which can come from the error type. 
