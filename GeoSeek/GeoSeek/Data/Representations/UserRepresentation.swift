@@ -27,10 +27,16 @@ struct ReturnedUser: Codable {
     let email: String
 }
 
-struct CompletedBy: Codable {
+struct CompletedToSend: Codable {
     let gemId: Int
-    let completedAt: String
     let completedBy: Int
-    let difficulty: Int
+    let comments: String
+}
+
+struct ReceivedCompleted: Codable {
+    let id: Int
+    let gemId: Int
+    let completedAt: Date
+    let completedBy: Int
     let comments: String
 }
