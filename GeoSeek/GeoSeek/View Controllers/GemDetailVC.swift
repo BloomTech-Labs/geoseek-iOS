@@ -10,7 +10,7 @@ import UIKit
 import Mapbox
 
 protocol GemDetailDelegate {
-    func markGemCompleted(_ gem: Gem)
+    func markGemCompleted(_ gem: Gem, comments: String)
 }
 
 class GemDetailVC: UIViewController, Storyboarded {
@@ -42,7 +42,7 @@ class GemDetailVC: UIViewController, Storyboarded {
     
     @IBAction func checkButtonTapped(_ sender: Any) {
         guard let gem = gem else { return }
-        delegate?.markGemCompleted(gem)
+        delegate?.markGemCompleted(gem, comments: "")
     }
     
     @IBAction func addCommentButtonTapped(_ sender: UIButton) {
