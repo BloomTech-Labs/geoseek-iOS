@@ -40,19 +40,6 @@ class MainCoordinator: BaseCoordinator {
         }
     }
     
-    // This is here for when we actually add a log out button
-    func logOut() {
-        let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
-        let context = CoreDataStack.shared.mainContext
-        let possibleUsers = try? context.fetch(fetchRequest)
-        if let users = possibleUsers {
-            for user in users {
-                context.delete(user)
-                try? context.save()
-            }
-        }
-    }
-    
     func toGemsMapViewController() {
         gemsMapCoordinator.navigationController = navigationController
         gemsMapCoordinator.delegate = self
@@ -130,8 +117,8 @@ extension MainCoordinator: LoginCoordinatorDelegate {
 }
 
 extension MainCoordinator: GemDetailDelegate {
-    func markGemCompleted(_ gem: Gem) {
-        NetworkController.shared.markGemCompleted(gem) { result in
+    func markGemCompleted(_ gem: Gem, comments: String) {
+        NetworkController.shared.markGemCompleted(gem, comments: comments) { result in
             switch result {
             case .failure(let error):
                 print("Did not mark completed: \(error)")
