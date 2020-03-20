@@ -46,6 +46,7 @@ class RegisterVC: UIViewController, Storyboarded {
     }
     
     @IBAction func dismiss(_ sender: Any) {
+        delegate?.dismiss()
     }
     
     
