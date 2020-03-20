@@ -11,6 +11,7 @@ import UIKit
 protocol RegisterUserDelegate {
     func registerUser(with username: String, password: String, email: String)
     func logIn()
+    func dismiss()
 }
 
 class RegisterVC: UIViewController, Storyboarded {
