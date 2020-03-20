@@ -315,6 +315,34 @@ class NetworkController {
     }
 }
 
+extension User {
+    static func retrieveUser() -> User? {
+        let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
+        let context = CoreDataStack.shared.mainContext
+        let possibleUsers = try? context.fetch(fetchRequest)
+        if let users = possibleUsers {
+            if let user = users.first {
+                return user
+            }
+        }
+        return nil
+    }
+    
+    static func removeUser() {
+        let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
+        let context = CoreDataStack.shared.mainContext
+        do {
+            let profiles = try context.fetch(fetchRequest)
+            for profile in profiles {
+                context.delete(profile)
+            }
+            try CoreDataStack.shared.save(context: context)
+        } catch {
+            print("Could not log User(s) out")
+        }
+    }
+}
+
 extension URLRequest {
     static func gsGemURL(from url: URL, with method: HTTPMethod) -> URLRequest {
         let endpoint = url.appendingPathComponent("gems")
