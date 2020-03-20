@@ -34,9 +34,9 @@ class NetworkController {
     // MARK: - Properties
     
     static let shared = NetworkController()
-    private let baseURL = "https://geoseek-be-stage.herokuapp.com/api/"
-//    private let baseURL = "https://geoseek-be.herokuapp.com/api/"
-//    private let baseURL = "https://labs21-geoseek-be.herokuapp.com/"
+    //    private let baseURL = URL(string: "https://geoseek-be-stage.herokuapp.com/api/")!
+    //    private let baseURL = URL(string: "https://geoseek-be.herokuapp.com/api/")!
+    private let baseURL = URL(string: "https://labs21-geoseek-be.herokuapp.com/api")!
     
     // MARK: - Lifecycle Methods
     
@@ -46,6 +46,7 @@ class NetworkController {
     
     func fetchGems(completion: @escaping (Result<[Gem], FetchError>) -> Void) {
         let request = gemsURL(with: .get)
+//        let request = URLRequest.gsGemURL(from: baseURL, with: .get)
         
         perform(request) { result in
             switch result {
@@ -101,7 +102,7 @@ class NetworkController {
         let userToRegister = createUserJSON(username, password, and: email)
         var request = usersURL(with: .post, and: .register)
         request.httpBody = userToRegister
-        
+
         perform(request) { result in
             switch result {
             case .failure(let error):
@@ -128,7 +129,7 @@ class NetworkController {
         let user = createUserJSON(username, password, and: "")
         var request = usersURL(with: .post, and: .login)
         request.httpBody = user
-        
+
         perform(request) { result in
             switch result {
             case .failure(let error):
@@ -180,23 +181,27 @@ class NetworkController {
     }
     
     // MARK: - Completed Routes
-    
-    func markGemCompleted(_ gem: Gem, completion: @escaping (Result<String, Error>) -> Void) {
+    // Can't be tested yet.
+    func markGemCompleted(_ gem: Gem, comments: String, completion: @escaping (Result<String, Error>) -> Void) {
         guard let user = retrieveUser() else {
             completion(.failure(FetchError.noUser))
             return
         }
-        let completedBy = getCreatedBy(user: user, gem)
+        let completedToSend = CompletedToSend(gemId: Int(gem.id), completedBy: Int(user.id), comments: comments)
         var request = completedURL(with: .post, and: user)
-        let encodedCompletedBy = encode(item: completedBy)
+        let encodedCompletedBy = encode(item: completedToSend)
         request.httpBody = encodedCompletedBy
-        
+
         perform(request) { result in
             switch result {
             case .failure(let error):
                 completion(.failure(error))
                 return
-            case .success(_):
+            case .success(let data):
+                guard let _: ReceivedCompleted = self.decode(data: data) else {
+                    completion(.failure(FetchError.otherError))
+                    return
+                }
                 completion(.success("Completed!"))
             }
         }
@@ -218,7 +223,7 @@ class NetworkController {
                 completion(.failure(FetchError.badData))
                 return
             }
-            //            print(String(data: data, encoding: .utf8))
+            print(String(data: data, encoding: .utf8)!)
             completion(.success(data))
         }
         dataTask.resume()
@@ -227,6 +232,7 @@ class NetworkController {
     private func decode<T: Codable>(data: Data) -> T? {
         let jsonDecoder = JSONDecoder()
         jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+        jsonDecoder.dateDecodingStrategy = .iso8601
         do {
             let decoded = try jsonDecoder.decode(T.self, from: data)
             return decoded
@@ -275,15 +281,10 @@ class NetworkController {
         return nil
     }
     
-    func getCreatedBy(user: User, _ gem: Gem) -> CompletedBy {
-        return CompletedBy(gemId: Int(gem.id), completedAt: "\(Date())", completedBy: Int(user.id), difficulty: Int(gem.difficulty), comments: "")
-    }
-    
     // MARK: - URLs
     
     private func gemsURL(with method: HTTPMethod) -> URLRequest {
-        let url = URL(string: baseURL)!
-        let endpoint = url.appendingPathComponent("gems")
+        let endpoint = baseURL.appendingPathComponent("gems")
         var request = URLRequest(url: endpoint)
         request.httpMethod = method.rawValue
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -291,7 +292,7 @@ class NetworkController {
     }
     
     private func usersURL(with method: HTTPMethod, and userAction: UserAction, for user: User? = nil) -> URLRequest {
-        var url = URL(string: baseURL)!
+        var url = baseURL
             .appendingPathComponent("users")
             .appendingPathComponent(userAction.rawValue)
         if let user = user {
@@ -303,9 +304,30 @@ class NetworkController {
         return request
     }
     
-    private func completedURL(with method: HTTPMethod, and user: User?) -> URLRequest {
-        var url = URL(string: baseURL)!
+    private func completedURL(with method: HTTPMethod, and user: User) -> URLRequest {
+        let url = baseURL
             .appendingPathComponent("completed")
+            .appendingPathComponent("\(user.id)")
+        var request = URLRequest(url: url)
+        request.httpMethod = method.rawValue
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        return request
+    }
+}
+
+extension URLRequest {
+    static func gsGemURL(from url: URL, with method: HTTPMethod) -> URLRequest {
+        let endpoint = url.appendingPathComponent("gems")
+        var request = URLRequest(url: endpoint)
+        request.httpMethod = method.rawValue
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        return request
+    }
+    
+    static func gsUserURL(from url: URL, with method: HTTPMethod, and userAction: UserAction, for user: User? = nil) -> URLRequest {
+        var url = url
+            .appendingPathComponent("users")
+            .appendingPathComponent(userAction.rawValue)
         if let user = user {
             url = url.appendingPathComponent("\(user.id)")
         }
@@ -314,33 +336,30 @@ class NetworkController {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         return request
     }
+    
+    static func gsCompletedURL(from url: URL, with method: HTTPMethod, and user: User) -> URLRequest {
+        let url = url
+            .appendingPathComponent("completed")
+            .appendingPathComponent("\(user.id)")
+        var request = URLRequest(url: url)
+        request.httpMethod = method.rawValue
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        return request
+    }
 }
 
 let thing = """
-/api/users/login
-
 {
-"username": "duds00",
-"password": "duds00"
+    "gem_id": 2,
+    "completed_by": 2,
+    "comments": "test2"
 }
+this one is what will be returned:
 {
-"message": "Welcome duds00!",
-"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImR1ZHMwMCIsImlkIjoxNiwiaWF0IjoxNTgzOTQ2Mjk2LCJleHAiOjE1ODQwMzI2OTZ9.0gEq64_fSZtf7qGL7J3ASjGsdPyBZC7WTDKX4IaiQQU",
-"user_id": 16,
-"email": "test5@teste21.com"
-}
-
-/api/users/register
-
-{
-"username": "duds00",
-"email": "test5@teste21.com",
-"password": "duds00"
-}
-
-{
-"id": 16,
-"username": "duds00",
-"email": "test5@teste21.com"
+  "id": 6,
+  "gem_id": 2,
+  "completed_at": "2020-03-11T22:48:44.197Z",
+  "completed_by": 2,
+  "comments": "test2"
 }
 """
