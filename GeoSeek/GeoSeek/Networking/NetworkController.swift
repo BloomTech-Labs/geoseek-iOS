@@ -191,7 +191,6 @@ class NetworkController {
         let encodedCompletedBy = encode(item: completedToSend)
         request.httpBody = encodedCompletedBy
 
-        print("Request:", request)
         perform(request) { result in
             switch result {
             case .failure(let error):
@@ -202,7 +201,6 @@ class NetworkController {
                     completion(.failure(FetchError.otherError))
                     return
                 }
-                print(received.completedAt)
                 completion(.success("Completed!"))
             }
         }
@@ -224,7 +222,6 @@ class NetworkController {
                 completion(.failure(FetchError.badData))
                 return
             }
-            print(String(data: data, encoding: .utf8)!)
             completion(.success(data))
         }
         dataTask.resume()
