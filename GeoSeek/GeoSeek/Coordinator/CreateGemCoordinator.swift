@@ -63,6 +63,7 @@ class CreateGemCoordinator: BaseCoordinator {
 extension CreateGemCoordinator: CreateGemDelegate {
     func createGem(_ gem: GemRepresentation) {
         gemController?.createGem(with: gem)
+        
         delegate?.presentGemsMap()
     }
     

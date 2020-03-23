@@ -16,7 +16,7 @@ extension Gem {
         guard let description = gemDesc,
             let title = title else { return nil }
         
-        return GemRepresentation(difficulty: difficulty, description: description, id: Int(id), latitude: latitude, longitude: longitude, title: title/*, createdByUser: Int(createdByUser)*/)
+        return GemRepresentation(difficulty: difficulty, description: description, id: Int(id), latitude: latitude, longitude: longitude, title: title, createdByUser: Int(createdByUser))
     }
     
     @discardableResult convenience init(representation: GemRepresentation, context: NSManagedObjectContext = .context) {
@@ -26,8 +26,8 @@ extension Gem {
                   id: representation.id,
                   latitude: representation.latitude,
                   longitude: representation.longitude,
-                  /*createdByUser: representation.createdByUser,
-                  */context: context)
+                  createdByUser: representation.createdByUser,
+                  context: context)
     }
     
     @discardableResult convenience init(title: String,
@@ -35,8 +35,8 @@ extension Gem {
                                         difficulty: Double?,
                                         id: Int?,
                                         latitude: Double,
-                                        longitude: Double/*,
-                                        createdByUser: Int*/,
+                                        longitude: Double,
+                                        createdByUser: Int,
                                         context: NSManagedObjectContext) {
         
         self.init(context: context)
@@ -51,6 +51,6 @@ extension Gem {
         self.gemDesc = gemDesc
         self.latitude = latitude
         self.longitude = longitude
-//        self.createdByUser = Int16(createdByUser)
+        self.createdByUser = Int16(createdByUser)
     }
 }
