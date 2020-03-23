@@ -128,7 +128,9 @@ extension MainCoordinator: GemDetailDelegate {
                 print("Did not mark completed: \(error)")
             case .success(let message):
                 print("Gem marked completed: \(message)")
-                self.gemDetailVC?.showLabel()
+                DispatchQueue.main.async {
+                    self.gemDetailVC?.showLabel()
+                }
             }
         }
     }
