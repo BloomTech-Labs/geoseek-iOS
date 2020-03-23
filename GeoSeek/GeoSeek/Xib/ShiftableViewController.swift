@@ -9,14 +9,14 @@
 import UIKit
 
 protocol KeyboardShiftable {
-    func setBottomButton()
+    func setBottomView()
 }
 
 class ShiftableViewController: UIViewController {
     
     var keyboardDismissTapGestureRecognizer: UITapGestureRecognizer!
     var currentYShiftForKeyboard: CGFloat = 0
-    var bottomButton: UIButton?
+    var bottomView: UIView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +48,7 @@ class ShiftableViewController: UIViewController {
         }
 
         if self.view.frame.origin.y == 0 {
-            guard let bottomButton = bottomButton else { return }
+            guard let bottomButton = bottomView else { return }
             let yShift = yShiftWhenKeyboardAppearsFor(textInput: bottomButton, keyboardSize: keyboardSize, nextY: keyboardSize.height)
             currentYShiftForKeyboard = yShift
             view.frame.origin.y -= yShift
