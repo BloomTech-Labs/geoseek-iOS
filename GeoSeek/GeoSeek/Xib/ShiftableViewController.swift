@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol KeyboardShiftable {
+    func setBottomButton()
+}
+
 class ShiftableViewController: UIViewController {
     
     var keyboardDismissTapGestureRecognizer: UITapGestureRecognizer!
