@@ -14,7 +14,7 @@ protocol LogInDelegate {
     func dismiss()
 }
 
-class LogInVC: ShiftableViewController, Storyboarded {
+class LogInVC: ShiftableViewController, KeyboardShiftable, Storyboarded {
     
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordField: PasswordView!
@@ -26,7 +26,7 @@ class LogInVC: ShiftableViewController, Storyboarded {
         super.viewDidLoad()
         
         setUpDelegates()
-        bottomButton = signInButton
+        setBottomButton()
     }
     
     @IBAction func logInTapped(_ sender: Any) {
@@ -53,6 +53,10 @@ class LogInVC: ShiftableViewController, Storyboarded {
     func setUpDelegates() {
         usernameTextField.delegate = self
         passwordField.textField.delegate = self
+    }
+    
+    func setBottomButton() {
+        bottomButton = signInButton
     }
 }
 
