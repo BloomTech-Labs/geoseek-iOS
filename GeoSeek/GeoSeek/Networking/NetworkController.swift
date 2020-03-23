@@ -34,9 +34,9 @@ class NetworkController {
     // MARK: - Properties
     
     static let shared = NetworkController()
-    //    private let baseURL = URL(string: "https://geoseek-be-stage.herokuapp.com/api/")!
+        private let baseURL = URL(string: "https://geoseek-be-stage.herokuapp.com/api/")!
     //    private let baseURL = URL(string: "https://geoseek-be.herokuapp.com/api/")!
-    private let baseURL = URL(string: "https://labs21-geoseek-be.herokuapp.com/api")!
+//    private let baseURL = URL(string: "https://labs21-geoseek-be.herokuapp.com/api")!
     
     // MARK: - Lifecycle Methods
     
@@ -45,8 +45,7 @@ class NetworkController {
     // MARK: - Gems
     
     func fetchGems(completion: @escaping (Result<[Gem], FetchError>) -> Void) {
-        let request = gemsURL(with: .get)
-//        let request = URLRequest.gsGemURL(from: baseURL, with: .get)
+        let request = URLRequest.gsGemURL(from: baseURL, with: .get)
         
         perform(request) { result in
             switch result {
@@ -69,7 +68,7 @@ class NetworkController {
     
     func createGem(from gemRepresentation: GemRepresentation, completion: @escaping (Result<Gem, Error>) -> Void) {
         guard let gemData = encode(item: gemRepresentation) else { return }
-        var request = gemsURL(with: .post)
+        var request = URLRequest.gsGemURL(from: baseURL, with: .post)
         request.httpBody = gemData
         
         perform(request) { result in
@@ -98,9 +97,9 @@ class NetworkController {
     //        let email = "email@email.com"
     
     func register(with username: String, password: String, email: String, completion: @escaping (Result<User, Error>) -> Void) {
-        removeUser()
+        User.removeUser()
         let userToRegister = createUserJSON(username, password, and: email)
-        var request = usersURL(with: .post, and: .register)
+        var request = URLRequest.gsUserURL(from: baseURL, with: .post, and: .register)
         request.httpBody = userToRegister
 
         perform(request) { result in
@@ -125,9 +124,9 @@ class NetworkController {
     }
     
     func signIn(with username: String, password: String, completion: @escaping (Result<String, Error>) -> Void) {
-        removeUser()
+        User.removeUser()
         let user = createUserJSON(username, password, and: "")
-        var request = usersURL(with: .post, and: .login)
+        var request = URLRequest.gsUserURL(from: baseURL, with: .post, and: .login)
         request.httpBody = user
 
         perform(request) { result in
@@ -183,25 +182,27 @@ class NetworkController {
     // MARK: - Completed Routes
     // Can't be tested yet.
     func markGemCompleted(_ gem: Gem, comments: String, completion: @escaping (Result<String, Error>) -> Void) {
-        guard let user = retrieveUser() else {
+        guard let user = User.retrieveUser() else {
             completion(.failure(FetchError.noUser))
             return
         }
         let completedToSend = CompletedToSend(gemId: Int(gem.id), completedBy: Int(user.id), comments: comments)
-        var request = completedURL(with: .post, and: user)
+        var request = URLRequest.gsCompletedURL(from: baseURL, with: .post, and: user)
         let encodedCompletedBy = encode(item: completedToSend)
         request.httpBody = encodedCompletedBy
 
+        print("Request:", request)
         perform(request) { result in
             switch result {
             case .failure(let error):
                 completion(.failure(error))
                 return
             case .success(let data):
-                guard let _: ReceivedCompleted = self.decode(data: data) else {
+                guard let received: ReceivedCompleted = self.decode(data: data) else {
                     completion(.failure(FetchError.otherError))
                     return
                 }
+                print(received.completedAt)
                 completion(.success("Completed!"))
             }
         }
@@ -254,129 +255,10 @@ class NetworkController {
             return nil
         }
     }
-    
-    private func removeUser() {
-        let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
-        let context = CoreDataStack.shared.mainContext
-        do {
-            let profiles = try context.fetch(fetchRequest)
-            for profile in profiles {
-                context.delete(profile)
-            }
-            try CoreDataStack.shared.save(context: context)
-        } catch {
-            print("Could not log User(s) out")
-        }
-    }
-    
-    private func retrieveUser() -> User? {
-        let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
-        let context = CoreDataStack.shared.mainContext
-        let possibleUsers = try? context.fetch(fetchRequest)
-        if let users = possibleUsers {
-            if let user = users.first {
-                return user
-            }
-        }
-        return nil
-    }
-    
-    // MARK: - URLs
-    
-    private func gemsURL(with method: HTTPMethod) -> URLRequest {
-        let endpoint = baseURL.appendingPathComponent("gems")
-        var request = URLRequest(url: endpoint)
-        request.httpMethod = method.rawValue
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        return request
-    }
-    
-    private func usersURL(with method: HTTPMethod, and userAction: UserAction, for user: User? = nil) -> URLRequest {
-        var url = baseURL
-            .appendingPathComponent("users")
-            .appendingPathComponent(userAction.rawValue)
-        if let user = user {
-            url = url.appendingPathComponent("\(user.id)")
-        }
-        var request = URLRequest(url: url)
-        request.httpMethod = method.rawValue
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        return request
-    }
-    
-    private func completedURL(with method: HTTPMethod, and user: User) -> URLRequest {
-        let url = baseURL
-            .appendingPathComponent("completed")
-            .appendingPathComponent("\(user.id)")
-        var request = URLRequest(url: url)
-        request.httpMethod = method.rawValue
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        return request
-    }
-}
-
-extension User {
-    static func retrieveUser() -> User? {
-        let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
-        let context = CoreDataStack.shared.mainContext
-        let possibleUsers = try? context.fetch(fetchRequest)
-        if let users = possibleUsers {
-            if let user = users.first {
-                return user
-            }
-        }
-        return nil
-    }
-    
-    static func removeUser() {
-        let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
-        let context = CoreDataStack.shared.mainContext
-        do {
-            let profiles = try context.fetch(fetchRequest)
-            for profile in profiles {
-                context.delete(profile)
-            }
-            try CoreDataStack.shared.save(context: context)
-        } catch {
-            print("Could not log User(s) out")
-        }
-    }
-}
-
-extension URLRequest {
-    static func gsGemURL(from url: URL, with method: HTTPMethod) -> URLRequest {
-        let endpoint = url.appendingPathComponent("gems")
-        var request = URLRequest(url: endpoint)
-        request.httpMethod = method.rawValue
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        return request
-    }
-    
-    static func gsUserURL(from url: URL, with method: HTTPMethod, and userAction: UserAction, for user: User? = nil) -> URLRequest {
-        var url = url
-            .appendingPathComponent("users")
-            .appendingPathComponent(userAction.rawValue)
-        if let user = user {
-            url = url.appendingPathComponent("\(user.id)")
-        }
-        var request = URLRequest(url: url)
-        request.httpMethod = method.rawValue
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        return request
-    }
-    
-    static func gsCompletedURL(from url: URL, with method: HTTPMethod, and user: User) -> URLRequest {
-        let url = url
-            .appendingPathComponent("completed")
-            .appendingPathComponent("\(user.id)")
-        var request = URLRequest(url: url)
-        request.httpMethod = method.rawValue
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        return request
-    }
 }
 
 let thing = """
+COMPLETED
 {
     "gem_id": 2,
     "completed_by": 2,
@@ -389,5 +271,46 @@ this one is what will be returned:
   "completed_at": "2020-03-11T22:48:44.197Z",
   "completed_by": 2,
   "comments": "test2"
+}
+
+CREATE
+ {
+    "title": "testing1",
+    "created_by_user": 6,
+    "longitude": -86.2222,
+    "latitude": 36.3333,
+    "difficulty": 2,
+    "description": "test1"
+}
+
+{
+  "gem": [
+    23
+  ],
+  "message": "Gem was created"
+}
+
+/api/users/register
+{
+    "username": "duds00",
+    "email": "test5@teste21.com",
+    "password": "duds00"
+}
+  {
+    "id": 16,
+    "username": "duds00",
+    "email": "test5@teste21.com"
+  }
+
+/api/users/login
+{
+    "username": "duds00",
+    "password": "duds00"
+}
+{
+  "message": "Welcome duds00!",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImR1ZHMwMCIsImlkIjoxNiwiaWF0IjoxNTgzOTQ2Mjk2LCJleHAiOjE1ODQwMzI2OTZ9.0gEq64_fSZtf7qGL7J3ASjGsdPyBZC7WTDKX4IaiQQU",
+  "user_id": 16,
+  "email": "test5@teste21.com"
 }
 """
