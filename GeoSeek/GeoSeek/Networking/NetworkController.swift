@@ -88,16 +88,13 @@ class NetworkController {
                 print("Register error: \(error)")
                 completion(.failure(FetchError.otherError))
             case .success(let data):
-                let possibleIdHolder: [ReturnedRegister]? = self.decode(data: data)
-                if let idHolder = possibleIdHolder?.first {
-                    let user = User(email: email, id: idHolder.id, password: password, username: username, context: .context)
-                    do {
-                        // Does this need to go on a background context? If so, the above does too.
-                        try CoreDataStack.shared.mainContext.save()
+                do {
+                    if let user = try self.createUser(from: data, with: username, email: email, password: password) {
                         completion(.success(user))
-                    } catch {
-                        print("User was registered, but the user data was not saved to CoreData: \(error)")
                     }
+                } catch {
+                    completion(.failure(error))
+                    print("User was registered, but the user data was not saved to CoreData: \(error)")
                 }
             }
         }
@@ -229,6 +226,21 @@ class NetworkController {
             return encoded
         } catch {
             print("Error encoding item from data: \(error)")
+            return nil
+        }
+    }
+    
+    private func createUser(from data: Data, with username: String, email: String, password: String) throws -> User? {
+        let possibleIdHolder: [ReturnedRegister]? = self.decode(data: data)
+        if let idHolder = possibleIdHolder?.first {
+            let user = User(email: email, id: idHolder.id, password: password, username: username, context: .context)
+            do {
+                try CoreDataStack.shared.mainContext.save()
+                return user
+            } catch {
+                throw error
+            }
+        } else {
             return nil
         }
     }
