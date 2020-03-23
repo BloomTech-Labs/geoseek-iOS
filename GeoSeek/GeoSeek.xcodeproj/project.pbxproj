@@ -54,6 +54,8 @@
 		C087243B2422A4F3002E1105 /* PasswordView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C087243A2422A4F3002E1105 /* PasswordView.xib */; };
 		C087243D2422AB57002E1105 /* PasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C087243C2422AB57002E1105 /* PasswordView.swift */; };
 		C087243F2424252F002E1105 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C087243E2424252F002E1105 /* Constants.swift */; };
+		C08724432426860E002E1105 /* URLRequest+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08724422426860E002E1105 /* URLRequest+Extension.swift */; };
+		C08724452426863F002E1105 /* User+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08724442426863F002E1105 /* User+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -110,6 +112,8 @@
 		C087243A2422A4F3002E1105 /* PasswordView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PasswordView.xib; sourceTree = "<group>"; };
 		C087243C2422AB57002E1105 /* PasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordView.swift; sourceTree = "<group>"; };
 		C087243E2424252F002E1105 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C08724422426860E002E1105 /* URLRequest+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Extension.swift"; sourceTree = "<group>"; };
+		C08724442426863F002E1105 /* User+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +211,7 @@
 			children = (
 				85087DFB2400845400DD9D1B /* Gems+Convenience.swift */,
 				85087E01240087B900DD9D1B /* User+Convenience.swift */,
+				C08724442426863F002E1105 /* User+Extension.swift */,
 			);
 			path = Convenience;
 			sourceTree = "<group>";
@@ -257,6 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				C01EF3122405F1EE0094CEAB /* NetworkController.swift */,
+				C08724422426860E002E1105 /* URLRequest+Extension.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -441,6 +447,7 @@
 				85087DB623FF50E400DD9D1B /* GeoSeek.xcdatamodeld in Sources */,
 				1C4C2403242296E100E8765E /* CustomCalloutView.swift in Sources */,
 				853F8C5D240597C700BF7B4D /* Coordinator.swift in Sources */,
+				C08724452426863F002E1105 /* User+Extension.swift in Sources */,
 				C05CA084241BE49F00BB2A03 /* RegisterVC.swift in Sources */,
 				85087DA323FF463900DD9D1B /* GemsMapVC.swift in Sources */,
 				85087DFE2400862400DD9D1B /* GemController.swift in Sources */,
@@ -449,6 +456,7 @@
 				C087243F2424252F002E1105 /* Constants.swift in Sources */,
 				85087D9F23FF463900DD9D1B /* AppDelegate.swift in Sources */,
 				C087243D2422AB57002E1105 /* PasswordView.swift in Sources */,
+				C08724432426860E002E1105 /* URLRequest+Extension.swift in Sources */,
 				85A683632416A9E000669C6C /* ChooseYourLocationVC.swift in Sources */,
 				C01EF34B240D86B20094CEAB /* CustomAnnotationView.swift in Sources */,
 				851D556B2405EC50001CB19E /* GemRepresentation.swift in Sources */,
