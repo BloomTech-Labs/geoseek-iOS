@@ -55,6 +55,7 @@
 		C087243F2424252F002E1105 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C087243E2424252F002E1105 /* Constants.swift */; };
 		C08724432426860E002E1105 /* URLRequest+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08724422426860E002E1105 /* URLRequest+Extension.swift */; };
 		C08724452426863F002E1105 /* User+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08724442426863F002E1105 /* User+Extension.swift */; };
+		C087246D242953BD002E1105 /* ShiftableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C087246C242953BD002E1105 /* ShiftableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,6 +113,7 @@
 		C087243E2424252F002E1105 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C08724422426860E002E1105 /* URLRequest+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Extension.swift"; sourceTree = "<group>"; };
 		C08724442426863F002E1105 /* User+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Extension.swift"; sourceTree = "<group>"; };
+		C087246C242953BD002E1105 /* ShiftableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 				C087243A2422A4F3002E1105 /* PasswordView.xib */,
 				C087243C2422AB57002E1105 /* PasswordView.swift */,
 				1C4C2402242296E100E8765E /* CustomCalloutView.swift */,
+				C087246C242953BD002E1105 /* ShiftableViewController.swift */,
 			);
 			path = Xib;
 			sourceTree = "<group>";
@@ -208,7 +211,6 @@
 			children = (
 				85087DFB2400845400DD9D1B /* Gems+Convenience.swift */,
 				85087E01240087B900DD9D1B /* User+Convenience.swift */,
-				C08724442426863F002E1105 /* User+Extension.swift */,
 			);
 			path = Convenience;
 			sourceTree = "<group>";
@@ -259,7 +261,6 @@
 			isa = PBXGroup;
 			children = (
 				C01EF3122405F1EE0094CEAB /* NetworkController.swift */,
-				C08724422426860E002E1105 /* URLRequest+Extension.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -277,6 +278,8 @@
 			isa = PBXGroup;
 			children = (
 				C05CA086241BE90700BB2A03 /* String+Extension.swift */,
+				C08724442426863F002E1105 /* User+Extension.swift */,
+				C08724422426860E002E1105 /* URLRequest+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 				C05CA08F241C07AC00BB2A03 /* LogInVC.swift in Sources */,
 				85087E02240087B900DD9D1B /* User+Convenience.swift in Sources */,
 				85186236241C223A00BD3399 /* MenuCoordinator.swift in Sources */,
+				C087246D242953BD002E1105 /* ShiftableViewController.swift in Sources */,
 				C05CA087241BE90700BB2A03 /* String+Extension.swift in Sources */,
 				85087DB623FF50E400DD9D1B /* GeoSeek.xcdatamodeld in Sources */,
 				1C4C2403242296E100E8765E /* CustomCalloutView.swift in Sources */,
