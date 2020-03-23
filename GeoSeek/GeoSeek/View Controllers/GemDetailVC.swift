@@ -46,11 +46,6 @@ class GemDetailVC: UIViewController, Storyboarded {
     @IBAction func checkButtonTapped(_ sender: Any) {
         guard let gem = gem else { return }
         delegate?.markGemCompleted(gem, comments: "")
-        congratulationsLabel.isHidden = false
-        youFoundGemLabel.isHidden = false
-        congratulationsLabel.textColor =  #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
-        youFoundGemLabel.textColor =  #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
-        youFoundGemLabel.text = "You found the \(gem.title ?? "") gem."
     }
     
     @IBAction func addCommentButtonTapped(_ sender: UIButton) {
@@ -62,9 +57,21 @@ class GemDetailVC: UIViewController, Storyboarded {
         gemTitleLabel.text = gem.title
         gemDescriptionTextView.text = gem.gemDesc
         difficultyLabel.text = "\(gem.difficulty)"
-//        congratulationsLabel.isHidden = true
-//        youFoundGemLabel.isHidden = true
-
+        
+        guard let user = User.retrieveUser() else {
+            print("no user")
+            checkButton.isHidden = true
+            return
+        }
+        print(user.token)
+    }
+    
+    func showLabel() {
+        congratulationsLabel.isHidden = false
+        youFoundGemLabel.isHidden = false
+        congratulationsLabel.textColor =  Colors.gsPink
+        youFoundGemLabel.textColor =  Colors.gsPink
+        youFoundGemLabel.text = "You found the \(gem?.title ?? "") gem."
     }
     
 }
