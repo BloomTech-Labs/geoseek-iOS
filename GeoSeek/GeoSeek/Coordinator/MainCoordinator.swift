@@ -20,6 +20,7 @@ class MainCoordinator: BaseCoordinator {
     let gemController = GemController()
     var gemsMapVC = GemsMapVC()
     let gemsMapCoordinator = GemsMapCoordinator()
+    var gemDetailVC: GemDetailVC?
     
     var logInCoordinator: LogInCoordinator?
     var registerCoordinator: RegisterCoordinator?
@@ -59,11 +60,13 @@ class MainCoordinator: BaseCoordinator {
 
 extension MainCoordinator: GemsMapCoordinatorDelegate {
     func showGemDetails(for annotation: MGLAnnotation) {
-        let gdvc = GemDetailVC.instantiate()
-        gdvc.delegate = self
-        guard let gem = gemController.gemDictionary[annotation.hash] else { return }
-        gdvc.gem = gem
-        navigationController.present(gdvc, animated: true, completion: nil)
+        self.gemDetailVC = GemDetailVC.instantiate()
+        if let gemDetailVC = gemDetailVC {
+            gemDetailVC.delegate = self
+            guard let gem = gemController.gemDictionary[annotation.hash] else { return }
+            gemDetailVC.gem = gem
+            navigationController.present(gemDetailVC, animated: true, completion: nil)
+        }
     }
     
     func showMenuVC() {
