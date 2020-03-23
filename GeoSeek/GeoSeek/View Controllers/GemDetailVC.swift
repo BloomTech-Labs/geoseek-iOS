@@ -57,6 +57,13 @@ class GemDetailVC: UIViewController, Storyboarded {
         gemTitleLabel.text = gem.title
         gemDescriptionTextView.text = gem.gemDesc
         difficultyLabel.text = "\(gem.difficulty)"
+        
+        guard let user = User.retrieveUser() else {
+            print("no user")
+            checkButton.isHidden = true
+            return
+        }
+        print(user.token)
     }
     
     func showLabel() {

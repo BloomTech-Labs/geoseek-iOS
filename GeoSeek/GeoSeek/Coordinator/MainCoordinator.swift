@@ -36,6 +36,7 @@ class MainCoordinator: BaseCoordinator {
         
         if CLLocationManager.authorizationStatus() == .authorizedAlways || CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
             toGemsMapViewController()
+            User.removeUser()
         } else {
             toLandingPageVC()
         }
@@ -127,6 +128,7 @@ extension MainCoordinator: GemDetailDelegate {
                 print("Did not mark completed: \(error)")
             case .success(let message):
                 print("Gem marked completed: \(message)")
+                self.gemDetailVC?.showLabel()
             }
         }
     }
