@@ -26,7 +26,7 @@ class LogInVC: ShiftableViewController, KeyboardShiftable, Storyboarded {
         super.viewDidLoad()
         
         setUpDelegates()
-        setBottomButton()
+        setBottomView()
     }
     
     @IBAction func logInTapped(_ sender: Any) {
@@ -55,8 +55,8 @@ class LogInVC: ShiftableViewController, KeyboardShiftable, Storyboarded {
         passwordField.textField.delegate = self
     }
     
-    func setBottomButton() {
-        bottomButton = signInButton
+    func setBottomView() {
+        bottomView = signInButton
     }
 }
 
