@@ -27,7 +27,6 @@
 		85087DFC2400845400DD9D1B /* Gems+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85087DFB2400845400DD9D1B /* Gems+Convenience.swift */; };
 		85087DFE2400862400DD9D1B /* GemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85087DFD2400862400DD9D1B /* GemController.swift */; };
 		85087E02240087B900DD9D1B /* User+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85087E01240087B900DD9D1B /* User+Convenience.swift */; };
-		85087E042400887B00DD9D1B /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85087E032400887B00DD9D1B /* UserController.swift */; };
 		8518622E241AEEBA00BD3399 /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8518622D241AEEBA00BD3399 /* MenuVC.swift */; };
 		85186230241AF80A00BD3399 /* ListViewTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8518622F241AF80A00BD3399 /* ListViewTVC.swift */; };
 		85186232241B06DE00BD3399 /* NavButtonsXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85186231241B06DE00BD3399 /* NavButtonsXib.swift */; };
@@ -83,7 +82,6 @@
 		85087DFB2400845400DD9D1B /* Gems+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Gems+Convenience.swift"; sourceTree = "<group>"; };
 		85087DFD2400862400DD9D1B /* GemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GemController.swift; sourceTree = "<group>"; };
 		85087E01240087B900DD9D1B /* User+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Convenience.swift"; sourceTree = "<group>"; };
-		85087E032400887B00DD9D1B /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		8518622D241AEEBA00BD3399 /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
 		8518622F241AF80A00BD3399 /* ListViewTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewTVC.swift; sourceTree = "<group>"; };
 		85186231241B06DE00BD3399 /* NavButtonsXib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavButtonsXib.swift; sourceTree = "<group>"; };
@@ -201,7 +199,6 @@
 			isa = PBXGroup;
 			children = (
 				85087DFD2400862400DD9D1B /* GemController.swift */,
-				85087E032400887B00DD9D1B /* UserController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -434,7 +431,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C4BCDB8240ED89E00EDF681 /* ChooseLocationVC.swift in Sources */,
-				85087E042400887B00DD9D1B /* UserController.swift in Sources */,
 				85186232241B06DE00BD3399 /* NavButtonsXib.swift in Sources */,
 				1C4BCDB02409C9CE00EDF681 /* CreateGemVC.swift in Sources */,
 				851D556D2405EF0D001CB19E /* UserRepresentation.swift in Sources */,
