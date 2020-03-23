@@ -150,7 +150,9 @@ class CreateGemVC: UIViewController, Storyboarded, UITextFieldDelegate, UITextVi
             !desc.isEmpty,
             let location = gemLocation else { return }
         
-        let gem = GemRepresentation(difficulty: 5, description: desc, id: nil, latitude: location.latitude, longitude: location.longitude, title: title)
+        guard let user = User.retrieveUser() else { return }
+        
+        let gem = GemRepresentation(difficulty: 5.0, description: desc, id: nil, latitude: location.latitude, longitude: location.longitude, title: title, createdByUser: Int(user.id))
         
         delegate?.createGem(gem)
     }

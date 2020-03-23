@@ -36,7 +36,7 @@ struct CompletedToSend: Codable {
 struct ReceivedCompleted: Codable {
     let id: Int
     let gemId: Int
-    let completedAt: Date
+    let completedAt: String
     let completedBy: Int
     let comments: String
 }
