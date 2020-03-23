@@ -9,26 +9,6 @@
 import Foundation
 import CoreData
 
-enum FetchError: String, Error {
-    case badData = "There was a data error. Please try again." // TODO Fix error messages
-    case badResponse = "There was a bad response. Please try again."
-    case badEncode = "There was a problem encoding. Please try again."
-    case otherError = "Something went wrong. Please try again."
-    case noUser = "Please log in."
-}
-
-enum HTTPMethod: String {
-    case get = "GET"
-    case put = "PUT"
-    case post = "POST"
-    case delete = "DELETE"
-}
-
-enum UserAction: String {
-    case login = "login"
-    case register = "register"
-}
-
 class NetworkController {
     
     // MARK: - Properties
@@ -197,7 +177,7 @@ class NetworkController {
                 completion(.failure(error))
                 return
             case .success(let data):
-                guard let received: ReceivedCompleted = self.decode(data: data) else {
+                guard let _: ReceivedCompleted = self.decode(data: data) else {
                     completion(.failure(FetchError.otherError))
                     return
                 }
