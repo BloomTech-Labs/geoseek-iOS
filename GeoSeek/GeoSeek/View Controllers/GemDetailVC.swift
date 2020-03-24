@@ -15,6 +15,10 @@ protocol GemDetailDelegate {
 
 class GemDetailVC: UIViewController, Storyboarded {
     
+    
+    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var gemDetailView: UIView!
+    
     @IBOutlet weak var checkButton: UIButton!
 
     @IBOutlet weak var gemTitleLabel: UILabel!
@@ -29,6 +33,7 @@ class GemDetailVC: UIViewController, Storyboarded {
     @IBOutlet weak var gemIconImageView: UIImageView!
     @IBOutlet weak var commentsTableView: UITableView!
     
+    
     var coordinator: BaseCoordinator?
     var delegate: GemDetailDelegate?
     var gemController: GemController?
@@ -37,6 +42,7 @@ class GemDetailVC: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setViews()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -53,6 +59,14 @@ class GemDetailVC: UIViewController, Storyboarded {
     }
     
     private func setViews() {
+        
+        containerView.layer.cornerRadius = 30
+        containerView.clipsToBounds = true
+        containerView.layer.cornerCurve = .continuous
+        
+        gemDetailView.layer.cornerRadius = 30
+        gemDetailView.clipsToBounds = true
+        
         guard let gem = gem else { return }
         gemTitleLabel.text = gem.title
         gemDescriptionTextView.text = gem.gemDesc
