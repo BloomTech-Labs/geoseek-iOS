@@ -133,7 +133,7 @@ class ChooseLocationVC: UIViewController {
         doneButton.addTarget(self, action: #selector(dismissVC), for: .touchDown)
         
         
-        NSLayoutConstraint.activate([
+        NSLayoutConstraint.activate ([
             doneButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -40),
             doneButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 120),
             doneButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -120),
