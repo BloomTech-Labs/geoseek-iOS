@@ -19,7 +19,7 @@ class GemsMapVC: UIViewController, Storyboarded {
     var delegate: GemsMapCoordinatorDelegate?
     var gemController: GemController?
     var locationManager: CLLocationManager?
-    let darkBlueMap = URL(string: "mapbox://styles/geoseek/ck7b5gau8002g1ip7b81etzj4")
+    let darkBlueMap = URL(string: "mapbox://styles/geoseek/ck7b5gau8002g1ip7b81etzj4")!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,39 +46,8 @@ class GemsMapVC: UIViewController, Storyboarded {
     }
     
     func configureMapView() {
-        
-        var pointAnnotations: [MGLPointAnnotation] = []
-        mapView.showsUserLocation = true
-        
-        if let recentGem = gemController?.recentGem {
-            let location = CLLocationCoordinate2D(latitude: recentGem.latitude, longitude: recentGem.longitude)
-            mapView.setCenter(location, animated: true)
-        } else if let locationManager = locationManager,
-            let location = locationManager.location {
-            mapView.setCenter(location.coordinate, zoomLevel: 15, animated: false)
-        } else {
-            mapView.setCenter(CLLocationCoordinate2D(latitude: 0, longitude: 0), zoomLevel: 2, animated: false)
-        }
-        
-        mapView.styleURL = darkBlueMap
         mapView.delegate = self
-        
-        guard let gemController = gemController else { return }
-        
-        for gem in gemController.gems {
-            if gem.latitude > 90 || gem.latitude < -90 || gem.longitude > 180 || gem.longitude < -180 {
-                print(gem.description)
-                continue
-            }
-            let point = MGLPointAnnotation()
-            
-            point.coordinate = CLLocationCoordinate2D(latitude: gem.latitude, longitude: gem.longitude)
-            point.title = "\(gem.title ?? "No Title")"
-            pointAnnotations.append(point)
-            gemController.gemDictionary[point.hash] = gem
-        }
-        mapView.addAnnotations(pointAnnotations)
-        gemController.recentGem = nil
+        mapView.configure(mapStyle: darkBlueMap, locationManager: locationManager, gemController: gemController)
     }
 }
 
