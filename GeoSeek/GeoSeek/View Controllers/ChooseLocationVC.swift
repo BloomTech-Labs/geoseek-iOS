@@ -25,7 +25,7 @@ class ChooseLocationVC: UIViewController {
     weak var coordinator: BaseCoordinator?
     var userLocation: CLLocationCoordinate2D?
     var delegate: SetLocationDelegate?
-    let darkBlueMap = URL(string: "mapbox://styles/geoseek/ck7b5gau8002g1ip7b81etzj4")
+    let darkBlueMap = URL(string: "mapbox://styles/geoseek/ck7b5gau8002g1ip7b81etzj4")!
     var point = MGLPointAnnotation()
     var pressedLocation:CLLocation? = nil
     var gemController: GemController?
@@ -172,37 +172,8 @@ class ChooseLocationVC: UIViewController {
     }
     
     func configureMapView() {
-        
-        var pointAnnotations: [MGLPointAnnotation] = []
-        containerView.showsUserLocation = true
-        
-        if let recentGem = gemController?.recentGem {
-            let location = CLLocationCoordinate2D(latitude: recentGem.latitude, longitude: recentGem.longitude)
-            containerView.setCenter(location, animated: true)
-        } else if let locationManager = locationManager,
-            let location = locationManager.location {
-            containerView.setCenter(location.coordinate, zoomLevel: 15, animated: false)
-        } else {
-            containerView.setCenter(CLLocationCoordinate2D(latitude: 0, longitude: 0), zoomLevel: 2, animated: false)
-        }
-        
-        containerView.styleURL = darkBlueMap
         containerView.delegate = self
-        
-        guard let gemController = gemController else { return }
-        
-        for gem in gemController.gems {
-            if gem.latitude > 90 || gem.latitude < -90 || gem.longitude > 180 || gem.longitude < -180 {
-                print(gem.description)
-                continue
-            }
-            let point = MGLPointAnnotation()
-            point.coordinate = CLLocationCoordinate2D(latitude: gem.latitude, longitude: gem.longitude)
-            point.title = "\(gem.title ?? "No Title")"
-            pointAnnotations.append(point)
-        }
-        containerView.addAnnotations(pointAnnotations)
-        gemController.recentGem = nil
+        containerView.configure(mapStyle: darkBlueMap, locationManager: locationManager, gemController: gemController)
     }
 }
 
