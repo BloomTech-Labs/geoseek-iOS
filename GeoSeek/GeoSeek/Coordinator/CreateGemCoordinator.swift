@@ -16,12 +16,14 @@ protocol CreateGemCoordinatorDelegate {
 }
 
 class CreateGemCoordinator: BaseCoordinator {
-    var navigationController: UINavigationController?
     var createGemVC = CreateGemVC.instantiate()
     var chooseYourLocationVC = ChooseYourLocationVC.instantiate()
+    
+    var navigationController: UINavigationController?
     var locationManager: CLLocationManager?
-    var delegate: CreateGemCoordinatorDelegate?
     var gemController: GemController?
+    
+    var delegate: CreateGemCoordinatorDelegate?
     var gemLocation: CLLocationCoordinate2D?
     
     override func start() {
@@ -95,8 +97,6 @@ extension CreateGemCoordinator: ChooseLocationDelegate {
             toCreateGemVC()
         case .choose:
             getGemLocation()
-            //        @unknown default:
-            //            fatalError("LocationType Enum has a new type.")
         }
     }
 }
