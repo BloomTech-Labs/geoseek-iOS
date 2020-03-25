@@ -11,7 +11,7 @@ import CoreData
 
 protocol MenuVCDelegate {
     func goToAddGemView()
-    func goToListView()
+    func goToSignInView()
 }
 
 class MenuVC: UIViewController, Storyboarded {
@@ -24,6 +24,7 @@ class MenuVC: UIViewController, Storyboarded {
     @IBOutlet weak var exitMenuButton: UIButton!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var userEmailLabel: UILabel!
+    @IBOutlet weak var logInOutButton: UIButton!
     
     var delegate: MenuVCDelegate?
     let user = User.retrieveUser()
@@ -39,8 +40,10 @@ class MenuVC: UIViewController, Storyboarded {
         if let user = user,
             let userName = user.username {
             userNameLabel.text = "Hello, \(userName)"
+            logInOutButton.setTitle("Logout", for: .normal)
         } else {
-            userNameLabel.text = "Hello"
+            userNameLabel.text = "Hello, please sign in for the best experience!"
+            logInOutButton.setTitle("Login", for: .normal)
         }
         
         if let user = user,
@@ -57,8 +60,15 @@ class MenuVC: UIViewController, Storyboarded {
         }
     
     @IBAction func logoutTapped(_ sender: Any) {
-        User.removeUser()
-        displayUserInfo()
+        if let user = user {
+            User.removeUser()
+            displayUserInfo()
+            dismiss(animated: true)
+        } else {
+            print("We're hitting this")
+            delegate?.goToSignInView()
+            dismiss(animated: true)
+        }
     }
     
     @IBAction func exitButtonTapped(_ sender: Any) {

@@ -154,6 +154,7 @@ class ChooseLocationVC: UIViewController {
         titleLabel.layer.cornerCurve = .continuous
         titleLabel.layer.masksToBounds = true
         titleLabel.textAlignment = .center
+        titleLabel.textColor = .white
         titleLabel.text = "Tap the map to select a location."
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: mapView.topAnchor, constant: 20),
