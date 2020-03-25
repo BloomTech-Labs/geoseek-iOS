@@ -9,7 +9,9 @@
 import UIKit
 
 protocol MenuDelegate {
-    
+//    func logoutUser()
+//    func goToMapView()
+//    func goTo
 }
 
 class MenuCoordinator: BaseCoordinator {

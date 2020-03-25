@@ -23,11 +23,13 @@ class MenuVC: UIViewController, Storyboarded {
     var delegate: MenuDelegate?
     var coordinator: MenuCoordinator?
     let user = User.retrieveUser()
+//    var navigationController: UINavigationController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         displayUserInfo()
+        configureExitButton()
     }
     
     func displayUserInfo() {
@@ -47,12 +49,18 @@ class MenuVC: UIViewController, Storyboarded {
         }
     }
     
-    //    func configureExitButton() {
-    //        exitMenuButton.layer.cornerRadius = 50
-    //    }
+        func configureExitButton() {
+            exitMenuButton.layer.cornerRadius = 24
+        }
     
     @IBAction func logoutTapped(_ sender: Any) {
-        // This should use a delegate to use a coordinator to log out.
-        //        NetworkController.shared.removeUser()
+        User.removeUser()
+        displayUserInfo()
     }
+    
+    @IBAction func exitButtonTapped(_ sender: Any) {
+        dismiss(animated: true)
+    }
+    
+    
 }
