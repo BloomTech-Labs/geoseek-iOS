@@ -10,8 +10,6 @@
 		1C4BCDA92409B37E00EDF681 /* CustomTabBarXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C4BCDA82409B37E00EDF681 /* CustomTabBarXib.xib */; };
 		1C4BCDAE2409B67000EDF681 /* CustomTabBarXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4BCDAD2409B67000EDF681 /* CustomTabBarXib.swift */; };
 		1C4BCDB02409C9CE00EDF681 /* CreateGemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4BCDAF2409C9CE00EDF681 /* CreateGemVC.swift */; };
-		1C4BCDB22409D6EF00EDF681 /* MapXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C4BCDB12409D6EF00EDF681 /* MapXib.xib */; };
-		1C4BCDB42409D70900EDF681 /* MapXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4BCDB32409D70900EDF681 /* MapXib.swift */; };
 		1C4BCDB8240ED89E00EDF681 /* ChooseLocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4BCDB7240ED89D00EDF681 /* ChooseLocationVC.swift */; };
 		1C4C240124228A9400E8765E /* GemDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C240024228A9400E8765E /* GemDetailVC.swift */; };
 		1C4C2403242296E100E8765E /* CustomCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C2402242296E100E8765E /* CustomCalloutView.swift */; };
@@ -64,8 +62,6 @@
 		1C4BCDA82409B37E00EDF681 /* CustomTabBarXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTabBarXib.xib; sourceTree = "<group>"; };
 		1C4BCDAD2409B67000EDF681 /* CustomTabBarXib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarXib.swift; sourceTree = "<group>"; };
 		1C4BCDAF2409C9CE00EDF681 /* CreateGemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGemVC.swift; sourceTree = "<group>"; };
-		1C4BCDB12409D6EF00EDF681 /* MapXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapXib.xib; sourceTree = "<group>"; };
-		1C4BCDB32409D70900EDF681 /* MapXib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapXib.swift; sourceTree = "<group>"; };
 		1C4BCDB7240ED89D00EDF681 /* ChooseLocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLocationVC.swift; sourceTree = "<group>"; };
 		1C4C240024228A9400E8765E /* GemDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GemDetailVC.swift; sourceTree = "<group>"; };
 		1C4C2402242296E100E8765E /* CustomCalloutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCalloutView.swift; sourceTree = "<group>"; };
@@ -135,8 +131,6 @@
 			children = (
 				1C4BCDA82409B37E00EDF681 /* CustomTabBarXib.xib */,
 				1C4BCDAD2409B67000EDF681 /* CustomTabBarXib.swift */,
-				1C4BCDB12409D6EF00EDF681 /* MapXib.xib */,
-				1C4BCDB32409D70900EDF681 /* MapXib.swift */,
 				C01EF34A240D86B20094CEAB /* CustomAnnotationView.swift */,
 				85186233241B075E00BD3399 /* NavButtonsXib.xib */,
 				85186231241B06DE00BD3399 /* NavButtonsXib.swift */,
@@ -363,7 +357,6 @@
 				85087DA823FF463A00DD9D1B /* Assets.xcassets in Resources */,
 				1C4BCDA92409B37E00EDF681 /* CustomTabBarXib.xib in Resources */,
 				85087DA623FF463900DD9D1B /* Main.storyboard in Resources */,
-				1C4BCDB22409D6EF00EDF681 /* MapXib.xib in Resources */,
 				C087243B2422A4F3002E1105 /* PasswordView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -465,7 +458,6 @@
 				C01EF34B240D86B20094CEAB /* CustomAnnotationView.swift in Sources */,
 				851D556B2405EC50001CB19E /* GemRepresentation.swift in Sources */,
 				851EFD52241063B600A7F857 /* LandingPageVC.swift in Sources */,
-				1C4BCDB42409D70900EDF681 /* MapXib.swift in Sources */,
 				C01EF3132405F1EE0094CEAB /* NetworkController.swift in Sources */,
 				C01EF35724105CCB0094CEAB /* BaseCoordinator.swift in Sources */,
 				1C4BCDAE2409B67000EDF681 /* CustomTabBarXib.swift in Sources */,

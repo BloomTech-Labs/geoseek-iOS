@@ -130,6 +130,7 @@ extension MainCoordinator: GemDetailDelegate {
                 print("Gem marked completed: \(message)")
                 DispatchQueue.main.async {
                     self.gemDetailVC?.showLabel()
+                    print("Label?")
                 }
             }
         }

@@ -31,13 +31,13 @@ class CustomTabBarXib: UIView, Storyboarded {
         
         let nib = UINib(nibName: "CustomTabBarXib", bundle: nil)
         nib.instantiate(withOwner: self, options: nil)
+        
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         contentView.backgroundColor = .clear
         
-        let customColor = #colorLiteral(red: 0.9568627451, green: 0.2509803922, blue: 0.462745098, alpha: 1)
-       // let cc = CGColor(srgbRed: 244, green: 64, blue: 118, alpha: 1)
+        let customColor = Colors.gsPink
         
         addGemMapViewButton.backgroundColor = customColor
         addGemMapViewButton.layer.cornerRadius = 20
@@ -45,16 +45,10 @@ class CustomTabBarXib: UIView, Storyboarded {
     }
     
     @IBAction func addGemMapViewButtonTapped(_ sender: Any) {
-
-        delegate?.goToCreateGemController()   //navigateToCreateGemCoordinator()//delegate?.navigateToCreateGemController()
-        print("Show add gem")
-
+        delegate?.goToCreateGemController()
     }
     
     @IBAction func twoButtonTapped(_ sender: Any) {
-//        coordinator?.toGemsMapViewController()
-//        coordinator?.delegate?.navigateToCreateGemController()
-        print("Two Two")
     }
     
 }
