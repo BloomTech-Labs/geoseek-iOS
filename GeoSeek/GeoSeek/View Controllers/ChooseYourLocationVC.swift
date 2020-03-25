@@ -59,12 +59,10 @@ class ChooseYourLocationVC: UIViewController, Storyboarded {
     
     @IBAction func currentLocationTapped(_ sender: Any) {
         passLocationType(.current)
-        print("Current Location Button Tapped...")
     }
     
     @IBAction func newLocationTapped(_ sender: Any) {
         passLocationType(.choose)
-        print("New Location Button Tapped...")
     }
     
     func passLocationType(_ type: LocationType) {
