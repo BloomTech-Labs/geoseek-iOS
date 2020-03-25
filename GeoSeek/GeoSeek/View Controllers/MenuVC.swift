@@ -60,7 +60,7 @@ class MenuVC: UIViewController, Storyboarded {
         }
     
     @IBAction func logoutTapped(_ sender: Any) {
-        if let user = user {
+        if let _ = user {
             User.removeUser()
             displayUserInfo()
             dismiss(animated: true)

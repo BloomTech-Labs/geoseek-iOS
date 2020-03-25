@@ -36,7 +36,6 @@ class MainCoordinator: BaseCoordinator {
         
         if CLLocationManager.authorizationStatus() == .authorizedAlways || CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
             toGemsMapViewController()
-            User.removeUser()
         } else {
             toLandingPageVC()
         }
