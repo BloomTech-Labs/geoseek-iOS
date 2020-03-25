@@ -6,20 +6,14 @@
 //  Copyright © 2020 Brandi Bailey. All rights reserved.
 //
 
-import UIKit
-
-protocol MenuDelegate {
-//    func logoutUser()
-//    func goToMapView()
-//    func goTo
-}
-
-class MenuCoordinator: BaseCoordinator {
-    
-    var navigationController: UINavigationController?
-    var delegate: MenuDelegate?
-    var menuVC = MenuVC.instantiate()
-    
-    
-    
-} 
+//import UIKit
+//
+//
+//
+//class MenuCoordinator: BaseCoordinator {
+//    
+//    var navigationController: UINavigationController?
+//    var delegate: MenuDelegate?
+//    var menuVC = MenuVC.instantiate()
+//    
+//} 

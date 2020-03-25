@@ -28,7 +28,6 @@
 		85087DFE2400862400DD9D1B /* GemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85087DFD2400862400DD9D1B /* GemController.swift */; };
 		85087E02240087B900DD9D1B /* User+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85087E01240087B900DD9D1B /* User+Convenience.swift */; };
 		8518622E241AEEBA00BD3399 /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8518622D241AEEBA00BD3399 /* MenuVC.swift */; };
-		85186230241AF80A00BD3399 /* ListViewTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8518622F241AF80A00BD3399 /* ListViewTVC.swift */; };
 		85186232241B06DE00BD3399 /* NavButtonsXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85186231241B06DE00BD3399 /* NavButtonsXib.swift */; };
 		85186234241B075E00BD3399 /* NavButtonsXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85186233241B075E00BD3399 /* NavButtonsXib.xib */; };
 		85186236241C223A00BD3399 /* MenuCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85186235241C223A00BD3399 /* MenuCoordinator.swift */; };
@@ -85,7 +84,6 @@
 		85087DFD2400862400DD9D1B /* GemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GemController.swift; sourceTree = "<group>"; };
 		85087E01240087B900DD9D1B /* User+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Convenience.swift"; sourceTree = "<group>"; };
 		8518622D241AEEBA00BD3399 /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
-		8518622F241AF80A00BD3399 /* ListViewTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewTVC.swift; sourceTree = "<group>"; };
 		85186231241B06DE00BD3399 /* NavButtonsXib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavButtonsXib.swift; sourceTree = "<group>"; };
 		85186233241B075E00BD3399 /* NavButtonsXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavButtonsXib.xib; sourceTree = "<group>"; };
 		85186235241C223A00BD3399 /* MenuCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCoordinator.swift; sourceTree = "<group>"; };
@@ -226,7 +224,6 @@
 				85087DA223FF463900DD9D1B /* GemsMapVC.swift */,
 				85A683622416A9E000669C6C /* ChooseYourLocationVC.swift */,
 				8518622D241AEEBA00BD3399 /* MenuVC.swift */,
-				8518622F241AF80A00BD3399 /* ListViewTVC.swift */,
 				C05CA083241BE49F00BB2A03 /* RegisterVC.swift */,
 				C05CA08E241C07AC00BB2A03 /* LogInVC.swift */,
 				1C4C240024228A9400E8765E /* GemDetailVC.swift */,
@@ -456,7 +453,6 @@
 				85087DA323FF463900DD9D1B /* GemsMapVC.swift in Sources */,
 				85087DFE2400862400DD9D1B /* GemController.swift in Sources */,
 				C01EF35924105E6B0094CEAB /* GemsMapCoordinator.swift in Sources */,
-				85186230241AF80A00BD3399 /* ListViewTVC.swift in Sources */,
 				C087243F2424252F002E1105 /* Constants.swift in Sources */,
 				85087D9F23FF463900DD9D1B /* AppDelegate.swift in Sources */,
 				C087243D2422AB57002E1105 /* PasswordView.swift in Sources */,

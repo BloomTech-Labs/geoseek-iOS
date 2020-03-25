@@ -54,5 +54,6 @@ class PasswordView: UIView {
     
     func configureTextField() {
         textField.isSecureTextEntry = true
+        textField.textColor = .white
     }
 }

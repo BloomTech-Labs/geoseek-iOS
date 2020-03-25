@@ -9,6 +9,11 @@
 import UIKit
 import CoreData
 
+protocol MenuVCDelegate {
+    func goToAddGemView()
+    func goToListView()
+}
+
 class MenuVC: UIViewController, Storyboarded {
     
     @IBOutlet weak var menuView: UIView?
@@ -20,10 +25,8 @@ class MenuVC: UIViewController, Storyboarded {
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var userEmailLabel: UILabel!
     
-    var delegate: MenuDelegate?
-    var coordinator: MenuCoordinator?
+    var delegate: MenuVCDelegate?
     let user = User.retrieveUser()
-//    var navigationController: UINavigationController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +40,7 @@ class MenuVC: UIViewController, Storyboarded {
             let userName = user.username {
             userNameLabel.text = "Hello, \(userName)"
         } else {
-            userNameLabel.text = "Hello, please sign in."
+            userNameLabel.text = "Hello"
         }
         
         if let user = user,
@@ -62,5 +65,16 @@ class MenuVC: UIViewController, Storyboarded {
         dismiss(animated: true)
     }
     
+    @IBAction func mapViewButtonTapped(_ sender: Any) {
+        dismiss(animated: true)
+    }
+    
+    @IBAction func listViewButtonTapped(_ sender: Any) {
+    }
+    
+    @IBAction func addGemButtonTapped(_ sender: Any) {
+        dismiss(animated: true)
+        delegate?.goToAddGemView()
+    }
     
 }
