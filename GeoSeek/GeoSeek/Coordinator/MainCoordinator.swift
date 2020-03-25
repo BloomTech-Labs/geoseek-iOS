@@ -143,10 +143,7 @@ extension MainCoordinator: MenuVCDelegate {
         goToCreateGemController()
     }
     
-    func goToListView() {
-        print("something")
+    func goToSignInView() {
+        didRequestLogIn()
     }
-    
-    
-    
 }
