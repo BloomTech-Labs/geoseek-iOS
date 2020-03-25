@@ -9,7 +9,7 @@
 import UIKit
 
 protocol MenuDelegate {
-    func toMenuVC()
+    
 }
 
 class MenuCoordinator: BaseCoordinator {
@@ -18,7 +18,6 @@ class MenuCoordinator: BaseCoordinator {
     var delegate: MenuDelegate?
     var menuVC = MenuVC.instantiate()
     
-//    override func start() {
-//        navigationController?.present(menuVC, animated: true, completion: nil)
-//    }
+    
+    
 } 

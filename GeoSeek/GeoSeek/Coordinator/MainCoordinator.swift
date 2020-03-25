@@ -135,3 +135,8 @@ extension MainCoordinator: GemDetailDelegate {
         }
     }
 }
+
+extension MainCoordinator: MenuDelegate {
+   
+
+}
