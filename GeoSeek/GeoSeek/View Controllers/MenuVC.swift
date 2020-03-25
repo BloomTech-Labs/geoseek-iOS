@@ -42,7 +42,7 @@ class MenuVC: UIViewController, Storyboarded {
             userNameLabel.text = "Hello, \(userName)"
             logInOutButton.setTitle("Logout", for: .normal)
         } else {
-            userNameLabel.text = "Hello, please sign in for the best experience!"
+            userNameLabel.text = "Sign in to create gems and mark them complete."
             logInOutButton.setTitle("Login", for: .normal)
         }
         
