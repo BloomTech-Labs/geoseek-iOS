@@ -28,10 +28,8 @@ class GemDetailVC: UIViewController, Storyboarded {
     @IBOutlet weak var congratulationsLabel: UILabel!
     @IBOutlet weak var youFoundGemLabel: UILabel!
     
-
     @IBOutlet weak var gemDescriptionTextView: UITextView!
     @IBOutlet weak var gemIconImageView: UIImageView!
-    @IBOutlet weak var commentsTableView: UITableView!
     
     
     var coordinator: BaseCoordinator?
@@ -52,10 +50,6 @@ class GemDetailVC: UIViewController, Storyboarded {
     @IBAction func checkButtonTapped(_ sender: Any) {
         guard let gem = gem else { return }
         delegate?.markGemCompleted(gem, comments: "")
-    }
-    
-    @IBAction func addCommentButtonTapped(_ sender: UIButton) {
-        
     }
     
     private func setViews() {
