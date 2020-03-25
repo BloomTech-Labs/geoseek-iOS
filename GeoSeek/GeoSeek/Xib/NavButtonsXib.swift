@@ -44,5 +44,4 @@ class NavButtonsXib: UIView, Storyboarded {
     @IBAction func userMenuButtonTapped(_ sender: Any) {
         delegate?.showMenuVC()
     }
-    
 }

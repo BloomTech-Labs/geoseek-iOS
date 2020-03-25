@@ -12,7 +12,6 @@ import CoreLocation
 protocol CreateGemDelegate {
     func getGemLocation()
     func createGem(_ gem: GemRepresentation)
-    
 }
 
 class CreateGemVC: ShiftableViewController, KeyboardShiftable, Storyboarded, UITextFieldDelegate, UITextViewDelegate, UIGestureRecognizerDelegate {

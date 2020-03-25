@@ -40,10 +40,6 @@ class GemController {
         }
     }
     
-    
-    
-    
-    
     func loadGemsFromPersistentStore() -> [Gem] {
         let fetchRequest: NSFetchRequest<Gem> = Gem.fetchRequest()
         let moc = NSManagedObjectContext.context

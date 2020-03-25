@@ -42,7 +42,6 @@ class RegisterCoordinator: BaseCoordinator {
     }
 }
 
-
 extension RegisterCoordinator: RegisterUserDelegate {
     func registerUser(with username: String, password: String, email: String) {
         NetworkController.shared.register(with: username, password: password, email: email) { result in

@@ -12,7 +12,6 @@ import CoreData
 extension Gem {
     
     var gemRepresentation: GemRepresentation? {
-        
         guard let description = gemDesc,
             let title = title else { return nil }
         
@@ -38,7 +37,6 @@ extension Gem {
                                         longitude: Double,
                                         createdByUser: Int,
                                         context: NSManagedObjectContext) {
-        
         self.init(context: context)
         
         if let id = id {

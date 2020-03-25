@@ -12,7 +12,6 @@ import CoreData
 extension User {
     
     var userRepresentation: UserRepresentation? {
-        
         guard let email = email,
             let username = username,
             let token = token else { return nil }
@@ -21,7 +20,6 @@ extension User {
     }
     
     @discardableResult convenience init?(representation: UserRepresentation, context: NSManagedObjectContext = .context) {
-        
         guard let password = representation.password else { return nil }
         
         self.init(email: representation.email, id: representation.id, password: password, username: representation.username, token: representation.token, context: context)
