@@ -20,8 +20,8 @@ class MainCoordinator: BaseCoordinator {
     let gemController = GemController()
     var gemsMapVC = GemsMapVC()
     let gemsMapCoordinator = GemsMapCoordinator()
-    var gemDetailVC: GemDetailVC?
     
+    var gemDetailVC: GemDetailVC?
     var logInCoordinator: LogInCoordinator?
     var registerCoordinator: RegisterCoordinator?
     
