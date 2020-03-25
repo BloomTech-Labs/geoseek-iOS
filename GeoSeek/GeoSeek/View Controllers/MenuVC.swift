@@ -7,31 +7,74 @@
 //
 
 import UIKit
+import CoreData
+
+protocol MenuVCDelegate {
+    func goToAddGemView()
+    func goToListView()
+}
 
 class MenuVC: UIViewController, Storyboarded {
-
+    
     @IBOutlet weak var menuView: UIView?
     @IBOutlet weak var mapviewButton: UIButton!
     @IBOutlet weak var listViewButton: UIButton!
     @IBOutlet weak var leaderboardButton: UIButton!
     @IBOutlet weak var addGemButton: UIButton!
     @IBOutlet weak var exitMenuButton: UIButton!
+    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var userEmailLabel: UILabel!
     
-    var delegate: MenuDelegate?
-    var coordinator: BaseCoordinator?
+    var delegate: MenuVCDelegate?
+    let user = User.retrieveUser()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//        configureExitButton()
+        
+        displayUserInfo()
+        configureExitButton()
     }
     
-//    func configureExitButton() {
-//        exitMenuButton.layer.cornerRadius = 50
-//    }
+    func displayUserInfo() {
+        if let user = user,
+            let userName = user.username {
+            userNameLabel.text = "Hello, \(userName)"
+        } else {
+            userNameLabel.text = "Hello"
+        }
+        
+        if let user = user,
+            let userEmail = user.email {
+            print("User Email:", userEmail)
+            userEmailLabel.text = "\(userEmail)"
+        } else {
+            userEmailLabel.text = ""
+        }
+    }
+    
+        func configureExitButton() {
+            exitMenuButton.layer.cornerRadius = 24
+        }
     
     @IBAction func logoutTapped(_ sender: Any) {
-        // This should use a delegate to use a coordinator to log out.
-//        NetworkController.shared.removeUser()
+        User.removeUser()
+        displayUserInfo()
     }
+    
+    @IBAction func exitButtonTapped(_ sender: Any) {
+        dismiss(animated: true)
+    }
+    
+    @IBAction func mapViewButtonTapped(_ sender: Any) {
+        dismiss(animated: true)
+    }
+    
+    @IBAction func listViewButtonTapped(_ sender: Any) {
+    }
+    
+    @IBAction func addGemButtonTapped(_ sender: Any) {
+        dismiss(animated: true)
+        delegate?.goToAddGemView()
+    }
+    
 }

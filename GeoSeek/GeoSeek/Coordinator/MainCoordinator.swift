@@ -72,6 +72,7 @@ extension MainCoordinator: GemsMapCoordinatorDelegate {
     
     func showMenuVC() {
         let menuVC = MenuVC.instantiate()
+        menuVC.delegate = self
         navigationController.present(menuVC, animated: true)
     }
     
@@ -135,4 +136,17 @@ extension MainCoordinator: GemDetailDelegate {
             }
         }
     }
+}
+
+extension MainCoordinator: MenuVCDelegate {
+    func goToAddGemView() {
+        goToCreateGemController()
+    }
+    
+    func goToListView() {
+        print("something")
+    }
+    
+    
+    
 }
