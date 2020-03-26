@@ -1,6 +1,11 @@
 # GeoSeek
 
-TestFlight Beta on AppStore: https://testflight.apple.com/join/qcnyqBE0
+GeoSeek Beta on [Apple TestFlight](https://testflight.apple.com/join/qcnyqBE0)
+
+GeoSeek allows us to connect with our family and friends while engaging in our community in a fun and gamified way!
+Incentivize community and a more active lifestyle
+Create location-based sense of magic within our local community
+Create a sense of the Thrill of the Hunt
 
 ## Contributors
 
@@ -22,10 +27,11 @@ TestFlight Beta on AppStore: https://testflight.apple.com/join/qcnyqBE0
 
 
 ## Project Overview
+### GeoSeek aims to be the name for creating engaging experiences through technology while promoting community engagement and physical activity.
 
-You can find the deployed beta project in the Apple AppStore: https://testflight.apple.com/join/qcnyqBE0
+GeoSeek Beta on [Apple TestFlight](https://testflight.apple.com/join/qcnyqBE0)
 
-You can find our Trello Board here: https://trello.com/b/B7DMOlFs/labs21-geoseek
+You can find our progress on our [Trello Board](https://trello.com/b/B7DMOlFs/labs21-geoseek)
 
 ![](https://squee.dev/wp-content/uploads/2020/03/IMG_0010.png)
 
@@ -38,11 +44,9 @@ You can find our Trello Board here: https://trello.com/b/B7DMOlFs/labs21-geoseek
 
 ### MapBox
 
-GeoSeek uses the MapBox iOS SDK and API
+GeoSeek uses the [MapBox](https://www.mapbox.com) iOS SDK and API
 
 ## Requirements
-
-🚫 These are examples, make sure this matches your project's requirements
 
 -   iOS 13.0
 -   Xcode 11
