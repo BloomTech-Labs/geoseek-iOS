@@ -35,4 +35,24 @@ extension User {
             print("Could not log User(s) out")
         }
     }
+    
+    static func checkToken() {
+        let twentyHours: Double = 60 * 60 * 20
+        
+        guard let user = User.retrieveUser(),
+            let tokenTime = user.tokenTime else { return }
+        
+        if Date().timeIntervalSince(tokenTime) > twentyHours,
+            let username = user.username,
+            let password = user.password {
+            NetworkController.shared.signIn(with: username, password: password) { result in
+                switch result {
+                case .failure(let error):
+                    print("Error renewing token: \(error)")
+                case .success(_):
+                    print("Token was renewed!")
+                }
+            }
+        }
+    }
 }
