@@ -38,7 +38,6 @@ extension User {
     
     static func checkToken() {
         let twentyHours: Double = 60 * 60 * 20
-        
         guard let user = User.retrieveUser(),
             let tokenTime = user.tokenTime else { return }
         

@@ -64,7 +64,6 @@ class ChooseLocationVC: UIViewController {
             mapView.addAnnotation(point)
             
             enableDoneButton()
-            print("Location:", coordsFromTouchPoint.latitude, coordsFromTouchPoint.longitude)
         }
     }
     
@@ -114,11 +113,9 @@ class ChooseLocationVC: UIViewController {
     func configureMap() {
         mapView.styleURL = darkBlueMap
         guard let userLocation = locationManager?.location else {
-            print("No location")
             mapView.setCenter(CLLocationCoordinate2D(latitude: 0, longitude: 0), zoomLevel: 2, animated: false)
             return
         }
-        print("Have a location")
         mapView.setCenter(userLocation.coordinate, zoomLevel: 15, animated: false)
     }
     
