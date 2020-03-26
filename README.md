@@ -11,7 +11,7 @@ Create a sense of the Thrill of the Hunt
 
 |                                       [Jerry Haaser](https://github.com/JerryHaaser)                                        |                                       [Dan Morse](https://github.com/morsedan)                                        |                                       [Brandi Bailey](https://github.com/blubrandi)                                        
 | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: 
-|                      [<img src="https://squee.dev/wp-content/uploads/2020/03/Image-from-iOS-scaled.jpg" width = "200" />](https://github.com/JerryHaaser)                       |                      [<img src="https://squee.dev/wp-content/uploads/2020/03/IMG_9062.jpg" width = "200" />](https://github.com/morsedan)                       |                      [<img src="https://squee.dev/wp-content/uploads/2020/03/Brandi.jpg" width = "200" />](https://github.com/blubrandi) 
+|                      [<img src="https://squee.dev/wp-content/uploads/2020/03/jerry-haaser.png" width = "200" />](https://github.com/JerryHaaser)                       |                      [<img src="https://squee.dev/wp-content/uploads/2020/03/dan-morse.png" width = "200" />](https://github.com/morsedan)                       |                      [<img src="https://squee.dev/wp-content/uploads/2020/03/brandi-bailey.png" width = "200" />](https://github.com/blubrandi) 
 |                 [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/JerryHaaser)                 |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/morsedan)             |           [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/blubrandi)           |
 | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/dan-morse-195301188/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/brandi-b-31323842/)
 
@@ -27,20 +27,27 @@ Create a sense of the Thrill of the Hunt
 
 
 ## Project Overview
-### GeoSeek aims to be the name for creating engaging experiences through technology while promoting community engagement and physical activity.
+#### GeoSeek aims to be the name for creating engaging experiences through technology while promoting community engagement and physical activity.
+
+GeoSeek allows you to place and find user-created and curated hidden gems within your local community.
+ 
+Search the map for gems close to you. Travel to the location and see the amazing features of that location!
+ 
+Know of someplace great?  Maybe a breathtaking view at sunset or a part of your town that’s a little less travelled but holds great historical significance! Whatever and wherever the case, create your hidden gem and share it with others!
 
 GeoSeek Beta on [Apple TestFlight](https://testflight.apple.com/join/qcnyqBE0)
 
 You can find our progress on our [Trello Board](https://trello.com/b/B7DMOlFs/labs21-geoseek)
 
-![](https://squee.dev/wp-content/uploads/2020/03/IMG_0010.png)
+<!-- ![](https://squee.dev/wp-content/uploads/2020/03/IMG_0010.png) -->
+<img src="https://squee.dev/wp-content/uploads/2020/03/geoSeekTiles.png"> 
 
 ### Features
 
 -    Register & Login
 -    View a world map with Gems and Zoom in to see individual Gems
 -    Click on a Gem to see it's detail, and mark a Gem found!
--    Create a Gem at one of your favorite locations, for others to find!
+-    Create a Gem at one of your favorite locations, for others to find! 
 
 ### MapBox
 
