@@ -1,70 +1,62 @@
 # GeoSeek
 
-TestFlight Beta on AppStore: https://testflight.apple.com/join/qcnyqBE0
+GeoSeek Beta on [Apple TestFlight](https://testflight.apple.com/join/qcnyqBE0)
+
+GeoSeek allows us to connect with our family and friends while engaging in our community in a fun and gamified way!
+Incentivize community and a more active lifestyle
+Create location-based sense of magic within our local community
+Create a sense of the Thrill of the Hunt
 
 ## Contributors
 
 |                                       [Jerry Haaser](https://github.com/JerryHaaser)                                        |                                       [Dan Morse](https://github.com/morsedan)                                        |                                       [Brandi Bailey](https://github.com/blubrandi)                                        
 | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: 
-|                      [<img src="https://squee.dev/wp-content/uploads/2020/03/Image-from-iOS-scaled.jpg" width = "200" />](https://github.com/JerryHaaser)                       |                      [<img src="https://squee.dev/wp-content/uploads/2020/03/IMG_9062.jpg" width = "200" />](https://github.com/morsedan)                       |                      [<img src="https://squee.dev/wp-content/uploads/2020/03/Brandi.jpg" width = "200" />](https://github.com/blubrandi) 
+|                      [<img src="https://squee.dev/wp-content/uploads/2020/03/jerry-haaser.png" width = "200" />](https://github.com/JerryHaaser)                       |                      [<img src="https://squee.dev/wp-content/uploads/2020/03/dan-morse.png" width = "200" />](https://github.com/morsedan)                       |                      [<img src="https://squee.dev/wp-content/uploads/2020/03/brandi-bailey.png" width = "200" />](https://github.com/blubrandi) 
 |                 [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/JerryHaaser)                 |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/morsedan)             |           [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/blubrandi)           |
 | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/dan-morse-195301188/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/brandi-b-31323842/)
 
 
 
 [![Swift Version][swift-image]][swift-url]
-[![Build Status][travis-image]][travis-url]
 [![License][license-image]][license-url]
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/EZSwiftExtensions.svg)](https://img.shields.io/cocoapods/v/LFAlertController.svg)  
 [![Platform](https://img.shields.io/cocoapods/p/LFAlertController.svg?style=flat)](http://cocoapods.org/pods/LFAlertController)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 [![Maintainability](https://api.codeclimate.com/v1/badges/cd8a5fb9bc6d279eda58/maintainability)](https://codeclimate.com/github/Lambda-School-Labs/geoseek-iOS/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/cd8a5fb9bc6d279eda58/test_coverage)](https://codeclimate.com/github/Lambda-School-Labs/geoseek-iOS/test_coverage)
+
 
 ## Project Overview
+#### GeoSeek aims to be the name for creating engaging experiences through technology while promoting community engagement and physical activity.
 
-You can find the deployed beta project in the Apple AppStore: https://testflight.apple.com/join/qcnyqBE0
+GeoSeek allows you to place and find user-created and curated hidden gems within your local community.
+ 
+Search the map for gems close to you. Travel to the location and see the amazing features of that location!
+ 
+Know of someplace great?  Maybe a breathtaking view at sunset or a part of your town that’s a little less travelled but holds great historical significance! Whatever and wherever the case, create your hidden gem and share it with others!
 
-1️⃣ [Trello Board](🚫add link to trello board here)
+GeoSeek Beta on [Apple TestFlight](https://testflight.apple.com/join/qcnyqBE0)
 
-1️⃣ [Product Canvas](🚫add link to product canvas here)
+You can find our progress on our [Trello Board](https://trello.com/b/B7DMOlFs/labs21-geoseek)
 
-🚫 One to two paragraph statement about your product and what it does.
-
-Quis hendrerit dolor magna eget. Pretium quam vulputate dignissim suspendisse. Ut aliquam purus sit amet luctus venenatis lectus magna fringilla. Orci dapibus ultrices in iaculis nunc sed augue. Euismod in pellentesque massa placerat duis ultricies. Bibendum at varius vel pharetra vel turpis nunc eget lorem. Lectus quam id leo in vitae. Purus sit amet luctus venenatis lectus magna fringilla urna porttitor.
-
-Pharetra vel turpis nunc eget lorem dolor sed viverra ipsum. Donec et odio pellentesque diam volutpat. Id diam maecenas ultricies mi eget mauris. Est pellentesque elit ullamcorper dignissim. Orci dapibus ultrices in iaculis nunc.
-
-![](https://squee.dev/wp-content/uploads/2020/03/IMG_0010.png)
+<!-- ![](https://squee.dev/wp-content/uploads/2020/03/IMG_0010.png) -->
+<img src="https://squee.dev/wp-content/uploads/2020/03/geoSeekTiles.png"> 
 
 ### Features
 
--    Feature 1
--    Feature 2
--    Feature 3
--    Feature 4
--    Feature 5
+-    Register & Login
+-    View a world map with Gems and Zoom in to see individual Gems
+-    Click on a Gem to see it's detail, and mark a Gem found!
+-    Create a Gem at one of your favorite locations, for others to find! 
 
-### Authentication API here
+### MapBox
 
-🚫Replace text below with a description of the API
-
-Water's like me. It's laaazy ... Boy, it always looks for the easiest way to do things A little happy sunlight shining through there. Let all these little things happen. Don't fight them. Learn to use them. Even the worst thing we can do here is good.
-
-### Misc API here
-
-🚫Replace text below with a description of the API
-
-You can do anything your heart can imagine. In life you need colors. This is where you take out all your hostilities and frustrations. It's better than kicking the puppy dog around and all that so. I'm sort of a softy, I couldn't shoot Bambi except with a camera. Trees get lonely too, so we'll give him a little friend. We'll lay all these little funky little things in there.
-
+GeoSeek uses the [MapBox](https://www.mapbox.com) iOS SDK and API
 
 ## Requirements
 
-🚫 These are examples, make sure this matches your project's requirements
-
--   iOS 8.0+
--   Xcode 7.3
+-   iOS 13.0
+-   Xcode 11
 -   Cocoa Pods
 
 ## Contributing
@@ -114,10 +106,10 @@ These contribution guidelines have been adapted from [this good-Contributing.md-
 
 ## Documentation
 
-See [Backend Documentation](_link to your backend readme here_) for details on the backend of our project.
+Our Backend was built by our Backend team and can be found here:  https://github.com/Lambda-School-Labs/geoseek-be
 
 
-[swift-image]: https://img.shields.io/badge/swift-3.0-orange.svg
+[swift-image]: https://img.shields.io/badge/swift-5.0-orange.svg
 [swift-url]: https://swift.org/
 [license-image]: https://img.shields.io/badge/License-MIT-blue.svg
 [license-url]: LICENSE
