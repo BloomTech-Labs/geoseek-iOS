@@ -51,7 +51,6 @@ class CreateGemCoordinator: BaseCoordinator {
         let context = CoreDataStack.shared.mainContext
         do {
             let possibleUsers = try context.fetch(fetchRequest)
-            print("Token: \(String(describing: possibleUsers.first?.token))")
             if !(possibleUsers.first?.token?.isEmpty ?? true) {
                 return true
             }
@@ -70,7 +69,6 @@ extension CreateGemCoordinator: CreateGemDelegate {
     }
     
     func getGemLocation() {
-        print("Made it to the Gem Location() in the coordinator.")
         let mapVC = ChooseLocationVC()
         mapVC.coordinator = self
         mapVC.delegate = self
@@ -83,7 +81,6 @@ extension CreateGemCoordinator: CreateGemDelegate {
 
 extension CreateGemCoordinator: SetLocationDelegate {
     func didSetLocation(to location: CLLocationCoordinate2D) {
-        print("CreateGemCoordinator.didSetLocation")
         gemLocation = location
         toCreateGemVC()
     }

@@ -36,6 +36,7 @@ class MainCoordinator: BaseCoordinator {
         
         if CLLocationManager.authorizationStatus() == .authorizedAlways || CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
             toGemsMapViewController()
+            User.checkToken()
         } else {
             toLandingPageVC()
         }
@@ -60,6 +61,7 @@ class MainCoordinator: BaseCoordinator {
 
 extension MainCoordinator: GemsMapCoordinatorDelegate {
     func showGemDetails(for annotation: MGLAnnotation) {
+        User.checkToken()
         self.gemDetailVC = GemDetailVC.instantiate()
         if let gemDetailVC = gemDetailVC {
             gemDetailVC.delegate = self
@@ -70,6 +72,7 @@ extension MainCoordinator: GemsMapCoordinatorDelegate {
     }
     
     func showMenuVC() {
+        User.checkToken()
         let menuVC = MenuVC.instantiate()
         menuVC.delegate = self
         navigationController.present(menuVC, animated: true)
@@ -82,6 +85,7 @@ extension MainCoordinator: GemsMapCoordinatorDelegate {
         createGemCoordinator.delegate = self
         createGemCoordinator.locationManager = locationManager
         createGemCoordinator.start()
+        User.checkToken()
     }
 }
 
@@ -91,6 +95,7 @@ extension MainCoordinator: CreateGemCoordinatorDelegate {
     }
     
     func presentGemsMap() {
+        User.checkToken()
         gemsMapCoordinator.start()
         navigationController.topViewController?.dismiss(animated: true)
     }

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -325,7 +325,7 @@
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ypm-Jg-qRX">
                                                 <rect key="frame" x="0.0" y="28.5" width="334" height="44"/>
-                                                <color key="backgroundColor" red="0.21998545529999999" green="0.25737196210000002" blue="0.33336603640000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.2196078431372549" green="0.25882352941176467" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="vzn-IP-bYu"/>
                                                 </constraints>
@@ -439,7 +439,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uhz-VR-hMh">
-                                <rect key="frame" x="168" y="629" width="78" height="30"/>
+                                <rect key="frame" x="20" y="629" width="374" height="30"/>
                                 <color key="tintColor" red="0.88179582359999997" green="0.3141108453" blue="0.46665757889999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Cancel"/>
                                 <connections>
@@ -449,7 +449,6 @@
                         </subviews>
                         <color key="backgroundColor" red="0.18722313639999999" green="0.21019706129999999" blue="0.28901791570000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="3p7-ZK-qPJ" firstAttribute="trailing" secondItem="Uhz-VR-hMh" secondAttribute="trailing" constant="168" id="0ZW-zt-hy1"/>
                             <constraint firstItem="khp-3X-W07" firstAttribute="centerX" secondItem="pAC-8B-OaV" secondAttribute="centerX" id="1Rk-Km-5Wt"/>
                             <constraint firstItem="pAC-8B-OaV" firstAttribute="leading" secondItem="3p7-ZK-qPJ" secondAttribute="leading" constant="40" id="337-zE-10Q"/>
                             <constraint firstItem="khp-3X-W07" firstAttribute="leading" secondItem="3p7-ZK-qPJ" secondAttribute="leading" constant="20" id="6rf-bL-MbT"/>
@@ -460,11 +459,10 @@
                             <constraint firstItem="pAC-8B-OaV" firstAttribute="top" secondItem="khp-3X-W07" secondAttribute="top" constant="144" id="Yb5-bP-KIf"/>
                             <constraint firstItem="Z4X-0h-YNN" firstAttribute="centerX" secondItem="QOq-Hy-aTy" secondAttribute="centerX" id="bhS-WL-2qT"/>
                             <constraint firstItem="1Wf-ok-xWp" firstAttribute="leading" secondItem="pAC-8B-OaV" secondAttribute="leading" id="iMn-aI-LQX"/>
-                            <constraint firstItem="Uhz-VR-hMh" firstAttribute="leading" secondItem="3p7-ZK-qPJ" secondAttribute="leading" constant="168" id="jel-EF-0Sg"/>
                             <constraint firstItem="3p7-ZK-qPJ" firstAttribute="trailing" secondItem="pAC-8B-OaV" secondAttribute="trailing" constant="40" id="mEl-14-yp0"/>
-                            <constraint firstItem="3p7-ZK-qPJ" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Uhz-VR-hMh" secondAttribute="trailing" constant="300" id="qaL-8s-xSO"/>
+                            <constraint firstItem="3p7-ZK-qPJ" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Uhz-VR-hMh" secondAttribute="trailing" constant="20" id="qaL-8s-xSO"/>
                             <constraint firstItem="khp-3X-W07" firstAttribute="top" secondItem="3p7-ZK-qPJ" secondAttribute="top" constant="43" id="wzs-xB-Gy9"/>
-                            <constraint firstItem="Uhz-VR-hMh" firstAttribute="leading" secondItem="3p7-ZK-qPJ" secondAttribute="leading" constant="168" id="x96-r4-nTR"/>
+                            <constraint firstItem="Uhz-VR-hMh" firstAttribute="leading" secondItem="3p7-ZK-qPJ" secondAttribute="leading" constant="20" id="x96-r4-nTR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3p7-ZK-qPJ"/>
                     </view>
@@ -763,7 +761,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cgx-bU-mZB">
-                                <rect key="frame" x="168" y="535" width="78" height="30"/>
+                                <rect key="frame" x="20" y="535" width="374" height="30"/>
                                 <color key="tintColor" red="0.88179582359999997" green="0.3141108453" blue="0.46665757889999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Cancel"/>
                                 <connections>
@@ -775,12 +773,11 @@
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="LaZ-Zy-kRj" secondAttribute="bottom" constant="52" id="2tf-Jm-3DH"/>
                             <constraint firstItem="hTA-VQ-UpS" firstAttribute="centerX" secondItem="eUN-9d-D0A" secondAttribute="centerX" id="3Xn-bd-C17"/>
-                            <constraint firstItem="bsd-6u-dc1" firstAttribute="trailing" secondItem="Cgx-bU-mZB" secondAttribute="trailing" constant="168" id="3bz-5K-iU4"/>
+                            <constraint firstItem="bsd-6u-dc1" firstAttribute="trailing" secondItem="Cgx-bU-mZB" secondAttribute="trailing" constant="20" id="3bz-5K-iU4"/>
                             <constraint firstItem="I6I-Sn-oHj" firstAttribute="trailing" secondItem="9o4-7W-qIb" secondAttribute="trailing" id="3gt-7a-pmR"/>
                             <constraint firstItem="7qL-mE-HuD" firstAttribute="top" secondItem="bsd-6u-dc1" secondAttribute="top" constant="43" id="51Q-4p-1eh"/>
                             <constraint firstItem="I6I-Sn-oHj" firstAttribute="leading" secondItem="9o4-7W-qIb" secondAttribute="leading" id="5NS-bn-Bp5"/>
                             <constraint firstItem="Cgx-bU-mZB" firstAttribute="top" secondItem="bsd-6u-dc1" secondAttribute="top" constant="491" id="8YL-gq-qRy"/>
-                            <constraint firstItem="Cgx-bU-mZB" firstAttribute="leading" secondItem="bsd-6u-dc1" secondAttribute="leading" constant="168" id="8s7-J1-hWR"/>
                             <constraint firstItem="9o4-7W-qIb" firstAttribute="top" secondItem="7qL-mE-HuD" secondAttribute="top" constant="144" id="DJn-Mq-RYz"/>
                             <constraint firstItem="I6I-Sn-oHj" firstAttribute="top" secondItem="9o4-7W-qIb" secondAttribute="bottom" constant="45.5" id="G6n-lG-sm3"/>
                             <constraint firstItem="Cgx-bU-mZB" firstAttribute="centerX" secondItem="eUN-9d-D0A" secondAttribute="centerX" id="Hch-MI-8Jg"/>
@@ -789,9 +786,8 @@
                             <constraint firstItem="LaZ-Zy-kRj" firstAttribute="centerX" secondItem="eUN-9d-D0A" secondAttribute="centerX" id="P9t-ey-ymy"/>
                             <constraint firstItem="7qL-mE-HuD" firstAttribute="leading" secondItem="bsd-6u-dc1" secondAttribute="leading" constant="20" id="QQR-QJ-7u6"/>
                             <constraint firstItem="bsd-6u-dc1" firstAttribute="trailing" secondItem="9o4-7W-qIb" secondAttribute="trailing" constant="40" id="d1V-5k-s0U"/>
-                            <constraint firstItem="Cgx-bU-mZB" firstAttribute="leading" secondItem="bsd-6u-dc1" secondAttribute="leading" constant="168" id="k5F-0n-Anb"/>
+                            <constraint firstItem="Cgx-bU-mZB" firstAttribute="leading" secondItem="bsd-6u-dc1" secondAttribute="leading" constant="20" id="k5F-0n-Anb"/>
                             <constraint firstItem="9o4-7W-qIb" firstAttribute="leading" secondItem="bsd-6u-dc1" secondAttribute="leading" constant="40" id="nhR-7K-VXg"/>
-                            <constraint firstItem="bsd-6u-dc1" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Cgx-bU-mZB" secondAttribute="trailing" constant="300" id="xOb-G7-1hQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bsd-6u-dc1"/>
                     </view>
@@ -998,8 +994,8 @@
     </scenes>
     <resources>
         <image name="blueGem" width="50" height="50"/>
-        <image name="checkmark.rectangle" catalog="system" width="128" height="93"/>
-        <image name="checkmark.rectangle.fill" catalog="system" width="128" height="93"/>
+        <image name="checkmark.rectangle" catalog="system" width="64" height="46"/>
+        <image name="checkmark.rectangle.fill" catalog="system" width="64" height="46"/>
         <image name="geoseek-logo" width="240" height="52.5"/>
         <image name="pinkGem" width="512" height="512"/>
     </resources>
